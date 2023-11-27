@@ -1,30 +1,25 @@
 // src/index.js
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import NavbarPresenter from './presenters/NavbarPresenter.jsx';
+import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
+import { observable, configure, reaction } from "mobx";
 
-// ... other imports
-import HomePresenter from './presenters/HomePresenter.jsx';
-import StorePresenter from './presenters/StorePresenter.jsx';
-import PacksPresenter from './presenters/PacksPresenter.jsx';
-import AboutUsPresenter from './presenters/AboutUsPresenter.jsx';
-import PokedexPresenter from './presenters/PokedexPresenter.jsx';
+import model from './models/pokeModel.js';
 
-// Create root outside to ensure strict mode can be applied.
-const container = document.getElementById('root');
-const root = createRoot(container);
+configure({ enforceActions: "never", });  // we don't use Mobx actions
+const reactiveModel= observable(model);
 
-root.render(
-    <Router>
-      <NavbarPresenter />
-      <Routes>
-        <Route path="/" element={<HomePresenter />} />
-        <Route path="/pokedex" element={<PokedexPresenter />} />
-        <Route path="/store" element={<StorePresenter />} />
-        <Route path="/packs" element={<PacksPresenter />} />
-        <Route path="/about" element={<AboutUsPresenter />} />
-        {/* Add other routes here */}
-      </Routes>
-    </Router>
-);
+import {createElement} from "react";
+window.React= {createElement:createElement}; // needed in the lab because it works with both React and Vue
+
+import {createRoot} from "react-dom/client";
+import ReactRoot from "/src/ReactRoot.jsx";
+
+createRoot(document.getElementById('root')).render(<ReactRoot model={reactiveModel}/>);  // mounts the app in the page DIV with the id "root"
+// to see the DIV, look at react.html in the developer tools Sources
+// react.html, with the content <div id="root"></div> is configured in vite.config.js
+
+console.log(reactiveModel)
+// ------ for debug purposes ----------
+//window.myModel= model;             // make the model available in the Console
+window.myModel= reactiveModel;  
+
+

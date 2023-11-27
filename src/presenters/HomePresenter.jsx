@@ -1,17 +1,14 @@
 // src/presenters/HomePresenter.jsx
 import React from 'react';
+import { observer } from "mobx-react-lite";
 import HomeView from '../views/homeView.jsx';
 
-// If you have some model for home, you can import it here
-// import HomeModel from '../models/HomeModel';
 
-const HomePresenter = () => {
-  // Logic for the HomeView can be handled here
-  // For example, if you have a model, you can use it to get data:
-  // const homeData = HomeModel.getData();
+export default
+observer(             // needed for the presenter to update (its view) when relevant parts of the model change
+function HomePresenter(props){ 
 
-  // Pass the data to the view as props
-  return <HomeView /* data={homeData} */ />;
-};
+  return <HomeView /* data={homeData}*/  />;
 
-export default HomePresenter;
+}
+);

@@ -2,28 +2,20 @@
 import React from "react";
 import SearchFormView from "../views/searchFormView.jsx";
 import SearchResultsView from "../views/searchResultsView.jsx";
-//import SearchResultsView from "../views/searchResultsView.jsx";
-//import StoreView from '../views/storeView';
+import { observer } from "mobx-react-lite";
 
+export default
+observer(             // needed for the presenter to update (its view) when relevant parts of the model change
+function PokedexPresenter(props){ 
+  
+  
+  
+  return (<div>
+  <SearchFormView /* data={homeData} */ />
+  <SearchResultsView />
+  </div>);
+  
+}
 
-// If you have some model for home, you can import it here
-// import HomeModel from '../models/HomeModel';
+);
 
-const PokedexPresenter = () => {
-  // Logic for the HomeView can be handled here
-  // For example, if you have a model, you can use it to get data:
-  // const homeData = HomeModel.getData();
-
-  // Pass the data to the view as props
-
-  return <div><SearchFormView /* data={homeData} */ /><SearchResultsView /></div>;
-
- /* return (
-    <div>
-      <SearchFormView data={homeData}  />
-      <SearchResultsView /* data={homeData} />
-    </div>
-  );*/
-};
-
-export default PokedexPresenter;

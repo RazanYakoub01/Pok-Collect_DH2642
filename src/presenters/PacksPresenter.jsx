@@ -2,16 +2,13 @@
 import React from 'react';
 import PacksView from '../views/packsView.jsx';
 
-// If you have some model for home, you can import it here
-// import HomeModel from '../models/HomeModel';
+import { observer } from "mobx-react-lite";
 
-const PacksPresenter = () => {
-  // Logic for the HomeView can be handled here
-  // For example, if you have a model, you can use it to get data:
-  // const homeData = HomeModel.getData();
 
-  // Pass the data to the view as props
+
+export default
+observer(             // needed for the presenter to update (its view) when relevant parts of the model change
+function PacksPresenter(props){ 
   return <PacksView /* data={homeData} */ />;
-};
-
-export default PacksPresenter;
+}
+);
