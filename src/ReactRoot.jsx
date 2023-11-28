@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavbarPresenter from './presenters/NavbarPresenter.jsx';
 import HomePresenter from './presenters/HomePresenter.jsx';
 import StorePresenter from './presenters/StorePresenter.jsx';
-import PacksPresenter from './presenters/PacksPresenter.jsx';
 import AboutUsPresenter from './presenters/AboutUsPresenter.jsx';
 import PokedexPresenter from './presenters/PokedexPresenter.jsx';
 import ShoppingCartPresenter from './presenters/ShoppingCartPresenter.jsx';
+import LoginPresenter from './presenters/LoginPresenter.jsx';
 
 // Create root outside to ensure strict mode can be applied.
 import { createHashRouter,  RouterProvider} from "react-router-dom";
@@ -74,8 +74,8 @@ function ReactRoot(props){
         <Route path="/pokedex" element={<PokedexPresenter />} />
         <Route path="/store" element={<StorePresenter />} />
         <Route path="/cart" element={<ShoppingCartPresenter />} />
-        <Route path="/packs" element={<PacksPresenter />} />
         <Route path="/about" element={<AboutUsPresenter />} />
+        <Route path="/login" element={<LoginPresenter />} />
       </Routes>
     </Router>
     )

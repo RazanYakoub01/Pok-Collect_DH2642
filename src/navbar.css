@@ -26,4 +26,9 @@ nav {
   nav a:not(:last-child) {
     margin-right: 10px;
   }
+
+  .login {
+    margin-left: auto;
+    color: white;
+  }
   
