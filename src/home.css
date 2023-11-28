@@ -1,0 +1,39 @@
+.full-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bg-home {
+    background-image: url("src/homepageImages/HB2.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .navigation-button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navigation-button:hover {
+    background-color: #2980b9;
+  }
+  
+  
+  
+  
