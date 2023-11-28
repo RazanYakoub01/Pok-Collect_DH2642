@@ -7,7 +7,7 @@ import pack6 from "./storeImages/pack6.jpg";
 import pack7 from "./storeImages/pack7.jpg";
 import pack8 from "./storeImages/pack8.png";
 import pack9 from "./storeImages/pack9.jpg";
-import pack10 from "./storeImages/pack10.png";
+import pack10 from "./storeImages/pack10.jpg";
 
 
 export const packs = [
