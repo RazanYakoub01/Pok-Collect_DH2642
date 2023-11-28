@@ -1,23 +1,32 @@
 import { BASE_URL } from "./config/apiConfig";
 
+// Fetches all Pokemon URLs from the API.
+function fetchAllPokemon() {
+  // Edit limit to fetch more Pokemon api limit = 300/day/ip. How to solve this?
+    return fetch(BASE_URL + 'pokemon?limit=15')
+        .then(response => response.json())
+        .then(data => data.results.map(pokemon => pokemon.url))
+        .catch(error => console.error("Error fetching initial Pokémon data:", error));
+}
 
-function getPokeDetails(pokeID) {
-  const url = BASE_URL + `pokemon/${pokeID}`;
-  const options = {
-    method: "GET",
-  };
-  console.log(url);
+// Fetches Pokemon details from the API with URL as parameter.
+function getPokemonDetails(url) {
+    return fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP Error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(extractPokeData)
+        .catch(error => {
+            console.error("Error fetching Pokémon details:", error);
+            throw error;
+        });
+}
 
-  return fetch(url, options).then(checkResponseStatusACB).then(extractPokeData).catch(handleErrorACB);
-
-  function checkResponseStatusACB(response) {
-    if (!response.ok) {
-      throw new Error(`HTTP Error! Status: ${response.status}`);
-    }
-    return response.json();
-  }
-
-  function extractPokeData(data) {
+// Extracts Pokemon data from the API response.
+function extractPokeData(data) {
     let stats = {};
     data.stats.forEach(statItem => {
         stats[statItem.stat.name] = statItem.base_stat;
@@ -35,53 +44,36 @@ function getPokeDetails(pokeID) {
     };
 }
 
-  function handleErrorACB(error) {
-    console.error("Error:", error);
-    throw error;
-  }
+// Caches Pokemon data in local storage.
+function cachePokemonData(pokemonData) {
+    localStorage.setItem('pokemonData', JSON.stringify(pokemonData));
 }
 
+// Retrieves cached Pokemon data from local storage.
+function getCachedPokemonData() {
+    const data = localStorage.getItem('pokemonData');
+    return data ? JSON.parse(data) : null;
+}
 
-function searchPokemons(searchParams) {
-  const params = new URLSearchParams();
-
-  // Only add 'type' and 'query' to the parameters if they are truthy (non-null, non-undefined, non-empty string)
-  if (searchParams.type) {
-    params.set("type", searchParams.type);
-  }
-  if (searchParams.query) {
-    params.set("query", searchParams.query);
-  }
-
-  const queryString = params.toString();
-
-  const searchUrl = BASE_URL + `recipes/complexSearch?${queryString}`;
-  const options = {
-    headers: {
-      "X-Mashape-Key": API_KEY,
-    },
-  };
-
-  function checkResponseStatusACB(response) {
-    if (!response.ok) {
-      throw new Error(`HTTP Error! Status: ${response.status}`);
+// This code initializes Pokemon data by first checking if there is cached data available. 
+// If there is, it returns the cached data. 
+// If not, it fetches fresh data from an API, retrieves the details of each Pokemon, caches the data, and returns the fetched data.
+function initializePokemonData() {
+    const cachedData = getCachedPokemonData();
+    if (cachedData) {
+      console.log("Using cached data")
+        return Promise.resolve(cachedData);
+    } else {
+      console.log("Using fresh data from api")
+        return fetchAllPokemon().then(urls => {
+            const detailPromises = urls.map(url => getPokemonDetails(url));
+            return Promise.all(detailPromises);
+        })
+        .then(allPokemonDetails => {
+            cachePokemonData(allPokemonDetails);
+            return allPokemonDetails;
+        });
     }
-    return response.json();
-  }
-
-  function handleDataACB(data) {
-    return data.results || [];
-  }
-
-  function handleErrorACB(error) {
-    console.error("Error:", error);
-    throw error;
-  }
-
-  return fetch(searchUrl, options)
-    .then(checkResponseStatusACB)
-    .then(handleDataACB)
-    .catch(handleErrorACB);
 }
 
-export { getPokeDetails};
+export { initializePokemonData };
