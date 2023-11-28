@@ -1,5 +1,6 @@
 import React from 'react';
 import "/src/shop.css";
+import { Link } from 'react-router-dom';
 
 const StoreView = ({ packs }) => {
   return (
@@ -9,7 +10,7 @@ const StoreView = ({ packs }) => {
       </div>
       <div className="balance">
       <p>Current Balance: 200 coins <img src="src/storeImages/coin.png"/> </p>
-      <p>Shopping Cart: <img src="src/storeImages/shoppingCart.png"/> </p>
+      <p>Shopping Cart: <Link to="/cart"><img src="src/storeImages/shoppingCart.png"/></Link> </p>
       </div>
       <div className="packs">
         {packs.map((pack) => (

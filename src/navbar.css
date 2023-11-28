@@ -1,0 +1,31 @@
+nav {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  nav a {
+    color: white;
+    margin-right: 10px;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    border-right: 1px solid #ffffff;
+    padding-right: 10px; 
+  }
+
+  nav a:last-child {
+    border-right: none;
+  }
+  
+  nav a:hover,
+  nav a.active {
+    border-bottom-color: white;
+  }
+  
+  nav a:not(:last-child) {
+    margin-right: 10px;
+  }
+  

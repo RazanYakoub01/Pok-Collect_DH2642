@@ -1,6 +1,7 @@
-// NavbarView.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "/src/navbar.css";
+ 
 
 const NavbarView = ({ items }) => {
   return (
