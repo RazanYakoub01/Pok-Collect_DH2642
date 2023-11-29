@@ -1,5 +1,5 @@
 // src/presenters/HomePresenter.jsx
-import React from "react";
+import React, { useState } from "react";
 import SearchFormView from "../views/searchFormView.jsx";
 import SearchResultsView from "../views/searchResultsView.jsx";
 import { observer } from "mobx-react-lite";
@@ -7,6 +7,20 @@ import { observer } from "mobx-react-lite";
 export default
 observer(             // needed for the presenter to update (its view) when relevant parts of the model change
 function PokedexPresenter(props){ 
+
+  const [selectedTypes, setSelectedTypes] = useState([]);
+
+  const handleIconClick = (icon) => {
+    if (selectedTypes.includes(icon)) {
+      setSelectedTypes((prevTypes) =>
+        prevTypes.filter((prevType) => prevType !== icon)
+      );
+    } else if (selectedTypes.length < 2) {
+      setSelectedTypes((prevTypes) => [...prevTypes, icon]);
+    } else {
+      setSelectedTypes((prevTypes) => [prevTypes[1], icon]);
+    }
+  };
 
 function renderSearchResults() {
   if (!props.model.initializePokemonDataPromiseState.promise) {
@@ -31,7 +45,7 @@ function renderSearchResults() {
     // Data is available
     return (
       <SearchResultsView
-        pokemons={props.model.initializePokemonDataPromiseState.data}
+        pokemons={props.model.initializePokemonDataPromiseState.data} selectedTypes={selectedTypes}
       />
     );
   }
@@ -40,7 +54,10 @@ function renderSearchResults() {
 const renderContent = () => {
   return (
     <div>
-      <SearchFormView />
+      <SearchFormView
+        selectedTypes={selectedTypes}
+        onIconClick={handleIconClick}
+      />
       {renderSearchResults()}
     </div>
   );
