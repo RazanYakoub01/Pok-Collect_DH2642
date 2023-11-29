@@ -2,7 +2,6 @@
 import React from "react";
 
 const SearchResultsView = (props) => {
-  console.log(props.pokemons);
   return (
     <div>
       {props.pokemons.map((pokemon) => (
