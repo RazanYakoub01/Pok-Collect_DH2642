@@ -64,14 +64,12 @@ export default
 observer(    
 function ReactRoot(props){
 
-    console.log(props);
-
     return (
     <Router>
       <NavbarPresenter />
       <Routes>
         <Route path="/" element={<HomePresenter />} />
-        <Route path="/pokedex" element={<PokedexPresenter />} />
+        <Route path="/pokedex" element={<PokedexPresenter model = {props.model}/>} />
         <Route path="/store" element={<StorePresenter />} />
         <Route path="/cart" element={<ShoppingCartPresenter />} />
         <Route path="/about" element={<AboutUsPresenter />} />

@@ -2,7 +2,7 @@ import { BASE_URL } from "./config/apiConfig";
 
 // Fetches all Pokemon URLs from the API.
 function fetchAllPokemon() {
-  // Edit limit to fetch more Pokemon api limit = 300/day/ip. How to solve this?
+  // Edit limit to fetch more Pokemon
     return fetch(BASE_URL + 'pokemon?limit=15')
         .then(response => response.json())
         .then(data => data.results.map(pokemon => pokemon.url))
@@ -49,9 +49,20 @@ function cachePokemonData(pokemonData) {
     localStorage.setItem('pokemonData', JSON.stringify(pokemonData));
 }
 
+// Caches collection data in local storage.
+function cacheCollectionData(collectionData){
+    localStorage.setItem('collectionData', JSON.stringify(collectionData));
+}
+
 // Retrieves cached Pokemon data from local storage.
 function getCachedPokemonData() {
     const data = localStorage.getItem('pokemonData');
+    return data ? JSON.parse(data) : null;
+}
+
+// Retrieves cached collection data from local storage.
+function getCachedCollectionData(){
+    const data = localStorage.getItem('collectionData');
     return data ? JSON.parse(data) : null;
 }
 
@@ -71,7 +82,7 @@ function initializePokemonData() {
         })
         .then(allPokemonDetails => {
             cachePokemonData(allPokemonDetails);
-            return allPokemonDetails;
+            return Promise.resolve(allPokemonDetails);
         });
     }
 }

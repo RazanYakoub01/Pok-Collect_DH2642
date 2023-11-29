@@ -1,11 +1,16 @@
 // src/views/searchFormView.jsx
-import React from 'react';
+import React from "react";
 
-const SearchResultsView = () => {
+const SearchResultsView = (props) => {
+  console.log(props.pokemons);
   return (
     <div>
-      <h1>Welcome to the SearchResultsView</h1>
-      <p>This is where you can see the pokemons!</p>
+      {props.pokemons.map((pokemon) => (
+        <div key={pokemon.ID}>
+          <h2>{pokemon.Name}</h2>
+          <img src={pokemon.ImageURL} alt={pokemon.name} />
+        </div>
+      ))}
     </div>
   );
 };
