@@ -6,6 +6,7 @@ export default function getNavbarItems() {
     { name: "Pokedex", path: "/pokedex" },
     { name: "Store", path: "/store" },
     { name: "Cart", path: "/cart" },
+    { name: "Packs", path: "/packs" },
     { name: "Login", path: "/login" },
 
     // ... other items

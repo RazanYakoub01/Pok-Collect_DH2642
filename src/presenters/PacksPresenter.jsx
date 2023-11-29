@@ -1,4 +1,3 @@
-// src/presenters/HomePresenter.jsx
 import React from 'react';
 import PacksView from '../views/packsView.jsx';
 
@@ -9,6 +8,11 @@ import { observer } from "mobx-react-lite";
 export default
 observer(             // needed for the presenter to update (its view) when relevant parts of the model change
 function PacksPresenter(props){ 
-  return <PacksView /* data={homeData} */ />;
+  if(!props.model.packs){
+    // No packs, button to store?
+  } else {
+    return <PacksView model={props.model}/>;
+  }
+  
 }
 );
