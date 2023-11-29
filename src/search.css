@@ -1,0 +1,93 @@
+.type-icon {
+  position: relative;
+  width: 51px;
+  height: 59px;
+  background-image: url("searchImages/searchLogos.png");
+  display: inline-block;
+  background-size: 306px, 178px;
+  cursor: pointer;
+}
+
+.type-icon:hover {
+  border: 2px solid #00ff00;
+}
+
+.type-icon.selected {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Green-checkmark.svg/1200px-Green-checkmark.svg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+}
+
+.fighting {
+  background-position: 0px 0px;
+}
+
+.psychic {
+  background-position: -51px 0px;
+}
+
+.poison {
+  background-position: -102px 0px;
+}
+
+.dragon {
+  background-position: -153px 0px;
+}
+
+.ghost {
+  background-position: -204px 0px;
+}
+
+.dark {
+  background-position: -255px 0px;
+}
+
+.ground {
+  background-position: 0px -59px;
+}
+
+.fire {
+  background-position: -51px -59px;
+}
+
+.fairy {
+  background-position: -102px -59px;
+}
+
+.water {
+  background-position: -153px -59px;
+}
+
+.flying {
+  background-position: -204px -59px;
+}
+
+.normal {
+  background-position: -255px -59px;
+}
+
+.rock {
+  background-position: 0px -118px;
+}
+
+.electric {
+  background-position: -51px -118px;
+}
+
+.bug {
+  background-position: -102px -118px;
+}
+
+.grass {
+  background-position: -153px -118px;
+}
+
+.ice {
+  background-position: -204px -118px;
+}
+
+.steel {
+  background-position: -255px -118px;
+}

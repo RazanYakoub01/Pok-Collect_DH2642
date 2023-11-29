@@ -1,4 +1,4 @@
-import { BASE_URL } from "./apiConfig";
+import { BASE_URL } from "./config/apiConfig";
 
 // Fetches all Pokemon URLs from the API.
 function fetchAllPokemon() {
