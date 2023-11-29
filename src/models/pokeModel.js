@@ -5,6 +5,10 @@ import resolvePromise from "../resolvePromise";
 const pokeModel = {
   collection: [],
   initializePokemonDataPromiseState: {},
+  currentPokemon: null,
+  searchParams: {}, 
+  searchResultsPromiseState: {}, 
+  currentpokemonPromiseState: {}, 
   packs: [{
     "packID": "1",
     "quantity": 10
@@ -37,6 +41,7 @@ const pokeModel = {
     const pokemonDataPromise = initializePokemonData();
     resolvePromise(pokemonDataPromise, this.initializePokemonDataPromiseState);
   },
+
 };
 
 export default observer(pokeModel);

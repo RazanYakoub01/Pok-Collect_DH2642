@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ShoppingCartView = () => {
+const ShoppingCartView = (props) => {
   return (
     <div>
-      <h1>Shopping cart</h1>
-      <p>see what you added to cart.</p>
+        <p>Shopping Cart</p>
     </div>
   );
 };

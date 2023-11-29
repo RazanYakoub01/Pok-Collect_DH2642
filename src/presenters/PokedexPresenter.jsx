@@ -37,11 +37,10 @@ function renderSearchResults() {
   }
 }
 
-
 const renderContent = () => {
   return (
     <div>
-      <SearchFormView/>
+      <SearchFormView />
       {renderSearchResults()}
     </div>
   );

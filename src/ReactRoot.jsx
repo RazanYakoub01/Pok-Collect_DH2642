@@ -9,6 +9,7 @@ import PokedexPresenter from './presenters/PokedexPresenter.jsx';
 import ShoppingCartPresenter from './presenters/ShoppingCartPresenter.jsx';
 import LoginPresenter from './presenters/LoginPresenter.jsx';
 import PacksPresenter from './presenters/PacksPresenter.jsx';
+import CollectionPresenter from './presenters/CollectionPresenter.jsx';
 
 import { createHashRouter,  RouterProvider} from "react-router-dom";
 import { observer } from "mobx-react-lite";
@@ -71,9 +72,10 @@ function ReactRoot(props){
         <Route path="/" element={<HomePresenter />} />
         <Route path="/pokedex" element={<PokedexPresenter model = {props.model}/>} />
         <Route path="/store" element={<StorePresenter />} />
-        <Route path="/cart" element={<ShoppingCartPresenter />} />
+        <Route path="/cart" element={<ShoppingCartPresenter model = {props.model}/>} />
         <Route path="/packs" element={<PacksPresenter model = {props.model}/>} />
         <Route path="/about" element={<AboutUsPresenter />} />
+        <Route path="/collection" element={<CollectionPresenter />} />
         <Route path="/login" element={<LoginPresenter />} />
       </Routes>
     </Router>

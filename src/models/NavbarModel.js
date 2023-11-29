@@ -7,6 +7,7 @@ export default function getNavbarItems() {
     { name: "Store", path: "/store" },
     { name: "Cart", path: "/cart" },
     { name: "Packs", path: "/packs" },
+    { name: "Collection", path: "/collection" },
     { name: "Login", path: "/login" },
 
     // ... other items
