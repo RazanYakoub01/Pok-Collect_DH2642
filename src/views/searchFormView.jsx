@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../search.css";
 
 const SearchFormView = (props) => {
+  console.log(props)
   
   const icons = [
     "fighting",
@@ -24,8 +25,26 @@ const SearchFormView = (props) => {
     "steel",
   ];
 
+  const renderSelectedTypes = () => {
+    if (props.selectedTypes.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className="selected-types">
+        <h1>Selected types:</h1>
+        {props.selectedTypes.map((type) => (
+          <div key={type} className="selected-type">
+            <div className={`type-icon ${type}`}></div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div>
+      <div>
       {icons.map((icon) => (
         <div
           key={icon}
@@ -35,6 +54,8 @@ const SearchFormView = (props) => {
           onClick={() => props.onIconClick(icon)}
         ></div>
       ))}
+    </div>
+    {renderSelectedTypes()}
     </div>
   );
 };

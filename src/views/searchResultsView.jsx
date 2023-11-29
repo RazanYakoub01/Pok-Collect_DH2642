@@ -1,5 +1,6 @@
 // src/views/searchFormView.jsx
 import React from "react";
+import "../search.css";
 
 const SearchResultsView = (props) => {
 
@@ -21,12 +22,13 @@ const SearchResultsView = (props) => {
   
 
   return (
-    <div>
+    <div className="search-results">
       {filteredPokemons.map((pokemon) => (
-        <div key={pokemon.ID}>
+        console.log(pokemon.Types[0]),
+        <div className={`pokemon-card type-${pokemon.Types[0]}`} key={pokemon.ID}>
           <h2>{pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}</h2>
           <img src={pokemon.ImageURL} alt={pokemon.name} />
-        </div>
+          </div>
       ))}
     </div>
   );

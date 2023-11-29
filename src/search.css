@@ -1,15 +1,23 @@
+:root {
+  --scale-factor: 1.65; /* Change this value to adjust the scale factor */
+}
+
 .type-icon {
   position: relative;
-  width: 51px;
-  height: 59px;
+  width: calc(51px * var(--scale-factor));
+  height: calc(59px * var(--scale-factor));
   background-image: url("searchImages/searchLogos.png");
   display: inline-block;
-  background-size: 306px, 178px;
+  background-size: calc(306px * var(--scale-factor)),
+    calc(178px * var(--scale-factor));
   cursor: pointer;
+  box-sizing: border-box;
+  outline: 3px solid;
+  outline-offset: -3px;
 }
 
 .type-icon:hover {
-  border: 2px solid #00ff00;
+  outline-color: rgb(0, 255, 0);
 }
 
 .type-icon.selected {
@@ -20,74 +28,205 @@
   background-color: black;
 }
 
+.selected-types {
+  display: flex;
+  justify-content: center;
+  background-color: beige;
+}
+
+.selected-type {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.selected-type .type-icon {
+  margin-right: 5px; /* Adjust the margin value to add space between the icon and the type name */
+}
+
 .fighting {
-  background-position: 0px 0px;
+  background-position: calc(0px * var(--scale-factor))
+    calc(0px * var(--scale-factor));
 }
 
 .psychic {
-  background-position: -51px 0px;
+  background-position: calc(-51px * var(--scale-factor))
+    calc(0px * var(--scale-factor));
 }
 
 .poison {
-  background-position: -102px 0px;
+  background-position: calc(-102px * var(--scale-factor))
+    calc(0px * var(--scale-factor));
 }
 
 .dragon {
-  background-position: -153px 0px;
+  background-position: calc(-153px * var(--scale-factor))
+    calc(0px * var(--scale-factor));
 }
 
 .ghost {
-  background-position: -204px 0px;
+  background-position: calc(-204px * var(--scale-factor))
+    calc(0px * var(--scale-factor));
 }
 
 .dark {
-  background-position: -255px 0px;
+  background-position: calc(-255px * var(--scale-factor))
+    calc(0px * var(--scale-factor));
 }
 
 .ground {
-  background-position: 0px -59px;
+  background-position: calc(0px * var(--scale-factor))
+    calc(-59px * var(--scale-factor));
 }
 
 .fire {
-  background-position: -51px -59px;
+  background-position: calc(-51px * var(--scale-factor))
+    calc(-59px * var(--scale-factor));
 }
 
 .fairy {
-  background-position: -102px -59px;
+  background-position: calc(-102px * var(--scale-factor))
+    calc(-59px * var(--scale-factor));
 }
 
 .water {
-  background-position: -153px -59px;
+  background-position: calc(-153px * var(--scale-factor))
+    calc(-59px * var(--scale-factor));
 }
 
 .flying {
-  background-position: -204px -59px;
+  background-position: calc(-204px * var(--scale-factor))
+    calc(-59px * var(--scale-factor));
 }
 
 .normal {
-  background-position: -255px -59px;
+  background-position: calc(-255px * var(--scale-factor))
+    calc(-59px * var(--scale-factor));
 }
 
 .rock {
-  background-position: 0px -118px;
+  background-position: calc(0px * var(--scale-factor))
+    calc(-118px * var(--scale-factor));
 }
 
 .electric {
-  background-position: -51px -118px;
+  background-position: calc(-51px * var(--scale-factor))
+    calc(-118px * var(--scale-factor));
 }
 
 .bug {
-  background-position: -102px -118px;
+  background-position: calc(-102px * var(--scale-factor))
+    calc(-118px * var(--scale-factor));
 }
 
 .grass {
-  background-position: -153px -118px;
+  background-position: calc(-153px * var(--scale-factor))
+    calc(-118px * var(--scale-factor));
 }
 
 .ice {
-  background-position: -204px -118px;
+  background-position: calc(-204px * var(--scale-factor))
+    calc(-118px * var(--scale-factor));
 }
 
 .steel {
-  background-position: -255px -118px;
+  background-position: calc(-255px * var(--scale-factor))
+    calc(-118px * var(--scale-factor));
+}
+
+.search-results {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-results .pokemon-card {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 5px solid #3c5aa6;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.search-results .pokemon-card img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+.search-results .pokemon-card h2 {
+  margin-top: 0;
+}
+
+.search-results .pokemon-card.type-normal {
+  background-color: #9099a1;
+}
+
+.search-results .pokemon-card.type-fire {
+  background-color: #ff9c54;
+}
+
+.search-results .pokemon-card.type-water {
+  background-color: #4d90d5;
+}
+
+.search-results .pokemon-card.type-electric {
+  background-color: #f3d23b;
+}
+
+.search-results .pokemon-card.type-grass {
+  background-color: #78c850;
+}
+
+.search-results .pokemon-card.type-ice {
+  background-color: #98d8d8;
+}
+
+.search-results .pokemon-card.type-fighting {
+  background-color: #ce4069;
+}
+
+.search-results .pokemon-card.type-poison {
+  background-color: #ab6ac8;
+}
+
+.search-results .pokemon-card.type-ground {
+  background-color: #d97746;
+}
+
+.search-results .pokemon-card.type-flying {
+  background-color: #8fa8dd;
+}
+
+.search-results .pokemon-card.type-psychic {
+  background-color: #f97176;
+}
+
+.search-results .pokemon-card.type-bug {
+  background-color: #a8b820;
+}
+
+.search-results .pokemon-card.type-rock {
+  background-color: #c7b78b;
+}
+
+.search-results .pokemon-card.type-ghost {
+  background-color: #5269ac;
+}
+
+.search-results .pokemon-card.type-dragon {
+  background-color: #0a6dc4;
+}
+
+.search-results .pokemon-card.type-dark {
+  background-color: #5a5366;
+}
+
+.search-results .pokemon-card.type-steel {
+  background-color: #b8b8d0;
+}
+
+.search-results .pokemon-card.type-fairy {
+  background-color: #ec8fe6;
 }
