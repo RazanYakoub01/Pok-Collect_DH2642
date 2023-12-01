@@ -1,19 +1,50 @@
-:root {
-  --scale-factor: 1.65; /* Change this value to adjust the scale factor */
-}
-
 .type-icon {
   position: relative;
-  width: calc(51px * var(--scale-factor));
-  height: calc(59px * var(--scale-factor));
+  width: calc(100% / 18);
+  height: calc(100% / 9);
   background-image: url("searchImages/searchLogos.png");
   display: inline-block;
-  background-size: calc(306px * var(--scale-factor)),
-    calc(178px * var(--scale-factor));
+  background-size: 600% 300%;
   cursor: pointer;
   box-sizing: border-box;
   outline: 3px solid;
   outline-offset: -3px;
+}
+
+.icon-container {
+  width: 100%;
+  font-size: 0; /* Removes spacing between inline-block elements */
+}
+
+.type-icon {
+  width: calc(100% / 18); /* One row of 18 */
+  height: calc(100% / 8);
+}
+.selected-type .type-icon {
+  width: 5vw;
+  height: 5vw;
+}
+
+@media (max-width: 1100px) {
+  .type-icon {
+    width: calc(100% / 9); /* Two rows of 9 */
+    height: calc(100% / 6);
+  }
+  .selected-type .type-icon {
+    width: 8vw;
+    height: 8vw;
+  }
+}
+
+@media (max-width: 800px) {
+  .type-icon {
+    width: calc(100% / 6); /* Three rows of 6 */
+    height: calc(100% / 8);
+  }
+  .selected-type .type-icon {
+    width: 15vw;
+    height: 15vw;
+  }
 }
 
 .type-icon:hover {
@@ -31,116 +62,125 @@
 .selected-types {
   display: flex;
   justify-content: center;
-  background-color: beige;
+  background-color: orange;
 }
 
 .selected-type {
   display: flex;
   align-items: center;
-  margin: 0 10px;
+  margin-right: 20px;
 }
 
-.selected-type .type-icon {
-  margin-right: 5px; /* Adjust the margin value to add space between the icon and the type name */
+h1 {
+  margin-right: 25px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
 }
 
+/*Pokemon type icons x, y offset to extract icon from searchIcons.png*/
 .fighting {
-  background-position: calc(0px * var(--scale-factor))
-    calc(0px * var(--scale-factor));
+  background-position: 0 0;
 }
 
 .psychic {
-  background-position: calc(-51px * var(--scale-factor))
-    calc(0px * var(--scale-factor));
+  background-position: 20% 0;
 }
 
 .poison {
-  background-position: calc(-102px * var(--scale-factor))
-    calc(0px * var(--scale-factor));
+  background-position: 40% 0;
 }
 
 .dragon {
-  background-position: calc(-153px * var(--scale-factor))
-    calc(0px * var(--scale-factor));
+  background-position: 60% 0;
 }
 
 .ghost {
-  background-position: calc(-204px * var(--scale-factor))
-    calc(0px * var(--scale-factor));
+  background-position: 80% 0;
 }
 
 .dark {
-  background-position: calc(-255px * var(--scale-factor))
-    calc(0px * var(--scale-factor));
+  background-position: 100% 0;
 }
 
 .ground {
-  background-position: calc(0px * var(--scale-factor))
-    calc(-59px * var(--scale-factor));
+  background-position: 0 50%;
 }
 
 .fire {
-  background-position: calc(-51px * var(--scale-factor))
-    calc(-59px * var(--scale-factor));
+  background-position: 20% 50%;
 }
 
 .fairy {
-  background-position: calc(-102px * var(--scale-factor))
-    calc(-59px * var(--scale-factor));
+  background-position: 40% 50%;
 }
 
 .water {
-  background-position: calc(-153px * var(--scale-factor))
-    calc(-59px * var(--scale-factor));
+  background-position: 60% 50%;
 }
 
 .flying {
-  background-position: calc(-204px * var(--scale-factor))
-    calc(-59px * var(--scale-factor));
+  background-position: 80% 50%;
 }
 
 .normal {
-  background-position: calc(-255px * var(--scale-factor))
-    calc(-59px * var(--scale-factor));
+  background-position: 100% 50%;
 }
 
 .rock {
-  background-position: calc(0px * var(--scale-factor))
-    calc(-118px * var(--scale-factor));
+  background-position: 0 100%;
 }
 
 .electric {
-  background-position: calc(-51px * var(--scale-factor))
-    calc(-118px * var(--scale-factor));
+  background-position: 20% 100%;
 }
 
 .bug {
-  background-position: calc(-102px * var(--scale-factor))
-    calc(-118px * var(--scale-factor));
+  background-position: 40% 100%;
 }
 
 .grass {
-  background-position: calc(-153px * var(--scale-factor))
-    calc(-118px * var(--scale-factor));
+  background-position: 60% 100%;
 }
 
 .ice {
-  background-position: calc(-204px * var(--scale-factor))
-    calc(-118px * var(--scale-factor));
+  background-position: 80% 100%;
 }
 
 .steel {
-  background-position: calc(-255px * var(--scale-factor))
-    calc(-118px * var(--scale-factor));
+  background-position: 100% 100%;
+}
+
+.no-results {
+  background-image: url("searchImages/noResults.png");
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 2%;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
 }
 
 .search-results {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: orange;
+  min-height: 100vh;
 }
 
 .search-results .pokemon-card {
-  width: 200px;
+  width: 190px;
   margin: 10px;
   padding: 10px;
   border: 5px solid #3c5aa6;
@@ -148,17 +188,16 @@
   text-align: center;
 }
 
-.search-results .pokemon-card img{
-    width: 100%;
-    height: auto;
+.search-results .pokemon-card img {
+  width: 100%;
+  height: auto;
 }
-
-
 
 .search-results .pokemon-card h2 {
   margin-top: 0;
 }
 
+/*Pokemon cards background colors*/
 .search-results .pokemon-card.type-normal {
   background-color: #9099a1;
 }

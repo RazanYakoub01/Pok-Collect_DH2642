@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "../search.css";
 
 const SearchFormView = (props) => {
-  console.log(props)
-  
   const icons = [
     "fighting",
     "psychic",
@@ -32,10 +30,10 @@ const SearchFormView = (props) => {
 
     return (
       <div className="selected-types">
-        <h1>Selected types:</h1>
+        <h1>Filter:</h1>
         {props.selectedTypes.map((type) => (
           <div key={type} className="selected-type">
-            <div className={`type-icon ${type}`}></div>
+            <div className={`type-icon ${type}`} onClick={() => props.onSelectedIconClick(type)}></div>
           </div>
         ))}
       </div>
@@ -44,18 +42,18 @@ const SearchFormView = (props) => {
 
   return (
     <div>
-      <div>
-      {icons.map((icon) => (
-        <div
-          key={icon}
-          className={`type-icon ${icon} ${
-            props.selectedTypes.includes(icon) ? "selected" : ""
-          }`}
-          onClick={() => props.onIconClick(icon)}
-        ></div>
-      ))}
-    </div>
-    {renderSelectedTypes()}
+      <div className="icon-container">
+        {icons.map((icon) => (
+          <div
+            key={icon}
+            className={`type-icon ${icon} ${
+              props.selectedTypes.includes(icon) ? "selected" : ""
+            }`}
+            onClick={() => props.onIconClick(icon)}
+          ></div>
+        ))}
+      </div>
+      {renderSelectedTypes()}
     </div>
   );
 };

@@ -22,6 +22,12 @@ function PokedexPresenter(props){
     }
   };
 
+  function handleSelectedIconClick(icon) {
+    setSelectedTypes((prevTypes) =>
+      prevTypes.filter((prevType) => prevType !== icon)
+    );
+  }
+
 function renderSearchResults() {
   if (!props.model.initializePokemonDataPromiseState.promise) {
     // No promise has been set yet
@@ -57,6 +63,7 @@ const renderContent = () => {
       <SearchFormView
         selectedTypes={selectedTypes}
         onIconClick={handleIconClick}
+        onSelectedIconClick={handleSelectedIconClick}
       />
       {renderSearchResults()}
     </div>
