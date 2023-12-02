@@ -2,7 +2,12 @@ import React from 'react';
 import "/src/shop.css";
 import { Link } from 'react-router-dom';
 
-const StoreView = ({ packs }) => {
+const StoreView = ({ packs, addToCartACB }) => {
+
+  function addToCartACB(){
+    props.addToCart();
+  }
+
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -19,7 +24,7 @@ const StoreView = ({ packs }) => {
             <div className="packDetails">
               <h2>{pack.packName}</h2>
               <p>Price: {pack.price} coins <img src="src/storeImages/coin.png"/></p>
-              <button>Add to cart</button>
+              <button onClick={addToCartACB}>Add to cart</button>
             </div>
           </div>
         ))}

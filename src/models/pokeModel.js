@@ -21,6 +21,11 @@ const pokeModel = {
 
   balance: 200,
 
+  cart: {
+    items: [],
+    total: 0,
+  },
+
   setPackQuantity(packID, quantity) {
     let found = false;
     this.packs.forEach((pack) => {
@@ -36,10 +41,14 @@ const pokeModel = {
   },
 
 
-
   getPokemonData() {
     const pokemonDataPromise = initializePokemonData();
     resolvePromise(pokemonDataPromise, this.initializePokemonDataPromiseState);
+  },
+
+  addToCart(packToAdd) {
+    this.cart.items.push(packToAdd);
+    this.cart.total += packToAdd.price;
   },
 
 };
