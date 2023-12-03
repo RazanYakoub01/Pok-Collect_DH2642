@@ -13,19 +13,19 @@ const AboutUsView = () => {
       <h2>Contributors:</h2>
       <div className="contributor">
       <img src="src/aboutUsImages/temp1.png"/>
-      <p>Text about Contributor 1</p>
+      <p>email, program, what I want to learn</p>
       </div>
       <div className="contributor">
       <img src="src/aboutUsImages/temp1.png"/>
-      <p>Text about Contributor 2</p>
+      <p>email, program, what I want to learn</p>
       </div>
       <div className="contributor">
       <img src="src/aboutUsImages/temp2.jpg"/>
-      <p>Text about Contributor 3</p>
+      <p>email, program, what I want to learn</p>
       </div>
       <div className="contributor">
       <img src="src/aboutUsImages/temp2.jpg"/>
-      <p>Text about Contributor 4</p>
+      <p>email, program, what I want to learn</p>
       </div>
     </div>
   );
