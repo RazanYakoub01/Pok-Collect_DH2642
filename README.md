@@ -1,6 +1,6 @@
 # PokeCollect
 
-A web application created for Pokémon fans! to work as a pokédex where you can search for pokémon and get useful information!
+A web application created for Pokémon fans to work as a pokédex where you can search for pokémon and get useful information!
 The application also works as a Pokémon pack opening simulator where you can save your favorite Pokémon to your collection.
 
 # About PokeCollect
@@ -33,13 +33,13 @@ Still plan to do:
 
 ### 1. Download or Clone this repository:
 
-Start by cloning the repository to your local machine.
+Start by cloning the repository
 
 ```
 git clone https://github.com/RazanYakoub01/PokeCollect_DH2642
 ```
 
-### 2. Install node.js if you do not have it:
+### 2. Install node.js if you do not have it
 
 [Follow the link](https://nodejs.org/en/)
 
