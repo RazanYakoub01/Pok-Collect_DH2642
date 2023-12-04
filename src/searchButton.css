@@ -1,0 +1,17 @@
+.searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; 
+  }
+  
+  .searchButton input {
+    padding: 10px; 
+    margin-right: 10px;
+  }
+  
+  .searchButton button {
+    padding: 10px;
+    cursor: pointer;
+  }
+  

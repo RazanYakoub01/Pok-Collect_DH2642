@@ -8,6 +8,14 @@ export default
 observer(             // needed for the presenter to update (its view) when relevant parts of the model change
 function PokedexPresenter(props){ 
 
+  function searchButtonClickedACB(){
+    props.model.pokemonSearch(props.model.searchParams); 
+  }
+
+  function searchTextChangeACB(writtenText){
+    props.model.setSearchQuery(writtenText);
+  }
+
   const [selectedTypes, setSelectedTypes] = useState([]);
 
   const handleIconClick = (icon) => {
@@ -51,7 +59,8 @@ function renderSearchResults() {
     // Data is available
     return (
       <SearchResultsView
-        pokemons={props.model.initializePokemonDataPromiseState.data} selectedTypes={selectedTypes}
+        pokemons={props.model.initializePokemonDataPromiseState.data} 
+        selectedTypes={selectedTypes}
       />
     );
   }
@@ -64,6 +73,9 @@ const renderContent = () => {
         selectedTypes={selectedTypes}
         onIconClick={handleIconClick}
         onSelectedIconClick={handleSelectedIconClick}
+        clickSearch={searchButtonClickedACB}
+        text={props.model.searchParams.query} 
+        searchInput={searchTextChangeACB}
       />
       {renderSearchResults()}
     </div>

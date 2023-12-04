@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../search.css";
+import "../searchButton.css"
 
 const SearchFormView = (props) => {
   const icons = [
@@ -22,6 +23,14 @@ const SearchFormView = (props) => {
     "ice",
     "steel",
   ];
+
+  function inputACB(evt){
+    props.searchInput(evt.target.value);
+  }
+
+  function searchButtonACB(){
+    props.clickSearch();
+  }
 
   const renderSelectedTypes = () => {
     if (props.selectedTypes.length === 0) {
@@ -54,6 +63,15 @@ const SearchFormView = (props) => {
         ))}
       </div>
       {renderSelectedTypes()}
+      <div className="searchButton">
+        <input
+          type="text"
+          placeholder="Search Pokemon"
+          value={props.text || ""}
+          onChange={inputACB}
+        />
+        <button onClick={searchButtonACB}>Search!</button>
+      </div>
     </div>
   );
 };

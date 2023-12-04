@@ -3,6 +3,7 @@ import React from "react";
 import "../search.css";
 
 const SearchResultsView = (props) => {
+
   const filteredPokemons = props.pokemons.filter((pokemon) => {
     // If no types are selected, include all pokemons
     if (props.selectedTypes.length === 0) {

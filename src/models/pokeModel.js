@@ -1,6 +1,8 @@
 import { observer } from "mobx-react-lite";
 import { initializePokemonData } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
+import { fetchSpecificPokemon } from "../pokeSource";
+import { getPokemonDetails } from "../pokeSource";
 
 const pokeModel = {
   collection: [],
@@ -40,7 +42,6 @@ const pokeModel = {
     this.packs.sort((a, b) => a.packID.localeCompare(b.packID));
   },
 
-
   getPokemonData() {
     const pokemonDataPromise = initializePokemonData();
     resolvePromise(pokemonDataPromise, this.initializePokemonDataPromiseState);
@@ -50,6 +51,15 @@ const pokeModel = {
     this.cart.items.push(packToAdd);
     this.cart.total += packToAdd.price;
   },
+
+  setSearchQuery(queryText) {
+    this.searchParams.query = queryText;
+  },
+
+  pokemonSearch(searchParams) {
+    const promise = fetchSpecificPokemon(searchParams);
+    resolvePromise(promise, this.searchResultsPromiseState);
+  }
 
 };
 
