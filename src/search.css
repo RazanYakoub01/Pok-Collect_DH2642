@@ -2,7 +2,7 @@
   position: relative;
   width: calc(100% / 18);
   height: calc(100% / 9);
-  background-image: url("searchImages/searchLogos.png");
+  background-image: url("/src/searchImages/searchLogos.png");
   display: inline-block;
   background-size: 600% 300%;
   cursor: pointer;
@@ -152,7 +152,7 @@ h1 {
 }
 
 .no-results {
-  background-image: url("searchImages/noResults.png");
+  background-image: url("/src/searchImages/noResults.png");
   height: 100%;
   width: 100%;
   display: flex;

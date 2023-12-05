@@ -5,9 +5,11 @@
   }
   
   .bg-login {
-    background-image: url("src/loginImages/login1.png");
+    background-image: url("/src/loginImages/login1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
   }
+
+  

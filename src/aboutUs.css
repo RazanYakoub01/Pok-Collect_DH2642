@@ -5,7 +5,7 @@
   }
   
   .bg-about {
-    background-image: url("src/aboutUsImages/about1.jpg");
+    background-image: url("/src/aboutUsImages/about1.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;

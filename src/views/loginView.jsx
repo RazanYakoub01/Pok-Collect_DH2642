@@ -2,6 +2,8 @@ import React from 'react';
 import auth from '/src/firebaseConfig'; // Import the Firebase auth object
 import { Link } from 'react-router-dom';
 import '/src/login.css';
+import googleImage from '/src/loginImages/google.png';
+
 
 const LoginView = () => {
   
@@ -31,7 +33,7 @@ const LoginView = () => {
       Don't have an account? Get started by pressing the button below!
     </p>
       <div className='google-auth-button' onClick={handleGoogleAuthACB}>
-        <img src="src/loginImages/google.png" />
+        <img src={googleImage}/>
       </div>
     </form>
   </div>

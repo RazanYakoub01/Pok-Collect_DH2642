@@ -1,6 +1,9 @@
 import React from 'react';
 import "/src/aboutUs.css";
 import { Link } from 'react-router-dom';
+import temp1 from '/src/aboutUsImages/temp1.png';
+import temp2 from '/src/aboutUsImages/temp2.jpg';
+
 
 const AboutUsView = () => {
   return (
@@ -12,19 +15,19 @@ const AboutUsView = () => {
       </a>
       <h2>Contributors:</h2>
       <div className="contributor">
-      <img src="src/aboutUsImages/temp1.png"/>
+      <img src={temp1}/>
       <p>email, program, what I want to learn</p>
       </div>
       <div className="contributor">
-      <img src="src/aboutUsImages/temp1.png"/>
+      <img src={temp1}/>
       <p>email, program, what I want to learn</p>
       </div>
       <div className="contributor">
-      <img src="src/aboutUsImages/temp2.jpg"/>
+      <img src={temp2}/>
       <p>email, program, what I want to learn</p>
       </div>
       <div className="contributor">
-      <img src="src/aboutUsImages/temp2.jpg"/>
+      <img src={temp2}/>
       <p>email, program, what I want to learn</p>
       </div>
     </div>

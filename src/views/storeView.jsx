@@ -1,6 +1,8 @@
 import React from 'react';
 import "/src/shop.css";
 import { Link } from 'react-router-dom';
+import coin from "/src/storeImages/coin.png";
+import shoppingcart from "/src/storeImages/shoppingCart.png";
 
 const StoreView = ({ packs, addToCartACB }) => {
 
@@ -14,8 +16,8 @@ const StoreView = ({ packs, addToCartACB }) => {
         <h1>PokeCollect Pack shop</h1>
       </div>
       <div className="balance">
-      <p>Current Balance: 200 coins <img src="src/storeImages/coin.png"/> </p>
-      <p>Shopping Cart: <Link to="/cart"><img src="src/storeImages/shoppingCart.png"/></Link> </p>
+      <p>Current Balance: 200 coins <img src={coin}/> </p>
+      <p>Shopping Cart: <Link to="/cart"><img src={shoppingcart}/></Link> </p>
       </div>
       <div className="packs">
         {packs.map((pack) => (
@@ -23,7 +25,7 @@ const StoreView = ({ packs, addToCartACB }) => {
             <img src={pack.packImage} alt={pack.packName} />
             <div className="packDetails">
               <h2>{pack.packName}</h2>
-              <p>Price: {pack.price} coins <img src="src/storeImages/coin.png"/></p>
+              <p>Price: {pack.price} coins <img src={coin}/></p>
               <button onClick={addToCartACB}>Add to cart</button>
             </div>
           </div>
