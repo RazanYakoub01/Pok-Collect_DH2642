@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "/src/shoppingCart.css";
-import coin from "/src/storeImages/coin.png";
-import testpack1 from "/src/shoppingCartImages/testPack1.png";
-import testpack2 from "/src/shoppingCartImages/testPack2.png";
+import coin from '/src/storeImages/coin.png';
+import testpack1 from '/src/shoppingCartImages/testPack1.png';
+import testpack2 from '/src/shoppingCartImages/testPack2.png';
 
 const ShoppingCartView = () => {
   // for test
@@ -13,14 +13,14 @@ const ShoppingCartView = () => {
       name: 'Gen 1 pack',
       price: 75,
       quantity: 2,
-      image: {testpack1}, 
+      image: testpack1, 
     },
     {
       id: 10,
       name: 'Legendary pack',
       price: 100,
       quantity: 1,
-      image: {testpack2}, 
+      image: testpack2, 
     },
   ];
 
