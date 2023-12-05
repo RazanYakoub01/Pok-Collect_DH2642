@@ -9,3 +9,4 @@ package-lock.json
 /public/*.html
 test/vtl/__tests__
 test/vtl/__mocks__
+.vercel
