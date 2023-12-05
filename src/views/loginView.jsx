@@ -1,16 +1,18 @@
 import React from 'react';
+import auth from '/src/firebaseConfig'; // Import the Firebase auth object
 import { Link } from 'react-router-dom';
 import '/src/login.css';
 
 const LoginView = () => {
   
   const handleEmailLoginACB = () => {
-    // Implement email/password login logic
-  };
+    
+    }
+
 
   const handleGoogleAuthACB = () => {
-    // Implement Google authentication logic
   };
+
 
   return (
     <div className='full-screen bg-login'>
