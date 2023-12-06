@@ -1,5 +1,5 @@
 import React from 'react';
-import auth from '/src/firebaseConfig'; // Import the Firebase auth object
+import auth from '/src/firebaseConfig.js'; // Import the Firebase auth object
 import { Link } from 'react-router-dom';
 import '/src/login.css';
 import googleImage from '/src/loginImages/google.png';
