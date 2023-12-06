@@ -156,6 +156,6 @@ PokéAPI: https://pokeapi.co
 ## Authors
 
 - [@Alexander Barhado](https://www.github.com/18alba1)
-- [@DElias Amani](https://github.com/Eliasamani)
+- [@Elias Amani](https://github.com/Eliasamani)
 - [@Razan Yakoub](https://github.com/RazanYakoub01)
 - [@Seema Bashir](https://github.com/Seemamian)
