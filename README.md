@@ -66,9 +66,9 @@ open http://localhost:3000
 
 ### 7. Deployment:
 
-This application uses Firebase as a cloud platform.
+This application uses Vercel as a cloud platform.
 
-This application is running on : INSERT LINK HERE
+This application is running on : [PokeCollect](https://pokecollect-pied.vercel.app/ )
 
 ## File Structure
 
