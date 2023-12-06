@@ -155,7 +155,7 @@ PokéAPI: https://pokeapi.co
 
 ## Authors
 
-- [@18alba1](https://www.github.com/18alba1)
-- [@DEliasamani](https://github.com/Eliasamani)
-- [@RazanYakoub01](https://github.com/RazanYakoub01)
-- INPUT SEEMA HERE
+- [@Alexander Barhado](https://www.github.com/18alba1)
+- [@DElias Amani](https://github.com/Eliasamani)
+- [@Razan Yakoub](https://github.com/RazanYakoub01)
+- [@Seema Bashir](https://github.com/Seemamian)
