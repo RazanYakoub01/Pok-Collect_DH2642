@@ -31,6 +31,9 @@ Still plan to do:
 - In game currrency
 - CSS
 
+
+
+
 ## Run The App Locally
 
 ### 1. Download or Clone this repository:
@@ -162,6 +165,17 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 ## API
 
 PokéAPI: https://pokeapi.co
+
+
+
+## Work Division Between the Authors
+
+- eema is resposible for the following View and Presenters: Home, About us, Store
+- Razan is responsoble for the following View and Presenters: Cart, Packs
+- Alexander is responsible for the following View and Presenter: Login , details View
+- Elias is responsible for the following View and Presenter: Search, Pokedex
+
+- The following View and Presenter are shared: Collection, openPacks
 
 ## Authors
 
