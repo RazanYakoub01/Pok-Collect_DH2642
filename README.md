@@ -168,14 +168,22 @@ PokéAPI: https://pokeapi.co
 
 
 
-## Work Division Between the Authors
+## Team Responsibilities
 
-- eema is resposible for the following View and Presenters: Home, About us, Store
-- Razan is responsoble for the following View and Presenters: Cart, Packs
-- Alexander is responsible for the following View and Presenter: Login , details View
-- Elias is responsible for the following View and Presenter: Search, Pokedex
+### Seema
+- **Views and Presenters:** Home, About Us, Store
 
-- The following View and Presenter are shared: Collection, openPacks
+### Razan
+- **Views and Presenters:** Cart, Packs
+
+### Alexander
+- **Views and Presenter:** Login, Details View
+
+### Elias
+- **Views and Presenter:** Search, Pokedex
+
+### Shared Responsibilities
+- **Views and Presenters:** Collection, Open Packs
 
 ## Authors
 
