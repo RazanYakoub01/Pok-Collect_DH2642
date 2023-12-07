@@ -1,8 +1,6 @@
-// src/index.js
-//import "/src/teacherFetch.js"; // protection against fetch() in infinite re-render
 import { observable, configure, reaction } from "mobx";
-
 import model from './models/pokeModel.js';
+
 
 configure({ enforceActions: "never", });  // we don't use Mobx actions
 const reactiveModel= observable(model);

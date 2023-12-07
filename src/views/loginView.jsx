@@ -1,42 +1,29 @@
 import React from 'react';
-import auth from '/src/firebaseConfig.js'; // Import the Firebase auth object
-import { Link } from 'react-router-dom';
 import '/src/login.css';
-import googleImage from '/src/loginImages/google.png';
+import { Link } from 'react-router-dom';
 
+const LoginView = ({ googleSignIn, logOut, user }) => {
 
-const LoginView = () => {
-  
-  const handleEmailLoginACB = () => {
-    
-    }
-
-
-  const handleGoogleAuthACB = () => {
+  const handleGoogleLogin = (event) => {
+    event.preventDefault();
+    googleSignIn();
   };
-
 
   return (
     <div className='full-screen bg-login'>
-    <h1>Sign in</h1>
-    <form>
-      <label>Email:</label>
-      <input type='email' placeholder='Enter your email' />
-
-      <label>Password:</label>
-      <input type='password' placeholder='Enter your password' />
-
-      <button type='button' onClick={handleEmailLoginACB}>
-        login
-      </button>
-      <p>
-      Don't have an account? Get started by pressing the button below!
-    </p>
-      <div className='google-auth-button' onClick={handleGoogleAuthACB}>
-        <img src={googleImage}/>
-      </div>
-    </form>
-  </div>
+      <h1>Login to your account or sign out</h1>
+      {user ? (
+        <Link to="/">
+        <button className='signOutButton' onClick={logOut}>
+          Sign out
+        </button>
+        </Link>
+      ) : (
+        <button className='googleButton' onClick={handleGoogleLogin}>
+          Sign in with Google
+        </button>
+      )}
+    </div>
   );
 };
 

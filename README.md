@@ -13,17 +13,19 @@ This application works through the use of PokéAPI and with the use of this API 
 
 Done: 
 
+- Login using google
+- Protected routes (can only acces all routes when logged in)
 - Navigation bar with routes
 - Setup the basic framework
 - Created initial layout of our app
 - Able to show show data from API calls
+- Filter pokédex by type
 
 Still plan to do: 
 
 - OpenPacks view/presenter for pack opening
-- Login with google
 - Search using PokéAPI
-- Add packs to cart where you can change quantity etc
+- Add packs to cart where you can change quantity etc and make a purchase
 - Add Pokémon to personal collection 
 - Search for Pokémon
 - In game currrency
@@ -64,7 +66,7 @@ npm run start
 open http://localhost:3000
 ```
 
-### 7. Deployment:
+### 6. Deployment:
 
 This application uses Vercel as a cloud platform.
 
@@ -90,7 +92,9 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 - ReactRoot.jsx: Routes
 
-- css files for the views and images
+- css files for the views, gifs and images
+
+- protectedRoutes.jsx: Used to make some routes only accesable when logged in
 
 
 ### **/src/presenters**
@@ -112,6 +116,10 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 - ShoppingCartPresenter.jsx: Used to render shoppingCartView and manages the presentation logic for the shopping cart, handling the display of items, quantities etc
 
 - StorePresenter.jsx: Used to render storeView and manages the presentation logic for the store
+
+- OpenPacksPresenter.jsx: Used to render openPacksView and manages the presentation logic for opening packs
+
+- DetailsPresenter.jsx: Used to render detailsview and manages the presentation logic for clicking on a Pokémon
 
 ### **/src/views**
 
@@ -137,6 +145,8 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 - storeView.jsx: Displays the store with the different packs you can buy
 
+- openPacksView.jsx: Displays the Pokémon you get from opening a pack
+
 ### **/src/models**
 
 - pokeModel.js: Our model for this application contains functions to set and save data etc
@@ -147,7 +157,7 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 **Client:** React, Git, NPM,
 
-**Server:** Node, Firebase Firestore
+**Server:** Node, Vercel, Firebase
 
 ## API
 

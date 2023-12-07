@@ -1,4 +1,3 @@
-// NavbarModel.js
 export default function getNavbarItems() {
   return [
     { name: "Home", path: "/" },
@@ -8,8 +7,6 @@ export default function getNavbarItems() {
     { name: "Cart", path: "/cart" },
     { name: "Packs", path: "/packs" },
     { name: "Collection", path: "/collection" },
-    { name: "Login", path: "/login" },
-
-    // ... other items
+    { name: "Login or sign out", path: "/login" },
   ];
 }
