@@ -23,7 +23,7 @@ function StoreView(props) {
             <div className="packDetails">
               <h2>{pack.packName}</h2>
               <p>Price: {pack.price} coins <img src={coin} alt="coin" /></p>
-              <button onClick={() => props.addToCartACB(pack)}>Add to cart</button>
+              <button className='storeButton' onClick={() => props.addToCartACB(pack)}>Add to cart</button>
             </div>
           </div>
         ))}

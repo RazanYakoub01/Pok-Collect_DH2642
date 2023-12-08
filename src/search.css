@@ -186,6 +186,12 @@ body {
   border: 5px solid #3c5aa6;
   border-radius: 5px;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.search-results .pokemon-card:hover {
+  transform: scale(1.05);
 }
 
 .search-results .pokemon-card img {

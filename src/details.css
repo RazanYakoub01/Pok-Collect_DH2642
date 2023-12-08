@@ -1,0 +1,37 @@
+.details-container {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .info-container {
+    display: flex;
+    margin-top: 100px;
+  }
+  
+  .pokemon-image {
+    width: 350px;
+    height: auto;
+  }
+  
+  .stats {
+    margin-top: 10px;
+    margin-right: 1100px;
+  }
+  
+  .backButton {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+  
+  .backButton:hover {
+    background-color: #5b605b;
+  }
+  

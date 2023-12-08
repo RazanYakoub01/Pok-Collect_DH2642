@@ -13,6 +13,7 @@ import CollectionPresenter from './presenters/CollectionPresenter.jsx';
 import { createHashRouter,  RouterProvider} from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import RequireAuth from './protectedRoutes.jsx';
+import DetailsPresenter from './presenters/DetailsPresenter.jsx';
 
 
 /*
@@ -69,6 +70,7 @@ export default observer(function ReactRoot(props) {
         <Route path="/pokedex" element={<PokedexPresenter model={props.model} />} />
         <Route path="/about" element={<AboutUsPresenter />} />
         <Route path="/login" element={<LoginPresenter />} />
+        <Route path="/details/:id" element={<DetailsPresenter model={props.model} />} />
         
         {/* Private routes by wrapping them with RequireAuth */}
         <Route element={<RequireAuth />}>
