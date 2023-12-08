@@ -1,5 +1,5 @@
 import React from 'react';
-import StoreView from '../views/storeView';
+import StoreView from '../views/storeView.jsx';
 import { observer } from 'mobx-react-lite';
 import { packs } from '../storeData';
 

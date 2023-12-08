@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import ShoppingCartView from '/src/views/ShoppingCartView';
+import ShoppingCartView from '/src/views/ShoppingCartView.jsx';
 
 function ShoppingCartPresenter(props) {
   const handleNumberChange = (itemId, newQuantity) => {
