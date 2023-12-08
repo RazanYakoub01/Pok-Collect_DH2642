@@ -30,6 +30,7 @@
     align-items: flex-end;
     margin: 20px;
     font-size: 18px;
+    font-weight: bold;
   }
   
   .balance img {

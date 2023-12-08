@@ -1,6 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '/src/details.css';
+import attack from '../detailsImages/attack.png';
+import def from '../detailsImages/def.png';
+import hp from '../detailsImages/hp.png';
+import speed from '../detailsImages/speed.png';
+import specialAttack from '../detailsImages/specialAttack.png';
+import specialDefence from '../detailsImages/specialDefence.png';
 
 const DetailsView = (props) => {
   const navigate = useNavigate();
@@ -39,18 +45,32 @@ const DetailsView = (props) => {
     );
   };
 
+  const statImages = {
+    attack: attack,
+    defense: def,
+    hp: hp,
+    'special-attack': specialAttack,
+    'special-defense': specialDefence,
+    speed: speed,
+  };
+  
   const renderStats = () => {
     return (
       <div>
         <h3>Stats</h3>
-        <ul>
-          {Object.entries(props.pokemonDetails.Stats).map(([stat, value], index) => (
-            <div key={index}>
-              <strong>{stat}:</strong>
-              <span>{value}</span>
+        {Object.entries(props.pokemonDetails.Stats).map(([stat, value], index) => (
+          <div key={index} className="stat">
+            <div className="stat-info">
+              <img src={statImages[stat]} alt={stat} className="stat-image" />
+              <p className="stat-name">{capitalizeFirstLetter(stat)}</p>
             </div>
-          ))}
-        </ul>
+            <div className="stat-bar">
+              <div className={`stat${index + 1}`} style={{ width: `${Math.min(value, 100)}%` }}>
+                <span className={`stat-count${index + 1}`}>{value}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     );
   };
@@ -60,7 +80,7 @@ const DetailsView = (props) => {
       <h1>{capitalizeFirstLetter(props.pokemonDetails.Name)}</h1>
       <div className="info-container">
         <div>
-          <img className="pokemon-image" src={props.pokemonDetails.ImageURL} alt={props.pokemonDetails.Name} />
+          <img className="pokemon-image" src={props.pokemonDetails.ImageURL}/>
         </div>
         <div className="info-container">
           <div>
