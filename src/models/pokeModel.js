@@ -3,6 +3,8 @@ import { initializePokemonData } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 import { fetchSpecificPokemon } from "../pokeSource";
 import { getPokemonDetails } from "../pokeSource";
+import testPack1 from '/src/shoppingCartImages/testPack1.png';
+import testPack2 from '/src/shoppingCartImages/testPack2.png'
 
 const pokeModel = {
   collection: [],
@@ -23,10 +25,57 @@ const pokeModel = {
 
   balance: 200,
 
-  cart: {
-    items: [],
-    total: 0,
+//Cart functions
+  cartItems: [
+    {
+      id: 1,
+      name: 'Test Pack 1',
+      price: 50,
+      quantity: 1,
+      image: testPack1,
+    },
+    {
+      id: 2,
+      name: 'Test Pack 2',
+      price: 75,
+      quantity: 2,
+      image: testPack2,
+    },
+  ],
+
+  totalPrice: 200,
+
+  addItem(item) {
+      const existingItem = this.cartItems.find((cartItem) => cartItem.id === item.id);
+  
+      if (existingItem) {
+        // If the item already exists in the cart, update its quantity
+        existingItem.quantity++;
+      } else {
+        // If it's a new item, add it to the cart
+        this.cartItems.push({ ...item, quantity: 1 });
+      }
+      this.totalPrice += item.price;
+    },
+  
+  updateItemQuantity(itemId, newQuantity) {
+    const itemToUpdate = this.cartItems.find((item) => item.id === itemId);
+    if (itemToUpdate) {
+      const priceDifference = itemToUpdate.price * (newQuantity - itemToUpdate.quantity);
+      itemToUpdate.quantity = newQuantity;
+      this.totalPrice += priceDifference;
+     console.log(newQuantity);
+    }
+  }, 
+  removeItem(itemId) {
+    const itemIndex = this.cartItems.findIndex((item) => item.id === itemId);
+    if (itemIndex !== -1) {
+      const removedItem = this.cartItems.splice(itemIndex, 1)[0];
+      this.totalPrice -= removedItem.price * removedItem.quantity;
+    }
   },
+// end of cart functions  
+
 
   setPackQuantity(packID, quantity) {
     let found = false;

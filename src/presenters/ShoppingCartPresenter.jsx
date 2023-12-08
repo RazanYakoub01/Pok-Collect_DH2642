@@ -1,10 +1,24 @@
 import React from 'react';
-import ShoppingCartView from '../views/shoppingCartView';
-import { observer } from "mobx-react-lite";
+import { observer } from 'mobx-react-lite';
+import ShoppingCartView from '/src/views/ShoppingCartView';
 
+function ShoppingCartPresenter(props) {
+  const handleNumberChange = (itemId, newQuantity) => {
+    props.model.updateItemQuantity(itemId, newQuantity); 
+  };
 
-export default
-observer(            
-function ShoppingCartPresenter(props){ 
-  return <ShoppingCartView  model={props.model}/>;
-});
+  const handleRemoveItem = (itemId) => {
+    props.model.removeItem(itemId); 
+  };
+
+  return (
+    <ShoppingCartView
+      cartItems={props.model.cartItems} 
+      totalPrice={props.model.totalPrice} 
+      onNumberChange={handleNumberChange}
+      removeItem={handleRemoveItem}
+    />
+  );
+}
+
+export default observer(ShoppingCartPresenter);
