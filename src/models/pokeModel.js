@@ -29,17 +29,17 @@ const pokeModel = {
   cartItems: [
     {
       id: 1,
-      name: 'Test Pack 1',
+      packName: 'Test Pack 1',
       price: 50,
       quantity: 1,
-      image: testPack1,
+      packImage: testPack1,
     },
     {
       id: 2,
-      name: 'Test Pack 2',
+      packName: 'Test Pack 2',
       price: 75,
       quantity: 2,
-      image: testPack2,
+      packImage: testPack2,
     },
   ],
 

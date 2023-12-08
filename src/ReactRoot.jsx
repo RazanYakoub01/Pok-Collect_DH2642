@@ -72,7 +72,7 @@ export default observer(function ReactRoot(props) {
         
         {/* Private routes by wrapping them with RequireAuth */}
         <Route element={<RequireAuth />}>
-          <Route path="/store" element={<StorePresenter />} />
+          <Route path="/store" element={<StorePresenter  model = {props.model}/>} />
         </Route>
 
         <Route element={<RequireAuth />}>

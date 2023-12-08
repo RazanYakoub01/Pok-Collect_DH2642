@@ -7,6 +7,5 @@ export default observer(function StorePresenter(props) {
   const addToCartACB = (selectedPack) => {
     props.model.addItem(selectedPack);
   };
-
   return <StoreView packs={packs} addToCartACB={addToCartACB} />;
 });

@@ -1,13 +1,13 @@
-import pack1 from "./storeImages/pack1.webp";
-import pack2 from "./storeImages/pack2.jpg.webp";
-import pack3 from "./storeImages/pack3.jpg";
-import pack4 from "./storeImages/pack4.jpg.webp";
-import pack5 from "./storeImages/pack5.jpg.webp";
-import pack6 from "./storeImages/pack6.jpg";
-import pack7 from "./storeImages/pack7.jpg";
-import pack8 from "./storeImages/pack8.png";
-import pack9 from "./storeImages/pack9.jpg";
-import pack10 from "./storeImages/pack10.jpg";
+import pack1 from "/src/storeImages/pack1.webp";
+import pack2 from "/src/storeImages/pack2.jpg.webp";
+import pack3 from "/src/storeImages/pack3.jpg";
+import pack4 from "/src/storeImages/pack4.jpg.webp";
+import pack5 from "/src/storeImages/pack5.jpg.webp";
+import pack6 from "/src/storeImages/pack6.jpg";
+import pack7 from "/src/storeImages/pack7.jpg";
+import pack8 from "/src/storeImages/pack8.png";
+import pack9 from "/src/storeImages/pack9.jpg";
+import pack10 from "/src/storeImages/pack10.jpg";
 
 
 export const packs = [

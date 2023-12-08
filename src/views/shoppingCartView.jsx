@@ -11,9 +11,9 @@ function ShoppingCartView(props) {
       <div>
         {items.map((item) => (
           <div key={item.id} className="cart-item">
-            <img src={item.image} alt={item.name} />
+            <img src={item.packImage} alt={item.name} />
             <div className="cart-item-details">
-              <p className='itemName'>{item.name}</p>
+              <p className='itemName'>{item.packName}</p>
               <p>Price: {item.price} <img src={coin} alt="coin" /></p>
               <div className="quantity-controls">
                 <button onClick={() => props.onNumberChange(item.id,item.quantity - 1)} disabled={item.quantity === 1} >-</button>

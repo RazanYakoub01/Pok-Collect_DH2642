@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import coin from "/src/storeImages/coin.png";
 import shoppingcart from "/src/storeImages/shoppingCart.png";
 
-const StoreView = (props) => {
+function StoreView(props) {
+  console.log(props.packs);
+
   return (
     <div className="shop">
       <div className="shopTitle">
@@ -21,14 +23,13 @@ const StoreView = (props) => {
             <div className="packDetails">
               <h2>{pack.packName}</h2>
               <p>Price: {pack.price} coins <img src={coin} alt="coin" /></p>
-              <button onClick={() => props.addToCartACB(pack.id)}>Add to cart</button>
+              <button onClick={() => props.addToCartACB(pack)}>Add to cart</button>
             </div>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default StoreView;
-
