@@ -7,6 +7,7 @@ import hp from '../detailsImages/hp.png';
 import speed from '../detailsImages/speed.png';
 import specialAttack from '../detailsImages/specialAttack.png';
 import specialDefence from '../detailsImages/specialDefence.png';
+import { getEvolutionChain } from "../pokeSource";
 
 const DetailsView = (props) => {
   const navigate = useNavigate();
@@ -18,16 +19,26 @@ const DetailsView = (props) => {
   const handleBackClick = () => {
     navigate('/pokedex');
   };
-
-  const renderAbilities = () => {
+  
+  const renderPokedexData = () => {
+    const dataEntries = [
+      { label: 'Pokédex ID', value: props.pokemonDetails.ID, image: '/src/detailsImages/id.png'},
+      { label: 'Base Experience', value: `${props.pokemonDetails.BaseExperience} XP`, image: '/src/detailsImages/exp.png' },
+      { label: 'Height', value: `${props.pokemonDetails.Height} m`, image: '/src/detailsImages/height.png' },
+      { label: 'Weight', value: `${props.pokemonDetails.Weight} Kg`, image: '/src/detailsImages/kg.png' },
+    ];
+  
     return (
       <div>
-        <h3>Abilities</h3>
-        <ul>
-          {props.pokemonDetails.Abilities.map((ability, index) => (
-            <p key={index}>{ability}</p>
+        <h3>Pokédex Data</h3>
+        <div className="pokedex-data-container">
+          {dataEntries.map((entry, index) => (
+            <div key={index} className="pokedex-data-item">
+              {entry.image && <img src={entry.image} alt={entry.label} className="pokedex-data-image" />}
+              <p>{`${entry.label}: ${entry.value}`}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   };
@@ -36,11 +47,28 @@ const DetailsView = (props) => {
     return (
       <div>
         <h3>Types</h3>
-        <ul>
+        <div className="type-container">
           {props.pokemonDetails.Types.map((type, index) => (
-            <p key={index}>{type}</p>
+            <span key={index} className={`type-pill type-${type.toLowerCase()}`}>
+              {type}
+            </span>
           ))}
-        </ul>
+        </div>
+      </div>
+    );
+  };
+
+  const renderAbilities = () => {
+    return (
+      <div>
+        <h3>Abilities</h3>
+        <div>
+          {props.pokemonDetails.Abilities.map((ability, index) => (
+            <span key={index} className="pill">
+              {ability}
+            </span>
+          ))}
+        </div>
       </div>
     );
   };
@@ -83,13 +111,7 @@ const DetailsView = (props) => {
           <img className="pokemon-image" src={props.pokemonDetails.ImageURL}/>
         </div>
         <div className="info-container">
-          <div>
-            <h3>Pokédex Data</h3>
-            <p>Pokédex ID: {props.pokemonDetails.ID}</p>
-            <p>Base Experience: {props.pokemonDetails.BaseExperience}</p>
-            <p>Height: {props.pokemonDetails.Height} m</p>
-            <p>Weight: {props.pokemonDetails.Weight} Kg</p>
-          </div>
+          {renderPokedexData()}
           {renderTypes()}
           {renderAbilities()}
         </div>
