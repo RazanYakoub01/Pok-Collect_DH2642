@@ -8,6 +8,12 @@ export default
 observer(             // needed for the presenter to update (its view) when relevant parts of the model change
 function PokedexPresenter(props){ 
 
+  function userWantedPokemonACB(pokemon) {
+    props.model.setCurrentPokemon(pokemon.ID)
+    console.log("currPokemonID", props.model.currentPokemon);
+  };
+
+
   function searchButtonClickedACB(){
     props.model.pokemonSearch(props.model.searchParams); 
   }
@@ -61,6 +67,7 @@ function renderSearchResults() {
       <SearchResultsView
         pokemons={props.model.initializePokemonDataPromiseState.data} 
         selectedTypes={selectedTypes}
+        onPokemonClick={userWantedPokemonACB}
       />
     );
   }

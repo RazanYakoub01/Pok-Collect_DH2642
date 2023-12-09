@@ -23,6 +23,9 @@ const LoginView = ({ googleSignIn, logOut, user }) => {
           Sign in with Google
         </button>
       )}
+      <div>
+        <p>Please login in order to use our store and see your personal collection</p>
+      </div>
     </div>
   );
 };

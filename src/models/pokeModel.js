@@ -5,6 +5,7 @@ import { fetchSpecificPokemon } from "../pokeSource";
 import { getPokemonDetails } from "../pokeSource";
 import testPack1 from '/src/shoppingCartImages/testPack1.png';
 import testPack2 from '/src/shoppingCartImages/testPack2.png'
+const BASE_URL= "https://pokeapi.co/api/v2/";
 
 const pokeModel = {
   collection: [],
@@ -12,7 +13,7 @@ const pokeModel = {
   currentPokemon: null,
   searchParams: {}, 
   searchResultsPromiseState: {}, 
-  currentpokemonPromiseState: {}, 
+  currentPokemonPromiseState: {}, 
   packs: [{
     "packID": "1",
     "quantity": 10
@@ -109,6 +110,20 @@ const pokeModel = {
   pokemonSearch(searchParams) {
     const promise = fetchSpecificPokemon(searchParams);
     resolvePromise(promise, this.searchResultsPromiseState);
+  },
+
+  setCurrentPokemon(pokemonID) {
+    const url = BASE_URL + "pokemon/" + pokemonID;
+    if (pokemonID) {
+        if (this.currentPokemon !== pokemonID) {
+            this.currentPokemon = pokemonID;
+            const promise = getPokemonDetails(url);
+            resolvePromise(promise, this.currentPokemonPromiseState);
+        }
+    } else {
+        this.currentPokemon = null;
+        this.currentPokemonPromiseState = {};
+    }
   }
 
 };

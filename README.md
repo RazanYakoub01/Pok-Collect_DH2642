@@ -1,11 +1,11 @@
 # PokeCollect
 
-A web application created for Pokémon fans to work as a pokédex where you can search for pokémon and get useful information!
+A web application created for Pokémon fans to work as a pokédex where you can search for Pokémon and get useful information!
 The application also works as a Pokémon pack opening simulator where you can save your favorite Pokémon to your collection.
 
 # About PokeCollect
 
-This is a project in the course DH2642 Interaction Programming and the Dynamic Web by 4 students at KTH. The aim of this project was to create a web application that works as a pokédex where you can search for pokémon and get useful information. The application also works as a Pokémon pack opening simulator where you can save and store your favorite Pokémon to your peronal collection.
+This is a project in the course DH2642 Interaction Programming and the Dynamic Web by 4 students at KTH. The aim of this project was to create a web application that works as a pokédex where you can search for Pokémon and get useful information. The application also works as a Pokémon pack opening simulator where you can save and store your favorite Pokémon to your peronal collection.
 
 This application works through the use of PokéAPI and with the use of this API you can search for different Pokémon to get details. If you open packs in our virtual store with our in game currency you can access the Pokémon you collect whenever you want since our app allows you to store them in a personal collection!
 
@@ -20,19 +20,16 @@ Done:
 - Created initial layout of our app
 - Able to show show data from API calls
 - Filter pokédex by type
+- Add packs to cart where you can change quantity
+- Click on a pokémon to get more details (detailsView)
 
 Still plan to do: 
 
 - OpenPacks view/presenter for pack opening
-- Search using PokéAPI
-- Add packs to cart where you can change quantity etc and make a purchase
 - Add Pokémon to personal collection 
 - Search for Pokémon
-- In game currrency
+- In game currrency so you can make purchase
 - CSS
-
-
-
 
 ## Run The App Locally
 

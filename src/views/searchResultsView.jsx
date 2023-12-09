@@ -1,8 +1,17 @@
-// src/views/searchFormView.jsx
 import React from "react";
 import "../search.css";
+import { useNavigate } from 'react-router-dom';
+
 
 const SearchResultsView = (props) => {
+
+  const navigate = useNavigate();
+
+  const selectPokemonACB = (pokemon) => {
+    console.log("Selected Pokemon:", pokemon.Name);
+    props.onPokemonClick(pokemon);
+    navigate(`/details/${pokemon.ID}`);
+  };
 
   const filteredPokemons = props.pokemons.filter((pokemon) => {
     // If no types are selected, include all pokemons
@@ -37,6 +46,7 @@ const SearchResultsView = (props) => {
           <div
             className={`pokemon-card type-${pokemon.Types[0]}`}
             key={pokemon.ID}
+            onClick={() => selectPokemonACB(pokemon)}
           >
             <h2>{pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}</h2>
             <img src={pokemon.ImageURL} alt={pokemon.name} />
