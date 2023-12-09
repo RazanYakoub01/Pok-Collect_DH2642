@@ -7,7 +7,6 @@ import hp from '../detailsImages/hp.png';
 import speed from '../detailsImages/speed.png';
 import specialAttack from '../detailsImages/specialAttack.png';
 import specialDefence from '../detailsImages/specialDefence.png';
-import { getEvolutionChain } from "../pokeSource";
 
 const DetailsView = (props) => {
   const navigate = useNavigate();
