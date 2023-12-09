@@ -45,6 +45,7 @@ const pokeModel = {
 
   totalPrice: 200,
 
+  
   addItem(item) {
       const existingItem = this.cartItems.find((cartItem) => cartItem.id === item.id);
   
@@ -111,5 +112,6 @@ const pokeModel = {
   }
 
 };
+
 
 export default observer(pokeModel);
