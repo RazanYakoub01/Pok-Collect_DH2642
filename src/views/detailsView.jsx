@@ -1,13 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '/src/details.css';
-import attack from '../detailsImages/attack.png';
-import def from '../detailsImages/def.png';
-import hp from '../detailsImages/hp.png';
-import speed from '../detailsImages/speed.png';
-import specialAttack from '../detailsImages/specialAttack.png';
-import specialDefence from '../detailsImages/specialDefence.png';
-
+import attack from '/src/detailsImages/attack.png';
+import def from '/src/detailsImages/def.png';
+import hp from '/src/detailsImages/hp.png';
+import speed from '/src/detailsImages/speed.png';
+import specialAttack from '/src/detailsImages/specialAttack.png';
+import specialDefence from '/src/detailsImages/specialDefence.png';
+import id from '/src/detailsImages/id.png';
+import exp from '/src/detailsImages/exp.png';
+import height from '/src/detailsImages/height.png';
+import kg from '/src/detailsImages/kg.png';
 const DetailsView = (props) => {
   const navigate = useNavigate();
 
@@ -21,10 +24,10 @@ const DetailsView = (props) => {
   
   const renderPokedexData = () => {
     const dataEntries = [
-      { label: 'Pokédex ID', value: props.pokemonDetails.ID, image: '/src/detailsImages/id.png'},
-      { label: 'Base Experience', value: `${props.pokemonDetails.BaseExperience} XP`, image: '/src/detailsImages/exp.png' },
-      { label: 'Height', value: `${props.pokemonDetails.Height} m`, image: '/src/detailsImages/height.png' },
-      { label: 'Weight', value: `${props.pokemonDetails.Weight} Kg`, image: '/src/detailsImages/kg.png' },
+      { label: 'Pokédex ID', value: props.pokemonDetails.ID, image: id},
+      { label: 'Base Experience', value: `${props.pokemonDetails.BaseExperience} XP`, image: exp },
+      { label: 'Height', value: `${props.pokemonDetails.Height} m`, image: height },
+      { label: 'Weight', value: `${props.pokemonDetails.Weight} Kg`, image: kg},
     ];
   
     return (
