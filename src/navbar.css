@@ -1,33 +1,41 @@
 nav {
-    background-color: black;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  nav a {
-    color: white;
-    margin-right: 10px;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    border-right: 1px solid #ffffff;
-    padding-right: 10px; 
-  }
+  background-color: black;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px;
+  align-items: center;
+}
 
-  nav a:last-child {
-    border-right: none;
-  }
-  
-  nav a:hover,
-  nav a.active {
-    border-bottom-color: white;
-  }
-  
-  nav a:not(:last-child) {
-    margin-right: 10px;
-  }
+.navbar-icon {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 5px;
+}
 
-  .login {
-    margin-left: auto;
-    color: white;
-  }
-  
+nav a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  border-right: 1px solid #ffffff;
+  padding-right: 10px; 
+  align-items: center;
+}
+
+nav a:last-child {
+  border-right: none;
+}
+
+nav a:hover,
+nav a.active {
+  border-bottom-color: white;
+}
+
+nav a:not(:last-child) {
+  margin-right: 10px;
+}
+
+.login {
+  margin-left: auto;
+  color: white;
+}

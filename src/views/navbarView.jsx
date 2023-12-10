@@ -7,7 +7,10 @@ const NavbarView = ({ items }) => {
   return (
     <nav>
       {items.map((item, index) => (
-        <Link key={index} to={item.path}>{item.name}</Link>
+        <Link key={index} to={item.path}>
+          <img src={item.image} className="navbar-icon" />
+          {item.name}
+        </Link>
       ))}
     </nav>
   );
