@@ -1,7 +1,7 @@
 import React from 'react';
-import NavbarView from '../views/NavbarView.jsx';
+import NavbarView from '/src/views/NavbarView.jsx';
 import { observer } from 'mobx-react-lite';
-import { useAuthentication } from '../services/authService';
+import { useAuthentication } from '/src/services/authService';
 
 export default observer(function NavbarPresenter(props) {
 

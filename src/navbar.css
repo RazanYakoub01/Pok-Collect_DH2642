@@ -12,7 +12,6 @@ nav {
   margin-right: 5px;
 }
 
-<<<<<<< HEAD
   .login {
     margin-left: auto;
     color: white;
@@ -34,7 +33,6 @@ nav {
     margin-right: 0; /* Remove margin from the last item */
   }
   
-=======
 nav a {
   color: white;
   margin-right: 10px;
@@ -58,8 +56,3 @@ nav a:not(:last-child) {
   margin-right: 10px;
 }
 
-.login {
-  margin-left: auto;
-  color: white;
-}
->>>>>>> af65e5f9213ba34f61fb85dbdedb930a0967dddf
