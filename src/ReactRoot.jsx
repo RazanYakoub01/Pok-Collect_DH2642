@@ -62,9 +62,10 @@ function ReactRoot(props){
 
 
 export default observer(function ReactRoot(props) {
+  console.log(props);
   return (
     <Router>
-      <NavbarPresenter />
+      <NavbarPresenter model={props.navbarModel} />
       <Routes>
         <Route path="/" element={<HomePresenter />} />
         <Route path="/pokedex" element={<PokedexPresenter model={props.model} />} />

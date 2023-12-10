@@ -12,6 +12,27 @@ nav {
   margin-right: 5px;
 }
 
+  .login {
+    margin-left: auto;
+    color: white;
+  }
+  
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display the list items in a row */
+  }
+  
+  nav li {
+    margin-right: 10px; /* Adjust spacing between items */
+  }
+  
+  nav li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+  }
+  
 nav a {
   color: white;
   margin-right: 10px;
@@ -35,7 +56,3 @@ nav a:not(:last-child) {
   margin-right: 10px;
 }
 
-.login {
-  margin-left: auto;
-  color: white;
-}
