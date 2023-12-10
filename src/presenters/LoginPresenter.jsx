@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginView from '../views/loginView.jsx';
+import LoginView from '../views/loginView';
 import { observer } from "mobx-react-lite";
 import { useAuthentication } from '../services/authService';
 

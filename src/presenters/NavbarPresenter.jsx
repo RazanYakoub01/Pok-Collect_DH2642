@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarView from '/src/views/NavbarView.jsx';
+import NavbarView from '../views/navbarView';
 import { observer } from 'mobx-react-lite';
 import { useAuthentication } from '/src/services/authService';
 
