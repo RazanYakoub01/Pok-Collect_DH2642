@@ -11,6 +11,7 @@ import id from '/src/detailsImages/id.png';
 import exp from '/src/detailsImages/exp.png';
 import height from '/src/detailsImages/height.png';
 import kg from '/src/detailsImages/kg.png';
+
 const DetailsView = (props) => {
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ const DetailsView = (props) => {
         <div className="pokedex-data-container">
           {dataEntries.map((entry, index) => (
             <div key={index} className="pokedex-data-item">
-              {entry.image && <img src={entry.image} alt={entry.label} className="pokedex-data-image" />}
+              {entry.image && <img src={entry.image} className="pokedex-data-image" />}
               <p>{`${entry.label}: ${entry.value}`}</p>
             </div>
           ))}
@@ -91,7 +92,7 @@ const DetailsView = (props) => {
         {Object.entries(props.pokemonDetails.Stats).map(([stat, value], index) => (
           <div key={index} className="stat">
             <div className="stat-info">
-              <img src={statImages[stat]} alt={stat} className="stat-image" />
+              <img src={statImages[stat]} className="stat-image" />
               <p className="stat-name">{capitalizeFirstLetter(stat)}</p>
             </div>
             <div className="stat-bar">

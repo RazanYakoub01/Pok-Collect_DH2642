@@ -11,7 +11,10 @@ export default function NavbarView(props) {
             {item.action ? (
               <button onClick={item.action}>{item.name}</button>
             ) : (
-              <Link to={item.path}>{item.name}</Link>
+              <Link to={item.path}>           
+              <img src={item.image} className="navbar-icon" />
+              {item.name}
+              </Link>
             )}
           </li>
         ))}
