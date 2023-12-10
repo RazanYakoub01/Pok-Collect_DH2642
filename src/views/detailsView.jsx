@@ -93,7 +93,7 @@ const DetailsView = (props) => {
           <div key={index} className="stat">
             <div className="stat-info">
               <img src={statImages[stat]} className="stat-image" />
-              <l className="stat-name">{capitalizeFirstLetter(stat)}</l>
+              <div className="stat-name">{capitalizeFirstLetter(stat)}</div>
             </div>
             <div className="stat-bar">
               <div className={`stat${index + 1}`} style={{ width: `${Math.min(value, 100)}%` }}>

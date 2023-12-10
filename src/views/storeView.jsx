@@ -28,7 +28,7 @@ function StoreView(props) {
             <img src={pack.packImage} />
             <div className="packDetails">
               <h2>{pack.packName}</h2>
-              <l>Price: {pack.price} coins <img src={coin}/></l>
+              <div>Price: {pack.price} coins <img src={coin}/></div>
               <button className='storeButton' onClick={() => handleAddToCart(pack)}>Add to cart</button>
             </div>
           </div>

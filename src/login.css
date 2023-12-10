@@ -1,5 +1,4 @@
-.googleButton,
-.signOutButton {
+.googleButton {
   display: flex;
   align-items: center;
   font-size: 15px;
@@ -23,19 +22,6 @@
 
 .googleButton:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #5b605b;
-}
-
-.signOutButton {
-  background-color: black;
-  color: white;
-  background-image: url(https://static-00.iconduck.com/assets.00/sign-out-icon-2048x1793-220j26qs.png);
-  background-repeat: no-repeat;
-  background-position: 12px 50%;
-  background-size: 20px;
-}
-
-.signOutButton:hover {
   background-color: #5b605b;
 }
 

@@ -9,7 +9,10 @@ export default function NavbarView(props) {
         {props.items.map((item, index) => (
           <li key={index}>
             {item.action ? (
-              <button onClick={item.action}>{item.name}</button>
+             <span className='navTextWithImage' onClick={item.action}>
+             <img src={item.image} className="navbar-icon" alt={item.name} />
+             {item.name}
+           </span>
             ) : (
               <Link to={item.path}>           
               <img src={item.image} className="navbar-icon" />

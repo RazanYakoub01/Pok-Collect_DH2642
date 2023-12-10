@@ -7,6 +7,7 @@ import packs from '/src/navbarImages/packs.png';
 import search1 from '/src/navbarImages/search1.png';
 import shop from '/src/navbarImages/shop.png';
 import login from '/src/navbarImages/login.png';
+import signOut from '/src/navbarImages/signOut.png';
 
 const navbarModel = {
 
@@ -20,7 +21,7 @@ const navbarModel = {
         { name: "Cart", path: "/cart", image: cart1 },
         { name: "Packs", path: "/packs", image: packs },
         { name: "Collection", path: "/collection", image: collection },    
-        { name: 'Sign Out', action: handleSignOut },
+        { name: 'Sign Out', action: handleSignOut, image: signOut },
       ];
     } else {
       return [

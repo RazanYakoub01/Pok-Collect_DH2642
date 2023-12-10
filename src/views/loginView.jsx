@@ -1,15 +1,16 @@
 import React from 'react';
 import '/src/login.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import hm4 from '/src/homepageImages/hm4.png';
 
 const LoginView = (props) => {
-  const navigate = useNavigate(); // Initialize useNavigate
+
+  const navigate = useNavigate();
 
   const handleGoogleLoginACB = (event) => {
     event.preventDefault();
     props.googleSignIn();
-    navigate('/'); // Use navigate('/') for redirection after successful login
+    navigate('/');
   };
 
 

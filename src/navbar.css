@@ -22,15 +22,15 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Display the list items in a row */
+    display: flex; 
   }
   
   nav li {
-    margin-right: 10px; /* Adjust spacing between items */
+    margin-right: 10px; 
   }
   
   nav li:last-child {
-    margin-right: 0; /* Remove margin from the last item */
+    margin-right: 0;
   }
   
 nav a {
@@ -56,3 +56,25 @@ nav a:not(:last-child) {
   margin-right: 10px;
 }
 
+.navTextWithImage {
+  color: white;
+  display: flex;
+  cursor: pointer;
+  margin-top: 4px;
+  position: relative;
+}
+/*Just to get the white line under sign out, wont be displayed until hover*/
+.navTextWithImage::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+
+.navTextWithImage:hover::after {
+  display: block;
+}

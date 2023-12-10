@@ -6,9 +6,9 @@ const HomeView = () => {
   return (
     <div className='full-screen bg-home'>
       <h1>PokeCollect</h1>
-      <p>With PokeCollect you can explore a comprehensive Pokédex, discover and purchase exciting Pokémon packs in our virtual store 
-        and save your favorite pokémon to your collection.</p>
-      <p>Dive into the adventure, catch 'em all, and become a Pokémon Master with PokeCollect!"</p>
+      <div>With PokeCollect you can explore a comprehensive Pokédex, discover and purchase exciting Pokémon packs in our virtual store 
+        and save your favorite pokémon to your collection.</div>
+      <div>Dive into the adventure, catch 'em all, and become a Pokémon Master with PokeCollect!"</div>
       <div className="button-container">
         <Link to="/about">
           <button className="navigation-button">About Us</button>

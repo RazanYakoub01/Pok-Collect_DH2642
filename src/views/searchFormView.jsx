@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../search.css";
 import "../searchButton.css"
+import testS from '/src/searchImages/testS.jpeg';
+import pokeball from '/src/searchImages/pokeball.png';
 
 const SearchFormView = (props) => {
   const icons = [
@@ -63,14 +65,23 @@ const SearchFormView = (props) => {
         ))}
       </div>
       {renderSelectedTypes()}
-      <div className="searchButton">
+      <div>
+        <h1>
+        <img src={pokeball} width="50" height="50" />
+          Pokédex
+        </h1>
+      </div>
+      <div className="searchBar">
         <input
           type="text"
-          placeholder="Search Pokemon"
+          placeholder="Search For Pokemon"
           value={props.text || ""}
           onChange={inputACB}
         />
-        <button onClick={searchButtonACB}>Search!</button>
+        <button onClick={searchButtonACB}>
+          <img src={testS} />
+          Search!
+        </button>
       </div>
     </div>
   );
