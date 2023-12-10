@@ -12,16 +12,11 @@ const LoginView = (props) => {
     navigate('/'); // Use navigate('/') for redirection after successful login
   };
 
-  const handleGoogleSignOutACB = (event) => {
-    event.preventDefault();
-    logOut();
-    navigate('/');
-  };
 
   return (
     <div className='full-screen bg-login'>
       <h1>Login to your account </h1>
-      <button className='googleButton' onClick={handleGoogleLogin}>
+      <button className='googleButton' onClick={handleGoogleLoginACB}>
         Sign in with Google
       </button>
       <div>
