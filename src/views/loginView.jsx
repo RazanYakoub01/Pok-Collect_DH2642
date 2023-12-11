@@ -15,7 +15,7 @@ const LoginView = (props) => {
 
 
   return (
-    <div className='full-screen bg-login'>
+    <div>
       <h1>Login to your account </h1>
       <button className='googleButton' onClick={handleGoogleLoginACB}>
         Sign in with Google

@@ -2,12 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "/src/shoppingCart.css";
 import coin from '/src/storeImages/coin.png';
+import c from '/src/shoppingCartImages/c.png';
 
 function ShoppingCartView(props) {
   const items = props.cartItems || [];
   return (
     <div>
-      <p className="shoppingCart">Cart Items</p>
+      <div className="shoppingCartHeader">
+        <img src={c}/>
+        <h1 className="shoppingCart">Cart Items</h1>
+      </div>
       <div>
         {items.map((item) => (
           <div key={item.id} className="cart-item">

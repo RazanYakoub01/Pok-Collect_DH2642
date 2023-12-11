@@ -20,7 +20,7 @@ const navbarModel = {
         { name: "Store", path: "/store", image: shop },
         { name: "Cart", path: "/cart", image: cart1 },
         { name: "Packs", path: "/packs", image: packs },
-        { name: "Collection", path: "/collection", image: collection },    
+        { name: "Collection", path: "/collection", image: collection },  
         { name: 'Sign Out', action: handleSignOut, image: signOut },
       ];
     } else {

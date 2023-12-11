@@ -3,6 +3,7 @@ import "/src/shop.css";
 import { Link } from 'react-router-dom';
 import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
+import s from "/src/storeImages/s.png";
 
 function StoreView(props) {
   console.log(props.packs);
@@ -13,9 +14,10 @@ function StoreView(props) {
 
   return (
     <div className="shop">
-      <div className="shopTitle">
-        <h1>PokeCollect Pack shop</h1>
-      </div>
+    <div className="shopTitleContainer">
+      <img src={s} className="titleImage" alt="Shop Icon" />
+      <h1 className="shopTitle">PokeCollect Pack shop</h1>
+    </div>
       <div className="balance">
         <p>Current Balance: 200 coins <img src={coin} alt="coin" /></p>
         <p>Shopping Cart: <Link to="/cart">

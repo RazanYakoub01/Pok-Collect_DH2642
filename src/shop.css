@@ -16,11 +16,23 @@
   background-color: #5b605b;
 }
 
-.shopTitle {
-  margin-top: 100px;
-  text-align: center;
-  font-size: 40px;
-  padding: 10px;
+.shopTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
+
+.titleImage {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.titleImage {
+  width: 80px; 
+  height: auto;
+  display: flex;
 }
 
 .balance {

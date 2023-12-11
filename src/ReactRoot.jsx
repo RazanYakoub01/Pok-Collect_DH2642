@@ -14,52 +14,7 @@ import { createHashRouter,  RouterProvider} from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import RequireAuth from './protectedRoutes.jsx';
 import DetailsPresenter from './presenters/DetailsPresenter.jsx';
-
-
-/*
-export default
-observer(    
-function ReactRoot(props){
-    const routes = [
-        {
-          path: "/",
-          element: <HomePresenter model={props.model} />,
-        },
-        {
-          path: "/pokedex",
-          element: <PokedexPresenter model={props.model} />
-        },
-        {
-          path: "/store",
-          element: <StorePresenter model={props.model} />
-        },
-        {
-          path: "/packs",
-          element: <PacksPresenter model={props.model} />
-        },
-        {
-          path: "/about",
-          element: <AboutUsPresenter model={props.model} />
-        }
-      ];
-    
-      return (
-        <div>
-            <div>
-                <NavbarPresenter />
-            </div>
-          
-          <div>
-            <RouterProvider router={createHashRouter(routes)} />
-          </div>
-        </div>
-      );
-});
-  */
-
-
-
-
+import OpenCardsPresenter from './presenters/OpenCardsPresenter.jsx';
 
 export default observer(function ReactRoot(props) {
   console.log(props);
@@ -84,6 +39,10 @@ export default observer(function ReactRoot(props) {
 
         <Route element={<RequireAuth />}>
           <Route path="/packs" element={<PacksPresenter model = {props.model}/>} />
+        </Route>
+
+        <Route element={<RequireAuth />}>
+          <Route path="/openCards" element={<OpenCardsPresenter model = {props.model}/>} />
         </Route>
 
         <Route element={<RequireAuth />}>
