@@ -3,12 +3,26 @@ const BASE_URL= "https://pokeapi.co/api/v2/";
 // Fetches all Pokemon URLs from the API.
 function fetchAllPokemon() {
   // Edit limit to fetch more Pokemon
-  return fetch(BASE_URL + "pokemon?limit=151")
+  return fetch(BASE_URL + "pokemon?limit=1017")
     .then((response) => response.json())
     .then((data) => data.results.map((pokemon) => pokemon.url))
     .catch((error) =>
       console.error("Error fetching initial Pokémon data:", error)
     );
+}
+function fetchPokemonById(id) {
+  return fetch(BASE_URL + "pokemon/" + id)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(extractPokeData)
+    .catch((error) => {
+      console.error("Error fetching Pokémon details:", error);
+      throw error;
+    });
 }
 
 
@@ -73,7 +87,7 @@ function initializePokemonData() {
   if (cachedData) {
     console.log("Using cached data");
     const cachedPokemonIds = cachedData.map((pokemon) => pokemon.ID);
-    const allPokemonIds = Array.from({ length: 151 }, (_, i) => i + 1);
+    const allPokemonIds = Array.from({ length: 1017 }, (_, i) => i + 1);
     const missingPokemonIds = allPokemonIds.filter(
       (id) => !cachedPokemonIds.includes(id)
     );
