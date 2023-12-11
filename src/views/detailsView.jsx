@@ -106,8 +106,27 @@ const DetailsView = (props) => {
     );
   };
 
+  const renderMoves = () => {
+
+    const movesToShow = props.pokemonDetails.Moves.slice(0, 8);
+
+    return (
+      <div div className='moves'>
+        <h3 className='movesTitle'>Moves (showing {movesToShow.length} out of {props.pokemonDetails.Moves.length})</h3>
+        <div>
+          {movesToShow.map((move, index) => (
+            <span key={index} className="pill">
+              {move}
+            </span>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="details-container">
+      <button className='backButton' onClick={handleBackClick}>Back to Pokédex</button>
       <h1>{capitalizeFirstLetter(props.pokemonDetails.Name)}</h1>
       <div className="info-container">
         <div>
@@ -121,9 +140,9 @@ const DetailsView = (props) => {
       </div>
       <div className='stats'>
         {renderStats()}
-      </div>
-      <div>
-        <button className='backButton' onClick={handleBackClick}>Back to Pokédex</button>
+        {renderMoves()}
+        <p className='shiny-text'>Shiny {capitalizeFirstLetter(props.pokemonDetails.Name)}</p>
+          <img className='shiny-image' src={props.pokemonDetails.ImageURLShiny}/>
       </div>
     </div>
   );

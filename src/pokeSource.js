@@ -54,6 +54,9 @@ function extractPokeData(data) {
   data.stats.forEach((statItem) => {
     stats[statItem.stat.name] = statItem.base_stat;
   });
+
+  const moves = data.moves.map((moveInfo) => moveInfo.move.name);
+
   return {
     Name: data.name,
     ID: data.id,
@@ -63,7 +66,9 @@ function extractPokeData(data) {
     Types: data.types.map((typeInfo) => typeInfo.type.name),
     Abilities: data.abilities.map((ability) => ability.ability.name),
     ImageURL: data.sprites.front_default,
+    ImageURLShiny: data.sprites.front_shiny,
     Stats: stats,
+    Moves: moves,
   };
 }
 
