@@ -11,26 +11,6 @@ function fetchAllPokemon() {
     );
 }
 
-function fetchSpecificPokemon(searchParams) {
-  const urlString = new URLSearchParams(searchParams).get('query');
-  const endpoint = "pokemon/" + urlString;
-
-  return fetch(BASE_URL + endpoint)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      console.error("Error fetching specific Pokémon data:", error);
-      throw error;
-    });
-}
-
 
 // Fetches Pokemon details from the API with URL as parameter.
 function getPokemonDetails(url) {
@@ -47,6 +27,7 @@ function getPokemonDetails(url) {
       throw error;
     });
 }
+
 
 // Extracts Pokemon data from the API response.
 function extractPokeData(data) {
@@ -120,4 +101,4 @@ function initializePokemonData() {
   }
 }
 
-export { initializePokemonData, fetchSpecificPokemon, getPokemonDetails };
+export { initializePokemonData, getPokemonDetails };

@@ -2,9 +2,7 @@ import React from "react";
 import "../search.css";
 import { useNavigate } from 'react-router-dom';
 
-
 const SearchResultsView = (props) => {
-
   const navigate = useNavigate();
 
   const selectPokemonACB = (pokemon) => {
@@ -13,26 +11,11 @@ const SearchResultsView = (props) => {
     navigate(`/details/${pokemon.ID}`);
   };
 
-  const filteredPokemons = props.pokemons.filter((pokemon) => {
-    // If no types are selected, include all pokemons
-    if (props.selectedTypes.length === 0) {
-      return true;
-    }
-
-    // Count how many of the pokemon's types are in the selected types
-    const matchingTypeCount = pokemon.Types.reduce((count, type) => {
-      return count + (props.selectedTypes.includes(type) ? 1 : 0);
-    }, 0);
-
-    // If only one type is selected, we check for at least one match
-    // If multiple types are selected, we check if all matches are found
-    return props.selectedTypes.length === 1
-      ? matchingTypeCount > 0
-      : matchingTypeCount === props.selectedTypes.length;
-  });
+  // Update to use props.model.searchResultsPromiseState
+  const pokemons = props.model.searchResultsPromiseState.data || [];
 
   // If there are no pokemon with the current filter display that
-  if (filteredPokemons.length == 0) {
+  if (pokemons.length === 0) {
     return (
       <div className="no-results">
         <h1>No Pokemon found!</h1>
@@ -42,14 +25,14 @@ const SearchResultsView = (props) => {
     // If there are pokemon with current filters, display them
     return (
       <div className="search-results">
-        {filteredPokemons.map((pokemon) => (
+        {pokemons.map((pokemon) => (
           <div
             className={`pokemon-card type-${pokemon.Types[0]}`}
             key={pokemon.ID}
             onClick={() => selectPokemonACB(pokemon)}
           >
             <h2>{pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}</h2>
-            <img src={pokemon.ImageURL} alt={pokemon.name} />
+            <img src={pokemon.ImageURL} alt={pokemon.Name} />
           </div>
         ))}
       </div>
