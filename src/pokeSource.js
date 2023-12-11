@@ -11,10 +11,10 @@ function getEvolutionChain(pokemonID) {
       }
       return response.json();
     })
+    // Extract the evolution chain ID from the response
     .then(speciesData => {
       const evolutionChainUrl = speciesData.evolution_chain.url;
       const evolutionChainId = evolutionChainUrl.split("/").filter(part => part).pop();
-      console.log(evolutionChainId);
       return evolutionChainId;
     })
     .catch(error => {
@@ -39,14 +39,14 @@ function getEvolutionDetails(pokemonID) {
       currentPokemonName = pokemonData.name;
       return getEvolutionChain(pokemonID); // Fetch evolution chain ID
     })
-    .then(evolutionChainId => fetch(`${BASE_URL}evolution-chain/${evolutionChainId}`))
+    .then(evolutionChainId => fetch(`${BASE_URL}evolution-chain/${evolutionChainId}`)) // Fetch evolution details
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP Error! Status: ${response.status}`);
       }
       return response.json();
     })
-    .then(evolutionData => extractEvolutionData(evolutionData, currentPokemonName))
+    .then(evolutionData => extractEvolutionData(evolutionData, currentPokemonName)) // Extract evolution details
     .catch(error => {
       console.error("Error fetching evolution details:", error);
       throw error;
