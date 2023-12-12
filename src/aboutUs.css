@@ -1,31 +1,30 @@
-.full-screen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .bg-about {
-    background-image: url("/src/aboutUsImages/about1.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-  }
+.titleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+}
 
-  .contributor {
-    display: flex; 
-    margin: 20px; 
-  }
-  
-  .contributor img {
-    width: 100px; 
-    height: auto; 
-  }
-  
-  .contributor-text {
-    margin-left: 10px; 
-  }
-  
-  .contributor p {
-    text-align: center;
-  }
+.titleContainer img {
+  width: 100px;
+  height: auto;
+  margin-right: 15px;
+}
+
+.contributor {
+  display: flex; 
+  margin: 20px; 
+}
+
+.contributor img {
+  width: 100px; 
+  height: auto; 
+}
+
+.contributor-text {
+  margin-left: 10px; 
+}
+
+.contributor p {
+  text-align: center;
+}

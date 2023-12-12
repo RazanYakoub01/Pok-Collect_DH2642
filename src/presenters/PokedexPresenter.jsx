@@ -20,14 +20,6 @@ export default observer(
       console.log("currPokemonID", props.model.currentPokemon);
     }
 
-    // Search button (obsolete as updates are rendered immediately)
-    function searchButtonClickedACB() {
-      props.model.pokemonSearch({
-        query: props.model.searchParams.query,
-        selectedTypes: selectedTypes,
-      });
-    }
-
     // When user types in the search bar, update searchQuery and perform a search immediately.
     function searchTextChangeACB(searchText) {
       props.model.setSearchQuery(searchText);
@@ -102,7 +94,6 @@ export default observer(
             selectedTypes={selectedTypes}
             onIconClick={handleIconClick}
             onSelectedIconClick={handleSelectedIconClick}
-            clickSearch={searchButtonClickedACB}
             text={props.model.searchParams.query}
             searchInput={searchTextChangeACB}
           />

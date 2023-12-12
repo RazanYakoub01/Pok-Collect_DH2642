@@ -1,0 +1,43 @@
+.collection-view {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.collection-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.collection-header img {
+  width: 45px; 
+  height: auto;
+  margin-right: 15px;
+}
+
+.collection-title {
+  font-size: 2.0em; 
+  margin: 0;
+}
+
+.pokemon-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pokemon-card {
+  margin: 20px;
+  text-align: center;
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: auto;
+  margin-top: 40px;
+}
+
+.collected-info {
+  margin: 5px 0 0;
+}

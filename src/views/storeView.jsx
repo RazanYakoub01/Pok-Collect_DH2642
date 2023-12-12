@@ -1,8 +1,10 @@
 import React from 'react';
 import "/src/shop.css";
+import "/src/textFonts.css";
 import { Link } from 'react-router-dom';
 import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
+import s from "/src/storeImages/s.png";
 
 function StoreView(props) {
   console.log(props.packs);
@@ -13,13 +15,15 @@ function StoreView(props) {
 
   return (
     <div className="shop">
-      <div className="shopTitle">
-        <h1>PokeCollect Pack shop</h1>
-      </div>
+    <div className="shopTitleContainer">
+      <img src={s} className="titleImage" />
+      <h1 className="titleFont">PokéCollect  Shop</h1>
+    </div>
       <div className="balance">
-        <p>Current Balance: 200 coins <img src={coin} alt="coin" /></p>
-        <p>Shopping Cart: <Link to="/cart">
-          <img src={cart2} />
+        <p className='textFont'>Current Balance: 200 coins <img src={coin}/></p>
+        <p className='textFont'>Shopping Cart: <Link to="/cart">
+        <img src={cart2} style={{ width: '30px', height: '30px' }} />
+          ({props.totalItemsInCart})
         </Link></p>
       </div>
       <div className="packs">
@@ -27,8 +31,8 @@ function StoreView(props) {
           <div key={pack.id} className="pack">
             <img src={pack.packImage} />
             <div className="packDetails">
-              <h2>{pack.packName}</h2>
-              <div>Price: {pack.price} coins <img src={coin}/></div>
+              <h2 className='textFont'>{pack.packName}</h2>
+              <div className='textFont'>Price: {pack.price} coins <img src={coin}/></div>
               <button className='storeButton' onClick={() => handleAddToCart(pack)}>Add to cart</button>
             </div>
           </div>

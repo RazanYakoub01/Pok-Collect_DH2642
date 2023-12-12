@@ -1,6 +1,7 @@
 import React from 'react';
 import '/src/login.css';
 import hm4 from '/src/homepageImages/hm4.png';
+import "/src/textFonts.css";
 
 const LoginView = (props) => {
 
@@ -12,8 +13,8 @@ const LoginView = (props) => {
 
 
   return (
-    <div className='full-screen bg-login'>
-      <h1>Login to your account </h1>
+    <div>
+      <h1 className="titleFont">Login to your account </h1>
       <button className='googleButton' onClick={handleGoogleLoginACB}>
         Sign in with Google
       </button>

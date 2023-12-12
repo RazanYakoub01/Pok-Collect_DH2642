@@ -1,14 +1,105 @@
 const BASE_URL= "https://pokeapi.co/api/v2/";
 
+
+
+// Fetches the evolution chain ID for the given Pokemon ID
+function getEvolutionChain(pokemonID) {
+  return fetch(BASE_URL + "pokemon-species/"  + pokemonID)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    // Extract the evolution chain ID from the response
+    .then(speciesData => {
+      const evolutionChainUrl = speciesData.evolution_chain.url;
+      const evolutionChainId = evolutionChainUrl.split("/").filter(part => part).pop();
+      return evolutionChainId;
+    })
+    .catch(error => {
+      console.error("Error fetching Pokémon species:", error);
+      throw error;
+    });
+}
+
+// Fetches the evolution details for the given Pokemon
+function getEvolutionDetails(pokemonID) {
+  let currentPokemonName = '';
+
+  // Fetch the Pokémon's name first
+  return fetch(`${BASE_URL}pokemon/${pokemonID}`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(pokemonData => {
+      currentPokemonName = pokemonData.name;
+      return getEvolutionChain(pokemonID); // Fetch evolution chain ID
+    })
+    .then(evolutionChainId => fetch(`${BASE_URL}evolution-chain/${evolutionChainId}`)) // Fetch evolution details
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(evolutionData => extractEvolutionData(evolutionData, currentPokemonName)) // Extract evolution details
+    .catch(error => {
+      console.error("Error fetching evolution details:", error);
+      throw error;
+    });
+}
+
+
+// Extracts the evolution details from the API response
+function extractEvolutionData(data, currentPokemonName) {
+  let nextEvolution = null;
+
+  // Recursive function to traverse the evolution chain
+  function findNextEvolution(chain) {
+    if (chain.species.name === currentPokemonName) {
+      if (chain.evolves_to.length > 0) {
+        nextEvolution = chain.evolves_to[0].species.name; // Immediate next evolution
+      }
+      return; // Stop searching once we find the current Pokemon
+    }
+
+    chain.evolves_to.forEach(findNextEvolution); // Continue searching in the next level
+  }
+
+  findNextEvolution(data.chain);
+
+  return nextEvolution;
+}
+
+
+
 // Fetches all Pokemon URLs from the API.
 function fetchAllPokemon() {
   // Edit limit to fetch more Pokemon
-  return fetch(BASE_URL + "pokemon?limit=151")
+  return fetch(BASE_URL + "pokemon?limit=1017")
     .then((response) => response.json())
     .then((data) => data.results.map((pokemon) => pokemon.url))
     .catch((error) =>
       console.error("Error fetching initial Pokémon data:", error)
     );
+}
+function fetchPokemonById(id) {
+  return fetch(BASE_URL + "pokemon/" + id)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(extractPokeData)
+    .catch((error) => {
+      console.error("Error fetching Pokémon details:", error);
+      throw error;
+    });
 }
 
 
@@ -73,7 +164,7 @@ function initializePokemonData() {
   if (cachedData) {
     console.log("Using cached data");
     const cachedPokemonIds = cachedData.map((pokemon) => pokemon.ID);
-    const allPokemonIds = Array.from({ length: 151 }, (_, i) => i + 1);
+    const allPokemonIds = Array.from({ length: 1017 }, (_, i) => i + 1);
     const missingPokemonIds = allPokemonIds.filter(
       (id) => !cachedPokemonIds.includes(id)
     );
@@ -106,4 +197,4 @@ function initializePokemonData() {
   }
 }
 
-export { initializePokemonData, getPokemonDetails };
+export { initializePokemonData, getPokemonDetails, getEvolutionDetails };

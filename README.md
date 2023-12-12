@@ -22,12 +22,12 @@ Done:
 - Filter pokédex by type
 - Add packs to cart where you can change quantity
 - Click on a pokémon to get more details (detailsView)
+- Search for Pokémon
 
 Still plan to do: 
 
 - OpenPacks view/presenter for pack opening
-- Add Pokémon to personal collection 
-- Search for Pokémon
+- Add Pokémon to personal collection (collectionView/presenter)
 - In game currrency so you can make purchase
 - CSS
 
@@ -171,13 +171,13 @@ PokéAPI: https://pokeapi.co
 - **Views and Presenters:** Home, About Us, Store
 
 ### Razan
-- **Views and Presenters:** Cart, Packs
+- **Views and Presenters:** Cart, Packs, Navbar
 
 ### Alexander
-- **Views and Presenter:** Login, Details View
+- **Views and Presenter:** Login, Details View, Navbar
 
 ### Elias
-- **Views and Presenter:** Search, Pokedex
+- **Views and Presenter:** Search, Pokedex, Navbar
 
 ### Shared Responsibilities
 - **Views and Presenters:** Collection, Open Packs

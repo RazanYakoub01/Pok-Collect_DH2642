@@ -152,16 +152,7 @@ h1 {
 }
 
 .no-results {
-  background-image: url("/src/searchImages/noResults.png");
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 2%;
+  text-align: center;
 }
 
 html,

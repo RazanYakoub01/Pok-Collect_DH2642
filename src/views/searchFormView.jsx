@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../search.css";
-import "../searchButton.css"
-import testS from '/src/searchImages/testS.jpeg';
+import "../searchBox.css"
+import "/src/textFonts.css";
+import k2 from '/src/searchImages/k2.png';
 import pokeball from '/src/searchImages/pokeball.png';
+import pokeball2 from '/src/searchImages/pokeball2.webp';
 
 const SearchFormView = (props) => {
   const icons = [
@@ -28,10 +30,6 @@ const SearchFormView = (props) => {
 
   function inputACB(evt){
     props.searchInput(evt.target.value);
-  }
-
-  function searchButtonACB(){
-    props.clickSearch();
   }
 
   const renderSelectedTypes = () => {
@@ -66,22 +64,19 @@ const SearchFormView = (props) => {
       </div>
       {renderSelectedTypes()}
       <div>
-        <h1>
+        <h1 className="titleFont">
         <img src={pokeball} width="50" height="50" />
           Pokédex
         </h1>
       </div>
-      <div className="searchBar">
+      <div className="searchBox">
         <input
           type="text"
           placeholder="Search For Pokemon"
           value={props.text || ""}
           onChange={inputACB}
         />
-        <button onClick={searchButtonACB}>
-          <img src={testS} />
-          Search!
-        </button>
+        <img className='keyboardImage' src={k2}/>
       </div>
     </div>
   );
