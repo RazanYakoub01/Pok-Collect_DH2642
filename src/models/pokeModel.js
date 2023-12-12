@@ -1,13 +1,32 @@
 import { observer } from "mobx-react-lite";
-import { initializePokemonData } from "../pokeSource";
+import { initializePokemonData , getPokemonDetails } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
-import { getPokemonDetails } from "../pokeSource";
-import testPack1 from "/src/shoppingCartImages/testPack1.png";
-import testPack2 from "/src/shoppingCartImages/testPack2.png";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
+import {  database } from '/src/firebaseConfig.js';
+import { ref, update } from 'firebase/database';
+
+const updateUserCartInFirebase = (user, cartItems, totalPrice) => {
+
+  if (user) {
+    const userCartRef = ref(database, `users/${user.uid}/cart`);
+
+    update(userCartRef, { cartItems, totalPrice })
+      .then(() => {
+        console.log('User cart updated successfully');
+      })
+      .catch((error) => {
+        console.error('Error updating user cart:', error);
+      });
+
+  }
+};
+
+
 const pokeModel = {
+
   collection: [],
+  updateUserCartInFirebase: updateUserCartInFirebase, 
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
   searchParams: {},
@@ -26,28 +45,24 @@ const pokeModel = {
 
   balance: 200,
 
-  //Cart functions
-  cartItems: [
-    {
-      id: 1,
-      packName: "Test Pack 1",
-      price: 50,
-      quantity: 1,
-      packImage: testPack1,
-    },
-    {
-      id: 2,
-      packName: "Test Pack 2",
-      price: 75,
-      quantity: 2,
-      packImage: testPack2,
-    },
-  ],
+  // Making cartItems and totalPrice observable
+  cartItems : [],
+  totalPrice : 0,
 
-  totalPrice: 200,
+  setCartItems(items) {
+    this.cartItems = items;
+  },
+
+  setTotalPrice(price) {
+    this.totalPrice = price;
+  },
+
+  updateUserCartInFirebase  (user, cartItems, totalPrice) {
+    updateUserCartInFirebase  (user, cartItems, totalPrice)
+  },
 
   // Add an item to the cart
-  addItem(item) {
+  addItem(item,user) {
     const existingItem = this.cartItems.find(
       (cartItem) => cartItem.id === item.id
     );
@@ -60,10 +75,11 @@ const pokeModel = {
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
+    this.updateUserCartInFirebase(user, this.cartItems, this.totalPrice);
   },
 
   // Update the quantity of an item in the cart
-  updateItemQuantity(itemId, newQuantity) {
+  updateItemQuantity(itemId, newQuantity,user) {
     const itemToUpdate = this.cartItems.find((item) => item.id === itemId);
     if (itemToUpdate) {
       const priceDifference =
@@ -72,15 +88,20 @@ const pokeModel = {
       this.totalPrice += priceDifference;
       console.log(newQuantity);
     }
+
+    this.updateUserCartInFirebase(user, this.cartItems, this.totalPrice);
+
   },
 
   // Remove an item from the cart
-  removeItem(itemId) {
+  removeItem(itemId,user) {
     const itemIndex = this.cartItems.findIndex((item) => item.id === itemId);
     if (itemIndex !== -1) {
       const removedItem = this.cartItems.splice(itemIndex, 1)[0];
       this.totalPrice -= removedItem.price * removedItem.quantity;
     }
+    this.updateUserCartInFirebase(user, this.cartItems, this.totalPrice);
+
   },
 
   // Set the quantity of a pack

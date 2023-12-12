@@ -5,6 +5,7 @@ import coin from '/src/storeImages/coin.png';
 
 function ShoppingCartView(props) {
   const items = props.cartItems || [];
+  console.log(items);
   return (
     <div>
       <p className="shoppingCart">Cart Items</p>

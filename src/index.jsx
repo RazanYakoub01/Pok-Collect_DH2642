@@ -3,7 +3,6 @@ import model from './models/pokeModel.js';
 import navbar_model from './models/NavbarModel.js';
 
 
-
 configure({ enforceActions: "never", });  // we don't use Mobx actions
 const reactiveModel= observable(model);
 const reactiveNavbarModel= observable(navbar_model);
@@ -21,8 +20,8 @@ createRoot(document.getElementById('root')).render(<ReactRoot model={reactiveMod
 
 
 reactiveModel.getPokemonData();
+
+
 // ------ for debug purposes ----------
 //window.myModel= model;             // make the model available in the Console
 window.myModel= reactiveModel;  
-
-
