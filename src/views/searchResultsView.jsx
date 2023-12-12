@@ -1,6 +1,7 @@
 import React from "react";
 import "../search.css";
 import { useNavigate } from 'react-router-dom';
+import "/src/textFonts.css";
 
 const SearchResultsView = (props) => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const SearchResultsView = (props) => {
   if (pokemons.length === 0) {
     return (
       <div className="no-results">
-        <h1>No Pokemon found!</h1>
+        <h2>Sorry, no Pokémon matches that name!</h2>
       </div>
     );
   } else {
@@ -31,7 +32,7 @@ const SearchResultsView = (props) => {
             key={pokemon.ID}
             onClick={() => selectPokemonACB(pokemon)}
           >
-            <h2>{pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}</h2>
+            <h2 className="textFont">{pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}</h2>
             <img src={pokemon.ImageURL} alt={pokemon.Name} />
           </div>
         ))}

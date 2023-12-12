@@ -1,11 +1,11 @@
-.searchBar {
+.searchBox {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30vh; 
 }
 
-.searchBar input {
+.searchBox input {
   background: #fff;                            
   border: 2px solid #000;                     
   width: 500px;                                    
@@ -15,23 +15,15 @@
   margin-right: -20px; 
 }
 
-.searchBar input:focus {
+.searchBox input:focus {
   outline: none; 
   border-color: #000;
 }
 
-.searchBar button {
-  padding: 11px;
-  cursor: pointer;
-  background: black;  
-  color: #fff;         
-  border: none;
-  border-radius: 50px; 
-  margin-left: -69px;  
+.keyboardImage { 
+  width: 41px;
+  height: auto;
+  margin-left: -33px; 
+  margin-right: 10px; 
 }
 
-.searchBar button img {
-  width: 14px;   
-  height: 14px;  
-  margin-right: 5px;
-}

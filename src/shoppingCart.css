@@ -6,9 +6,9 @@
 }
 
 .shoppingCartHeader img {
-  width: 40px; 
+  width: 60px; 
   height: auto;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .shoppingCart {
@@ -28,14 +28,19 @@
   margin: 30px;
 }
 
+.cart-item-details p {
+  margin: 10px; 
+}
+
 .cart-item img {
   width: 120px; 
-  height: 120px;
+  height: auto;
   margin-right: 10px;
 }
 
 .itemName {
-  font-weight: bold; 
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .cart-item-details p img {

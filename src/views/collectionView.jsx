@@ -1,6 +1,7 @@
 import React from 'react';
 import "../search.css";
 import "../collection.css";
+import "/src/textFonts.css";
 import { useNavigate } from 'react-router-dom';
 import test1C from '/src/collectionImages/test1C.jpg';
 import test2C from '/src/collectionImages/test2C.jpg';
@@ -29,7 +30,7 @@ const CollectionView = (props) => {
     <div className="collection-view">
       <div className="collection-header">
         <img src={backpack}/>
-        <h1 className="collection-title">{username}'s Pokémon Collection</h1>
+        <h1 className="titleFont collection">{username}'s Pokémon Collection</h1>
       </div>
       <div>{`Collected ${hardCodedPokemonData.length} Pokémon out of ${totalPokemonCount}`}</div>
       <div className="pokemon-cards">

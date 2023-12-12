@@ -9,9 +9,11 @@ export default observer(function StorePresenter(props) {
     props.model.addItem(selectedPack);
   };
 
+  const totalItemsInCart = props.model.getTotalItemsInCart();
 
   return <StoreView 
   packs={packs} 
-  addToCartACB={addToCartACB} 
+  addToCartACB={addToCartACB}
+  totalItemsInCart={totalItemsInCart}
   />;
 });

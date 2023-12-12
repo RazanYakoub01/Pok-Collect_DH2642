@@ -1,0 +1,15 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+@import url('https://fonts.cdnfonts.com/css/gridking');
+
+
+  body {
+    font-family: 'Gridking', sans-serif;
+  }
+  
+  h1 {
+    font-family: 'Pokemon Solid', sans-serif;
+  }
+
+  .titleFont.collection {
+    font-size: 35px;
+  }

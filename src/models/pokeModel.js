@@ -1,7 +1,9 @@
+import { useState, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { initializePokemonData } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 import { getPokemonDetails } from "../pokeSource";
+import { getEvolutionDetails } from "../pokeSource";
 import testPack1 from "/src/shoppingCartImages/testPack1.png";
 import testPack2 from "/src/shoppingCartImages/testPack2.png";
 const BASE_URL = "https://pokeapi.co/api/v2/";
@@ -13,6 +15,8 @@ const pokeModel = {
   searchParams: {},
   searchResultsPromiseState: {},
   currentPokemonPromiseState: {},
+  currentEvolution: null,
+  currentEvolutionPromiseState: {},
   packs: [
     {
       packID: "1",
@@ -60,6 +64,11 @@ const pokeModel = {
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
+  },
+
+  // gets the total number of items in the cart
+  getTotalItemsInCart() {
+    return this.cartItems.reduce((total, item) => total + item.quantity, 0);
   },
 
   // Update the quantity of an item in the cart
@@ -149,17 +158,29 @@ const pokeModel = {
   // Sets current pokemon based on pokemonID and fetches details about it.
   setCurrentPokemon(pokemonID) {
     const url = BASE_URL + "pokemon/" + pokemonID;
+
     if (pokemonID) {
       if (this.currentPokemon !== pokemonID) {
         this.currentPokemon = pokemonID;
-        const promise = getPokemonDetails(url);
-        resolvePromise(promise, this.currentPokemonPromiseState);
+
+        // Fetch both details and evolution promises
+        const pokemonDetailsPromise = getPokemonDetails(url);
+        const evolutionPromise = getEvolutionDetails(pokemonID);
+
+        // Resolve promises
+        resolvePromise(pokemonDetailsPromise, this.currentPokemonPromiseState);
+        resolvePromise(evolutionPromise, this.currentEvolutionPromiseState);
       }
     } else {
       this.currentPokemon = null;
       this.currentPokemonPromiseState = {};
+
+      // Reset evolution data when no Pokémon is selected
+      this.currentEvolution = null;
+      this.currentEvolutionPromiseState = {};
     }
   },
+
 };
 
 export default observer(pokeModel);
