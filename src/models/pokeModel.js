@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { initializePokemonData , getPokemonDetails } from "../pokeSource";
+import { initializePokemonData , getPokemonDetails ,getEvolutionDetails } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
-import { getPokemonDetails } from "../pokeSource";
-import { getEvolutionDetails } from "../pokeSource";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
 import {  database } from '/src/firebaseConfig.js';
