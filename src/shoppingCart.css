@@ -97,3 +97,27 @@
 .cart-actions button:hover {
   background-color: #5b605b;
 }
+
+/*media query for phones*/
+
+@media only screen and (max-width: 1100px) {
+  .shoppingCartHeader {
+    transform: translate(-230px, 0px);
+  }
+
+  .shoppingCartHeader img {
+    margin-right: -10;
+    margin-bottom: 10px;
+  }
+
+  .titleFont {
+    padding-left: 15;
+    white-space: nowrap;
+  }
+
+  .cart-actions {
+    margin-left: 300px;
+    margin-top: 30px;
+  }
+
+}

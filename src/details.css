@@ -267,3 +267,47 @@
 .type-fairy {
   background-color: #ec8fe6;
 }
+
+/* media query for phones */
+@media only screen and (max-width: 1100px) {
+  .info-container {
+    flex-direction: column;
+  }
+
+  .info-container > div {
+    margin: 10px 0;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    transform: translate(60px,0px)
+
+  }
+
+  .pokemon-image {
+    width: 350; 
+    height: auto;
+    transform: translate(175px,0px)
+  }
+
+  .stats {
+    margin: 10px 0;
+  }
+
+  .shiny-text {
+    position: static;
+    margin: 10px 0;
+    text-align: center;
+    transform: translate(-200px, -150px);
+  }
+
+  .shiny-image {
+    width: 350;
+    margin-top: 10px;
+    transform: translate(-810px, 640px);
+  }
+
+  .moves {
+    margin-top: 10px;
+    transform: translate(-100px, 480px);
+  }
+}

@@ -31,6 +31,16 @@ Still plan to do:
 - In game currrency so you can make purchase
 - CSS
 
+User evaluation:
+
+-Users said that our text style was basic so we added a pokemon style to our text to make it look better
+
+-Users said that it would be better to give an indication when the ”add to cart” button was pressed in the store. We fixed this by showing the number of items in the cart, so when you press add to cart you will se the quantity increase
+
+-Users found a bug where if you pressed sign out on a protected route you would still be at that page and will be able to for example add items to cart. We fixed this by redirecting the user to the home page after pressing sign out. 
+
+-Users felt like the website did not work great on mobile. We improved this by using css media queries (still working on). 
+
 ## Run The App Locally
 
 ### 1. Download or Clone this repository:
