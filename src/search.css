@@ -48,21 +48,23 @@
 }
 
 .type-icon:hover {
-  outline-color: gray;
+  transform: scale(1.1);
+  transition: transform 0.1s;
 }
 
 .type-icon.selected {
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Green-checkmark.svg/1200px-Green-checkmark.svg.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: black;
+  background-color: grey;
+  filter: grayscale(100%);
 }
 
 .selected-types {
   display: flex;
   justify-content: center;
-  background-color: orange;
+  background-color: black;
+}
+
+.selected-types h2 {
+  color: white;
 }
 
 .selected-type {

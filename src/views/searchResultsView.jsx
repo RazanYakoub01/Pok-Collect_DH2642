@@ -19,7 +19,7 @@ const SearchResultsView = (props) => {
   if (pokemons.length === 0) {
     return (
       <div className="no-results">
-        <h2>Sorry, no Pokémon matches that name!</h2>
+        <h2>Sorry, no matching Pokémon could be found!</h2>
       </div>
     );
   } else {

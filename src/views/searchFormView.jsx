@@ -39,7 +39,7 @@ const SearchFormView = (props) => {
 
     return (
       <div className="selected-types">
-        <h1>Filter:</h1>
+        <h2>Filter:</h2>
         {props.selectedTypes.map((type) => (
           <div key={type} className="selected-type">
             <div className={`type-icon ${type}`} onClick={() => props.onSelectedIconClick(type)}></div>
