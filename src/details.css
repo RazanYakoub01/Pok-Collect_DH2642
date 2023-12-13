@@ -297,17 +297,17 @@
     position: static;
     margin: 10px 0;
     text-align: center;
-    transform: translate(-200px, -150px);
+    transform: translate(-15px, 35px);
   }
 
   .shiny-image {
     width: 350;
     margin-top: 10px;
-    transform: translate(-810px, 640px);
+    transform: translate(-610px, 900px);
   }
 
   .moves {
     margin-top: 10px;
-    transform: translate(-100px, 480px);
+    transform: translate(-300px, 460px);
   }
 }
