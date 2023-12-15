@@ -1,30 +1,147 @@
-.titleContainer {
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+.flex-row-homepage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.flex-column-aboutus {
+  margin-top: 20vh;
+  height: 100vh;
+  justify-content: center;
+  margin-left: 5vw;
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.App-name {
+  width: 100%;
+  display: flex;
+  align-items: end;
+
+  font-family: 'Pokemon Solid', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 5vw;
+}
+
+
+.description-font-20px {
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  width: 100%;
+  height: fit-content;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
-  justify-content: center;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5vw;
+  line-height: 34px;
 }
 
-.titleContainer img {
-  width: 100px;
-  height: auto;
-  margin-right: 15px;
+meet-the-team{
+  width: fit-content;
+  height: fit-content;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 34px;
+
+
 }
 
-.contributor {
-  display: flex; 
-  margin: 20px; 
+.flex-row-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5vh;
 }
 
-.contributor img {
-  width: 100px; 
-  height: auto; 
+.square-profile {
+  width: 43vw;
+  height: 45vh;
+
+  background: linear-gradient(156.66deg, #683D88 0%, rgba(94, 119, 251, 0.5) 99.16%);
+  border-radius: 20px;
+  padding: 2vw;
 }
 
-.contributor-text {
-  margin-left: 10px; 
+.flex-column-profile {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: center;
 }
 
-.contributor p {
-  text-align: center;
+.profile-image {
+  margin-bottom: 2vh;
+  border-radius: 50%;
+  size: 80%;
+  
 }
+
+
+.profile-name {
+  width: fit-content;
+  height: fit-content;
+
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: bold;
+  font-weight: 200;
+  font-size: 1.2vw;
+  line-height: 5px;
+
+  color: #ffff;
+
+}
+
+
+.profile-email {
+  width: fit-content;
+  height: fit-content;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: bold;
+  font-weight: 200;
+  font-size: 1vw;
+  line-height: 15px;
+
+  color: #ffff;}
+
+
+  .more-about-member {
+    width: 40vw;
+    margin-left: 30px;
+  }
+
+  .profile-bold {
+    width: fit-content;
+    height: fit-content;
+    display: inline;
+  
+    font-family: "Ubuntu", arial, serif;
+    font-style: bold;
+    font-weight: 600;
+    font-size: 1vw;
+    line-height: 34px;
+  
+    color: #ffff;
+
+  }
+
+  .LO-list{
+    height: fit-content;
+
+  font-family: "Ubuntu", arial, serif;
+  font-style: light;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 25px;
+  margin-block-start: 0;
+  color: #ffff;
+}
+
