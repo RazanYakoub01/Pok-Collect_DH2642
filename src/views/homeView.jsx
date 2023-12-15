@@ -1,7 +1,7 @@
 import React from 'react';
-import "/src/home.css";
-import "/src/textFonts.css";
 import { Link } from 'react-router-dom';
+import '/src/home.css';
+import '/src/textFonts.css';
 import hm6 from '/src/homepageImages/hm6.png';
 import hm1 from '/src/homepageImages/hm1.jpg';
 
@@ -9,13 +9,16 @@ const HomeView = () => {
   return (
     <div>
       <div className="title-container">
-        <img className="titleImage" src={hm1}/>
+        <img className="titleImage" src={hm1} alt="PokéCollect Logo" />
         <h1 className="titleFont">PokéCollect</h1>
       </div>
       <div className='paragraph-container'>
-      <p className='textFont'>With PokéCollect, you can explore a comprehensive Pokédex, discover and purchase exciting Pokémon packs in our virtual store 
-        and save your favorite pokémon to your collection.</p>
-      <p className='textFont'>Dive into the adventure, catch 'em all, and become a Pokémon Master with PokeCollect!</p>
+        <p className='textFont'>
+          Explore a comprehensive Pokédex, discover and purchase exciting Pokémon packs in our virtual store, and save your favorite Pokémon to your collection with PokéCollect.
+        </p>
+        <p className='textFont'>
+          Dive into the adventure, catch 'em all, and become a Pokémon Master with PokeCollect!
+        </p>
       </div>
       <div className="button-container">
         <Link to="/about">
@@ -26,7 +29,7 @@ const HomeView = () => {
         </Link>
       </div>
       <div>
-        <img className='homeImg' src={hm6}/>
+        <img className='homeImg' src={hm6} alt="Pokémon Illustration" />
       </div>
     </div>
   );
