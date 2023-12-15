@@ -127,25 +127,39 @@ meet-the-team{
   .more-about-member {
     width: 40w; /* Set the width according to your design */
     max-width: 60%; /* Ensure it doesn't exceed the available space */
-    margin-left: 30px;
+    margin-left: 42px;
   }
 
+
   .profile-bold {
-    max-width: 200px; /* Adjust the maximum width based on your design */
+    width: fit-content;
     height: fit-content;
+    display: inline;
   
-    overflow: hidden;
-    white-space: nowrap; /* Prevent text from wrapping to the next line */
-  
-    font-family: "serif";
+    font-family: "Ubuntu", arial, serif;
     font-style: bold;
-    font-weight: 200;
+    font-weight: 600;
     font-size: 1vw;
-    line-height: 35px;
+    line-height: 34px;
+    flex-direction: column;
+  
+    color: #ffff;
+  }
+
+  .description-font{
+    width: 40vw;
+    height: fit-content;
+    display: inline;
+  
+    font-family: "Ubuntu", arial, serif;
+    font-style: light;
+    font-weight: 400;
+    font-size: 1vw;
+    line-height: 34px;
+    margin-block-start: 0;
     color: #ffff;
   }
   
-
   .LO-list{
     height: fit-content;
 
@@ -158,3 +172,12 @@ meet-the-team{
   color: #ffff;
 }
 
+.program-text {
+  font-family: "Ubuntu", arial, serif;
+  font-style: light;
+  font-weight: 400;
+  font-size: 1vw;
+  line-height: 34px;
+  margin-block-start: 0;
+  color: #ffff;
+}

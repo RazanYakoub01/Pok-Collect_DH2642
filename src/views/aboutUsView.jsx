@@ -30,23 +30,23 @@ const AboutUsView = ({ memberArray }) => {
                   <a className="profile-email" href={member.linkedIn}>My LinkedIn</a>
                 </span>
                 <span className="more-about-member">
-                   <p className="profile-bold">Program:</p>
-                   <p className="description-font-20px-profile">{member.program}</p>
-                  <br />
-                <br />
-                <p className="profile-bold">Learning Objectives: </p>
-                <ul className="LO-list">
-                  <li>{member.LO1}</li>
-                  <li>{member.LO2}</li>
-                </ul>
-              </span>
-
+              <div style={{ display: "flex", flexDirection: "row" }}>
+              <div className="profile-bold" style={{ marginRight: "8px" }}>Program:</div>
+              <div className="program-text">{member.program}</div>
               </div>
+             <br />
+            <div className="profile-bold">Learning Objectives:</div>
+            <ul className="LO-list">
+                <li>{member.LO1}</li>
+                <li>{member.LO2}</li>
+            </ul>
+          </span>
+
+          </div>
             )
           })}
         </div>
       </div>
-      <div className="grarphic-background"></div>
     </div>
   );
 };
