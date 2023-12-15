@@ -1,12 +1,23 @@
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
+.logo-image {
+  width: 110px; /* Set the width to your desired size */
+  height: auto;
+  margin-left: 10px; /* Adjust the margin to shift it to the right */
+}
+.flex-row {
+  display: flex;
+  align-items: center; /* Align the items vertically in the flex container */
+  margin-bottom: 15px;
+}
+
 .flex-row-homepage {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .flex-column-aboutus {
-  margin-top: 20vh;
+  margin-top: 5vh;
   height: 100vh;
   justify-content: center;
   margin-left: 5vw;
@@ -23,8 +34,8 @@
   font-style: normal;
   font-weight: 700;
   font-size: 5vw;
+  margin-left: 50px; /* Add margin to create space between the logo and the title */
 }
-
 
 .description-font-20px {
   padding-top: 3vh;
@@ -64,11 +75,11 @@ meet-the-team{
 .square-profile {
   width: 43vw;
   height: 45vh;
-
-  background: linear-gradient(156.66deg, #683D88 0%, rgba(94, 119, 251, 0.5) 99.16%);
+  background-color: #3498db; /* Pokémon blue */
   border-radius: 20px;
   padding: 2vw;
 }
+
 
 .flex-column-profile {
   display: flex;
@@ -123,7 +134,7 @@ meet-the-team{
     height: fit-content;
     display: inline;
   
-    font-family: "Ubuntu", arial, serif;
+    font-family: "serif";
     font-style: bold;
     font-weight: 600;
     font-size: 1vw;

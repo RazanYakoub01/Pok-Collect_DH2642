@@ -1,14 +1,18 @@
 import React from 'react';
 import "/src/aboutUs.css";
 import "/src/textFonts.css";
+import tiImage from "/src/aboutUsImages/ti.jpg";
 
 const AboutUsView = ({ memberArray }) => {
   return (
     <div className="flex-row-homepage">
       <div className="flex-column-aboutus">
-        <h className="App-name">About us</h>
+        <div className="flex-row">
+          <img src={tiImage} alt="PokeCollect Logo" className="logo-image" />
+          <h1 className="App-name">About us</h1>
+        </div>
         <div className="description-font-20px">
-        Welcome to PokeCollect, where our passion for Pokémon comes to life in the digital realm! Our journey began with a simple yet profound goal: to create an interactive online space that celebrates the enchanting world of Pokémon.
+          Welcome to PokeCollect, where our passion for Pokémon comes to life in the digital realm! Our journey began with a simple yet profound goal: to create an interactive online space that celebrates the enchanting world of Pokémon.
         </div>
 
         <a style={{ fontSize: "2vw" }} href="https://github.com/RazanYakoub01/PokeCollect_DH2642">GitHub</a>
@@ -26,7 +30,7 @@ const AboutUsView = ({ memberArray }) => {
                   <a className="profile-email" href={member.linkedIn}>My LinkedIn</a>
                 </span>
                 <span className="more-about-member">
-                  <p className="profile-bold">Programe: <p className="description-font-20px-profile">{member.program}</p></p><br /> <br />
+                  <p className="profile-bold">Program: <p className="description-font-20px-profile">{member.program}</p></p><br /> <br />
                   <p className="profile-bold">Learning Objectives: </p>
                   <ul className="LO-list">
                     <li>{member.LO1}</li>
@@ -44,4 +48,3 @@ const AboutUsView = ({ memberArray }) => {
 };
 
 export default AboutUsView;
-
