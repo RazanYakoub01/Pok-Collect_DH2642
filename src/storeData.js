@@ -9,66 +9,20 @@ import pack8 from "/src/storeImages/pack8.png";
 import pack9 from "/src/storeImages/pack9.jpg";
 import pack10 from "/src/storeImages/pack10.jpg";
 
+const generatePack = (id, packName, price, packImage) => ({ id, packName, price, packImage });
 
-export const packs = [
-  {
-    id: 1,
-    packName: "Gen 1 pack",
-    price: 75,
-    packImage: pack1,
-  },
-  {
-    id: 2,
-    packName: "Gen 2 pack",
-    price: 75,
-    packImage: pack2,
-  },
-  {
-    id: 3,
-    packName: "Gen 3 pack",
-    price: 75,
-    packImage: pack3,
-  },
-  {
-    id: 4,
-    packName: "Gen 4 pack",
-    price: 75,
-    packImage: pack4,
-  },
-  {
-    id: 5,
-    packName: "Gen 5 pack",
-    price: 75,
-    packImage: pack5,
-  },
-  {
-    id: 6,
-    packName: "Gen 6 pack",
-    price: 75,
-    packImage: pack6,
-  },
-  {
-    id: 7,
-    packName: "Gen 7 pack",
-    price: 75,
-    packImage: pack7,
-  },
-  {
-    id: 8,
-    packName: "Gen 8 pack",
-    price: 75,
-    packImage: pack8,
-  },
-  {
-    id: 9,
-    packName: "Gen 9 pack",
-    price: 75,
-    packImage: pack9,
-  },
-  {
-    id: 10,
-    packName: "Legendary pack",
-    price: 100,
-    packImage: pack10,
-  },
+const packNames = [
+  "Gen 1 pack", "Gen 2 pack", "Gen 3 pack", "Gen 4 pack", "Gen 5 pack",
+  "Gen 6 pack", "Gen 7 pack", "Gen 8 pack", "Gen 9 pack", "Legendary pack"
 ];
+
+const packImagePaths = [
+  pack1, pack2, pack3, pack4, pack5, pack6, pack7, pack8, pack9, pack10
+];
+
+const basePrice = 75;
+const legendaryPackPrice = 100;
+
+export const packs = packNames.map((packName, index) => 
+  generatePack(index + 1, packName, index === 9 ? legendaryPackPrice : basePrice, packImagePaths[index])
+);
