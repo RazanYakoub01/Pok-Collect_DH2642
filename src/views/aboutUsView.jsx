@@ -30,13 +30,17 @@ const AboutUsView = ({ memberArray }) => {
                   <a className="profile-email" href={member.linkedIn}>My LinkedIn</a>
                 </span>
                 <span className="more-about-member">
-                  <p className="profile-bold">Program: <p className="description-font-20px-profile">{member.program}</p></p><br /> <br />
-                  <p className="profile-bold">Learning Objectives: </p>
-                  <ul className="LO-list">
-                    <li>{member.LO1}</li>
-                    <li>{member.LO2}</li>
-                  </ul>
-                </span>
+                   <p className="profile-bold">Program:</p>
+                   <p className="description-font-20px-profile">{member.program}</p>
+                  <br />
+                <br />
+                <p className="profile-bold">Learning Objectives: </p>
+                <ul className="LO-list">
+                  <li>{member.LO1}</li>
+                  <li>{member.LO2}</li>
+                </ul>
+              </span>
+
               </div>
             )
           })}
