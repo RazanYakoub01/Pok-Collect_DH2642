@@ -35,3 +35,24 @@ div p {
   margin-top: 20px;
   margin-left: 560px; 
 }
+
+/* Media query for phones */
+@media only screen and (max-width: 1100px) {
+  /*Centers button */
+  .googleButton {
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+  /*Centers text */
+  div p {
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center; 
+  }
+
+  .homeImg {
+    transform: translate(-230px, 0px);
+  }
+}

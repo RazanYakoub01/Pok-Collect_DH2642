@@ -111,7 +111,7 @@ const DetailsView = (props) => {
     const movesToShow = props.pokemonDetails.Moves.slice(0, 8);
 
     return (
-      <div div className='moves'>
+      <div className='moves'>
         <h3 className='movesTitle'>Moves (showing {movesToShow.length} out of {props.pokemonDetails.Moves.length})</h3>
         <div>
           {movesToShow.map((move, index) => (

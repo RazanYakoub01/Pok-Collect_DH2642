@@ -1,32 +1,12 @@
-import { observer } from "mobx-react-lite";
+import { observable, action } from "mobx";
 import { initializePokemonData , getPokemonDetails ,getEvolutionDetails } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
-import {  database } from '/src/firebaseConfig.js';
-import { ref, update } from 'firebase/database';
 
-const updateUserCartInFirebase = (user, cartItems, totalPrice) => {
-
-  if (user) {
-    const userCartRef = ref(database, `users/${user.uid}/cart`);
-
-    update(userCartRef, { cartItems, totalPrice })
-      .then(() => {
-        console.log('User cart updated successfully');
-      })
-      .catch((error) => {
-        console.error('Error updating user cart:', error);
-      });
-
-  }
-};
-
-
-const pokeModel = {
+const pokeModel =  observable({
 
   collection: [],
-  updateUserCartInFirebase: updateUserCartInFirebase, 
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
   searchParams: {},
@@ -51,17 +31,14 @@ const pokeModel = {
   cartItems : [],
   totalPrice : 0,
 
-  setCartItems(items) {
+  setCartItems: action(function(items) {
     this.cartItems = items;
-  },
+  }),
 
   setTotalPrice(price) {
     this.totalPrice = price;
   },
 
-  updateUserCartInFirebase  (user, cartItems, totalPrice) {
-    updateUserCartInFirebase  (user, cartItems, totalPrice)
-  },
 
   // Add an item to the cart
   addItem(item,user) {
@@ -200,6 +177,9 @@ const pokeModel = {
     }
   },
 
-};
+});
 
-export default observer(pokeModel);
+export default observable(pokeModel);
+
+
+

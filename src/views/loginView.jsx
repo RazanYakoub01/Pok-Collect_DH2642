@@ -14,7 +14,7 @@ const LoginView = (props) => {
 
   return (
     <div>
-      <h1 className="titleFont">Login to your account </h1>
+      <h1>Login to your account </h1>
       <button className='googleButton' onClick={handleGoogleLoginACB}>
         Sign in with Google
       </button>

@@ -4,6 +4,7 @@ import "/src/shoppingCart.css";
 import "/src/textFonts.css";
 import coin from '/src/storeImages/coin.png';
 import c from '/src/shoppingCartImages/c.png';
+import { makeObservable, observable, action } from "mobx";
 
 function ShoppingCartView(props) {
   const items = props.cartItems || [];
