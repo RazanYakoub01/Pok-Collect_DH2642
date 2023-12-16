@@ -14,7 +14,7 @@ const PacksView = (props) => {
             <div className="purchasedPacks">
               <h2>{pack.packName}</h2>
               <div>Quantity: {pack.quantity}</div>
-              <button className="storeButton">Open</button>
+              <button onClick={() => props.onOpenPack(pack)} className="storeButton">Open</button>
             </div>
           </div>
         ))}

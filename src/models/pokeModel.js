@@ -7,7 +7,7 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 
 const pokeModel =  observable({
 
-  collection: [],
+  collection: [1],
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
   searchParams: {},
@@ -182,6 +182,66 @@ const pokeModel =  observable({
         this.currentPokemonPromiseState = {};
     }
   },
+
+  // Function to get the user's collection
+  getUserPokemonCollection() {
+    return this.collection;
+  },
+
+  // Function to add Pokemon to the user's collection
+  addPokemonToCollection(pokemon) {
+    this.collection.push(pokemon);
+  },
+
+  //func to open packs, depandant on packID
+  openPack(packId) {
+    
+    const pokemonCollection = this.getUserPokemonCollection();
+
+    // The range for pokemon id:s for each generation
+    const packRanges = {
+      1: { start: 1, end: 151 },
+      2: { start: 152, end: 251 },
+      3: { start: 252, end: 386 },
+      4: { start: 387, end: 495 },
+      5: { start: 496, end: 649 },
+      6: { start: 650, end: 721 },
+      7: { start: 722, end: 809 },
+      8: { start: 810, end: 905 },
+      9: { start: 906, end: 1017 },
+      // Add legendary pack later
+    };
+
+    // Check if the pack ID is valid
+    if (packRanges.hasOwnProperty(packId)) {
+      const range = packRanges[packId];
+      const randomPokemon = this.generateRandomPokemon(range.start, range.end, 10);
+
+      // Add the random Pokemon to the user's collection
+      this.addPokemonToCollection(randomPokemon, pokemonCollection);
+      console.log("added pokemon to collection: ", this.collection);
+
+      // You can also return the list of random Pokemon if needed
+      return randomPokemon;
+    } else {
+      console.error(`Invalid pack ID: ${packId}`);
+      return null;
+    }
+  },
+
+  // needed to generate 10 random pokemon for the pack opening
+  generateRandomPokemon(start, end, count) {
+    const randomPokemon = [];
+    while (randomPokemon.length < count) {
+      const randomId = Math.floor(Math.random() * (end - start + 1)) + start;
+      if (!randomPokemon.includes(randomId)) {
+        randomPokemon.push(randomId);
+      }
+    }
+    console.log("pokemon from pack: ", randomPokemon);
+    return randomPokemon;
+  },
+
 
 });
 

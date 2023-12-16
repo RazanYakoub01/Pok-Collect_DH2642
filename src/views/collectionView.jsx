@@ -3,38 +3,21 @@ import "../search.css";
 import "../collection.css";
 import "/src/textFonts.css";
 import { useNavigate } from 'react-router-dom';
-import test1C from '/src/collectionImages/test1C.jpg';
-import test2C from '/src/collectionImages/test2C.jpg';
 import backpack from '/src/collectionImages/backpack.png';
 
 const CollectionView = (props) => {
-  const hardCodedPokemonData = [
-    {
-      id: 1,
-      name: 'bulbasaur',
-      imageUrl: test1C,
-      collectedDate: '2023-12-11',
-    },
-    {
-      id: 4,
-      name: 'charmander',
-      imageUrl: test2C,
-      collectedDate: '2023-12-12',
-    },
-  ];
-
-  const totalPokemonCount = 1017; // Total number of Pokemon
-  const username = props.user || 'Guest';
+  const { user, collection } = props;
+  const username = user || 'Guest';
 
   return (
     <div className="collection-view">
       <div className="collection-header">
-        <img src={backpack}/>
+        <img src={backpack} />
         <h1 className="titleFont collection">{username}'s Pokémon Collection</h1>
       </div>
-      <div>{`Collected ${hardCodedPokemonData.length} Pokémon out of ${totalPokemonCount}`}</div>
+      <div>{`Collected ${collection.length} Pokémon`}</div>
       <div className="pokemon-cards">
-        {hardCodedPokemonData.map((pokemon) => (
+        {collection.map((pokemon) => (
           <div key={pokemon.id} className="pokemon-card">
             <img src={pokemon.imageUrl} alt={pokemon.name} />
             <p className="collected-info">{`Collected ${pokemon.collectedDate}`}</p>
