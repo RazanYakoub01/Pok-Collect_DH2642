@@ -1,16 +1,19 @@
+/* General Styling */
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
 
+h1 {
+  margin-right: 25px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
 
-
-
-
-
-
-
-
-
-
-
+/* Pokemon Type Icons Styling */
 
 .type-icon {
   position: relative;
@@ -34,6 +37,7 @@
   width: calc(100% / 18); /* One row of 18 */
   height: calc(100% / 8);
 }
+
 .selected-type .type-icon {
   width: 10vw;
   height: 30vw;
@@ -44,6 +48,7 @@
     width: calc(100% / 9); /* Two rows of 9 */
     height: calc(100% / 6);
   }
+
   .selected-type .type-icon {
     width: 8vw;
     height: 8vw;
@@ -55,6 +60,7 @@
     width: calc(100% / 6); /* Three rows of 6 */
     height: calc(100% / 8);
   }
+
   .selected-type .type-icon {
     width: 15vw;
     height: 15vw;
@@ -87,109 +93,42 @@
   margin-right: 20px;
 }
 
-h1 {
-  margin-right: 25px;
-  font-size: 50px;
-  font-weight: bold;
-  text-align: center;
-}
+/* Pokemon Type Icons Offsets */
 
-/*Pokemon type icons x, y offset to extract icon from searchIcons.png*/
-.fighting {
-  background-position: 0 0;
-}
+.fighting { background-position: 0 0; }
+.psychic { background-position: 20% 0; }
+.poison { background-position: 40% 0; }
+.dragon { background-position: 60% 0; }
+.ghost { background-position: 80% 0; }
+.dark { background-position: 100% 0; }
+.ground { background-position: 0 50%; }
+.fire { background-position: 20% 50%; }
+.fairy { background-position: 40% 50%; }
+.water { background-position: 60% 50%; }
+.flying { background-position: 80% 50%; }
+.normal { background-position: 100% 50%; }
+.rock { background-position: 0 100%; }
+.electric { background-position: 20% 100%; }
+.bug { background-position: 40% 100%; }
+.grass { background-position: 60% 100%; }
+.ice { background-position: 80% 100%; }
+.steel { background-position: 100% 100%; }
 
-.psychic {
-  background-position: 20% 0;
-}
-
-.poison {
-  background-position: 40% 0;
-}
-
-.dragon {
-  background-position: 60% 0;
-}
-
-.ghost {
-  background-position: 80% 0;
-}
-
-.dark {
-  background-position: 100% 0;
-}
-
-.ground {
-  background-position: 0 50%;
-}
-
-.fire {
-  background-position: 20% 50%;
-}
-
-.fairy {
-  background-position: 40% 50%;
-}
-
-.water {
-  background-position: 60% 50%;
-}
-
-.flying {
-  background-position: 80% 50%;
-}
-
-.normal {
-  background-position: 100% 50%;
-}
-
-.rock {
-  background-position: 0 100%;
-}
-
-.electric {
-  background-position: 20% 100%;
-}
-
-.bug {
-  background-position: 40% 100%;
-}
-
-.grass {
-  background-position: 60% 100%;
-}
-
-.ice {
-  background-position: 80% 100%;
-}
-
-.steel {
-  background-position: 100% 100%;
-}
-
-.no-results {
-  text-align: center;
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
+/* Pokemon Card Styling */
 
 .search-results {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 
 .search-results .pokemon-card {
-  width: 200px; /* Adjust the width as needed */
+  width: 210px; /* Adjust the width as needed */
   margin: 15px;
   padding: 15px;
-  border: 8px solid #333; /* Choose your desired border color */
+  border: 8px solid #0b0a0a; /* Choose your desired border color */
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -208,7 +147,6 @@ body {
   margin-top: 10px; /* Adjust spacing */
 }
 
-
 .search-results .pokemon-card:hover {
   transform: scale(1.05);
 }
@@ -222,7 +160,7 @@ body {
   margin-top: 0;
 }
 
-/* Pokemon cards background colors */
+/* Pokemon Card Background Colors */
 
 .search-results .pokemon-card.type-normal {
   background: linear-gradient(135deg, #9099a1 0%, #757f88 100%);
@@ -259,4 +197,3 @@ body {
 .search-results .pokemon-card.type-ground {
   background: linear-gradient(135deg, #d97746 0%, #a8512a 100%);
 }
-
