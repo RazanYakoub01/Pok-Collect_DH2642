@@ -12,6 +12,20 @@ const SearchResultsView = (props) => {
     navigate(`/details/${pokemon.ID}`);
   };
 
+  const renderStats = (pokemon) => (
+    <div className="pokemon-stats">
+      <div className="stat-item">
+        <span>Attack: {pokemon.Stats.attack}</span>
+      </div>
+      <div className="stat-item">
+        <span>Defense: {pokemon.Stats.defense}</span>
+      </div>
+      <div className="stat-item">
+        <span>Speed: {pokemon.Stats.speed}</span>
+      </div>
+    </div>
+  );
+
   // Update to use props.model.searchResultsPromiseState
   const pokemons = props.model.searchResultsPromiseState.data || [];
 
@@ -40,6 +54,7 @@ const SearchResultsView = (props) => {
               src={pokemon.ImageURL}
               alt={pokemon.Name}
             />
+            {renderStats(pokemon)}
           </div>
         ))}
       </div>
