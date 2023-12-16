@@ -10,7 +10,11 @@ function CollectionPresenter(props){
   const { user } = useAuthentication();
   const userName = user ? user.displayName : 'Guest';
 
-  return <CollectionView user={userName}/>;
+  const usersPersonalCollectionCB = () => {
+    props.model.getUserPokemonCollection();
+  }
+
+  return <CollectionView user={userName} collection={usersPersonalCollectionCB}/>;
 
 }
 );
