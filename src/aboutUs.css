@@ -1,5 +1,9 @@
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
+.container {
+  display: flex;
+  flex-direction: row;
+}
 .logo-image {
   width: 110px; /* Set the width to your desired size */
   height: auto;

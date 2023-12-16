@@ -15,7 +15,7 @@ const SearchResultsView = (props) => {
   // Update to use props.model.searchResultsPromiseState
   const pokemons = props.model.searchResultsPromiseState.data || [];
 
-  // If there are no pokemon with the current filter display that
+  // If there are no Pokémon with the current filter, display a message
   if (pokemons.length === 0) {
     return (
       <div className="no-results">
@@ -23,7 +23,7 @@ const SearchResultsView = (props) => {
       </div>
     );
   } else {
-    // If there are pokemon with current filters, display them
+    // If there are Pokémon with current filters, display them
     return (
       <div className="search-results">
         {pokemons.map((pokemon) => (
@@ -32,8 +32,14 @@ const SearchResultsView = (props) => {
             key={pokemon.ID}
             onClick={() => selectPokemonACB(pokemon)}
           >
-            <h2 className="textFont">{pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}</h2>
-            <img src={pokemon.ImageURL} alt={pokemon.Name} />
+            <h2 className="pokemon-card-title">
+              {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
+            </h2>
+            <img
+              className="pokemon-card-image" // Add a class for the image
+              src={pokemon.ImageURL}
+              alt={pokemon.Name}
+            />
           </div>
         ))}
       </div>

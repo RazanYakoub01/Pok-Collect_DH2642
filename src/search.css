@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .type-icon {
   position: relative;
   width: calc(100% / 18);
@@ -21,8 +35,8 @@
   height: calc(100% / 8);
 }
 .selected-type .type-icon {
-  width: 5vw;
-  height: 5vw;
+  width: 10vw;
+  height: 30vw;
 }
 
 @media (max-width: 1100px) {
@@ -172,15 +186,28 @@ body {
 }
 
 .search-results .pokemon-card {
-  width: 190px;
-  margin: 10px;
-  padding: 10px;
-  border: 5px solid black;
-  border-radius: 15px;
+  width: 200px; /* Adjust the width as needed */
+  margin: 15px;
+  padding: 15px;
+  border: 8px solid #333; /* Choose your desired border color */
+  border-radius: 10px;
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s;
 }
+
+.search-results .pokemon-card img {
+  width: 100%; /* Make the image fill the container */
+  height: auto;
+  border-radius: 5px; /* Optional: Add border radius to the image */
+}
+
+.search-results .pokemon-card h2 {
+  font-family: 'Futura', sans-serif; /* Use a Pokémon card-like font */
+  font-size: 1.5em; /* Adjust the font size */
+  margin-top: 10px; /* Adjust spacing */
+}
+
 
 .search-results .pokemon-card:hover {
   transform: scale(1.05);
@@ -195,75 +222,41 @@ body {
   margin-top: 0;
 }
 
-/*Pokemon cards background colors*/
+/* Pokemon cards background colors */
+
 .search-results .pokemon-card.type-normal {
-  background-color: #9099a1;
+  background: linear-gradient(135deg, #9099a1 0%, #757f88 100%);
 }
 
 .search-results .pokemon-card.type-fire {
-  background-color: #ff9c54;
+  background: linear-gradient(135deg, #ff9c54 0%, #ff5237 100%);
 }
 
 .search-results .pokemon-card.type-water {
-  background-color: #4d90d5;
+  background: linear-gradient(135deg, #4d90d5 0%, #356ea0 100%);
 }
 
 .search-results .pokemon-card.type-electric {
-  background-color: #f3d23b;
+  background: linear-gradient(135deg, #f3d23b 0%, #e1b600 100%);
 }
 
 .search-results .pokemon-card.type-grass {
-  background-color: #78c850;
+  background: linear-gradient(135deg, #78c850 0%, #5faa3a 100%);
 }
 
 .search-results .pokemon-card.type-ice {
-  background-color: #98d8d8;
+  background: linear-gradient(135deg, #98d8d8 0%, #67c2c2 100%);
 }
 
 .search-results .pokemon-card.type-fighting {
-  background-color: #ce4069;
+  background: linear-gradient(135deg, #ce4069 0%, #a62a4a 100%);
 }
 
 .search-results .pokemon-card.type-poison {
-  background-color: #ab6ac8;
+  background: linear-gradient(135deg, #ab6ac8 0%, #8f4d99 100%);
 }
 
 .search-results .pokemon-card.type-ground {
-  background-color: #d97746;
+  background: linear-gradient(135deg, #d97746 0%, #a8512a 100%);
 }
 
-.search-results .pokemon-card.type-flying {
-  background-color: #8fa8dd;
-}
-
-.search-results .pokemon-card.type-psychic {
-  background-color: #f97176;
-}
-
-.search-results .pokemon-card.type-bug {
-  background-color: #a8b820;
-}
-
-.search-results .pokemon-card.type-rock {
-  background-color: #c7b78b;
-}
-
-.search-results .pokemon-card.type-ghost {
-  background-color: #5269ac;
-}
-
-.search-results .pokemon-card.type-dragon {
-  background-color: #0a6dc4;
-}
-
-.search-results .pokemon-card.type-dark {
-  background-color: #5a5366;
-}
-
-.search-results .pokemon-card.type-steel {
-  background-color: #b8b8d0;
-}
-
-.search-results .pokemon-card.type-fairy {
-  background-color: #ec8fe6;
-}
