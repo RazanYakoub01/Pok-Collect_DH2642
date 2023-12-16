@@ -48,6 +48,7 @@
   height: 17px; 
   margin-left: 3px;
   vertical-align: middle;
+  margin-bottom: 5px;
 }
   
 .total-price {
@@ -62,6 +63,7 @@
   height: 16px;
   margin-left: 5px;
   vertical-align: middle;
+  margin-bottom: 5px;
 }
   
 .quantity-controls button {
@@ -92,6 +94,13 @@
   border-radius: 7px;
   margin: 15px;
   cursor: pointer;
+}
+
+/* if user don't have enough coins to make purchase we disable the btn*/
+.cart-actions button.disabled-button {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }
 
 .cart-actions button:hover {

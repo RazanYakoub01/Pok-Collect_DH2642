@@ -1,6 +1,5 @@
 import React from 'react';
 import "/src/aboutUs.css";
-import "/src/textFonts.css";
 import tiImage from "/src/aboutUsImages/ti.jpg";
 
 const AboutUsView = ({ memberArray }) => {

@@ -1,6 +1,7 @@
 import { observable, action } from "mobx";
 import { initializePokemonData , getPokemonDetails ,getEvolutionDetails } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
+import { packs as storePacks } from "../storeData";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
 
@@ -12,21 +13,8 @@ const pokeModel =  observable({
   searchParams: {},
   searchResultsPromiseState: {},
   currentPokemonPromiseState: {},
-  currentEvolution: null,
-  currentEvolutionPromiseState: {},
-  packs: [
-    {
-      packID: "1",
-      quantity: 10,
-    },
-    {
-      packID: "2",
-      quantity: 5,
-    },
-  ],
-
+  packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
   balance: 200,
-
   // Making cartItems and totalPrice observable
   cartItems : [],
   totalPrice : 0,
@@ -91,17 +79,17 @@ const pokeModel =  observable({
   // Set the quantity of a pack
   setPackQuantity(packID, quantity) {
     let found = false;
-    this.packs.forEach((pack) => {
-      if (pack.packID === packID) {
-        pack.quantity += quantity;
-        found = true;
-      }
-    });
-    if (!found) {
-      this.packs.push({ packID, quantity });
+    const packToUpdate = this.packs.find((pack) => pack.id === packID);
+  
+    if (packToUpdate) {
+      packToUpdate.quantity += quantity;
+    } else {
+      this.packs.push({ id: packID, quantity });
     }
-    this.packs.sort((a, b) => a.packID.localeCompare(b.packID));
-  },
+  
+    // Sort the packs by their numeric IDs
+    this.packs.sort((a, b) => a.id - b.id);
+  },  
 
   // Initialize and get the pokemon data
   getPokemonData() {
@@ -114,6 +102,35 @@ const pokeModel =  observable({
     this.cart.items.push(packToAdd);
     this.cart.total += packToAdd.price;
   },
+
+  // Purchase the items in the cart
+  purchaseItems() {
+    // we need this temporary until firebase is fixed, then we can use this.totalPrice I think
+    const totalCost = this.cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+  
+    // Check if the user has enough balance
+    if (totalCost <= this.balance) {
+      // Move items from the cart to the packs array
+      this.cartItems.forEach((item) => {
+        this.setPackQuantity(item.id, item.quantity);
+      });
+  
+      // update balance
+      this.balance -= totalCost;
+  
+      // Clear the cart
+      this.cartItems = [];
+      this.totalPrice = 0;
+  
+      console.log("Purchase successful. Packs array: ", this.packs);
+    } else {
+      console.log("Insufficient balance. Unable to purchase.");
+    }
+  },  
+
 
   // Set the search query text
   setSearchQuery(queryText) {
@@ -154,26 +171,15 @@ const pokeModel =  observable({
   // Sets current pokemon based on pokemonID and fetches details about it.
   setCurrentPokemon(pokemonID) {
     const url = BASE_URL + "pokemon/" + pokemonID;
-
     if (pokemonID) {
-      if (this.currentPokemon !== pokemonID) {
-        this.currentPokemon = pokemonID;
-
-        // Fetch both details and evolution promises
-        const pokemonDetailsPromise = getPokemonDetails(url);
-        const evolutionPromise = getEvolutionDetails(pokemonID);
-
-        // Resolve promises
-        resolvePromise(pokemonDetailsPromise, this.currentPokemonPromiseState);
-        resolvePromise(evolutionPromise, this.currentEvolutionPromiseState);
-      }
+        if (this.currentPokemon !== pokemonID) {
+            this.currentPokemon = pokemonID;
+            const promise = getPokemonDetails(url);
+            resolvePromise(promise, this.currentPokemonPromiseState);
+        }
     } else {
-      this.currentPokemon = null;
-      this.currentPokemonPromiseState = {};
-
-      // Reset evolution data when no Pokémon is selected
-      this.currentEvolution = null;
-      this.currentEvolutionPromiseState = {};
+        this.currentPokemon = null;
+        this.currentPokemonPromiseState = {};
     }
   },
 

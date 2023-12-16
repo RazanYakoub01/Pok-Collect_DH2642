@@ -1,18 +1,14 @@
 import React from 'react';
 import PacksView from '../views/packsView.jsx';
-
 import { observer } from "mobx-react-lite";
 
 
 
-export default
-observer(             // needed for the presenter to update (its view) when relevant parts of the model change
-function PacksPresenter(props){ 
-  if(!props.model.packs){
-    // No packs, button to store?
+export default observer(function PacksPresenter(props) {
+  if (!props.model.packs || props.model.packs.length === 0) {
+    return <h2>No packs available. Go to the store to purchase.</h2>;
   } else {
-    return <PacksView model={props.model}/>;
+    return <PacksView packs={props.model.packs} />;
   }
-  
-}
-);
+});
+

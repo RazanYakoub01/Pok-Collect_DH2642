@@ -7,8 +7,16 @@ import c from '/src/shoppingCartImages/c.png';
 import { makeObservable, observable, action } from "mobx";
 
 function ShoppingCartView(props) {
+
+  const isPurchaseDisabled = props.balance < props.totalPrice;
+
   const items = props.cartItems || [];
   console.log(items);
+
+  const userPurchaseACB = () => {
+    props.userPurchase();
+  }
+
   return (
     <div>
       <div className="shoppingCartHeader">
@@ -34,10 +42,16 @@ function ShoppingCartView(props) {
       </div>
       <div>
         <p className="total-price">Total Price: {props.totalPrice} <img src={coin}/></p>
+        <p className="total-price">Current Balance: {props.balance} <img src={coin}/></p>
       </div>
       <div className="cart-actions">
         <Link to="/packs">
-          <button>Purchase</button>
+        <button
+            onClick={userPurchaseACB}
+            className={isPurchaseDisabled ? 'disabled-button' : ''}
+            disabled={isPurchaseDisabled}>
+            Purchase
+          </button>
         </Link>
         <Link to="/store">
           <button>Continue Shopping</button>

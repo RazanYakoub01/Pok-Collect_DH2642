@@ -12,12 +12,14 @@ const StorePresenter = observer((props) => {
   };
 
   const totalItemsInCart = props.model.getTotalItemsInCart();
+  const balance = props.model.balance;
 
   return (
     <StoreView
       packs={packs}
       addToCartACB={addToCartACB}
       totalItemsInCart={totalItemsInCart}
+      balance={balance}
     />
   );
 });
