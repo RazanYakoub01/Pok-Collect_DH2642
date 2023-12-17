@@ -1,6 +1,8 @@
 import { observable, configure, reaction } from "mobx";
 import model from './models/pokeModel.js';
 //import connectToFirebase from './firebaseModel.js';
+import db from '/src/firebaseModel';
+
 
 configure({ enforceActions: "never", });  // we don't use Mobx actions
 const reactiveModel= observable(model);
@@ -24,5 +26,4 @@ reactiveModel.getPokemonData();
 //window.myModel= model;             // make the model available in the Console
 window.myModel= reactiveModel;
 
-const storedUser = localStorage.getItem('currentUser');
-//connectToFirebase.initializeFirebase();
+db.connectToFirebase(reactiveModel,reaction);

@@ -74,8 +74,8 @@ const pokeModel =  observable({
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
-    db.writeCartDataToFirebase(this.user.uid,this.cartItems);
-    db.readUserDataFromFirebase(this.user.uid);
+    db.writeCartDataToFirebase(this.user.uid,this);
+    //console.log(db.readUserDataFromFirebase(this.user.uid));
   },
 
   // gets the total number of items in the cart
@@ -92,7 +92,7 @@ const pokeModel =  observable({
       itemToUpdate.quantity = newQuantity;
       this.totalPrice += priceDifference;
       console.log(newQuantity);
-      db.writeCartDataToFirebase(this.user.uid,this.cartItems);
+      db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
 
@@ -102,7 +102,7 @@ const pokeModel =  observable({
     if (itemIndex !== -1) {
       const removedItem = this.cartItems.splice(itemIndex, 1)[0];
       this.totalPrice -= removedItem.price * removedItem.quantity;
-      db.writeCartDataToFirebase(this.user.uid,this.cartItems);
+     db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
 

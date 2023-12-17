@@ -1,12 +1,14 @@
 import { onAuthStateChanged, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
 import model from '/src/models/pokeModel.js';
 import { auth } from '/src/firebaseConfig.js';
+import db from '/src/firebaseModel';
 
 
 const handleAuthStateChange = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      model.setUser(auth.currentUser);
+      model.setUser(user);
+      db.readUserDataFromFirebase(user.uid);
     } else {
       model.setUser(undefined);
     }

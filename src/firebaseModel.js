@@ -1,9 +1,6 @@
 // firebaseModel.js
 import { ref, get,set } from 'firebase/database';
 import { database } from './firebaseConfig.js';
-import { auth } from '/src/firebaseConfig';
-import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
-
 import model from './models/pokeModel.js';
 
 const readUserDataFromFirebase = async (userId) => {
@@ -11,7 +8,8 @@ const readUserDataFromFirebase = async (userId) => {
     const userCartRef = ref(database, `users/${userId}/cart`);
     const snapshot = await get(userCartRef);
     if (snapshot.exists()) {
-      return snapshot.val();
+      console.log(snapshot.val());
+      persistenceToModel(snapshot.val(), model); 
     } else {
       console.log('No data available for this user.');
       return null;
@@ -22,27 +20,56 @@ const readUserDataFromFirebase = async (userId) => {
   }
 };
 
-/*const initializeFirebase = async () => {
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      // If the user is logged in, fetch the necessary data
-      const data = await readFromFirebase(user.uid);
-      console.log("logging");
-      console.log(data);
-      model.setCartItems(data.cartItems);
-      // Update your MobX model or React state with this data
-    }
-  });
-};*/
+function modelToPersistence(model) {
+  const persistenceObject = {
+    cartItems: model.cartItems,
+    totalPrice: model.totalPrice,
+    balance: model.balance
+  }
 
-const writeCartDataToFirebase = async (userId, cartItems) => {
+  return persistenceObject;
+}
+
+function persistenceToModel(data, model) {
+  data = data || {};
+
+  model.cartItems = data.cartItems || [];
+  model.totalPrice = data.totalPrice || 0;
+  model.balance = data.balance || 200;
+
+}
+
+
+const writeCartDataToFirebase = async (userId, model) => {
   try {
     const userCartRef = ref(database, `users/${userId}/cart`);
-    await set(userCartRef, cartItems);
+    await set(userCartRef, modelToPersistence(model));
     console.log('Cart data successfully written to Firebase');
   } catch (error) {
     console.error('Error writing cart data to Firebase:', error);
   }
 };
 
-export default { writeCartDataToFirebase , readUserDataFromFirebase};
+
+function connectToFirebase(model, watchFunction) {
+  function checkACB() {
+    const data = [model.cartItems];
+    return data;
+  }
+  function effectACB() {
+    if (model.user && model.user.uid) {
+      writeCartDataToFirebase(model.user.uid, model);
+    }
+  }
+  // Check if the user is already authenticated
+  if (model.user && model.user.uid) {
+    readUserDataFromFirebase(model.user.uid).then((data) => {
+      if (data) {
+        model.setCartItems(data); 
+      }
+    });
+  }
+  watchFunction(checkACB, effectACB);
+}
+
+export default { writeCartDataToFirebase , readUserDataFromFirebase, connectToFirebase };
