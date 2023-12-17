@@ -5,12 +5,10 @@ import "/src/textFonts.css";
 
 const LoginView = (props) => {
 
-
   const handleGoogleLoginACB = (event) => {
     event.preventDefault();
     props.googleSignIn();
   };
-
 
   return (
     <div>

@@ -4,14 +4,11 @@ import "/src/shoppingCart.css";
 import "/src/textFonts.css";
 import coin from '/src/storeImages/coin.png';
 import c from '/src/shoppingCartImages/c.png';
-import { makeObservable, observable, action } from "mobx";
 
 function ShoppingCartView(props) {
 
   const isPurchaseDisabled = props.balance < props.totalPrice;
-
   const items = props.cartItems || [];
-  console.log(items);
 
   const userPurchaseACB = () => {
     props.userPurchase();

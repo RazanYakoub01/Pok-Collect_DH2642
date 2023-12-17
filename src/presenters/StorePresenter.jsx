@@ -2,13 +2,11 @@ import React from 'react';
 import StoreView from '../views/storeView';
 import { observer } from 'mobx-react-lite';
 import { packs } from '../storeData';
-import { useAuthentication } from '../services/authService';
 
 const StorePresenter = observer((props) => {
-  const { user } = useAuthentication();
 
   const addToCartACB = (selectedPack) => {
-    props.model.addItem(selectedPack, user);
+    props.model.addItem(selectedPack);
   };
 
   const totalItemsInCart = props.model.getTotalItemsInCart();

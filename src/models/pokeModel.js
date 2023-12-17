@@ -2,12 +2,23 @@ import { observable, action } from "mobx";
 import { initializePokemonData , getPokemonDetails ,getEvolutionDetails } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 import { packs as storePacks } from "../storeData";
+import about from '/src/navbarImages/about.png';
+import cart1 from '/src/navbarImages/cart1.png';
+import collection from '/src/navbarImages/collection.png';
+import home from '/src/navbarImages/home.png';
+import packs from '/src/navbarImages/packs.png';
+import search1 from '/src/navbarImages/search1.png';
+import shop from '/src/navbarImages/shop.png';
+import login from '/src/navbarImages/login.png';
+import signOut from '/src/navbarImages/signOut.png';
 const BASE_URL = "https://pokeapi.co/api/v2/";
-
+import db from '/src/firebaseModel';
 
 const pokeModel =  observable({
 
-  collection: [1],
+  user: undefined,
+  isLoggedIn: false,
+  collection: [],
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
   searchParams: {},
@@ -15,9 +26,30 @@ const pokeModel =  observable({
   currentPokemonPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
   balance: 200,
-  // Making cartItems and totalPrice observable
   cartItems : [],
   totalPrice : 0,
+
+  getNavbarItems(handleSignOut) {
+    if (this.isLoggedIn) {
+      return [
+        { name: "Home", path: "/", image: home },
+        { name: "About Us", path: "/about", image: about },
+        { name: "Pokédex", path: "/pokedex", image: search1 },
+        { name: "Store", path: "/store", image: shop },
+        { name: "Cart", path: "/cart", image: cart1 },
+        { name: "Packs", path: "/packs", image: packs },
+        { name: "Collection", path: "/collection", image: collection },  
+        { name: 'Sign Out', action: handleSignOut, image: signOut },
+      ];
+    } else {
+      return [
+        { name: "Home", path: "/", image: home },
+        { name: "About Us", path: "/about", image: about },
+        { name: "Pokédex", path: "/pokedex", image: search1 },
+        { name: "Login", path: "/login", image: login },
+      ];
+    }
+  },
 
   setCartItems: action(function(items) {
     this.cartItems = items;
@@ -29,7 +61,7 @@ const pokeModel =  observable({
 
 
   // Add an item to the cart
-  addItem(item,user) {
+  addItem(item) {
     const existingItem = this.cartItems.find(
       (cartItem) => cartItem.id === item.id
     );
@@ -42,7 +74,8 @@ const pokeModel =  observable({
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
-    this.updateUserCartInFirebase(user, this.cartItems, this.totalPrice);
+    db.writeCartDataToFirebase(this.user.uid,this.cartItems);
+    db.readUserDataFromFirebase(this.user.uid);
   },
 
   // gets the total number of items in the cart
@@ -51,7 +84,7 @@ const pokeModel =  observable({
   },
 
   // Update the quantity of an item in the cart
-  updateItemQuantity(itemId, newQuantity,user) {
+  updateItemQuantity(itemId, newQuantity) {
     const itemToUpdate = this.cartItems.find((item) => item.id === itemId);
     if (itemToUpdate) {
       const priceDifference =
@@ -59,21 +92,18 @@ const pokeModel =  observable({
       itemToUpdate.quantity = newQuantity;
       this.totalPrice += priceDifference;
       console.log(newQuantity);
+      db.writeCartDataToFirebase(this.user.uid,this.cartItems);
     }
-
-    this.updateUserCartInFirebase(user, this.cartItems, this.totalPrice);
-
   },
 
   // Remove an item from the cart
-  removeItem(itemId,user) {
+  removeItem(itemId) {
     const itemIndex = this.cartItems.findIndex((item) => item.id === itemId);
     if (itemIndex !== -1) {
       const removedItem = this.cartItems.splice(itemIndex, 1)[0];
       this.totalPrice -= removedItem.price * removedItem.quantity;
+      db.writeCartDataToFirebase(this.user.uid,this.cartItems);
     }
-    this.updateUserCartInFirebase(user, this.cartItems, this.totalPrice);
-
   },
 
   // Set the quantity of a pack
@@ -241,6 +271,18 @@ const pokeModel =  observable({
     console.log("pokemon from pack: ", randomPokemon);
     return randomPokemon;
   },
+
+
+  setUser(user) {
+    if(user == undefined){
+      this.isLoggedIn = false;
+    }
+    else {
+      this.user = user;
+      this.isLoggedIn = true;
+    }
+  },
+
 
 
 });

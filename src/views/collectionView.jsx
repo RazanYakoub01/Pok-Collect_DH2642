@@ -5,7 +5,10 @@ import "/src/textFonts.css";
 import { useNavigate } from 'react-router-dom';
 import backpack from '/src/collectionImages/backpack.png';
 
+// add collected date? 
+
 const CollectionView = (props) => {
+  const totalPokemonCount = 1017;
   const { user, collection } = props;
   const username = user || 'Guest';
 
@@ -15,12 +18,11 @@ const CollectionView = (props) => {
         <img src={backpack} />
         <h1 className="titleFont collection">{username}'s Pokémon Collection</h1>
       </div>
-      <div>{`Collected ${collection.length} Pokémon`}</div>
+      <div>{`Collected ${collection.length} Pokémon out of ${totalPokemonCount}`}</div>
       <div className="pokemon-cards">
         {collection.map((pokemon) => (
-          <div key={pokemon.id} className="pokemon-card">
-            <img src={pokemon.imageUrl} alt={pokemon.name} />
-            <p className="collected-info">{`Collected ${pokemon.collectedDate}`}</p>
+          <div key={pokemon.ID} className="pokemon-card">
+            <img src={pokemon.imageUrl} alt={pokemon.Name} />
           </div>
         ))}
       </div>
