@@ -1,4 +1,93 @@
+
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+/* Add this rule to your CSS file */
+
+/* Add this rule to your CSS file */
+.styled-title {
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 2em; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: black; /* Set the default text color */
+}
+
+/* Add specific styles for each Pokemon type */
+.styled-title.type-normal {
+  color: #A8A878; /* Set the color for Normal type */
+}
+
+.styled-title.type-fire {
+  color: #FF3D00; /* Set the color for Fire type */
+}
+
+.styled-title.type-water {
+  color: #6890F0; /* Set the color for Water type */
+}
+
+.styled-title.type-electric {
+  color: #FFD700; /* Set the color for Electric type */
+}
+
+.styled-title.type-grass {
+  color: #78C850; /* Set the color for Grass type */
+}
+
+.styled-title.type-ice {
+  color: #98D8D8; /* Set the color for Ice type */
+}
+
+.styled-title.type-fighting {
+  color: #C03028; /* Set the color for Fighting type */
+}
+
+.styled-title.type-poison {
+  color: #A040A0; /* Set the color for Poison type */
+}
+
+.styled-title.type-ground {
+  color: #E0C068; /* Set the color for Ground type */
+}
+
+.styled-title.type-flying {
+  color: #A890F0; /* Set the color for Flying type */
+}
+
+/* Add more type-specific styles as needed */
+
+
+
 /* General Styling */
+.pokemon-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item span {
+  font-size: 14px;
+}
+/* Bold the words Attack, Defense, and Speed */
+.stat-item.attack span::before {
+  content: 'Attack: ';
+  font-weight: bold;
+}
+
+.stat-item.defense span::before {
+  content: 'Defense: ';
+  font-weight: bold;
+}
+
+.stat-item.speed span::before {
+  content: 'Speed: ';
+  font-weight: bold;
+}
+
 
 html,
 body {
@@ -142,19 +231,20 @@ h1 {
 }
 
 .search-results .pokemon-card h2 {
-  font-family: 'Futura', sans-serif; /* Use a Pokémon card-like font */
+    font-family: 'Futura', sans-serif; /* Use a Pokémon card-like font */
   font-size: 1.5em; /* Adjust the font size */
   margin-top: 10px; /* Adjust spacing */
+  background-color: transparent; /* Set background color to transparent */
+  color: black; /* Set the text color */
+  font-weight: bold;
+  text-shadow: none; /* Remove the text shadow */
 }
 
 .search-results .pokemon-card:hover {
   transform: scale(1.05);
 }
 
-.search-results .pokemon-card img {
-  width: 100%;
-  height: auto;
-}
+
 
 .search-results .pokemon-card h2 {
   margin-top: 0;
@@ -163,37 +253,44 @@ h1 {
 /* Pokemon Card Background Colors */
 
 .search-results .pokemon-card.type-normal {
-  background: linear-gradient(135deg, #9099a1 0%, #757f88 100%);
+  background: linear-gradient(135deg, #4d5a63 0%, #5e7f9c 50%, #4d5a63 100%);
 }
+
 
 .search-results .pokemon-card.type-fire {
-  background: linear-gradient(135deg, #ff9c54 0%, #ff5237 100%);
+  background: linear-gradient(135deg, #ff5237 0%, #f0932b 50%, #ff5237 100%);
 }
 
+
 .search-results .pokemon-card.type-water {
-  background: linear-gradient(135deg, #4d90d5 0%, #356ea0 100%);
+  background: linear-gradient(135deg, #356ea0 0%, #0190FF 50%, #356ea0 100%);
 }
 
 .search-results .pokemon-card.type-electric {
-  background: linear-gradient(135deg, #f3d23b 0%, #e1b600 100%);
+  background: linear-gradient(135deg, #e1b600 0%, #fed330 100%);
 }
 
 .search-results .pokemon-card.type-grass {
-  background: linear-gradient(135deg, #78c850 0%, #5faa3a 100%);
+  background: linear-gradient(135deg, #5faa3a 0%, #00b894 50%, #5faa3a 100%);
 }
 
 .search-results .pokemon-card.type-ice {
-  background: linear-gradient(135deg, #98d8d8 0%, #67c2c2 100%);
+  background: linear-gradient(135deg, #67c2c2 0%, #74b9ff 100%);
 }
 
 .search-results .pokemon-card.type-fighting {
-  background: linear-gradient(135deg, #ce4069 0%, #a62a4a 100%);
+  background: linear-gradient(135deg, #a62a4a 0%, #30336b 100%);
 }
 
 .search-results .pokemon-card.type-poison {
-  background: linear-gradient(135deg, #ab6ac8 0%, #8f4d99 100%);
+  background: linear-gradient(135deg, #8f4d99 0%, #6c5ce7 100%);
 }
 
 .search-results .pokemon-card.type-ground {
-  background: linear-gradient(135deg, #d97746 0%, #a8512a 100%);
+  background: linear-gradient(135deg, #a8512a 0%, #EFB549 100%);
 }
+
+.search-results .pokemon-card.type-bug {
+  background: linear-gradient(135deg, #4a501d 0%, #7d833c 50%, #4a501d 100%);
+}
+
