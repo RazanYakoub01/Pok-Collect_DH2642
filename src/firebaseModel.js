@@ -1,11 +1,12 @@
 // firebaseModel.js
-import { ref, get } from 'firebase/database';
+import { ref, get,set } from 'firebase/database';
 import { database } from './firebaseConfig.js';
 import { auth } from '/src/firebaseConfig';
-import { onAuthStateChanged } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
+
 import model from './models/pokeModel.js';
 
-const readFromFirebase = async (userId) => {
+const readUserDataFromFirebase = async (userId) => {
   try {
     const userCartRef = ref(database, `users/${userId}/cart`);
     const snapshot = await get(userCartRef);
@@ -21,7 +22,7 @@ const readFromFirebase = async (userId) => {
   }
 };
 
-const initializeFirebase = async () => {
+/*const initializeFirebase = async () => {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       // If the user is logged in, fetch the necessary data
@@ -32,7 +33,16 @@ const initializeFirebase = async () => {
       // Update your MobX model or React state with this data
     }
   });
+};*/
+
+const writeCartDataToFirebase = async (userId, cartItems) => {
+  try {
+    const userCartRef = ref(database, `users/${userId}/cart`);
+    await set(userCartRef, cartItems);
+    console.log('Cart data successfully written to Firebase');
+  } catch (error) {
+    console.error('Error writing cart data to Firebase:', error);
+  }
 };
 
-export default {initializeFirebase,
-};
+export default { writeCartDataToFirebase , readUserDataFromFirebase};
