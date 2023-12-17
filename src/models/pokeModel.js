@@ -159,6 +159,8 @@ const pokeModel =  observable({
     } else {
       console.log("Insufficient balance. Unable to purchase.");
     }
+
+    db.writeCartDataToFirebase(this.user,this);
   },  
 
 

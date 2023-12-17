@@ -5,7 +5,7 @@ import model from './models/pokeModel.js';
 
 const readUserDataFromFirebase = async (userId) => {
   try {
-    const userCartRef = ref(database, `users/${userId}/cart`);
+    const userCartRef = ref(database, `users/${userId}/userData`);
     const snapshot = await get(userCartRef);
     if (snapshot.exists()) {
       console.log(snapshot.val());
@@ -24,7 +24,8 @@ function modelToPersistence(model) {
   const persistenceObject = {
     cartItems: model.cartItems,
     totalPrice: model.totalPrice,
-    balance: model.balance
+    balance: model.balance,
+    packs : model.packs
   }
 
   return persistenceObject;
@@ -36,13 +37,14 @@ function persistenceToModel(data, model) {
   model.cartItems = data.cartItems || [];
   model.totalPrice = data.totalPrice || 0;
   model.balance = data.balance || 200;
+  model.packs = data.packs || [];
 
 }
 
 
 const writeCartDataToFirebase = async (userId, model) => {
   try {
-    const userCartRef = ref(database, `users/${userId}/cart`);
+    const userCartRef = ref(database, `users/${userId}/userData`);
     await set(userCartRef, modelToPersistence(model));
     console.log('Cart data successfully written to Firebase');
   } catch (error) {
@@ -53,7 +55,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance,model.totalPrice];
+    const data = [model.cartItems, model.balance,model.totalPrice,model.packs];
     return data;
   }
   function effectACB() {
