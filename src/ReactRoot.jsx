@@ -46,7 +46,7 @@ export default observer(function ReactRoot(props) {
         </Route>
 
         <Route element={<RequireAuth />}>
-          <Route path="/collection" element={<CollectionPresenter />} />
+          <Route path="/collection" element={<CollectionPresenter model = {props.model}/>} />
         </Route>
 
       </Routes>

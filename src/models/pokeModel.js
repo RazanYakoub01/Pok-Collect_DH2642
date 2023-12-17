@@ -7,7 +7,7 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 
 const pokeModel =  observable({
 
-  collection: [1],
+  collection: [],
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
   searchParams: {},
