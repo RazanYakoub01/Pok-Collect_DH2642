@@ -21,7 +21,7 @@ function StoreView(props) {
       <div className="balance">
         <p>Current Balance: {props.balance} coins <img src={coin}/></p>
         <p>
-          Shopping Cart: 
+          Cart - Check out: 
           <Link to="/cart">
             <img src={cart2} style={{ width: '30px', height: '30px' }} />
             ({props.totalItemsInCart})
