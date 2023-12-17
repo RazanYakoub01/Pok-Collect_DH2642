@@ -53,7 +53,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems];
+    const data = [model.cartItems, model.balance,model.totalPrice];
     return data;
   }
   function effectACB() {
@@ -65,7 +65,7 @@ function connectToFirebase(model, watchFunction) {
   if (model.user && model.user.uid) {
     readUserDataFromFirebase(model.user.uid).then((data) => {
       if (data) {
-        model.setCartItems(data); 
+        persistenceToModel(model); 
       }
     });
   }
