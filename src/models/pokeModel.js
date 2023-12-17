@@ -18,7 +18,7 @@ const pokeModel =  observable({
 
   user: undefined,
   isLoggedIn: false,
-  collection: [1],
+  collection: [],
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
   searchParams: {},

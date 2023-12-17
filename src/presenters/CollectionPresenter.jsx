@@ -8,9 +8,8 @@ function CollectionPresenter(props){
 
   const userName = props.model.user ? user.displayName : 'Guest';
 
-  const usersPersonalCollectionCB = () => {
-    props.model.getUserPokemonCollection();
-  }
+  const usersPersonalCollectionCB =  props.model.getUserPokemonCollection();
+
 
   return <CollectionView user={userName} collection={usersPersonalCollectionCB}/>;
 
