@@ -46,11 +46,10 @@ const SearchResultsView = (props) => {
             onClick={() => selectPokemonACB(pokemon)}
           >
             <h2 className="pokemon-card-title">
-              <span
-                className={`styled-title type-${pokemon.Types[0]}`}
-              >
+            <span className={`styled-title type-${pokemon.Types[0]}`}>
                 {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
               </span>
+
             </h2>
             <img
               className="pokemon-card-image"
