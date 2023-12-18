@@ -1,3 +1,4 @@
+// Assuming that pokemodel.js is in the "../models/" directory
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,7 +8,9 @@ import '/src/modal.css';
 import coin from '/src/storeImages/coin.png';
 import cart2 from '/src/storeImages/cart2.png';
 import s from '/src/storeImages/s.png';
-
+import pokemodel, { getGenerationClass } from '../models/pokeModel';
+console.log(pokemodel);  // Log the entire module
+console.log(pokemodel.getGenerationClass);  // Log the method
 
 function StoreView(props) {
   const navigator = useNavigate();
@@ -22,38 +25,6 @@ function StoreView(props) {
     navigator('/cart');
     setSelectedPack(null);
   };
-
-
-  const getGenerationClass = (pack) => {
-    switch (pack.id) {
-      case 1:
-        return 'gen1';
-      case 2:
-        return 'gen2';
-      case 3:
-        return 'gen3';
-      case 4:
-        return 'gen4';
-      case 5:
-        return 'gen5';
-      case 6:
-        return 'gen6';
-      case 7:
-        return 'gen7';
-      case 8:
-        return 'gen8';
-
-      case 9:
-        return 'gen9'
-    
-      case 10:
-        return 'legendary';
-
-      default:
-        return ''; 
-    }
-  };
-  
 
   return (
     <div className="shop">
@@ -76,6 +47,7 @@ function StoreView(props) {
       <div className="packs">
         {props.packs.map((pack) => (
           <div key={pack.id} className={`pack ${getGenerationClass(pack)}`}>
+         
             <img src={pack.packImage} alt={pack.packName} />
             <div className="packDetails">
               <h2>{pack.packName}</h2>
@@ -106,7 +78,7 @@ function StoreView(props) {
                         CONTINUE SHOPPING
                       </button>
                       <button
-                        className={`storeButton cart-button ${getGenerationClass(selectedPack)}`}
+                        className={`storeButton cart-button ${pokemodel.getGenerationClass(selectedPack)}`}
                         onClick={handleNavigateToCart}
                       >
                         CART
@@ -122,5 +94,7 @@ function StoreView(props) {
     </div>
   );
 }
+
+
 
 export default StoreView;
