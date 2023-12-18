@@ -1,17 +1,51 @@
 import CollectionView from "../views/collectionView";
 import { observer } from "mobx-react-lite";
+import React, { useEffect } from 'react';
 
 
 export default
 observer(            
 function CollectionPresenter(props){ 
+    // Effect for fetching data based on collection IDs
+    useEffect(() => {
+      // Trigger the search function
+      console.log("useEffect triggered collecton:" + props.model.collection);
+      props.model.pokemonSearchByIDs(props.model.collection);
+    }, [props.model, props.model.collection]); // Dependency array includes model and collection
 
-  const userName = props.model.user.displayName;
+    function userWantedPokemonACB(pokemon) {
+      props.model.setCurrentPokemon(pokemon.ID);
+      console.log("currPokemonID", props.model.currentPokemon);
+    }
+  
 
-  const usersPersonalCollectionCB =  props.model.getCollection();
+  function renderCollection() {
+    if (!props.model.collectionPromiseState.promise) {
+      // No search has been performed yet
+      return <div>No data</div>;
+    } else if (
+      !props.model.collectionPromiseState.data &&
+      !props.model.collectionPromiseState.error
+    ) {
+      // Search is in progress
+      return (
+        <img src="https://brfenergi.se/iprog/loading.gif" alt="Loading..." />
+      );
+    } else if (props.model.collectionPromiseState.error) {
+      // Error occurred during the search
+      return (
+        <div>
+          Error: {props.model.collectionPromiseState.error.toString()}
+        </div>
+      );
+    } else {
+      // Data is available
+      return (
+        <CollectionView model={props.model} user={props.model.user.displayName} onPokemonClick={userWantedPokemonACB}/>
+      );
+    }
+  }
 
-
-  return <CollectionView user={userName} collection={usersPersonalCollectionCB}/>;
-
+  return renderCollection();
 }
 );

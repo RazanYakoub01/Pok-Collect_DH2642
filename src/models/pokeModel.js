@@ -1,23 +1,27 @@
 import { observable, action } from "mobx";
-import { initializePokemonData , getPokemonDetails, getCachedPokemonData } from "../pokeSource";
+import {
+  initializePokemonData,
+  getPokemonDetails,
+  getEvolutionDetails,
+  getCachedPokemonData,
+} from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 import { packs as storePacks } from "../storeData";
-import about from '/src/navbarImages/about.png';
-import cart1 from '/src/navbarImages/cart1.png';
-import collection from '/src/navbarImages/collection.png';
-import home from '/src/navbarImages/home.png';
-import packs from '/src/navbarImages/packs.png';
-import search1 from '/src/navbarImages/search1.png';
-import shop from '/src/navbarImages/shop.png';
-import login from '/src/navbarImages/login.png';
-import signOut from '/src/navbarImages/signOut.png';
+import about from "/src/navbarImages/about.png";
+import cart1 from "/src/navbarImages/cart1.png";
+import collectionPicture from "/src/navbarImages/collection.png";
+import home from "/src/navbarImages/home.png";
+import packs from "/src/navbarImages/packs.png";
+import search1 from "/src/navbarImages/search1.png";
+import shop from "/src/navbarImages/shop.png";
+import login from "/src/navbarImages/login.png";
+import signOut from "/src/navbarImages/signOut.png";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 import db from '/src/firebaseModel';
 
 const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-const pokeModel =  observable({
-
+const pokeModel = observable({
   user: undefined,
   isLoggedIn: false,
   collection: [],
@@ -26,6 +30,7 @@ const pokeModel =  observable({
   searchParams: {},
   searchResultsPromiseState: {},
   currentPokemonPromiseState: {},
+  collectionPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
   balance: 200,
   cartItems : [],
@@ -40,8 +45,8 @@ const pokeModel =  observable({
         { name: "Store", path: "/store", image: shop },
         { name: "Cart", path: "/cart", image: cart1 },
         { name: "Packs", path: "/packs", image: packs },
-        { name: "Collection", path: "/collection", image: collection },  
-        { name: 'Sign Out', action: handleSignOut, image: signOut },
+        { name: "Collection", path: "/collection", image: collectionPicture },
+        { name: "Sign Out", action: handleSignOut, image: signOut },
       ];
     } else {
       return [
@@ -74,7 +79,6 @@ const pokeModel =  observable({
   setTotalPrice(price) {
     this.totalPrice = price;
   },
-
 
   // Add an item to the cart
   addItem(item) {
@@ -125,16 +129,16 @@ const pokeModel =  observable({
   setPackQuantity(packID, quantity) {
     let found = false;
     const packToUpdate = this.packs.find((pack) => pack.id === packID);
-  
+
     if (packToUpdate) {
       packToUpdate.quantity += quantity;
     } else {
       this.packs.push({ id: packID, quantity });
     }
-  
+
     // Sort the packs by their numeric IDs
     this.packs.sort((a, b) => a.id - b.id);
-  },  
+  },
 
   // Initialize and get the pokemon data
   getPokemonData() {
@@ -155,21 +159,21 @@ const pokeModel =  observable({
       (total, item) => total + item.price * item.quantity,
       0
     );
-  
+
     // Check if the user has enough balance
     if (totalCost <= this.balance) {
       // Move items from the cart to the packs array
       this.cartItems.forEach((item) => {
         this.setPackQuantity(item.id, item.quantity);
       });
-  
+
       // update balance
       this.balance -= totalCost;
-  
+
       // Clear the cart
       this.cartItems = [];
       this.totalPrice = 0;
-  
+
       console.log("Purchase successful. Packs array: ", this.packs);
     } else {
       console.log("Insufficient balance. Unable to purchase.");
@@ -183,7 +187,7 @@ const pokeModel =  observable({
   setSearchQuery(queryText) {
     this.searchParams.query = queryText;
   },
-  
+
   pokemonSearch(searchParams) {
     const allPokemons = this.initializePokemonDataPromiseState.data;
 
@@ -194,18 +198,19 @@ const pokeModel =  observable({
         !searchParams.selectedTypes.length ||
         pokemon.Types.some((type) => searchParams.selectedTypes.includes(type));
 
-        // If there are two selected types, check if they both match
-        if (searchParams.selectedTypes.length == 2) {
-          const pokemonTypeNames = pokemon.Types.map(type => type);
-          typeMatch = searchParams.selectedTypes.every(selectedType => 
-            pokemonTypeNames.includes(selectedType));
-        }
-        // Check if the pokemon name matches the search query
+      // If there are two selected types, check if they both match
+      if (searchParams.selectedTypes.length == 2) {
+        const pokemonTypeNames = pokemon.Types.map((type) => type);
+        typeMatch = searchParams.selectedTypes.every((selectedType) =>
+          pokemonTypeNames.includes(selectedType)
+        );
+      }
+      // Check if the pokemon name matches the search query
       const searchMatch =
         !searchParams.query ||
         pokemon.Name.toLowerCase().includes(searchParams.query.toLowerCase());
 
-        // Return pokemon that match both type and search inputs.
+      // Return pokemon that match both type and search inputs.
       return typeMatch && searchMatch;
     });
 
@@ -216,18 +221,29 @@ const pokeModel =  observable({
     );
   },
 
+  pokemonSearchByIDs(pokemonIDs) {
+    const allPokemons = this.initializePokemonDataPromiseState.data;
+  
+    // Filter based on provided Pokémon IDs
+    const filteredPokemons = allPokemons.filter(pokemon => pokemonIDs.includes(pokemon.ID));
+  
+    // Create and return a promise with the filtered results
+    resolvePromise(Promise.resolve(filteredPokemons), this.collectionPromiseState);
+  },
+  
+
   // Sets current pokemon based on pokemonID and fetches details about it.
   setCurrentPokemon(pokemonID) {
     const url = BASE_URL + "pokemon/" + pokemonID;
     if (pokemonID) {
-        if (this.currentPokemon !== pokemonID) {
-            this.currentPokemon = pokemonID;
-            const promise = getPokemonDetails(url);
-            resolvePromise(promise, this.currentPokemonPromiseState);
-        }
+      if (this.currentPokemon !== pokemonID) {
+        this.currentPokemon = pokemonID;
+        const promise = getPokemonDetails(url);
+        resolvePromise(promise, this.currentPokemonPromiseState);
+      }
     } else {
-        this.currentPokemon = null;
-        this.currentPokemonPromiseState = {};
+      this.currentPokemon = null;
+      this.currentPokemonPromiseState = {};
     }
   },
 
@@ -235,23 +251,29 @@ const pokeModel =  observable({
   getCollection() {
     // Retrieve the cached Pokémon data
     const data = getCachedPokemonData();
-  
+
     // Filter the cached data to include only Pokémon whose IDs are in the collection
-    const collectionPokemons = data.filter(pokemon => collection.includes(pokemon.id));
-  
+    const collectionPokemons = data.filter((pokemon) =>
+      this.collection.includes(pokemon.id)
+    );
+
     // Return the filtered list of Pokémon
     return collectionPokemons;
   },
 
   // Function to add Pokemon to the user's collection
-  addPokemonToCollection(pokemon) {
-    this.collection.push(pokemon);
+  addPokemonToCollection(pokemonIDs) {
+    pokemonIDs.forEach(pokemonID => {
+      // Check if the Pokémon ID is already in the collection to avoid duplicates
+      if (!this.collection.some(p => p === pokemonID)) {
+        // Add the new Pokémon ID to the collection
+        this.collection = [...this.collection, pokemonID];
+      }
+    });
   },
 
   //func to open packs, depandant on packID
   openPack(packId) {
-    
-    const pokemonCollection = this.getUserPokemonCollection();
 
     // The range for pokemon id:s for each generation
     const packRanges = {
@@ -270,14 +292,18 @@ const pokeModel =  observable({
     // Check if the pack ID is valid
     if (packRanges.hasOwnProperty(packId)) {
       const range = packRanges[packId];
-      const randomPokemon = this.generateRandomPokemon(range.start, range.end, 10);
-
+      const randomPokemonID = this.generateRandomPokemon(
+        range.start,
+        range.end,
+        10
+      );
+      console.log("randompokemonid", randomPokemonID)
       // Add the random Pokemon to the user's collection
-      this.addPokemonToCollection(randomPokemon, pokemonCollection);
+      this.addPokemonToCollection(randomPokemonID);
       console.log("added pokemon to collection: ", this.collection);
 
       // You can also return the list of random Pokemon if needed
-      return randomPokemon;
+      return randomPokemonID;
     } else {
       console.error(`Invalid pack ID: ${packId}`);
       return null;
@@ -297,12 +323,10 @@ const pokeModel =  observable({
     return randomPokemon;
   },
 
-
   setUser(user) {
-    if(user == undefined){
+    if (user == undefined) {
       this.isLoggedIn = false;
-    }
-    else {
+    } else {
       this.user = user;
       this.isLoggedIn = true;
       //this.updateLastLoginAndBalance(); // Call the function to check and update balance
@@ -310,12 +334,6 @@ const pokeModel =  observable({
       //db.writeCartDataToFirebase(this.user.uid, this);
     }
   },
-
-
-
 });
 
 export default observable(pokeModel);
-
-
-
