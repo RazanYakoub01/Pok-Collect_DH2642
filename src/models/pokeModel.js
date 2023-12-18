@@ -275,6 +275,20 @@ const pokeModel = observable({
     });
   },
 
+
+  getPackCards(pokemonIDs) {
+    // Retrieve the cached Pokémon data
+    const data = getCachedPokemonData();
+  
+    // Filter the data to include only Pokémon whose ID is in the pokemonIDs array
+    const packPokemons = data.filter(pokemon => pokemonIDs.includes(pokemon.Id));
+  
+    // Return the filtered list of Pokémon
+    return packPokemons;
+  },
+  
+  
+
   //func to open packs, depandant on packID
   openPack(packId) {
 
@@ -304,7 +318,7 @@ const pokeModel = observable({
       // Add the random Pokemon to the user's collection
       this.addPokemonToCollection(randomPokemonID);
       console.log("added pokemon to collection: ", this.collection);
-      this.obtainedPokemonFromLatestPack = this.getCollection(randomPokemonID);
+      this.obtainedPokemonFromLatestPack = this.getPackCards(randomPokemonID);
 
       // return the list of random Pokemon if needed
       return randomPokemonID;
