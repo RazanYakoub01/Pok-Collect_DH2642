@@ -23,7 +23,7 @@ export const googleSignIn = (navigateCallback) => {
     prompt: 'login',
   });
 
-  signInWithRedirect(auth, provider)
+  signInWithPopup(auth, provider)
     .then(() => {
       handleAuthStateChange();
       navigateCallback('/'); // Navigating after successful sign-in
