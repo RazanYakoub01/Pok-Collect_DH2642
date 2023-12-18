@@ -8,10 +8,9 @@ import coin from '/src/storeImages/coin.png';
 import cart2 from '/src/storeImages/cart2.png';
 import s from '/src/storeImages/s.png';
 
-function StoreView(props) {
-  console.log(props.packs);
-  const navigator = useNavigate();
 
+function StoreView(props) {
+  const navigator = useNavigate();
   const [selectedPack, setSelectedPack] = useState(null);
 
   const handleAddToCart = (pack) => {
@@ -20,12 +19,41 @@ function StoreView(props) {
   };
 
   const handleNavigateToCart = () => {
-    // Use history to navigate to "/cart"
     navigator('/cart');
-    // Close the Popup or perform any other necessary actions
     setSelectedPack(null);
   };
 
+
+  const getGenerationClass = (pack) => {
+    switch (pack.id) {
+      case 1:
+        return 'gen1';
+      case 2:
+        return 'gen2';
+      case 3:
+        return 'gen3';
+      case 4:
+        return 'gen4';
+      case 5:
+        return 'gen5';
+      case 6:
+        return 'gen6';
+      case 7:
+        return 'gen7';
+      case 8:
+        return 'gen8';
+
+      case 9:
+        return 'gen9'
+    
+      case 10:
+        return 'legendary';
+
+      default:
+        return ''; 
+    }
+  };
+  
 
   return (
     <div className="shop">
@@ -47,18 +75,16 @@ function StoreView(props) {
       </div>
       <div className="packs">
         {props.packs.map((pack) => (
-          <div key={pack.id} className="pack">
+          <div key={pack.id} className={`pack ${getGenerationClass(pack)}`}>
             <img src={pack.packImage} alt={pack.packName} />
             <div className="packDetails">
               <h2>{pack.packName}</h2>
               <div>
                 Price: {pack.price} coins <img src={coin} alt="Coin Icon" />
               </div>
-              {/* "Add to Cart" button on the card */}
               <button className="storeButton" onClick={() => handleAddToCart(pack)}>
                 Add to Cart
               </button>
-              {/* Modal for additional details */}
               {selectedPack && (
                 <Popup open={selectedPack !== null} closeOnDocumentClick onClose={() => setSelectedPack(null)}>
                   <div className="modal">
@@ -79,10 +105,9 @@ function StoreView(props) {
                       >
                         CONTINUE SHOPPING
                       </button>
-                      {/* Use Link to navigate to the cart page with a button style */}
                       <button
-                        className="storeButton cart-button"
-                        onClick={handleNavigateToCart} // Use the function to navigate to "/cart"
+                        className={`storeButton cart-button ${getGenerationClass(selectedPack)}`}
+                        onClick={handleNavigateToCart}
                       >
                         CART
                       </button>

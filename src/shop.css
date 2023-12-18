@@ -23,7 +23,7 @@
 }
 
 .storeButton:not(:disabled):hover {
-  background-color: #5b605b;
+  background-color: #0e0f0e;
 }
 
 .shopTitleContainer {
@@ -73,12 +73,16 @@
   margin: 10px;
   padding: 15px; /* Increase padding for a more spacious look */
   border: 2px solid #ffcc00; /* Pokemon Yellow color */
-  background: linear-gradient(to right, #ff8c00, #ffc107); /* Example gradient from orange to yellow */
+  background: linear-gradient(to right, #ff8c00, #ffc107); 
 
-  color: #333;
+  color: #060606;
   text-align: center;
-  border-radius: 15px; /* Add rounded corners */
+  border-radius: 15px; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.pack:hover {
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); /* Increase box-shadow on hover */
 }
 
 .pack img {
@@ -117,9 +121,6 @@
   border-bottom: 2px solid #ddd;
 }
 
-/* modal.css */
-
-/* modal.css */
 
 /* modal.css */
 
@@ -144,4 +145,45 @@
 
 .cart-button:hover {
   background-color: #04a9f5; 
+}
+
+/* Add styles for packs of different generations */
+.pack.gen1 {
+  background: linear-gradient(to right, #ff0000, #ff8c00); /* Gen 1 gradient */
+}
+
+.pack.gen2 {
+  background: linear-gradient(to right, #009688, #00bcd4); /* Gen 2 gradient */
+}
+
+.pack.gen3 {
+  background: linear-gradient(to right, #2ecc71, #27ae60); /* Gen 3 gradient */
+}
+
+.pack.gen4 {
+  background: linear-gradient(to right, #e74c3c, #c0392b); /* Gen 4 gradient */
+}
+
+.pack.gen5 {
+  background: linear-gradient(to right, #3498db, #2980b9); /* Gen 5 gradient */
+}
+
+.pack.gen6 {
+  background: linear-gradient(to right, #f39c12, #e67e22); /* Gen 6 gradient */
+}
+
+.pack.gen7 {
+  background: linear-gradient(to right, #8e44ad, #9b59b6); /* Gen 7 gradient */
+}
+
+.pack.gen8 {
+  background: linear-gradient(to right, #1abc9c, #16a085); /* Gen 8 gradient */
+}
+
+.pack.gen9 {
+  background: linear-gradient(to right, #e67e22, #d35400); /* Gen 9 gradient */
+}
+
+.pack.legendary {
+  background: linear-gradient(to right, #c0392b, #e74c3c); /* Legendary gradient */
 }
