@@ -23,7 +23,6 @@ const readUserDataFromFirebase = async (userId) => {
 function modelToPersistence(model) {
   const persistenceObject = {
     cartItems: model.cartItems,
-    totalPrice: model.totalPrice,
     balance: model.balance,
     packs : model.packs,
     currentPokemon: model.currentPokemon,
@@ -62,7 +61,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance,model.packs, model.currentPokemon, model.collection];
+    const data = [model.cartItems, model.balance,model.packs, model.currentPokemon, model.collection,model.lastLoginTime];
     return data;
   }
   function effectACB() {
