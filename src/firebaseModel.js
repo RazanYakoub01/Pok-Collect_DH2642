@@ -76,7 +76,7 @@ function connectToFirebase(model, watchFunction) {
   if (model.user && model.user.uid) {
     readUserDataFromFirebase(model.user.uid).then((data) => {
       if (data) {
-        persistenceToModel(model); 
+        persistenceToModel(data,model); 
       }
     });
   }
