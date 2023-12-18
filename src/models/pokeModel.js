@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { initializePokemonData , getPokemonDetails ,getEvolutionDetails, getCachedPokemonData } from "../pokeSource";
+import { initializePokemonData , getPokemonDetails, getCachedPokemonData } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 import { packs as storePacks } from "../storeData";
 import about from '/src/navbarImages/about.png';
