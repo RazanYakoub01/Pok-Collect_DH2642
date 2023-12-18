@@ -95,7 +95,7 @@ const pokeModel = observable({
       // If it's a new item, add it to the cart
       this.cartItems.push({ ...item, quantity: 1 });
     }
-    this.totalPrice += item.price;
+    this.calculateCartPrice();
     //db.writeCartDataToFirebase(this.user.uid,this);
   },
 
@@ -108,11 +108,8 @@ const pokeModel = observable({
   updateItemQuantity(itemId, newQuantity) {
     const itemToUpdate = this.cartItems.find((item) => item.id === itemId);
     if (itemToUpdate) {
-      const priceDifference =
-        itemToUpdate.price * (newQuantity - itemToUpdate.quantity);
       itemToUpdate.quantity = newQuantity;
-      this.totalPrice += priceDifference;
-      console.log(newQuantity);
+      this.calculateCartPrice();
       //db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
@@ -122,7 +119,7 @@ const pokeModel = observable({
     const itemIndex = this.cartItems.findIndex((item) => item.id === itemId);
     if (itemIndex !== -1) {
       const removedItem = this.cartItems.splice(itemIndex, 1)[0];
-      this.totalPrice -= removedItem.price * removedItem.quantity;
+      this.calculateCartPrice();
      //db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
@@ -151,7 +148,11 @@ const pokeModel = observable({
   // Add a pack to the cart
   addToCart(packToAdd) {
     this.cart.items.push(packToAdd);
-    this.cart.total += packToAdd.price;
+    this.calculateCartPrice();
+  },
+
+  calculateCartPrice(){
+    this.totalPrice = this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   },
 
   // Purchase the items in the cart
