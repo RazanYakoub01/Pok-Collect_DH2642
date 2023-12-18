@@ -1,3 +1,4 @@
+// Assuming that pokemodel.js is in the "../models/" directory
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,11 +8,12 @@ import '/src/modal.css';
 import coin from '/src/storeImages/coin.png';
 import cart2 from '/src/storeImages/cart2.png';
 import s from '/src/storeImages/s.png';
+import pokemodel, { getGenerationClass } from '../models/pokeModel';
+console.log(pokemodel);  // Log the entire module
+console.log(pokemodel.getGenerationClass);  // Log the method
 
 function StoreView(props) {
-  console.log(props.packs);
   const navigator = useNavigate();
-
   const [selectedPack, setSelectedPack] = useState(null);
 
   const handleAddToCart = (pack) => {
@@ -20,12 +22,9 @@ function StoreView(props) {
   };
 
   const handleNavigateToCart = () => {
-    // Use history to navigate to "/cart"
     navigator('/cart');
-    // Close the Popup or perform any other necessary actions
     setSelectedPack(null);
   };
-
 
   return (
     <div className="shop">
@@ -47,18 +46,17 @@ function StoreView(props) {
       </div>
       <div className="packs">
         {props.packs.map((pack) => (
-          <div key={pack.id} className="pack">
+          <div key={pack.id} className={`pack ${getGenerationClass(pack)}`}>
+         
             <img src={pack.packImage} alt={pack.packName} />
             <div className="packDetails">
               <h2>{pack.packName}</h2>
               <div>
                 Price: {pack.price} coins <img src={coin} alt="Coin Icon" />
               </div>
-              {/* "Add to Cart" button on the card */}
               <button className="storeButton" onClick={() => handleAddToCart(pack)}>
                 Add to Cart
               </button>
-              {/* Modal for additional details */}
               {selectedPack && (
                 <Popup open={selectedPack !== null} closeOnDocumentClick onClose={() => setSelectedPack(null)}>
                   <div className="modal">
@@ -79,10 +77,9 @@ function StoreView(props) {
                       >
                         CONTINUE SHOPPING
                       </button>
-                      {/* Use Link to navigate to the cart page with a button style */}
                       <button
-                        className="storeButton cart-button"
-                        onClick={handleNavigateToCart} // Use the function to navigate to "/cart"
+                        className={`storeButton cart-button ${pokemodel.getGenerationClass(selectedPack)}`}
+                        onClick={handleNavigateToCart}
                       >
                         CART
                       </button>
@@ -97,5 +94,7 @@ function StoreView(props) {
     </div>
   );
 }
+
+
 
 export default StoreView;
