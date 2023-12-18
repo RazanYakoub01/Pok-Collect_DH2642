@@ -19,7 +19,6 @@ import signOut from "/src/navbarImages/signOut.png";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 import db from '/src/firebaseModel';
 
-const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 const pokeModel = observable({
   user: undefined,
@@ -59,21 +58,29 @@ const pokeModel = observable({
       ];
     }
   },
-
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
-    console.log(currentTime);
+    const ONE_DAY_IN_MS = 60 * 1000; //24 * 60 * 60 * 1000; // 24 hours in milliseconds
+  
+    console.log(currentTime);  
     console.log(this.lastLoginTime);
-    console.log(ONE_DAY_IN_MS);
+  
+    if (this.lastLoginTime === null || (currentTime - this.lastLoginTime) > ONE_DAY_IN_MS) {
+      const newBalance = this.balance + 75;
+      console.log('Updating balance:', newBalance);
+      this.balance = newBalance;
+      this.lastLoginTime = currentTime;
+    }
+  },  
 
 
     // If last login was more than 24 hours ago, grant the user daily balance
-    if (this.lastLoginTime == null || (currentTime - this.lastLoginTime) > ONE_DAY_IN_MS) {
+  /*  if (this.lastLoginTime == null || (currentTime - this.lastLoginTime) > ONE_DAY_IN_MS) {
       const newBalance = this.balance + 75; // DAILY_BALANCE is your predefined daily balance value
       this.balance = newBalance;
       this.lastLoginTime = currentTime; // Update last login time to the current time
     }
-  },
+  },*/
 
 
   setCartItems: action(function(items) {
@@ -346,9 +353,6 @@ const pokeModel = observable({
     } else {
       this.user = user;
       this.isLoggedIn = true;
-      //this.updateLastLoginAndBalance(); // Call the function to check and update balance
-      //console.log("hello" + lastLoginTime);
-      //db.writeCartDataToFirebase(this.user.uid, this);
     }
   },
 });

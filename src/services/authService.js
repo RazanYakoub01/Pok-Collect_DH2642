@@ -26,6 +26,7 @@ export const googleSignIn = (navigateCallback) => {
   signInWithPopup(auth, provider)
     .then(() => {
       handleAuthStateChange();
+      //model.updateLastLoginAndBalance();
       navigateCallback('/'); // Navigating after successful sign-in
     })
     .catch((error) => {
@@ -44,6 +45,21 @@ export const logOut = (navigateCallback) => {
       console.error('Logout Error:', error);
     });
 };
+
+
+/*window.addEventListener('beforeunload', () => {
+  const user = model.user;
+  if (user) {
+    signOut(auth)
+      .then(() => {
+        // Handle any necessary cleanup or notification
+      })
+      .catch((error) => {
+        console.error('Logout Error during page unload:', error);
+      });
+  }
+});*/
+
 
 
 export default handleAuthStateChange;
