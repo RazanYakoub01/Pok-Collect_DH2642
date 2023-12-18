@@ -9,8 +9,8 @@ import backpack from '/src/collectionImages/backpack.png';
 
 const CollectionView = (props) => {
   const totalPokemonCount = 1017;
-  const { user, collection } = props;
-  const username = user || 'Guest';
+  const username = props.user;
+  const userCollection = props.collection || [];
 
   return (
     <div className="collection-view">
@@ -18,9 +18,9 @@ const CollectionView = (props) => {
         <img src={backpack} />
         <h1 className="titleFont collection">{username}'s Pokémon Collection</h1>
       </div>
-      <div>{`Collected ${collection.length} Pokémon out of ${totalPokemonCount}`}</div>
+      <div>{`Collected ${userCollection.length} Pokémon out of ${totalPokemonCount}`}</div>
       <div className="pokemon-cards">
-        {collection.map((pokemon) => (
+        {userCollection.map((pokemon) => (
           <div key={pokemon.ID} className="pokemon-card">
             <img src={pokemon.imageUrl} alt={pokemon.Name} />
           </div>

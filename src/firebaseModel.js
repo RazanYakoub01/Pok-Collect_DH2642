@@ -25,7 +25,8 @@ function modelToPersistence(model) {
     cartItems: model.cartItems,
     totalPrice: model.totalPrice,
     balance: model.balance,
-    packs : model.packs
+    packs : model.packs,
+    currentPokemon: model.currentPokemon
   }
 
   return persistenceObject;
@@ -38,7 +39,9 @@ function persistenceToModel(data, model) {
   model.totalPrice = data.totalPrice || 0;
   model.balance = data.balance || 200;
   model.packs = data.packs || [];
-
+  if (data.currentPokemon !== undefined){
+    model.setCurrentPokemon(data.currentPokemon);
+  }
 }
 
 
@@ -55,7 +58,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance,model.totalPrice,model.packs];
+    const data = [model.cartItems, model.balance,model.totalPrice,model.packs, model.currentPokemon];
     return data;
   }
   function effectACB() {
