@@ -200,4 +200,4 @@ function initializePokemonData() {
   }
 }
 
-export { initializePokemonData, getPokemonDetails, getEvolutionDetails,getCachedPokemonData };
+export { initializePokemonData, getPokemonDetails, getEvolutionDetails, getCachedPokemonData};
