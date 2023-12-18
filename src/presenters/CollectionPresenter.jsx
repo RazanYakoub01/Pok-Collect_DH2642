@@ -6,7 +6,7 @@ export default
 observer(            
 function CollectionPresenter(props){ 
 
-  const userName = props.model.user ? user.displayName : 'Guest';
+  const userName = props.model.user.displayName;
 
   const usersPersonalCollectionCB =  props.model.getUserPokemonCollection();
 

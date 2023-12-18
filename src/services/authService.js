@@ -18,6 +18,10 @@ const handleAuthStateChange = () => {
 
 export const googleSignIn = (navigateCallback) => {
   const provider = new GoogleAuthProvider();
+  
+  provider.setCustomParameters({
+    prompt: 'login',
+  });
 
   signInWithPopup(auth, provider)
     .then(() => {

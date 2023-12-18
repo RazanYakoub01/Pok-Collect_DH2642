@@ -4,11 +4,20 @@
 
 /* Add this rule to your CSS file */
 .styled-title {
-  font-family: 'Pokemon Solid', sans-serif;
-  font-size: 2em; /* Adjust the font size as needed */
-  font-weight: bold;
-  color: black; /* Set the default text color */
+  font-family: 'Pokemon Solid', sans-serif !important;
+  font-size: 2em !important;
+  font-weight: normal !important;
+  color: inherit !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: inline !important;
+  line-height: 1 !important;
+  border: none !important;
+  text-shadow: none !important;
+ 
 }
+
 
 /* Add specific styles for each Pokemon type */
 .styled-title.type-normal {
@@ -222,6 +231,7 @@ h1 {
   text-align: center;
   cursor: pointer;
   transition: transform 0.2s;
+
 }
 
 .search-results .pokemon-card img {
@@ -230,20 +240,10 @@ h1 {
   border-radius: 5px; /* Optional: Add border radius to the image */
 }
 
-.search-results .pokemon-card h2 {
-    font-family: 'Futura', sans-serif; /* Use a Pokémon card-like font */
-  font-size: 1.5em; /* Adjust the font size */
-  margin-top: 10px; /* Adjust spacing */
-  background-color: transparent; /* Set background color to transparent */
-  color: black; /* Set the text color */
-  font-weight: bold;
-  text-shadow: none; /* Remove the text shadow */
-}
 
 .search-results .pokemon-card:hover {
   transform: scale(1.05);
 }
-
 
 
 .search-results .pokemon-card h2 {
@@ -251,6 +251,12 @@ h1 {
 }
 
 /* Pokemon Card Background Colors */
+
+
+.search-results .pokemon-card.type-fairy {
+  background: linear-gradient(135deg, #e03d8e 0%, #ff7eb3 50%, #e03d8e 100%);
+}
+
 
 .search-results .pokemon-card.type-normal {
   background: linear-gradient(135deg, #4d5a63 0%, #5e7f9c 50%, #4d5a63 100%);

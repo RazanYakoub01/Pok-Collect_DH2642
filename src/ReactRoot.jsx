@@ -24,7 +24,7 @@ export default observer(function ReactRoot(props) {
         <Route path="/pokedex" element={<PokedexPresenter model={props.model} />} />
         <Route path="/about" element={<AboutUsPresenter />} />
         <Route path="/login" element={<LoginPresenter />} />
-        <Route path="/details/:id" element={<DetailsPresenter model={props.model} />} />
+        <Route path={`/details/:${props.model.currentPokemon}`} element={<DetailsPresenter model={props.model} />} />
         
         {/* Private routes by wrapping them with RequireAuth */}
         <Route element={<RequireAuth />}>
