@@ -91,11 +91,11 @@ h1 {
 }
 
 .selected-type .type-icon {
-  width: 10vw;
-  height: 30vw;
+  width: 5vw;
+  height: 5vw;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 100px) {
   .type-icon {
     width: calc(100% / 9); /* Two rows of 9 */
     height: calc(100% / 6);

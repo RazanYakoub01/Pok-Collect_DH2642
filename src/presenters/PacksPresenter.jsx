@@ -9,6 +9,7 @@ export default observer(function PacksPresenter(props) {
 
   const handleOpenPack = (pack) => {
     props.model.openPack(pack.id);
+    props.model.setPackQuantity(pack.id, -1);
     navigate('/openCards');
   };
 

@@ -12,7 +12,17 @@
   border-radius: 8px;
 }
 
-.storeButton:hover {
+.storeButton:disabled{
+  background-color: rgb(48, 48, 48);
+  color: black;
+  border: none;
+  cursor: not-allowed;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+.storeButton:not(:disabled):hover {
   background-color: #5b605b;
 }
 
