@@ -65,17 +65,22 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance,model.totalPrice,model.packs, model.currentPokemon, model.collection];
+    const data = [model.cartItems, model.balance,model.totalPrice,model.packs, model.currentPokemon, model.collection, model.lastLoginTime];
     return data;
   }
+  console.log(11);
   function effectACB() {
     if (model.user && model.user.uid) {
       writeCartDataToFirebase(model.user.uid, model);
     }
   }
+  console.log(11);
+
   if (model.user && model.user.uid) {
     readUserDataFromFirebase(model.user.uid);
   }
+  console.log(11);
+
   watchFunction(checkACB, effectACB);
 }
 
