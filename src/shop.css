@@ -112,3 +112,45 @@
   height: 100px;
   border-bottom: 2px solid #ddd;
 }
+
+/* modal.css */
+
+/* modal.css */
+
+/* modal.css */
+
+.modal {
+  font-size: 12px;
+  text-align: center; /* Center the content */
+  position: relative;
+}
+
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px; /* Add margin to create space between header and content */
+}
+/* Add this to your existing CSS file or create a new one */
+.cart-link {
+  text-decoration: none; /* Remove default underline */
+  color: inherit; /* Inherit the color from the parent */
+}
+
+.cart-button {
+  display: inline-block;
+  padding: 8px 16px; /* Adjust padding as needed */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.cart-button:hover {
+  background-color: #04a9f5; 
+}

@@ -1,0 +1,41 @@
+.modal {
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+    font-family: 'Your Sans-Serif Font', sans-serif; /* Replace 'Your Sans-Serif Font' with your preferred font name */
+  }
+.modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content vertically */
+  }
+  
+  .modal > .content > .added-to-cart {
+    margin-top: 10px; /* Add space between header and content */
+    font-size: 24px; /* Larger font size for "ADDED TO CART" */
+    font-family: 'Your Sans-Serif Font', sans-serif; 
+  }
+  
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #0a0a0a;
+  }
+  
