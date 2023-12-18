@@ -38,6 +38,7 @@ function persistenceToModel(data, model) {
   data = data || {};
 
   model.cartItems = data.cartItems || [];
+  model.totalPrice = data.totalPrice || 0;
   model.balance = data.balance || 200;
   model.packs = data.packs || [];
   model.collection = data.collection || [];
@@ -46,6 +47,7 @@ function persistenceToModel(data, model) {
   }
   model.lastLoginTime = data.lastLoginTime || null;
   model.updateLastLoginAndBalance();
+  
 }
 
 
@@ -62,7 +64,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance, model.packs, model.currentPokemon, model.collection, model.lastLoginTime];
+    const data = [model.cartItems, model.balance,model.totalPrice, model.packs, model.currentPokemon, model.collection, model.lastLoginTime, model.lastLoginTime];
     return data;
   }
   function effectACB() {
