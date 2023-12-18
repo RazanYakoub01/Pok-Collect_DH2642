@@ -9,7 +9,8 @@ const readUserDataFromFirebase = async (userId) => {
     const snapshot = await get(userCartRef);
     if (snapshot.exists()) {
       console.log(snapshot.val());
-      persistenceToModel(snapshot.val(), model); 
+      return persistenceToModel(snapshot.val(), model); 
+      //return snapshot.val();
     } else {
       console.log('No data available for this user.');
       return null;
@@ -45,9 +46,9 @@ function persistenceToModel(data, model) {
   if (data.currentPokemon !== undefined){
     model.setCurrentPokemon(data.currentPokemon);
   }
+  
   model.lastLoginTime = data.lastLoginTime || null;
   model.updateLastLoginAndBalance();
-  
 }
 
 
@@ -64,7 +65,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance,model.totalPrice,model.packs, model.currentPokemon, model.collection, model.user];
+    const data = [model.cartItems, model.balance,model.totalPrice,model.packs, model.currentPokemon, model.collection];
     return data;
   }
   function effectACB() {
@@ -72,13 +73,8 @@ function connectToFirebase(model, watchFunction) {
       writeCartDataToFirebase(model.user.uid, model);
     }
   }
-  // Check if the user is already authenticated
   if (model.user && model.user.uid) {
-    readUserDataFromFirebase(model.user.uid).then((data) => {
-      if (data) {
-        persistenceToModel(data,model); 
-      }
-    });
+    readUserDataFromFirebase(model.user.uid);
   }
   watchFunction(checkACB, effectACB);
 }
