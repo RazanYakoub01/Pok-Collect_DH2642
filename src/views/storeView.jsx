@@ -12,7 +12,6 @@ function StoreView(props) {
     props.addToCartACB(pack);
   };
 
-
   return (
     <div className="shop">
       <div className="shopTitleContainer">
