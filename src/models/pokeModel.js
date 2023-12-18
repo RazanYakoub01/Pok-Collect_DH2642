@@ -14,6 +14,8 @@ import signOut from '/src/navbarImages/signOut.png';
 const BASE_URL = "https://pokeapi.co/api/v2/";
 import db from '/src/firebaseModel';
 
+const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
 const pokeModel =  observable({
 
   user: undefined,
@@ -28,7 +30,7 @@ const pokeModel =  observable({
   balance: 200,
   cartItems : [],
   totalPrice : 0,
-
+  lastLoginTime : null, 
   getNavbarItems(handleSignOut) {
     if (this.isLoggedIn) {
       return [
@@ -50,6 +52,20 @@ const pokeModel =  observable({
       ];
     }
   },
+
+  updateLastLoginAndBalance() {
+    const currentTime = Date.now();
+    console.log(currentTime);
+
+
+    // If last login was more than 24 hours ago, grant the user daily balance
+    if (lastLoginTime == null || (currentTime - lastLoginTime) > ONE_DAY_IN_MS) {
+      const newBalance = this.balance + 75; // DAILY_BALANCE is your predefined daily balance value
+      this.balance = newBalance;
+      this.lastLoginTime = currentTime; // Update last login time to the current time
+    }
+  },
+
 
   setCartItems: action(function(items) {
     this.cartItems = items;
@@ -74,8 +90,7 @@ const pokeModel =  observable({
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
-    db.writeCartDataToFirebase(this.user.uid,this);
-    //console.log(db.readUserDataFromFirebase(this.user.uid));
+    //db.writeCartDataToFirebase(this.user.uid,this);
   },
 
   // gets the total number of items in the cart
@@ -92,7 +107,7 @@ const pokeModel =  observable({
       itemToUpdate.quantity = newQuantity;
       this.totalPrice += priceDifference;
       console.log(newQuantity);
-      db.writeCartDataToFirebase(this.user.uid,this);
+      //db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
 
@@ -102,7 +117,7 @@ const pokeModel =  observable({
     if (itemIndex !== -1) {
       const removedItem = this.cartItems.splice(itemIndex, 1)[0];
       this.totalPrice -= removedItem.price * removedItem.quantity;
-     db.writeCartDataToFirebase(this.user.uid,this);
+     //db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
 
@@ -160,7 +175,7 @@ const pokeModel =  observable({
       console.log("Insufficient balance. Unable to purchase.");
     }
 
-    db.writeCartDataToFirebase(this.user,this);
+    //db.writeCartDataToFirebase(this.user.uid,this);
   },  
 
 
@@ -290,6 +305,9 @@ const pokeModel =  observable({
     else {
       this.user = user;
       this.isLoggedIn = true;
+      //this.updateLastLoginAndBalance(); // Call the function to check and update balance
+      //console.log("hello" + lastLoginTime);
+      //db.writeCartDataToFirebase(this.user.uid, this);
     }
   },
 
