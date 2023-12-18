@@ -33,7 +33,7 @@ export default observer(function AboutUsPresenter(props) {
       linkedIn: "https://www.linkedin.com/in/razan-yakoub-8a86002a3/",
       program: "Computer Science ",
       LO1: "This project helped me realize Elias is the best and we should always listen to him!",
-      LO2: "He is amazing",
+      LO2: "He is amazing, he helps me solve all the errors I have!!!",
     },
     {
       img: boyImage,
