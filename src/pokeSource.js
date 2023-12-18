@@ -128,6 +128,7 @@ function extractPokeData(data) {
   });
 
   const moves = data.moves.map((moveInfo) => moveInfo.move.name);
+  console.log("data.types" + data.types);
 
   return {
     Name: data.name,

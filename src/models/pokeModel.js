@@ -180,9 +180,10 @@ const pokeModel =  observable({
         pokemon.Types.some((type) => searchParams.selectedTypes.includes(type));
 
         // If there are two selected types, check if they both match
-        if(searchParams.selectedTypes.length == 2){
+        if (searchParams.selectedTypes.length == 2) {
+          const pokemonTypeNames = pokemon.Types.map(type => type);
           typeMatch = searchParams.selectedTypes.every(selectedType => 
-            pokemon.Types.map(type => type.name).includes(selectedType));
+            pokemonTypeNames.includes(selectedType));
         }
         // Check if the pokemon name matches the search query
       const searchMatch =

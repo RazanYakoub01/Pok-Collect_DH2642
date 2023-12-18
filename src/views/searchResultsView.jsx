@@ -7,7 +7,6 @@ const SearchResultsView = (props) => {
   const navigate = useNavigate();
 
   const selectPokemonACB = (pokemon) => {
-    console.log("Selected Pokemon:", pokemon.Name);
     props.onPokemonClick(pokemon);
     navigate(`/details/${pokemon.ID}`);
   };
