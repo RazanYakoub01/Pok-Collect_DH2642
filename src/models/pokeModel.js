@@ -30,6 +30,7 @@ const pokeModel = observable({
   searchParams: {},
   searchResultsPromiseState: {},
   currentPokemonPromiseState: {},
+  openPackPromiseState: {},
   collectionPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
   obtainedPokemonFromLatestPack: [],
@@ -276,17 +277,15 @@ const pokeModel = observable({
   },
 
 
-  getPackCards(pokemonIDs) {
-    // Retrieve the cached Pokémon data
-    const data = getCachedPokemonData();
+  getPokemonPackCards(pokemonIDs) {
+    const allPokemons = this.initializePokemonDataPromiseState.data;
   
-    // Filter the data to include only Pokémon whose ID is in the pokemonIDs array
-    const packPokemons = data.filter(pokemon => pokemonIDs.includes(pokemon.Id));
+    // Filter based on provided Pokémon IDs
+    const filteredPokemons = allPokemons.filter(pokemon => pokemonIDs.includes(pokemon.ID));
   
-    // Return the filtered list of Pokémon
-    return packPokemons;
+    // Create and return a promise with the filtered results
+    resolvePromise(Promise.resolve(filteredPokemons), this.openPackPromiseState);
   },
-  
   
 
   //func to open packs, depandant on packID
