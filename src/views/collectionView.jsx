@@ -4,8 +4,6 @@ import "../collection.css";
 import "/src/textFonts.css";
 import { useNavigate } from 'react-router-dom';
 import backpack from '/src/collectionImages/backpack.png';
-import getCollection from '../models/pokeModel';
-import { initializePokemonData } from '../pokeSource';
 
 // add collected date? 
 

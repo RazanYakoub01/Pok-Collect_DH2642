@@ -32,6 +32,7 @@ const pokeModel = observable({
   currentPokemonPromiseState: {},
   collectionPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
+  obtainedPokemonFromLatestPack: [],
   balance: 200,
   cartItems : [],
   totalPrice : 0,
@@ -301,8 +302,9 @@ const pokeModel = observable({
       // Add the random Pokemon to the user's collection
       this.addPokemonToCollection(randomPokemonID);
       console.log("added pokemon to collection: ", this.collection);
+      this.obtainedPokemonFromLatestPack = this.getCollectionPokemons(randomPokemonID);
 
-      // You can also return the list of random Pokemon if needed
+      // return the list of random Pokemon if needed
       return randomPokemonID;
     } else {
       console.error(`Invalid pack ID: ${packId}`);

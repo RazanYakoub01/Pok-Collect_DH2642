@@ -29,7 +29,7 @@ function CollectionPresenter(props){
     ) {
       // Search is in progress
       return (
-        <img src="https://brfenergi.se/iprog/loading.gif" alt="Loading..." />
+        <img src="https://brfenergi.se/iprog/loading.gif"/>
       );
     } else if (props.model.collectionPromiseState.error) {
       // Error occurred during the search
