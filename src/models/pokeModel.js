@@ -60,7 +60,7 @@ const pokeModel = observable({
   },
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
-    const ONE_DAY_IN_MS = 60 * 1000; //24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000;//60 * 1000;  // 24 hours in milliseconds
   
     console.log(currentTime);  
     console.log(this.lastLoginTime);
