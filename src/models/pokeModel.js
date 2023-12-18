@@ -1,5 +1,5 @@
 import { observable, action } from "mobx";
-import { initializePokemonData , getPokemonDetails ,getEvolutionDetails } from "../pokeSource";
+import { initializePokemonData , getPokemonDetails ,getEvolutionDetails, getCachedPokemonData } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
 import { packs as storePacks } from "../storeData";
 import about from '/src/navbarImages/about.png';
@@ -217,8 +217,15 @@ const pokeModel =  observable({
   },
 
   // Function to get the user's collection
-  getUserPokemonCollection() {
-    return this.collection;
+  getCollection() {
+    // Retrieve the cached Pokémon data
+    const data = getCachedPokemonData();
+  
+    // Filter the cached data to include only Pokémon whose IDs are in the collection
+    const collectionPokemons = data.filter(pokemon => collection.includes(pokemon.id));
+  
+    // Return the filtered list of Pokémon
+    return collectionPokemons;
   },
 
   // Function to add Pokemon to the user's collection

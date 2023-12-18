@@ -157,17 +157,6 @@ function getCachedPokemonData() {
   return data ? JSON.parse(data) : null;
 }
 
-function getCollection() {
-  // Retrieve the cached Pokémon data
-  const data = getCachedPokemonData();
-
-  // Filter the cached data to include only Pokémon whose IDs are in the collection
-  const collectionPokemons = data.filter(pokemon => pokeModel.collection.includes(pokemon.id));
-
-  // Return the filtered list of Pokémon
-  return collectionPokemons;
-}
-
 
 // This code initializes Pokemon data by first checking if there is cached data available.
 // If there is, it returns the cached data, provided no Pokemon IDs are missing.
