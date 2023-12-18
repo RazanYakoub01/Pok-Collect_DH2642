@@ -304,7 +304,7 @@ const pokeModel = observable({
       // Add the random Pokemon to the user's collection
       this.addPokemonToCollection(randomPokemonID);
       console.log("added pokemon to collection: ", this.collection);
-      this.obtainedPokemonFromLatestPack = this.getCollectionPokemons(randomPokemonID);
+      this.obtainedPokemonFromLatestPack = this.getCollection(randomPokemonID);
 
       // return the list of random Pokemon if needed
       return randomPokemonID;
