@@ -26,6 +26,3 @@ const legendaryPackPrice = 100;
 export const packs = packNames.map((packName, index) => 
   generatePack(index + 1, packName, index === 9 ? legendaryPackPrice : basePrice, packImagePaths[index])
 );
-
-
-
