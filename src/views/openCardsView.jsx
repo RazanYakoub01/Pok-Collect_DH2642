@@ -1,15 +1,23 @@
 import React from "react";
 import '/src/openCards.css';
+import backOfPokeCard from "/src/openCardsImages/backOfPokeCard.jpg.avif";
 
 const OpenCardsView = (props) => {
+
+  const handleCardClick = (pokemon) => {
+    console.log("Clicked on Pokemon:", pokemon);
+  };
+
   return (
-    <div>
+    <div className="open-cards-container">
       <h1>Open Packs</h1>
-      <div className="obtained-pokemon">
+      <div className="pokemon-cards">
         {props.obtainedPokemon.map((pokemon) => (
-          <div key={pokemon.ID} className="pokemon-card">
-            <img src={pokemon.imageUrl}/>
-            <p>{pokemon.Name}</p>
+          <div
+            className="pokemonCardBack"
+            key={pokemon}
+            onClick={() => handleCardClick(pokemon)}>
+            <img className="pokemon-card-image-back" src={backOfPokeCard}/>
           </div>
         ))}
       </div>

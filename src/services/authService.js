@@ -1,4 +1,4 @@
-import { onAuthStateChanged, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
+import { onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut, GoogleAuthProvider } from 'firebase/auth';
 import model from '/src/models/pokeModel.js';
 import { auth } from '/src/firebaseConfig.js';
 import db from '/src/firebaseModel';
@@ -23,7 +23,7 @@ export const googleSignIn = (navigateCallback) => {
     prompt: 'login',
   });
 
-  signInWithPopup(auth, provider)
+  signInWithRedirect(auth, provider)
     .then(() => {
       handleAuthStateChange();
       navigateCallback('/'); // Navigating after successful sign-in
