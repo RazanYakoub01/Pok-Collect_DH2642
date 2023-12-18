@@ -11,6 +11,7 @@ const readUserDataFromFirebase = async (userId) => {
       console.log(snapshot.val());
       persistenceToModel(snapshot.val(), model); 
     } else {
+      persistenceToModel(null, model);
       console.log('No data available for this user.');
       return null;
     }
@@ -23,11 +24,11 @@ const readUserDataFromFirebase = async (userId) => {
 function modelToPersistence(model) {
   const persistenceObject = {
     cartItems: model.cartItems,
-    totalPrice: model.totalPrice,
     balance: model.balance,
     packs : model.packs,
     currentPokemon: model.currentPokemon,
     collection: model.collection,
+    lastLoginTime: model.lastLoginTime
   }
 
   return persistenceObject;
@@ -37,13 +38,14 @@ function persistenceToModel(data, model) {
   data = data || {};
 
   model.cartItems = data.cartItems || [];
-  model.totalPrice = data.totalPrice || 0;
   model.balance = data.balance || 200;
   model.packs = data.packs || [];
   model.collection = data.collection || [];
   if (data.currentPokemon !== undefined){
     model.setCurrentPokemon(data.currentPokemon);
   }
+  model.lastLoginTime = data.lastLoginTime || null;
+  model.updateLastLoginAndBalance();
 }
 
 
@@ -60,7 +62,7 @@ const writeCartDataToFirebase = async (userId, model) => {
 
 function connectToFirebase(model, watchFunction) {
   function checkACB() {
-    const data = [model.cartItems, model.balance,model.totalPrice,model.packs, model.currentPokemon, model.collection];
+    const data = [model.cartItems, model.balance, model.packs, model.currentPokemon, model.collection, model.lastLoginTime];
     return data;
   }
   function effectACB() {
