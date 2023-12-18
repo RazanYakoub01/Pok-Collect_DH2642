@@ -61,10 +61,12 @@ const pokeModel = observable({
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
     console.log(currentTime);
+    console.log(this.lastLoginTime);
+    console.log(ONE_DAY_IN_MS);
 
 
     // If last login was more than 24 hours ago, grant the user daily balance
-    if (lastLoginTime == null || (currentTime - lastLoginTime) > ONE_DAY_IN_MS) {
+    if (this.lastLoginTime == null || (currentTime - this.lastLoginTime) > ONE_DAY_IN_MS) {
       const newBalance = this.balance + 75; // DAILY_BALANCE is your predefined daily balance value
       this.balance = newBalance;
       this.lastLoginTime = currentTime; // Update last login time to the current time
