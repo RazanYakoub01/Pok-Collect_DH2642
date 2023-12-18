@@ -39,3 +39,17 @@
     border: 1px solid #0a0a0a;
   }
   
+  .modal {
+    font-size: 12px;
+    text-align: center; /* Center the content */
+    position: relative;
+  }
+  
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px; /* Add margin to create space between header and content */
+  }

@@ -61,31 +61,35 @@
   height: 20px;
   vertical-align: middle;
 }
-
 .packs {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start; /* Align items to the top */
 }
 
 .pack {
   width: 200px;
   margin: 10px;
-  padding: 10px;
-  border: 2px solid grey;
-  background-color: black;
-  color: white;
+  padding: 15px; /* Increase padding for a more spacious look */
+  border: 2px solid #ffcc00; /* Pokemon Yellow color */
+  background: linear-gradient(to right, #ff8c00, #ffc107); /* Example gradient from orange to yellow */
+
+  color: #333;
+  text-align: center;
+  border-radius: 15px; /* Add rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
 }
 
 .pack img {
   max-width: 100%;
-  height: 100px;
-  border-bottom: 2px solid #ddd;
+  height: 120px; /* Increase height for better visibility */
+  border-bottom: 2px solid #ffcc00; /* Pokemon Yellow color */
 }
 
 .packDetails {
-  margin-top: 50px;
+  margin-top: 10px; /* Reduce top margin for better spacing */
+  font-size: 14px; /* Adjust font size */
 }
 
 .pack:hover {
@@ -96,7 +100,7 @@
 .packDetails img {
   width: 20px; 
   height: 20px; 
-  margin-left: 5px;
+  margin-left: 20px;
   vertical-align: middle;
 }
 
@@ -119,20 +123,7 @@
 
 /* modal.css */
 
-.modal {
-  font-size: 12px;
-  text-align: center; /* Center the content */
-  position: relative;
-}
 
-.modal > .header {
-  width: 100%;
-  border-bottom: 1px solid gray;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
-  margin-bottom: 10px; /* Add margin to create space between header and content */
-}
 /* Add this to your existing CSS file or create a new one */
 .cart-link {
   text-decoration: none; /* Remove default underline */
