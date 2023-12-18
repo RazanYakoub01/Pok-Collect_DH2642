@@ -309,7 +309,7 @@ const pokeModel = observable({
       7: { start: 722, end: 809 },
       8: { start: 810, end: 905 },
       9: { start: 906, end: 1017 },
-      // Add legendary pack later
+      10: { start: 1, end: 1017 },
     };
 
     // Check if the pack ID is valid
@@ -324,7 +324,7 @@ const pokeModel = observable({
       // Add the random Pokemon to the user's collection
       this.addPokemonToCollection(randomPokemonID);
       console.log("added pokemon to collection: ", this.collection);
-      this.obtainedPokemonFromLatestPack = this.getPackCards(randomPokemonID);
+      this.getPokemonPackCards(randomPokemonID);
 
       // return the list of random Pokemon if needed
       return randomPokemonID;

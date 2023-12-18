@@ -188,6 +188,18 @@ h1 {
 
 }
 
+.open-cards-view .pokemon-card {
+  width: 210px;
+  margin: 15px;
+  padding: 15px;
+  border: 8px solid #0b0a0a;
+  border-radius: 10px;
+  text-align: center;
+  transition: none !important;
+  transform: none !important;
+  cursor: default;
+}
+
 .search-results .pokemon-card img {
   width: 100%; /* Make the image fill the container */
   height: auto;
