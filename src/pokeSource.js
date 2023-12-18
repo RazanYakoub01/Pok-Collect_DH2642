@@ -1,4 +1,5 @@
 const BASE_URL= "https://pokeapi.co/api/v2/";
+import pokeModel from "./models/pokeModel";
 
 
 
@@ -87,6 +88,7 @@ function fetchAllPokemon() {
       console.error("Error fetching initial Pokémon data:", error)
     );
 }
+
 function fetchPokemonById(id) {
   return fetch(BASE_URL + "pokemon/" + id)
     .then((response) => {
@@ -128,7 +130,6 @@ function extractPokeData(data) {
   });
 
   const moves = data.moves.map((moveInfo) => moveInfo.move.name);
-  console.log("data.types" + data.types);
 
   return {
     Name: data.name,
@@ -155,6 +156,18 @@ function getCachedPokemonData() {
   const data = localStorage.getItem("pokemonData");
   return data ? JSON.parse(data) : null;
 }
+
+function getCollection() {
+  // Retrieve the cached Pokémon data
+  const data = getCachedPokemonData();
+
+  // Filter the cached data to include only Pokémon whose IDs are in the collection
+  const collectionPokemons = data.filter(pokemon => pokeModel.collection.includes(pokemon.id));
+
+  // Return the filtered list of Pokémon
+  return collectionPokemons;
+}
+
 
 // This code initializes Pokemon data by first checking if there is cached data available.
 // If there is, it returns the cached data, provided no Pokemon IDs are missing.
@@ -198,4 +211,4 @@ function initializePokemonData() {
   }
 }
 
-export { initializePokemonData, getPokemonDetails, getEvolutionDetails };
+export { initializePokemonData, getPokemonDetails, getEvolutionDetails, getCollection };
