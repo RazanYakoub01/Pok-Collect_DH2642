@@ -30,6 +30,7 @@ const pokeModel = observable({
   searchParams: {},
   searchResultsPromiseState: {},
   currentPokemonPromiseState: {},
+  openPackPromiseState: {},
   collectionPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
   obtainedPokemonFromLatestPack: [],
@@ -275,6 +276,18 @@ const pokeModel = observable({
     });
   },
 
+
+  getPokemonPackCards(pokemonIDs) {
+    const allPokemons = this.initializePokemonDataPromiseState.data;
+  
+    // Filter based on provided Pokémon IDs
+    const filteredPokemons = allPokemons.filter(pokemon => pokemonIDs.includes(pokemon.ID));
+  
+    // Create and return a promise with the filtered results
+    resolvePromise(Promise.resolve(filteredPokemons), this.openPackPromiseState);
+  },
+  
+
   //func to open packs, depandant on packID
   openPack(packId) {
 
@@ -304,7 +317,7 @@ const pokeModel = observable({
       // Add the random Pokemon to the user's collection
       this.addPokemonToCollection(randomPokemonID);
       console.log("added pokemon to collection: ", this.collection);
-      this.obtainedPokemonFromLatestPack = this.getCollection(randomPokemonID);
+      this.obtainedPokemonFromLatestPack = this.getPackCards(randomPokemonID);
 
       // return the list of random Pokemon if needed
       return randomPokemonID;
