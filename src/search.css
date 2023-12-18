@@ -5,7 +5,7 @@
 /* Add this rule to your CSS file */
 .styled-title {
   font-family: 'Pokemon Solid', sans-serif !important;
-  font-size: 2em !important;
+  font-size: 1.5em !important;
   font-weight: normal !important;
   color: inherit !important;
   background: transparent !important;
@@ -15,53 +15,7 @@
   line-height: 1 !important;
   border: none !important;
   text-shadow: none !important;
- 
 }
-
-
-/* Add specific styles for each Pokemon type */
-.styled-title.type-normal {
-  color: #A8A878; /* Set the color for Normal type */
-}
-
-.styled-title.type-fire {
-  color: #FF3D00; /* Set the color for Fire type */
-}
-
-.styled-title.type-water {
-  color: #6890F0; /* Set the color for Water type */
-}
-
-.styled-title.type-electric {
-  color: #FFD700; /* Set the color for Electric type */
-}
-
-.styled-title.type-grass {
-  color: #78C850; /* Set the color for Grass type */
-}
-
-.styled-title.type-ice {
-  color: #98D8D8; /* Set the color for Ice type */
-}
-
-.styled-title.type-fighting {
-  color: #C03028; /* Set the color for Fighting type */
-}
-
-.styled-title.type-poison {
-  color: #A040A0; /* Set the color for Poison type */
-}
-
-.styled-title.type-ground {
-  color: #E0C068; /* Set the color for Ground type */
-}
-
-.styled-title.type-flying {
-  color: #A890F0; /* Set the color for Flying type */
-}
-
-/* Add more type-specific styles as needed */
-
 
 
 /* General Styling */
@@ -273,28 +227,33 @@ h1 {
 }
 
 .search-results .pokemon-card.type-electric {
-  background: linear-gradient(135deg, #e1b600 0%, #fed330 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffd700 30%, #e1b600 100%);
 }
+
 
 .search-results .pokemon-card.type-grass {
   background: linear-gradient(135deg, #5faa3a 0%, #00b894 50%, #5faa3a 100%);
 }
-
 .search-results .pokemon-card.type-ice {
-  background: linear-gradient(135deg, #67c2c2 0%, #74b9ff 100%);
+  background: linear-gradient(135deg, #b3d7ff 0%, #67c2c2 50%, #74b9ff 100%);
 }
 
 .search-results .pokemon-card.type-fighting {
-  background: linear-gradient(135deg, #a62a4a 0%, #30336b 100%);
+  background: linear-gradient(135deg, #c70039 0%, #ff5733 100%);
 }
 
 .search-results .pokemon-card.type-poison {
-  background: linear-gradient(135deg, #8f4d99 0%, #6c5ce7 100%);
+  background: linear-gradient(135deg, #8a2387 0%, #e94057 100%);
 }
 
 .search-results .pokemon-card.type-ground {
-  background: linear-gradient(135deg, #a8512a 0%, #EFB549 100%);
+  background: linear-gradient(135deg, #5a3f37 0%, #EFB549 100%);
 }
+
+.search-results .pokemon-card.type-rock {
+  background: linear-gradient(135deg, #808080 0%, #A9A9A9 50%, #808080 100%);
+}
+
 
 .search-results .pokemon-card.type-bug {
   background: linear-gradient(135deg, #4a501d 0%, #7d833c 50%, #4a501d 100%);
