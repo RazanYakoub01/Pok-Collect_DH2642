@@ -32,6 +32,7 @@ const pokeModel = observable({
     7: { start: 722, end: 809 },
     8: { start: 810, end: 905 },
     9: { start: 906, end: 1017 },
+    10: { start: 1, end: 1017 },
   },
   LegandaryPokemon : [144, 145, 146, 150, 151, 243, 244, 245, 249, 250, 
     251, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 479, 480, 
@@ -377,29 +378,48 @@ getTotalCountGenTen() {
 
   
 
-  //func to open packs, depandant on packID
-  openPack(packId) {
-    // Check if the pack ID is valid
-    if (this.generationRanges.hasOwnProperty(packId)) {
-      const range = this.generationRanges[packId];
-      const randomPokemonID = this.generateRandomPokemon(
-        range.start,
-        range.end,
-        10
-      );
-      console.log("randompokemonid", randomPokemonID)
-      // Add the random Pokemon to the user's collection
-      this.addPokemonToCollection(randomPokemonID);
-      console.log("added pokemon to collection: ", this.collection);
-      this.getPokemonPackCards(randomPokemonID);
+//func to open packs, dependant on packID
+openPack(packId) {
+ 
 
-      // return the list of random Pokemon if needed
-      return randomPokemonID;
-    } else {
-      console.error(`Invalid pack ID: ${packId}`);
-      return null;
+  // Check if the pack ID is valid
+  if (this.generationRanges.hasOwnProperty(packId)) {
+    const range = this.generationRanges[packId];
+    const randomPokemonID = this.generateRandomPokemon(range.start, range.end, 10);
+
+    // If the pack ID is 10, guarantee at least one legendary Pokémon
+    if (packId === 10) {
+      // Check if the pack already contains a legendary Pokémon
+      const hasLegendary = randomPokemonID.some((pokemon) =>
+        this.LegandaryPokemon.includes(pokemon)
+      );
+
+      // If no legendary Pokémon is found, add one
+      if (!hasLegendary) {
+        const nonLegendaryPokemonIndex = randomPokemonID.findIndex(
+          (pokemon) => !this.LegandaryPokemon.includes(pokemon)
+        );
+
+        // When a non-legendary Pokémon is found, replace it with a legendary Pokémon
+        if (nonLegendaryPokemonIndex !== -1) {
+          const randomIndex = Math.floor(Math.random() * this.LegandaryPokemon.length);
+          randomPokemonID[nonLegendaryPokemonIndex] = this.LegandaryPokemon[randomIndex];
+        }
+      }
     }
-  },
+
+    console.log("randompokemonid", randomPokemonID);
+    // Add the random Pokemon to the user's collection
+    this.addPokemonToCollection(randomPokemonID);
+    console.log("added pokemon to collection: ", this.collection);
+    this.getPokemonPackCards(randomPokemonID);
+
+    return randomPokemonID;
+  } else {
+    console.error(`Invalid pack ID: ${packId}`);
+    return null;
+  }
+},
 
   // needed to generate 10 random pokemon for the pack opening
   generateRandomPokemon(start, end, count) {
