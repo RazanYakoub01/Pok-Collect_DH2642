@@ -5,6 +5,7 @@ import "../collection.css";
 import "/src/textFonts.css";
 import ReactCardFlip from 'react-card-flip';    //third party component
 import backOfPokeCard from "/src/openCardsImages/backOfPokeCard.jpg.avif";
+import blackPokeBall from "/src/openCardsImages/blackPokeBall.png";
 
 const OpenCardsView = (props) => {
 
@@ -59,7 +60,10 @@ const OpenCardsView = (props) => {
 
   return (
     <div className="search-results open-cards-view">
-      <h1>Discover Your new Pokémon!</h1>
+      <div className="openCardsTitle">
+      <img src={blackPokeBall} className="openCardsimage" />
+        <h1>Discover Your new Pokémon!</h1>
+      </div>
       <div className="pokemon-cards">
         {props.obtainedPokemon.map((pokemon, index) => (
           <ReactCardFlip

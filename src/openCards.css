@@ -1,3 +1,14 @@
+.openCardsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.openCardsimage {
+  width: 130px; 
+  height: auto; 
+}
+
 .backImage {
     width: 300px;
     height: auto;
