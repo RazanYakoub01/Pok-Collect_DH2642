@@ -36,7 +36,7 @@ export default observer(function CollectionPresenter(props) {
         <div>Error: {props.model.collectionPromiseState.error.toString()}</div>
       );
     } else {
-      // Data is available
+      // Data is available            
       return (
         <CollectionView
           user={props.model.user.displayName}
@@ -44,6 +44,12 @@ export default observer(function CollectionPresenter(props) {
           initialPokemonData={props.model.initializePokemonDataPromiseState.data}
           collectionPokemon={props.model.collectionPromiseState.data}
           collection={props.model.collection}
+          collectedByGeneration={props.model.countCollectedByGeneration()}
+          generationRanges = {props.model.generationRanges}
+          totalCountByGeneration = {props.model.getTotalCountByGeneration()}
+          collectedGenTen = {props.model.countCollectedGenTen()}
+          totalCountGenTen = {props.model.getTotalCountGenTen()}
+          LegandaryPokemon = {props.model.LegandaryPokemon}
         />
       );
     }
