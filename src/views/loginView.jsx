@@ -3,7 +3,7 @@ import '/src/login.css';
 import hm4 from '/src/homepageImages/hm4.png';
 import "/src/textFonts.css";
 
-const LoginView = (props) => {
+export default function LoginView (props)  {
 
   const fireGoogleSignIn = (event) => {
     props.onGoogleSignIn(event);
@@ -24,5 +24,3 @@ const LoginView = (props) => {
     </div>
   );
 };
-
-export default LoginView;

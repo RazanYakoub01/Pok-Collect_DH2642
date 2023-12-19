@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import tiImage from "/src/aboutUsImages/ti.jpg";
 
-const AboutUsView = ({ memberArray }) => {
+export default function  AboutUsView (props)  {
   return (
     <div className="flex-row-homepage">
       <div className="flex-column-aboutus">
@@ -20,7 +20,7 @@ const AboutUsView = ({ memberArray }) => {
 
         <h1 className="meet-the-team">MEET THE TEAM</h1>
         <div style={{ display: "flex", flexDirection: "column", gap: "2vw" }}>
-          {memberArray.map((member, index) => {
+          {props.memberArray.map((member, index) => {
             return (
               <div key={index} className="flex-row-profile square-profile">
                 <span className="flex-column-profile">
@@ -53,5 +53,3 @@ const AboutUsView = ({ memberArray }) => {
     </div>
   );
 };
-
-export default AboutUsView;
