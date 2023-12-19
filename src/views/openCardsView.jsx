@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 import '/src/openCards.css';
 import "../search.css";
 import "../collection.css";
@@ -9,9 +8,8 @@ import backOfPokeCard from "/src/openCardsImages/backOfPokeCard.jpg.avif";
 
 const OpenCardsView = (props) => {
 
-  const navigate = useNavigate();
   const handleCollectionClick = () => {
-    navigate('/collection');
+    props.onCollectionClick();
   };
 
   // I use useState hook to set the state to false in the beginning.
