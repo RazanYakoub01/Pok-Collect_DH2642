@@ -103,7 +103,7 @@ body {
 }
 
 /* Responsive - Hide menu items and show hamburger menu on smaller screens */
-@media (max-width: 850px) {
+@media (max-width: 1200px) {
 
   .hamburger{
     display: flex;
