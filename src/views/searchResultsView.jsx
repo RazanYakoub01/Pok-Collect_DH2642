@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from 'react-rating';
 import "../search.css";
 import "/src/textFonts.css";
 
@@ -35,25 +36,41 @@ const SearchResultsView = (props) => {
     // If there are Pokémon with current filters, display them
     return (
       <div className="search-results">
-        {pokemons.map((pokemon) => (
-          <div
+        {pokemons.map((pokemon) => {
+          const isInCollection = props.model.collection.includes(pokemon.ID);
+
+          return (
+            <div
             className={`pokemon-card type-${pokemon.Types[0]}`}
-            key={pokemon.ID}
-            onClick={() => selectPokemonACB(pokemon)}
-          >
-            <h2 className="pokemon-card-title">
-              <span className={`styled-title type-${pokemon.Types[0]}`}>
-                {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
-              </span>
-            </h2>
-            <img
-              className="pokemon-card-image"
-              src={pokemon.ImageURL}
-              alt={pokemon.Name}
-            />
-            {renderStats(pokemon)}
-          </div>
-        ))}
+              key={pokemon.ID}
+              onClick={() => selectPokemonACB(pokemon)}
+            >
+              <h2 className="pokemon-card-title">
+                <span className={`styled-title type-${pokemon.Types[0]}`}>
+                  {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
+                </span>
+              </h2>
+              {props.model.isLoggedIn && (
+            <div>
+              <span>Collected: </span>
+              <Rating
+                initialRating={isInCollection ? 1 : 0}
+                emptySymbol={<span className="star">&#9734;</span>}
+                fullSymbol={<span className="star">&#9733;</span>}
+                readonly
+                stop={1}
+              />
+            </div>
+            )}
+              <img
+                className="pokemon-card-image"
+                src={pokemon.ImageURL}
+                alt={pokemon.Name}
+              />
+              {renderStats(pokemon)}
+            </div>
+          );
+        })}
       </div>
     );
   }

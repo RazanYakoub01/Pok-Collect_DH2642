@@ -44,7 +44,6 @@ export default observer(function CollectionPresenter(props) {
           initialPokemonData={props.model.initializePokemonDataPromiseState.data}
           collectionPokemon={props.model.collectionPromiseState.data}
           collection={props.model.collection}
-          
         />
       );
     }
