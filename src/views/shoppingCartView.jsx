@@ -10,8 +10,8 @@ function ShoppingCartView(props) {
   const isPurchaseDisabled = props.balance < props.totalPrice;
   const items = props.cartItems || [];
 
-  const firePurchase = () => {
-    props.handlePurchase();
+  const onPurchase = () => {
+    props.firePurchase();
   }
 
   return (
@@ -44,7 +44,7 @@ function ShoppingCartView(props) {
       <div className="cart-actions">
         <Link to="/packs">
         <button
-            onClick={firePurchase}
+            onClick={onPurchase}
             className={isPurchaseDisabled ? 'disabled-button' : ''}
             disabled={isPurchaseDisabled}>
             Purchase

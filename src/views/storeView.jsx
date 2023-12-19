@@ -29,7 +29,7 @@ function StoreView(props) {
     )}
       <div className="balance">
         <p>
-          Current Balance: {props.balance} coins{" "}
+          Current Balance: {props.balance}
           <img src={coin} alt="Coin Icon" />
         </p>
         <p>
@@ -51,7 +51,7 @@ function StoreView(props) {
             <div className="packDetails">
               <h2>{pack.packName}</h2>
               <div>
-                Price: {pack.price} coins <img src={coin} alt="Coin Icon" />
+                Price:  {pack.price}<img src={coin} alt="Coin Icon" />
               </div>
               <button
                 className="storeButton"

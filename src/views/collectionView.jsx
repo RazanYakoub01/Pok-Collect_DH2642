@@ -2,7 +2,6 @@ import React from 'react';
 import "../search.css";
 import "../collection.css";
 import "/src/textFonts.css";
-import { useNavigate } from 'react-router-dom';
 import backpack from '/src/collectionImages/backpack.png';
 
 // add collected date? 
@@ -10,7 +9,7 @@ import backpack from '/src/collectionImages/backpack.png';
 const CollectionView = (props) => {
 
   const fireSelectPokemon = (pokemon) => {
-    props.onPokemonClick(pokemon);  
+    props.onPokemonClick(pokemon);
   };
 
   return (
@@ -19,9 +18,9 @@ const CollectionView = (props) => {
         <img src={backpack} />
         <h1 className="titleFont collection">{props.user}'s Pokémon Collection</h1>
       </div>
-      <div>{`Collected ${props.model.collection.length} Pokémon out of ${props.model.initializePokemonDataPromiseState.data.length}`}</div>
+      <div>{`Collected ${props.collection.length} Pokémon out of ${props.initialPokemonData.length}`}</div>
       <div className="search-results">
-        {props.model.collectionPromiseState.data.map((pokemon) => (
+        {props.collectionPokemon.map((pokemon) => (
           <div
             className={`pokemon-card type-${pokemon.Types[0]}`}
             key={pokemon.ID}
