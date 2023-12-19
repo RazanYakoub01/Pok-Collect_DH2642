@@ -1,45 +1,49 @@
 nav {
   background-color: black;
   width: 100%;
-  z-index: 1000;
-  padding: 10px;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
+  position: relative;
+  height: 50px;
 }
 
 .navbar-icon {
-  width: 20px; 
-  height: 20px; 
+  width: 20px;
+  height: 20px;
   margin-right: 5px;
 }
 
-  .login {
-    margin-left: auto;
-    color: white;
-  }
-  
 
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; 
-  }
-  
-  nav li {
-    margin-right: 10px; 
-  }
-  
-  nav li:last-child {
-    margin-right: 0;
-  }
-  
+.login {
+  color: white;
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+nav li {
+  margin-right: 10px;
+}
+
+nav li:last-child {
+  margin-right: 0;
+}
+
 nav a {
   color: white;
   margin-right: 10px;
   text-decoration: none;
   border-bottom: 2px solid transparent;
   border-right: 1px solid #ffffff;
-  padding-right: 10px; 
+  padding-right: 10px;
   align-items: center;
 }
 
@@ -63,9 +67,12 @@ nav a:not(:last-child) {
   margin-top: 4px;
   position: relative;
 }
+
+
+@media (min-width: 850px) {
 /*Just to get the white line under sign out, wont be displayed until hover*/
 .navTextWithImage::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
@@ -74,7 +81,111 @@ nav a:not(:last-child) {
   left: 0;
   display: none;
 }
+}
 
 .navTextWithImage:hover::after {
   display: block;
+}
+
+.navbar-items {
+  display: flex;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*Responsiveness*/
+
+/* Hamburger icon hidden on large screens */
+.hamburger{
+  display: none;
+}
+
+/* Responsive - Hide menu items and show hamburger menu on smaller screens */
+@media (max-width: 850px) {
+
+  .hamburger{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    justify-content: space-around;
+    flex-flow: column nowrap;
+    z-index: 5;
+  }
+
+.burger{
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 10px;
+    background-color: gray;
+    transform-origin: 1px;
+    transition: all 0.3s linear;
+}
+
+.navbar-items {
+  display: none;
+}
+
+.navbar-items.open {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  width: 100%;
+  padding: 15px 10px;
+  position: absolute;
+  top: 0px;
+  left: 0;
+  z-index: 1;
+}
+
+.login{
+  display: none;
+}
+
+.navbar-items.open li {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Styles for each a element when the menu is open */
+.navbar-items.open li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  text-decoration: none;
+  color: white;
+  z-index: 2;
+}
+
+/* Styles for the navbar icon when the menu is open */
+.navbar-items.open .navbar-icon {
+  margin-right: 5px;
+}
+
+/* Styles for the login/logout nav link when the hamburgermenu is open */
+.navbar-items.open .navTextWithImage:hover{
+  background-color: red;
+  color: white; /* Text color */
+}
+
+
+/* Styles for each a navigation link when the hamburger menu is open */
+.navbar-items li a:hover, .navbar-items li a:focus {
+  background-color: white;
+  color: black;
+}
+
+/* Styles for the navbar icon when the hamburger menu is open */
+.navbar-items li a:hover .navbar-icon, .navbar-items li a:focus .navbar-icon {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
 }

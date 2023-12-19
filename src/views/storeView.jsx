@@ -24,7 +24,7 @@ function StoreView(props) {
     <div>
       <h2 className="timer">
         <span className="timer-text">
-          Time Until Next Coin Boost:
+          Time Until Next Coin Boost:&nbsp;  75
           <img src={coin} alt="Coin Icon" className="coin-icon" />
         </span>
       </h2>

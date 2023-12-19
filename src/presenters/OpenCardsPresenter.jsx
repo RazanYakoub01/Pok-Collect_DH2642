@@ -12,9 +12,11 @@ export default observer(function OpenCardsPresenter(props){
     navigate('/collection');
   }
   
+  function handlePacksClick(){
+    navigate('/packs');
+  }
   
-  
-  return <OpenCardsView obtainedPokemon={obtainedPokemon} onCollectionClick={handleCollectionClick}/>;
+  return <OpenCardsView obtainedPokemon={obtainedPokemon} onCollectionClick={handleCollectionClick} onPacksClick={handlePacksClick}/>;
 
 }
 );
