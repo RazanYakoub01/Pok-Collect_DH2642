@@ -94,7 +94,7 @@ h1 {
   height: 5vw;
 }
 
-@media (max-width: 100px) {
+@media (max-width: 1200px) {
   .type-icon {
     width: calc(100% / 9); /* Two rows of 9 */
     height: calc(100% / 6);
