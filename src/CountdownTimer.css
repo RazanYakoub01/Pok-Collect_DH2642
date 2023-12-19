@@ -14,4 +14,24 @@
     margin: 0 5px;
   }
 
+  .timer {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column;
+    margin: 20px;
+  }
+  
+  .timer-text {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center; /* Align the text and coin vertically */
+  }
+  
+  .coin-icon {
+    width: 20px; /* Adjust the width of the coin icon as needed */
+    height: auto;
+    margin-left: 5px; /* Add some space between the text and the coin */
+  }
   

@@ -16,16 +16,25 @@ function StoreView(props) {
 
   return (
     <div className="shop">
-      <div className="shopTitleContainer">
-        <img src={s} className="titleImage" alt="Shop Title" />
-        <h1 className="titleFont">PokéCollect Shop</h1>
-      </div>
-           {props.loggedIn && (
-        <CountdownTimer
-          hoursRemaining={props.hoursRemaining}
-          minutesRemaining={props.minutesRemaining}
-        />
-      )}
+  <div className="shopTitleContainer">
+    <img src={s} className="titleImage" alt="Shop Title" />
+    <h1 className="titleFont">PokéCollect Shop</h1>
+  </div>
+  {props.loggedIn && (
+    <div>
+      <h2 className="timer">
+        <span className="timer-text">
+          Time Until Next Coin Boost:
+          <img src={coin} alt="Coin Icon" className="coin-icon" />
+        </span>
+      </h2>
+      <CountdownTimer
+        hoursRemaining={props.hoursRemaining}
+        minutesRemaining={props.minutesRemaining}
+      />
+    </div>
+  )}
+
       <div className="balance">
         <p>
           Current Balance: {props.balance}
