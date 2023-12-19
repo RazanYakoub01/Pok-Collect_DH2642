@@ -1,0 +1,17 @@
+
+
+.countdown-timer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: #333;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .countdown-timer span {
+    margin: 0 5px;
+  }
+
+  
