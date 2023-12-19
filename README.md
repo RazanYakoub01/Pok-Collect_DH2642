@@ -77,6 +77,9 @@ npm install reactjs-popup --save    #reactjs-popup
 ```
 npm install @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons @fortawesome/fontawesome-svg-core  #fontawesome icons
 ```
+```
+npm install react-rating --save
+```
 
 ### 5. Run the application:
 
