@@ -38,6 +38,7 @@ const pokeModel = observable({
   lastLoginTime : null, 
   hoursRemaining : 0,
   minutesRemaining: 0,
+  
   getNavbarItems(handleSignOut) {
     if (this.isLoggedIn) {
       return [
