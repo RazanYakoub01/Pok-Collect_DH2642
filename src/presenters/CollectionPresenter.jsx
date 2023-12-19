@@ -9,10 +9,11 @@ export default observer(function CollectionPresenter(props) {
   // Effect for fetching data based on collection IDs
   useEffect(() => {
     // Trigger the search function
-    console.log("useEffect triggered collecton:" + props.model.collection);
     props.model.pokemonSearchByIDs(props.model.collection);
   }, [props.model, props.model.collection]); // Dependency array includes model and collection
 
+
+  // Handle pokemon click to go to detailsView.
   function handleSelectPokemon(pokemon) {
     props.model.setCurrentPokemon(pokemon.ID);
     navigate(`/details/${pokemon.ID}`);
@@ -38,9 +39,12 @@ export default observer(function CollectionPresenter(props) {
       // Data is available
       return (
         <CollectionView
-          model={props.model}
           user={props.model.user.displayName}
           onPokemonClick={handleSelectPokemon}
+          initialPokemonData={props.model.initializePokemonDataPromiseState.data}
+          collectionPokemon={props.model.collectionPromiseState.data}
+          collection={props.model.collection}
+          
         />
       );
     }
