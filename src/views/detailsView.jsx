@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import '/src/details.css';
 import attack from '/src/detailsImages/attack.png';
 import def from '/src/detailsImages/def.png';
@@ -13,14 +12,13 @@ import height from '/src/detailsImages/height.png';
 import kg from '/src/detailsImages/kg.png';
 
 const DetailsView = (props) => {
-  const navigate = useNavigate();
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  const handleBackClick = () => {
-    navigate('/pokedex');
+  const fireBackClick = () => {
+    props.onBackClick();
   };
   
   const renderPokedexData = () => {
@@ -126,7 +124,7 @@ const DetailsView = (props) => {
 
   return (
     <div className="details-container">
-      <button className='backButton' onClick={handleBackClick}>Back to Pokédex</button>
+      <button className='backButton' onClick={fireBackClick}>Back to Pokédex</button>
       <h1>{capitalizeFirstLetter(props.pokemonDetails.Name)}</h1>
       <div className="info-container">
         <div>
