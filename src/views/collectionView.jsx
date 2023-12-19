@@ -4,8 +4,6 @@ import "../collection.css";
 import "/src/textFonts.css";
 import backpack from '/src/collectionImages/backpack.png';
 
-// add collected date? 
-
 const CollectionView = (props) => {
 
   const fireSelectPokemon = (pokemon) => {
