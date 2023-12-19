@@ -5,15 +5,14 @@ import "/src/textFonts.css";
 
 const LoginView = (props) => {
 
-  const handleGoogleLoginACB = (event) => {
-    event.preventDefault();
-    props.googleSignIn();
+  const fireGoogleSignIn = (event) => {
+    props.onGoogleSignIn(event);
   };
 
   return (
     <div>
       <h1>Login to your account </h1>
-      <button className='googleButton' onClick={handleGoogleLoginACB}>
+      <button className='googleButton' onClick={fireGoogleSignIn}>
         Sign in with Google
       </button>
       <div>

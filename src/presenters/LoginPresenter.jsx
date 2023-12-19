@@ -7,10 +7,11 @@ import { useNavigate } from 'react-router-dom';
 export default observer(function LoginPresenter() {
   const navigate = useNavigate();
 
-  const handleGoogleSignIn = () => {
-    googleSignIn(navigate); 
+  const handleGoogleSignIn = (event) => {
+    event.preventDefault();
+    googleSignIn(navigate);
   };
 
-  return <LoginView googleSignIn={handleGoogleSignIn} />;
+  return <LoginView onGoogleSignIn={handleGoogleSignIn} />;
 });
 
