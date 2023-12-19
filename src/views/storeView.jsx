@@ -7,6 +7,7 @@ import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
 import s from "/src/storeImages/s.png";
 import { getGenerationClass } from "../utils";
+import CountdownTimer from "/src/CountdownTimer.jsx"; // Import CountdownTimer
 
 function StoreView(props) {
   function onAddToCartClick(pack) {
@@ -19,14 +20,12 @@ function StoreView(props) {
         <img src={s} className="titleImage" alt="Shop Title" />
         <h1 className="titleFont">PokéCollect Shop</h1>
       </div>
-          {props.loggedIn && (
-      <div>
-        <p className="textFont timer">
-          Time remaining for next balance update: {props.hoursRemaining} hours
-          and {props.minutesRemaining} minutes
-        </p>
-      </div>
-    )}
+           {props.loggedIn && (
+        <CountdownTimer
+          hoursRemaining={props.hoursRemaining}
+          minutesRemaining={props.minutesRemaining}
+        />
+      )}
       <div className="balance">
         <p>
           Current Balance: {props.balance}
