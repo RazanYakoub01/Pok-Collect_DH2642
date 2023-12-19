@@ -31,10 +31,10 @@ export default function NavbarView(props) {
         {otherItems.map((item, index) => (
           <li key={index}>
             {item.action ? (
-              <span className="navTextWithImage" onClick={() => props.onMenuItemClick(item.action)}>
+              <a className="navTextWithImage" onClick={() => props.onMenuItemClick(item.action)}>
                 <img src={item.image} className="navbar-icon" alt={item.name} />
                 {item.name}
-              </span>
+              </a>
             ) : (
               <Link to={item.path}>
                 <img src={item.image} className="navbar-icon" alt={item.name} />
@@ -48,10 +48,10 @@ export default function NavbarView(props) {
         {props.hamburgerOpen && loginItem && (
           <li>
             {loginItem.action ? (
-              <span className='navTextWithImage' onClick={() => props.onMenuItemClick(item.action)}>
+              <a className='navTextWithImage' onClick={() => props.onMenuItemClick(item.action)}>
                 <img src={loginItem.image} className="navbar-icon" alt={loginItem.name} />
                 {loginItem.name}
-              </span>
+              </a>
             ) : (
               <Link to={loginItem.path}>
                 <img src={loginItem.image} className="navbar-icon" alt={loginItem.name} />
@@ -69,14 +69,14 @@ export default function NavbarView(props) {
           onClick={loginItem.action ? loginItem.action : undefined}
         >
           {loginItem.action ? (
-            <span className="navTextWithImage">
+            <a className="navTextWithImage">
               <img
                 src={loginItem.image}
                 className="navbar-icon"
                 alt={loginItem.name}
               />
               {loginItem.name}
-            </span>
+            </a>
           ) : (
             <Link to={loginItem.path}>
               <img
