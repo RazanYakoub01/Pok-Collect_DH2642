@@ -17,7 +17,6 @@ import shop from "/src/navbarImages/shop.png";
 import login from "/src/navbarImages/login.png";
 import signOut from "/src/navbarImages/signOut.png";
 const BASE_URL = "https://pokeapi.co/api/v2/";
-import db from '/src/firebaseModel';
 
 
 const pokeModel = observable({
@@ -94,6 +93,16 @@ const pokeModel = observable({
     this.totalPrice = price;
   },
 
+  initializeTotalPrice() {
+    // Calculate total price based on items in cartItems
+    let totalPrice = 0;
+    for (const item of this.cartItems) {
+      totalPrice += item.price * item.quantity;
+    }
+    this.totalPrice = totalPrice;
+  },
+  
+
   // Add an item to the cart
   addItem(item) {
     const existingItem = this.cartItems.find(
@@ -108,7 +117,6 @@ const pokeModel = observable({
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
-    //db.writeCartDataToFirebase(this.user.uid,this);
   },
 
   // gets the total number of items in the cart
@@ -125,7 +133,7 @@ const pokeModel = observable({
       itemToUpdate.quantity = newQuantity;
       this.totalPrice += priceDifference;
       console.log(newQuantity);
-      //db.writeCartDataToFirebase(this.user.uid,this);
+      console.log(this.cartItems.length);
     }
   },
 
@@ -135,7 +143,6 @@ const pokeModel = observable({
     if (itemIndex !== -1) {
       const removedItem = this.cartItems.splice(itemIndex, 1)[0];
       this.totalPrice -= removedItem.price * removedItem.quantity;
-     //db.writeCartDataToFirebase(this.user.uid,this);
     }
   },
 
@@ -192,8 +199,6 @@ const pokeModel = observable({
     } else {
       console.log("Insufficient balance. Unable to purchase.");
     }
-
-    //db.writeCartDataToFirebase(this.user.uid,this);
   },  
 
 
