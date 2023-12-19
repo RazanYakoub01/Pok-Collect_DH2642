@@ -68,6 +68,12 @@ Navigate to the directory where you saved the cloned repo and write he following
 ```
 npm install     # Installs dependencies
 ```
+```
+npm install --save react-card-flip   #react-card-flip
+```
+```
+npm install reactjs-popup --save    #reactjs-popup
+```
 
 ### 5. Run the application:
 
