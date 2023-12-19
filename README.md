@@ -74,6 +74,9 @@ npm install --save react-card-flip   #react-card-flip
 ```
 npm install reactjs-popup --save    #reactjs-popup
 ```
+```
+npm install @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons   #fontawesome icons
+```
 
 ### 5. Run the application:
 

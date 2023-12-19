@@ -185,3 +185,20 @@ meet-the-team{
   margin-block-start: 0;
   color: #ffff;
 }
+
+
+.linkedin-icon-container {
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
+  width: 30px; /* Adjust the size as needed */
+  height: 30px; /* Adjust the size as needed */
+  border-radius: 50%; /* To make it circular */
+  background-color: #fff; /* LinkedIn color */
+  text-decoration: none; /* Remove default link underline */
+}
+
+.linkedin-icon {
+  color: #fff; /* Icon color */
+  font-size: 1.5rem; /* Adjust the size as needed */
+}
