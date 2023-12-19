@@ -12,6 +12,10 @@ const OpenCardsView = (props) => {
     props.onCollectionClick();
   };
 
+  const firePacksClick = () => {
+    props.onPacksClick();
+  };
+
   // I use useState hook to set the state to false in the beginning.
   // isFlippedArray represents the flipped state of each Pokémon card.
   const [isFlippedArray, setIsFlippedArray] = useState(
@@ -78,9 +82,10 @@ const OpenCardsView = (props) => {
         ))}
       </div>
       {areAllCardsFlipped && (
-        <div>
-          <button className="collectionButton" onClick={handleCollectionClick}>Go To Collection!</button>
-        </div>
+       <div className="collectionButton-container">
+       <button className="collectionButton" onClick={handleCollectionClick}>Go To Collection!</button>
+       <button className="collectionButton" onClick={firePacksClick}>Open More Packs</button>
+     </div>
       )}
     </div>
   );

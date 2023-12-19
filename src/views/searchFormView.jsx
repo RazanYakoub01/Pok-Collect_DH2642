@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "../search.css";
 import "../searchBox.css"
 import "/src/textFonts.css";
 import k2 from '/src/searchImages/k2.png';
 import pokeball from '/src/searchImages/pokeball.png';
-import pokeball2 from '/src/searchImages/pokeball2.webp';
 
 const SearchFormView = (props) => {
   const icons = [
