@@ -9,11 +9,8 @@ import backpack from '/src/collectionImages/backpack.png';
 
 const CollectionView = (props) => {
 
-  const navigate = useNavigate();
-
-  const selectPokemonACB = (pokemon) => {
-    props.onPokemonClick(pokemon);
-    navigate(`/details/${pokemon.ID}`);
+  const fireSelectPokemon = (pokemon) => {
+    props.onPokemonClick(pokemon);  
   };
 
   return (
@@ -28,7 +25,7 @@ const CollectionView = (props) => {
           <div
             className={`pokemon-card type-${pokemon.Types[0]}`}
             key={pokemon.ID}
-            onClick={() => selectPokemonACB(pokemon)}
+            onClick={() => fireSelectPokemon(pokemon)}
           >
             <h2 className="pokemon-card-title">
               <span
