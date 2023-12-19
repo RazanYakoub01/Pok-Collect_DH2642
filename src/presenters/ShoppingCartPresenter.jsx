@@ -14,7 +14,7 @@ function ShoppingCartPresenter(props) {
     props.model.removeItem(itemId); 
   };
 
-  const handlePurchaseACB = () => {
+  const handlePurchase = () => {
     props.model.purchaseItems();
   }
 
@@ -25,7 +25,7 @@ function ShoppingCartPresenter(props) {
       totalPrice={props.model.totalPrice} 
       onNumberChange={handleNumberChange}
       removeItem={handleRemoveItem}
-      userPurchase={handlePurchaseACB}
+      firePurchase={handlePurchase}
       balance={balance}
     />
   );
