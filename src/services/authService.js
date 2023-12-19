@@ -8,7 +8,9 @@ const handleAuthStateChange = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       model.setUser(user);
-      db.readUserDataFromFirebase(user.uid);
+      db.readUserDataFromFirebase(user.uid).then(() => {
+        model.initializeTotalPrice();
+      });
     } else {
       model.setUser(undefined);
     }
@@ -26,7 +28,6 @@ export const googleSignIn = (navigateCallback) => {
   signInWithPopup(auth, provider)
     .then(() => {
       handleAuthStateChange();
-      //model.updateLastLoginAndBalance();
       navigateCallback('/'); // Navigating after successful sign-in
     })
     .catch((error) => {
