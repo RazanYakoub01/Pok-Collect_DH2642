@@ -1,5 +1,5 @@
 import React from "react";
-import Rating from 'react-rating';
+import Rating from 'react-rating'; // third party component
 import "../search.css";
 import "/src/textFonts.css";
 
