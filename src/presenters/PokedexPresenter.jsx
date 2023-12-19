@@ -3,10 +3,13 @@ import React, { useState, useEffect } from "react";
 import SearchFormView from "../views/searchFormView.jsx";
 import SearchResultsView from "../views/searchResultsView.jsx";
 import { observer } from "mobx-react-lite";
+import { useNavigate } from "react-router-dom";
 
 export default observer(
   // needed for the presenter to update (its view) when relevant parts of the model change
   function PokedexPresenter(props) {
+    const navigate = useNavigate();
+
     // Performs a search with the given parameters
     function performSearch(query, selectedTypes) {
       props.model.pokemonSearch({
@@ -15,9 +18,9 @@ export default observer(
       });
     }
     // Selects the given Pokemon
-    function userWantedPokemonACB(pokemon) {
+    function handlePokemonClick(pokemon) {
       props.model.setCurrentPokemon(pokemon.ID);
-      console.log("currPokemonID", props.model.currentPokemon);
+      navigate(`/details/${pokemon.ID}`);
     }
 
     // When user types in the search bar, update searchQuery and perform a search immediately.
@@ -81,7 +84,7 @@ export default observer(
           <SearchResultsView
             model={props.model}
             selectedTypes={selectedTypes}
-            onPokemonClick={userWantedPokemonACB}
+            onPokemonClick={handlePokemonClick}
           />
         );
       }
