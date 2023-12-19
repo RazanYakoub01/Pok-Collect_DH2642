@@ -37,6 +37,8 @@ const pokeModel = observable({
   cartItems : [],
   totalPrice : 0,
   lastLoginTime : null, 
+  hoursRemaining : 0,
+  minutesRemaining: 0,
   getNavbarItems(handleSignOut) {
     if (this.isLoggedIn) {
       return [
@@ -60,7 +62,7 @@ const pokeModel = observable({
   },
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
-    const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000;//60 * 1000;  // 24 hours in milliseconds
+    const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000; // 24 hours in ms
   
     console.log(currentTime);  
     console.log(this.lastLoginTime);
@@ -71,17 +73,18 @@ const pokeModel = observable({
       this.balance = newBalance;
       this.lastLoginTime = currentTime;
     }
+
+    // Calculate remaining time until the next update
+    const nextUpdateTime = this.lastLoginTime + ONE_DAY_IN_MS;
+    const timeRemaining = nextUpdateTime - currentTime;
+
+    // Convert milliseconds to hours and minutes
+    this.hoursRemaining = Math.floor(timeRemaining / (60 * 60 * 1000));
+    this.minutesRemaining = Math.floor((timeRemaining % (60 * 60 * 1000)) / (60 * 1000));
+
+    console.log(this.hoursRemaining);
+    console.log(this.minutesRemaining);
   },  
-
-
-    // If last login was more than 24 hours ago, grant the user daily balance
-  /*  if (this.lastLoginTime == null || (currentTime - this.lastLoginTime) > ONE_DAY_IN_MS) {
-      const newBalance = this.balance + 75; // DAILY_BALANCE is your predefined daily balance value
-      this.balance = newBalance;
-      this.lastLoginTime = currentTime; // Update last login time to the current time
-    }
-  },*/
-
 
   setCartItems: action(function(items) {
     this.cartItems = items;
