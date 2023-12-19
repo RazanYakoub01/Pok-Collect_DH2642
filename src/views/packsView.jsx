@@ -1,6 +1,6 @@
 
-import { getGenerationClass } from "../utils";
 
+import { getGenerationClass } from "../utils";
 
 const PacksView = (props) => {
   return (

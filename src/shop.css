@@ -187,3 +187,15 @@
 .pack.legendary {
   background: linear-gradient(to right, #c0392b, #e74c3c); /* Legendary gradient */
 }
+
+
+
+.timer {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333; /* Adjust the color as needed */
+  background-color: #f0f0f0; /* Adjust the background color as needed */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}

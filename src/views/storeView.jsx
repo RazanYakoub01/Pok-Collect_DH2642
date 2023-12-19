@@ -19,14 +19,14 @@ function StoreView(props) {
         <img src={s} className="titleImage" alt="Shop Title" />
         <h1 className="titleFont">PokéCollect Shop</h1>
       </div>
-      {props.loggedIn && (
-        <div>
-          <p className="textFont">
-            Time remaining for next balance update: {props.hoursRemaining} hours
-            and {props.minutesRemaining} minutes
-          </p>
-        </div>
-      )}
+          {props.loggedIn && (
+      <div>
+        <p className="textFont timer">
+          Time remaining for next balance update: {props.hoursRemaining} hours
+          and {props.minutesRemaining} minutes
+        </p>
+      </div>
+    )}
       <div className="balance">
         <p>
           Current Balance: {props.balance} coins{" "}
