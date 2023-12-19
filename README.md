@@ -23,12 +23,14 @@ Done:
 - Add packs to cart where you can change quantity
 - Click on a pokémon to get more details (detailsView)
 - Search for Pokémon
-
-Still plan to do: 
-
 - OpenPacks view/presenter for pack opening
 - Add Pokémon to personal collection (collectionView/presenter)
 - In game currrency so you can make purchase
+- See collected pokemon in pokédex if you are logged in
+- Timer for when users balance will increase
+
+Still plan to do: 
+
 - CSS
 
 User evaluation:
@@ -40,6 +42,8 @@ User evaluation:
 -Users found a bug where if you pressed sign out on a protected route you would still be at that page and will be able to for example add items to cart. We fixed this by redirecting the user to the home page after pressing sign out. 
 
 -Users felt like the website did not work great on mobile. We improved this by using css media queries (still working on). 
+
+-Users found a bug where they would get a 404 error if they refreshed a page. We solved this by using hash router. 
 
 ## Run The App Locally
 
@@ -139,7 +143,7 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 - StorePresenter.jsx: Used to render storeView and manages the presentation logic for the store
 
-- OpenPacksPresenter.jsx: Used to render openPacksView and manages the presentation logic for opening packs
+- OpenCardsPresenter.jsx: Used to render openPacksView and manages the presentation logic for opening packs
 
 - DetailsPresenter.jsx: Used to render detailsview and manages the presentation logic for clicking on a Pokémon
 
@@ -167,13 +171,13 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 - storeView.jsx: Displays the store with the different packs you can buy
 
-- openPacksView.jsx: Displays the Pokémon you get from opening a pack
+- openCardsView.jsx: Displays the Pokémon you get from opening a pack
+
+-PopupView.jsx: Displays pop up when add to cart is pressed in store
 
 ### **/src/models**
 
 - pokeModel.js: Our model for this application contains functions to set and save data etc
-
-- NavbarModel.js: Our model for the navigation bar
 
 ## Tools
 
@@ -193,16 +197,16 @@ PokéAPI: https://pokeapi.co
 - **Views and Presenters:** Home, About Us, Store
 
 ### Razan
-- **Views and Presenters:** Cart, Packs, Navbar
+- **Views and Presenters:** Cart, Packs, Navbar, persistence
 
 ### Alexander
-- **Views and Presenter:** Login, Details View, Navbar
+- **Views and Presenter:** Login, Details View, Navbar, OpenCrads
 
 ### Elias
 - **Views and Presenter:** Search, Pokedex, Navbar
 
 ### Shared Responsibilities
-- **Views and Presenters:** Collection, Open Packs
+- **Views and Presenters:** Collection
 
 ## Authors
 
