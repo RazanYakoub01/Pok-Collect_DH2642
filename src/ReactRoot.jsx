@@ -20,7 +20,7 @@ export default observer(function ReactRoot(props) {
     <Router>
       <NavbarPresenter model={props.model} />
       <Routes>
-        <Route path="/" element={<HomePresenter />} />
+        <Route path="/" element={<HomePresenter model={props.model} />} />
         <Route path="/pokedex" element={<PokedexPresenter model={props.model} />} />
         <Route path="/about" element={<AboutUsPresenter />} />
         <Route path="/login" element={<LoginPresenter />} />

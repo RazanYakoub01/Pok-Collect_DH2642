@@ -5,7 +5,7 @@ import '/src/textFonts.css';
 import hm6 from '/src/homepageImages/hm6.png';
 import hm1 from '/src/homepageImages/hm1.jpg';
 
-const HomeView = () => {
+function HomeView (props) {
   return (
     <div>
       <div className="title-container">
@@ -28,6 +28,13 @@ const HomeView = () => {
           <button className="navigation-button">Discover Pokémon</button>
         </Link>
       </div>
+      {props.loggedIn && (
+        <div>
+          <p className="textFont">
+            Time remaining for next balance update: {props.hoursRemaining} hours and {props.minutesRemaining} minutes
+          </p>
+        </div>
+      )}
       <div>
         <img className='homeImg' src={hm6} alt="Pokémon Illustration" />
       </div>
