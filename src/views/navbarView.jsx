@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "/src/navbar.css";
-import Hamburger from "../components/Hamburger";
 
 export default function NavbarView(props) {
-  const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
-  const toggleHamburger = () => {
-    setHamburgerOpen(!hamburgerOpen);
-  };
 
   const loginItem = props.items.find(
     (item) =>
@@ -21,21 +16,22 @@ export default function NavbarView(props) {
       item.name.toLowerCase() !== "login"
   );
 
+
   return (
     <nav>
       {/* Hamburger menu */}
-      <div className="hamburger" onClick={toggleHamburger}>
+      <div className="hamburger" onClick={props.toggleHamburger}>
             <div className="burger"></div>
             <div className="burger"></div>
             <div className="burger"></div>
         </div>
 
       {/* Other navbar items */}
-      <ul className={`navbar-items ${hamburgerOpen ? "open" : ""}`}>
+      <ul className={`navbar-items ${props.hamburgerOpen ? "open" : ""}`}>
         {otherItems.map((item, index) => (
           <li key={index}>
             {item.action ? (
-              <span className="navTextWithImage" onClick={item.action}>
+              <span className="navTextWithImage" onClick={() => props.onMenuItemClick(item.action)}>
                 <img src={item.image} className="navbar-icon" alt={item.name} />
                 {item.name}
               </span>
@@ -49,10 +45,10 @@ export default function NavbarView(props) {
         ))}
 
         {/* Add login/logout button to the hamburger menu */}
-        {hamburgerOpen && loginItem && (
+        {props.hamburgerOpen && loginItem && (
           <li>
             {loginItem.action ? (
-              <span className='navTextWithImage' onClick={loginItem.action}>
+              <span className='navTextWithImage' onClick={() => props.onMenuItemClick(item.action)}>
                 <img src={loginItem.image} className="navbar-icon" alt={loginItem.name} />
                 {loginItem.name}
               </span>
