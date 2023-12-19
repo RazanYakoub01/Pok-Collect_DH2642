@@ -7,7 +7,7 @@ import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
 import s from "/src/storeImages/s.png";
 import { getGenerationClass } from "../utils";
-import CountdownTimer from "/src/CountdownTimer.jsx"; // Import CountdownTimer
+import CountdownTimer from "/src/countdownTimer.jsx"; // Import CountdownTimer
 
 function StoreView(props) {
   function onAddToCartClick(pack) {
