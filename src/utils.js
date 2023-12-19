@@ -24,27 +24,3 @@ export const getGenerationClass = (pack) => {
         return "";
     }
   };
-
-  export const SearchFormView = (props) => {
-    const icons = [
-      "fighting",
-      "psychic",
-      "poison",
-      "dragon",
-      "ghost",
-      "dark",
-      "ground",
-      "fire",
-      "fairy",
-      "water",
-      "flying",
-      "normal",
-      "rock",
-      "electric",
-      "bug",
-      "grass",
-      "ice",
-      "steel",
-    ];
-
-  };

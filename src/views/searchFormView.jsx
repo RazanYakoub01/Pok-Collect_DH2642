@@ -1,16 +1,57 @@
 import React from "react";
 import "../search.css";
-import "../searchBox.css";
+import "../searchBox.css"
 import "/src/textFonts.css";
 import k2 from '/src/searchImages/k2.png';
 import pokeball from '/src/searchImages/pokeball.png';
-import { SearchFormView} from "../utils";
 
 const SearchFormView = (props) => {
+  const icons = [
+    "fighting",
+    "psychic",
+    "poison",
+    "dragon",
+    "ghost",
+    "dark",
+    "ground",
+    "fire",
+    "fairy",
+    "water",
+    "flying",
+    "normal",
+    "rock",
+    "electric",
+    "bug",
+    "grass",
+    "ice",
+    "steel",
+  ];
+
+  function inputACB(evt){
+    props.searchInput(evt.target.value);
+  }
+
+  const renderSelectedTypes = () => {
+    if (props.selectedTypes.length === 0) {
+      return null;
+    }
+
+    return (
+      <div className="selected-types">
+        <h2>Filter:</h2>
+        {props.selectedTypes.map((type) => (
+          <div key={type} className="selected-type">
+            <div className={`type-icon ${type}`} onClick={() => props.onSelectedIconClick(type)}></div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className="icon-container">
-        {props.icons.map((icon) => (
+        {icons.map((icon) => (
           <div
             key={icon}
             className={`type-icon ${icon} ${
@@ -20,10 +61,10 @@ const SearchFormView = (props) => {
           ></div>
         ))}
       </div>
-      {props.renderSelectedTypes()}
+      {renderSelectedTypes()}
       <div>
         <h1 className="titleFont">
-          <img src={pokeball} width="50" height="50" alt="Pokeball" />
+        <img src={pokeball} width="50" height="50" />
           Pokédex
         </h1>
       </div>
@@ -32,9 +73,9 @@ const SearchFormView = (props) => {
           type="text"
           placeholder="Search For Pokemon"
           value={props.text || ""}
-          onChange={props.inputACB}
+          onChange={inputACB}
         />
-        <img className='keyboardImage' src={k2} alt="Keyboard" />
+        <img className='keyboardImage' src={k2}/>
       </div>
     </div>
   );
