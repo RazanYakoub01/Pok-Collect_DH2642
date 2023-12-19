@@ -1,13 +1,17 @@
-.titleFont {
-  margin-bottom: 2px; /* Adjust the value to your preference */
+/* Add this rule to your CSS file */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 100px; /* Adjust the value to your preference */
 }
 
+
 .searchBox {
-  margin-top: 1px; /* Adjust the value to your preference */
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 30vh;
+  margin-left: 500px; 
+  margin-bottom: 40px
+
 }
 
 .searchBox input {
