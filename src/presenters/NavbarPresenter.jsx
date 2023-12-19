@@ -14,8 +14,8 @@ export default observer(function NavbarPresenter(props) {
   };
 
   const handleMenuItemClick = (action) => {
-    // Close the hamburger menu (not working right now)
-    toggleHamburger();
+    // Close the hamburger menu
+    toggleHamburger();  
 
     // If there's an additional action, execute it
     if (action) {
