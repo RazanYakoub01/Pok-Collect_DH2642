@@ -1,3 +1,7 @@
+
+import { getGenerationClass } from "../utils";
+
+
 const PacksView = (props) => {
   return (
     <div>
@@ -6,7 +10,7 @@ const PacksView = (props) => {
       </div>
       <div className="packs">
         {props.packs.map((pack) => (
-          <div key={pack.id} className={`pack ${props.getGenerationClass(pack)}`}>
+          <div key={pack.id} className={`pack ${getGenerationClass(pack)}`}>
             <img src={pack.packImage} className="purchasedPacksImg" />
             <div className="purchasedPacks">
               <h2>{pack.packName}</h2>
