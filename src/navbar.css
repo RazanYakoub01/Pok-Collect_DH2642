@@ -96,8 +96,13 @@ nav a:not(:last-child) {
   display: none;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 /* Responsive - Hide menu items and show hamburger menu on smaller screens */
-@media (max-width: 1086px) {
+@media (max-width: 850px) {
+
   .hamburger{
     display: flex;
     position: absolute;
@@ -132,7 +137,7 @@ nav a:not(:last-child) {
   width: 100%;
   padding: 15px 10px;
   position: absolute;
-  top: 50px;
+  top: 0px;
   left: 0;
   z-index: 1000;
 }
