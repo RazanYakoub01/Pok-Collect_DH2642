@@ -85,6 +85,8 @@ export default observer(
             model={props.model}
             selectedTypes={selectedTypes}
             onPokemonClick={handlePokemonClick}
+            collection={props.model.collection}
+            loggedIn={props.model.isLoggedIn}
           />
         );
       }
