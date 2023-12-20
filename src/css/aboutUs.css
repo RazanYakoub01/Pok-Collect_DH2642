@@ -205,7 +205,7 @@ meet-the-team{
 
 @media (max-width: 850px) {
   .square-profile {
-    width: 60vw;
+    width: 100vw;
   }
 
   .profile-image {
@@ -223,4 +223,14 @@ meet-the-team{
   .linkedin-icon {
     margin-right: 25px;
   }
+
+  .more-about-member {
+    margin-right: 30%;
+    text-wrap: nowrap;
+  }
+
+  .LO-list {
+    transform: translate(-50px, 0px);
+  }
+  
 }
