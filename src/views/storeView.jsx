@@ -9,16 +9,6 @@ import s from "/src/storeImages/s.png";
 import { getGenerationClass } from "../utils";
 
 function StoreView(props) {
-  function onAddToCartClick(pack) {
-    props.fireAddToCartClick(pack);
-  }
-
-  function disableButton(gen){
-    return props.collectedByGeneration[gen] >= props.totalCountByGeneration[gen];
-  }
-
-  console.log( props.collectedByGeneration[2]);
-  console.log(props.totalCountByGeneration[2]);
   return (
     <div className="shop">
   <div className="shopTitleContainer">
@@ -69,8 +59,8 @@ function StoreView(props) {
               </div>
               <button
                 className="storeButton"
-                onClick={() => onAddToCartClick(pack)}
-                disabled={disableButton(pack.id)}
+                onClick={() => props.fireAddToCartClick(pack)}
+                disabled={props.collectedByGeneration[pack.id] >= props.totalCountByGeneration[pack.id]}
           
               >
                 Add to Cart
