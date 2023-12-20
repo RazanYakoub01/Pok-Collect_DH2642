@@ -6,45 +6,73 @@ import backpack from '/src/collectionImages/backpack.png';
 
 const CollectionView = (props) => {
   const [selectedGen, setSelectedGen] = useState('all');
+  const [showText, setShowText] = useState(false);
 
   const handleGenerationFilter = (gen) => {
     setSelectedGen(gen);
   };
 
-  // Calculate counts for each filter category
-  const totalCounts = {
-    all: props.collection.length,
-    legendary: props.collectedGenTen,
+  const handleButtonClick = () => {
+    setShowText(!showText); // Toggle the state
   };
 
-  for (let gen = 1; gen <= 9; gen++) {
-    totalCounts[gen] = props.totalCountByGeneration[gen];
-  }
-
-  const totalCount = selectedGen === 'legendary' ? totalCounts[selectedGen] : totalCounts[selectedGen] || 0;
+  const renderStats = (pokemon) => (
+    <div className="pokemon-stats">
+      <div className="stat-item">
+        <span>Attack: {pokemon.Stats.attack}</span>
+      </div>
+      <div className="stat-item">
+        <span>Defense: {pokemon.Stats.defense}</span>
+      </div>
+      <div className="stat-item">
+        <span>Speed: {pokemon.Stats.speed}</span>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="collection-view">
+    <div className={`collection-view ${showText ? 'clicked' : ''}`}>
       <div className="collection-header">
         <img src={backpack} alt="Backpack" />
         <h1 className="titleFont collection">{props.user}'s Pokémon Collection</h1>
       </div>
 
-      {/* Display total count of all Pokémon */}
-      <div>{`Collected ${props.collection.length} Pokémon out of ${props.initialPokemonData.length}`}</div>
+      {/* Display total count of all Pokémon or show text */}
+      <div className="collection-info" onClick={handleButtonClick}>
+        <div className="collection-ball">
+          <div className="collection-circle"></div>
+          <div className="collection-lines"></div>
+        </div>
+        {showText ? (
+          <div>
+            <strong>{props.collection.length}</strong>
+            <span>Collected Pokémon</span>
+          </div>
+        ) : null}
+      </div>
 
-      {/* Generation filter */}
+      {/* Generation filter buttons */}
       <div className="generation-filter">
-        <button onClick={() => handleGenerationFilter('all')}>
-          All 
+        <button
+          className={selectedGen === 'all' ? 'active' : ''}
+          onClick={() => handleGenerationFilter('all')}
+        >
+          All
         </button>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((gen) => (
-          <button key={gen} onClick={() => handleGenerationFilter(gen)}>
-            Gen {gen} 
+          <button
+            key={gen}
+            className={selectedGen === gen ? 'active' : ''}
+            onClick={() => handleGenerationFilter(gen)}
+          >
+            Gen {gen}
           </button>
         ))}
-        <button onClick={() => handleGenerationFilter('legendary')}>
-          Legendary 
+        <button
+          className={selectedGen === 'legendary' ? 'active' : ''}
+          onClick={() => handleGenerationFilter('legendary')}
+        >
+          Legendary
         </button>
       </div>
 
@@ -90,19 +118,5 @@ const CollectionView = (props) => {
     </div>
   );
 };
-
-const renderStats = (pokemon) => (
-  <div className="pokemon-stats">
-    <div className="stat-item">
-      <span>Attack: {pokemon.Stats.attack}</span>
-    </div>
-    <div className="stat-item">
-      <span>Defense: {pokemon.Stats.defense}</span>
-    </div>
-    <div className="stat-item">
-      <span>Speed: {pokemon.Stats.speed}</span>
-    </div>
-  </div>
-);
 
 export default CollectionView;
