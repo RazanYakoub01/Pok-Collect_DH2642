@@ -32,18 +32,38 @@ Done:
 Still plan to do: 
 
 - CSS
+- Responsive
 
-User evaluation:
+User evaluation 2023-12-08:
 
--Users said that our text style was basic so we added a pokemon style to our text to make it look better
+- Users said that our text style was basic so we added a pokemon style to our text to make it look better
 
--Users said that it would be better to give an indication when the ”add to cart” button was pressed in the store. We fixed this by showing the number of items in the cart, so when you press add to cart you will se the quantity increase
+- Users said that it would be better to give an indication when the ”add to cart” button was pressed in the store. We fixed this by showing the number of items in the cart, so when you press add to cart you will se the quantity increase
 
--Users found a bug where if you pressed sign out on a protected route you would still be at that page and will be able to for example add items to cart. We fixed this by redirecting the user to the home page after pressing sign out. 
+- Users found a bug where if you pressed sign out on a protected route you would still be at that page and will be able to for example add items to cart. We fixed this by redirecting the user to the home page after pressing sign out. 
 
--Users felt like the website did not work great on mobile. We improved this by using css media queries (still working on). 
+- Users felt like the website did not work great on mobile. We improved this by using css media queries (still working on). 
 
--Users found a bug where they would get a 404 error if they refreshed a page. We solved this by using hash router. 
+- Users found a bug where they would get a 404 error if they refreshed a page. We solved this by using hash router. 
+
+User evaluation 2023-12-19:
+
+- Users felt like it would look better with icons for GitHub and linkedIn in aboutUsView, removed the links and used icons instead.
+
+- Users felt like they should be able to see which Pokémon they have collected in our pokedex. We solved this by using
+  a thrid party star rating component to indicate to the user if they have a Pokémon or not in their collection. 
+
+- Users wonderd if they could still purchase a pack if they have collected all the Pokémon from it. We solved this by
+ disabeling the add to cart button for the packs when all pokemon have been collected from a specifik pack.
+
+- Users felt like there needed to be more information about how the coin system works. We solved this by adding infromation to our home page and we also added a countdown in our store to let the user know when they will get more coins. 
+
+- Users felt like there should be a better indication of their collection progress. We solved this by creating filters so that the
+users can see how many pokemon they have left to collect from a specifik generation. 
+
+- Users flet like it could be good to have infromation about the packs for people who are not Pokémon fans. We solved this by adding a popup button that displays text information about each pack. 
+
+- Some users still thought it was unclear if a pack was added to cart. We solved this by adding a popup in addition to our previous solution.
 
 ## Run The App Locally
 
@@ -173,7 +193,9 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 - openCardsView.jsx: Displays the Pokémon you get from opening a pack
 
--PopupView.jsx: Displays pop up when add to cart is pressed in store
+- PopupView.jsx: Displays pop up when add to cart is pressed in store
+
+- packInformationView.jsx: Displays pop up with text infromation about the different packs in the store
 
 ### **/src/models**
 
@@ -190,17 +212,16 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 PokéAPI: https://pokeapi.co
 
 
-
 ## Team Responsibilities
 
 ### Seema
-- **Views and Presenters:** Home, About Us, Store
+- **Views and Presenters:** Home, About Us, Store, PopupView
 
 ### Razan
 - **Views and Presenters:** Cart, Packs, Navbar, persistence
 
 ### Alexander
-- **Views and Presenter:** Login, Details View, Navbar, OpenCrads
+- **Views and Presenter:** Login, Details View, Navbar, OpenCrads, packInformationView
 
 ### Elias
 - **Views and Presenter:** Search, Pokedex, Navbar
