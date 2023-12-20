@@ -70,7 +70,7 @@ function StoreView(props) {
               <button
                 className="storeButton"
                 onClick={() => onAddToCartClick(pack)}
-                disabled={disableButton(pack.index)}
+                disabled={disableButton(pack.id)}
           
               >
                 Add to Cart
