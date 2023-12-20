@@ -107,7 +107,7 @@ h1 {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
   .type-icon {
     width: calc(100% / 6); /* Three rows of 6 */
     height: calc(100% / 8);
