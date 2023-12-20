@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import '/src/openCards.css';
-import "../search.css";
-import "../collection.css";
-import "/src/textFonts.css";
+import '/src/css/openCards.css';
+import "/src/css/search.css";
+import "/src/css/collection.css";
+import "/src/css/textFonts.css";
 import ReactCardFlip from 'react-card-flip';    //third party component
 import backOfPokeCard from "/src/openCardsImages/backOfPokeCard.jpg.avif";
 import blackPokeBall from "/src/openCardsImages/blackPokeBall.png";

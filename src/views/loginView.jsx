@@ -1,7 +1,7 @@
 import React from 'react';
-import '/src/login.css';
+import '/src/css/login.css';
 import hm4 from '/src/homepageImages/hm4.png';
-import "/src/textFonts.css";
+import "/src/css/textFonts.css";
 
 export default function LoginView (props)  {
 

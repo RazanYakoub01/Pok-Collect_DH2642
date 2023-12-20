@@ -1,5 +1,5 @@
 import React from 'react';
-import '/src/details.css';
+import '/src/css/details.css';
 import attack from '/src/detailsImages/attack.png';
 import def from '/src/detailsImages/def.png';
 import hp from '/src/detailsImages/hp.png';

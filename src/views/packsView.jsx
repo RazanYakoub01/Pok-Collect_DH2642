@@ -1,5 +1,4 @@
-
-
+import React from "react";
 import { getGenerationClass } from "../utils";
 
 const PacksView = (props) => {

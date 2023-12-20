@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "/src/navbar.css";
+import "/src/css/navbar.css";
 
 export default function NavbarView(props) {
   const loginItem = props.items.find(

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "/src/shoppingCart.css";
-import "/src/textFonts.css";
+import "/src/css/shoppingCart.css";
+import "/src/css/textFonts.css";
 import coin from '/src/storeImages/coin.png';
 import c from '/src/shoppingCartImages/c.png';
 
