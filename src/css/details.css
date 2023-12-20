@@ -286,7 +286,7 @@
   .pokemon-image {
     width: 350; 
     height: auto;
-    transform: translate(175px,0px)
+    transform: translate(-20%,0%)
   }
 
   .stats {
@@ -303,11 +303,11 @@
   .shiny-image {
     width: 350;
     margin-top: 10px;
-    transform: translate(-610px, 900px);
+    transform: translate(-850px, 900px);
   }
 
   .moves {
     margin-top: 10px;
-    transform: translate(-300px, 460px);
+    transform: translate(-450px, 460px);
   }
 }
