@@ -6,7 +6,7 @@ import {
   getCachedPokemonData,
 } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
-import { packs as storePacks } from "../storeData";
+import { packs as storePacks , generationRanges as generationRanges, LegandaryPokemon as LegandaryPokemon } from "../storeData";
 import about from "/src/navbarImages/about.png";
 import cart1 from "/src/navbarImages/cart1.png";
 import collectionPicture from "/src/navbarImages/collection.png";
@@ -22,27 +22,8 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 const pokeModel = observable({
   user: undefined,
   isLoggedIn: false,
-  generationRanges: {
-    1: { start: 1, end: 151 },
-    2: { start: 152, end: 251 },
-    3: { start: 252, end: 386 },
-    4: { start: 387, end: 495 },
-    5: { start: 496, end: 649 },
-    6: { start: 650, end: 721 },
-    7: { start: 722, end: 809 },
-    8: { start: 810, end: 905 },
-    9: { start: 906, end: 1017 },
-    10: { start: 1, end: 1017 },
-  },
-  LegandaryPokemon : [144, 145, 146, 150, 151, 243, 244, 245, 249, 250, 
-    251, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 479, 480, 
-    481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 
-    638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 716, 
-    717, 718, 719, 720, 721, 772, 773, 785, 786, 787, 788, 789, 790, 
-    791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 
-    804, 805, 806, 807, 808, 809, 888, 889, 890, 891, 892, 893, 894, 
-    895, 896, 897, 898, 905, 998, 1000, 1001, 1002, 1003, 1004, 1007, 
-    1008, 1009, 1010, 1014, 1016, 1017],
+  generationRanges: generationRanges,
+  LegandaryPokemon : LegandaryPokemon,
   collection: [],
   initializePokemonDataPromiseState: {},
   currentPokemon: null,
@@ -59,6 +40,9 @@ const pokeModel = observable({
   lastLoginTime : null, 
   hoursRemaining : 0,
   minutesRemaining: 0,
+  secondsRemaining:0,
+  ONE_DAY_IN_MS : 24 * 60 * 60 * 1000, 
+
   
   getNavbarItems(handleSignOut) {
     if (this.isLoggedIn) {
@@ -83,29 +67,37 @@ const pokeModel = observable({
   },
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
-    const ONE_DAY_IN_MS = 24 * 60 * 60 * 1000; // 24 hours in ms
-  
-    console.log(currentTime);  
-    console.log(this.lastLoginTime);
-  
-    if (this.lastLoginTime === null || (currentTime - this.lastLoginTime) > ONE_DAY_IN_MS) {
+
+    if (this.lastLoginTime === null || (currentTime - this.lastLoginTime) > this.ONE_DAY_IN_MS) {
       const newBalance = this.balance + 75;
       console.log('Updating balance:', newBalance);
       this.balance = newBalance;
       this.lastLoginTime = currentTime;
     }
+  },
+  
+  
+  updateTime(){
+    if(this.lastLoginTime){
+      const currentTime = Date.now();
 
-    // Calculate remaining time until the next update
-    const nextUpdateTime = this.lastLoginTime + ONE_DAY_IN_MS;
-    const timeRemaining = nextUpdateTime - currentTime;
+      const nextUpdateTime = this.lastLoginTime + this.ONE_DAY_IN_MS;
+      const timeRemaining = nextUpdateTime - currentTime;
 
-    // Convert milliseconds to hours and minutes
-    this.hoursRemaining = Math.floor(timeRemaining / (60 * 60 * 1000));
-    this.minutesRemaining = Math.floor((timeRemaining % (60 * 60 * 1000)) / (60 * 1000));
+      // Convert milliseconds to hours and minutes
+      this.hoursRemaining = Math.floor(timeRemaining / (60 * 60 * 1000));
+      this.minutesRemaining = Math.floor((timeRemaining % (60 * 60 * 1000)) / (60 * 1000));
+      this.secondsRemaining = Math.floor((timeRemaining % (60 * 1000)) / 1000); 
 
-    console.log(this.hoursRemaining);
-    console.log(this.minutesRemaining);
-  },  
+      if (this.hoursRemaining == 0 && this.minutesRemaining == 0 && this.secondsRemaining == 0){
+        this.updateLastLoginAndBalance();
+      }
+    } else {
+      this.hoursRemaining = 0;
+      this.minutesRemaining = 0;
+      this.secondsRemaining = 0; 
+    }
+  },
 
   setCartItems: action(function(items) {
     this.cartItems = items;

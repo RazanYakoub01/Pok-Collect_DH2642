@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { observer } from "mobx-react-lite";
 import RequireAuth from './protectedRoutes.jsx';
@@ -16,6 +16,14 @@ import OpenCardsPresenter from './presenters/OpenCardsPresenter.jsx';
 
 export default observer(function ReactRoot(props) {
   console.log(props);
+  useEffect(() => {
+    const updateInterval = setInterval(() => {
+      props.model.updateTime();
+    }, 1000); // Runs the update every minute (adjust as needed)
+
+    return () => clearInterval(updateInterval); // Cleanup on unmount
+  }, [props.model]);
+
   return (
     <Router>
       <NavbarPresenter model={props.model} />

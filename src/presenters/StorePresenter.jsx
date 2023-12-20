@@ -44,6 +44,9 @@ const StorePresenter = observer((props) => {
         loggedIn={props.model.isLoggedIn}
         hoursRemaining={props.model.hoursRemaining}
         minutesRemaining={props.model.minutesRemaining}
+        secondsRemaining = {props.model.secondsRemaining}
+        collectedByGeneration = {props.model.countCollectedByGeneration()}
+        totalCountByGeneration = {props.model.getTotalCountByGeneration()}
       />
       {renderPopup()}
     </div>

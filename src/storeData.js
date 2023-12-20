@@ -23,6 +23,28 @@ const packImagePaths = [
 const basePrice = 75;
 const legendaryPackPrice = 100;
 
+export const generationRanges = {
+  1: { start: 1, end: 151 },
+  2: { start: 152, end: 251 },
+  3: { start: 252, end: 386 },
+  4: { start: 387, end: 495 },
+  5: { start: 496, end: 649 },
+  6: { start: 650, end: 721 },
+  7: { start: 722, end: 809 },
+  8: { start: 810, end: 905 },
+  9: { start: 906, end: 1017 },
+  10: { start: 1, end: 1017 },
+}; 
+export const LegandaryPokemon = [144, 145, 146, 150, 151, 243, 244, 245, 249, 250, 
+  251, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 479, 480, 
+  481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 
+  638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648, 649, 716, 
+  717, 718, 719, 720, 721, 772, 773, 785, 786, 787, 788, 789, 790, 
+  791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 
+  804, 805, 806, 807, 808, 809, 888, 889, 890, 891, 892, 893, 894, 
+  895, 896, 897, 898, 905, 998, 1000, 1001, 1002, 1003, 1004, 1007, 
+  1008, 1009, 1010, 1014, 1016, 1017];
+
 export const packs = packNames.map((packName, index) => 
   generatePack(index + 1, packName, index === 9 ? legendaryPackPrice : basePrice, packImagePaths[index])
 );

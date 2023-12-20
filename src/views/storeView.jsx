@@ -7,13 +7,18 @@ import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
 import s from "/src/storeImages/s.png";
 import { getGenerationClass } from "../utils";
-import CountdownTimer from "/src/countdownTimer.jsx"; // Import CountdownTimer
 
 function StoreView(props) {
   function onAddToCartClick(pack) {
     props.fireAddToCartClick(pack);
   }
 
+  function disableButton(gen){
+    return props.collectedByGeneration[gen] >= props.totalCountByGeneration[gen];
+  }
+
+  console.log( props.collectedByGeneration[2]);
+  console.log(props.totalCountByGeneration[2]);
   return (
     <div className="shop">
   <div className="shopTitleContainer">
@@ -28,10 +33,11 @@ function StoreView(props) {
           <img src={coin} alt="Coin Icon" className="coin-icon" />
         </span>
       </h2>
-      <CountdownTimer
-        hoursRemaining={props.hoursRemaining}
-        minutesRemaining={props.minutesRemaining}
-      />
+      <div className="countdown-timer">
+      <span>{props.hoursRemaining < 10 ? `0${props.hoursRemaining}` : props.hoursRemaining}</span>:
+      <span>{props.minutesRemaining < 10 ? `0${props.minutesRemaining}` : props.minutesRemaining}</span>:
+      <span>{props.secondsRemaining < 10 ? `0${props.secondsRemaining}` : props.secondsRemaining}</span>
+      </div>    
     </div>
   )}
 
@@ -64,6 +70,8 @@ function StoreView(props) {
               <button
                 className="storeButton"
                 onClick={() => onAddToCartClick(pack)}
+                disabled={disableButton(pack.index)}
+          
               >
                 Add to Cart
               </button>
