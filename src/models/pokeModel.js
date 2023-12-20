@@ -67,39 +67,41 @@ const pokeModel = observable({
   },
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
-
+  
     if (this.lastLoginTime === null || (currentTime - this.lastLoginTime) > this.ONE_DAY_IN_MS) {
       const newBalance = this.balance + 75;
       console.log('Updating balance:', newBalance);
       this.balance = newBalance;
       this.lastLoginTime = currentTime;
+      this.updateTime();
     }
   },
   
-  
-  updateTime(){
-    if(this.lastLoginTime){
+  updateTime() {
+    if (this.lastLoginTime) {
       const currentTime = Date.now();
-
+  
       const nextUpdateTime = this.lastLoginTime + this.ONE_DAY_IN_MS;
-      const timeRemaining = nextUpdateTime - currentTime;
-
-      // Convert milliseconds to hours and minutes
+      const timeRemaining = Math.max(nextUpdateTime - currentTime, 0); // Ensure timeRemaining is not negative
+  
+      // Convert milliseconds to hours, minutes, and seconds
       this.hoursRemaining = Math.floor(timeRemaining / (60 * 60 * 1000));
       this.minutesRemaining = Math.floor((timeRemaining % (60 * 60 * 1000)) / (60 * 1000));
-      this.secondsRemaining = Math.floor((timeRemaining % (60 * 1000)) / 1000); 
-
-      if (this.hoursRemaining == 0 && this.minutesRemaining == 0 && this.secondsRemaining == 0){
+      this.secondsRemaining = Math.floor((timeRemaining % (60 * 1000)) / 1000);
+  
+      if (timeRemaining <= 0) {
+        this.hoursRemaining = 0;
+        this.minutesRemaining = 0;
+        this.secondsRemaining = 0;
         this.updateLastLoginAndBalance();
       }
     } else {
       this.hoursRemaining = 0;
       this.minutesRemaining = 0;
-      this.secondsRemaining = 0; 
+      this.secondsRemaining = 0;
     }
   },
-
-  setCartItems: action(function(items) {
+    setCartItems: action(function(items) {
     this.cartItems = items;
   }),
 

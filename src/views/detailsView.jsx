@@ -12,7 +12,26 @@ import height from '/src/detailsImages/height.png';
 import kg from '/src/detailsImages/kg.png';
 import gen from '/src/detailsImages/gen.png';
 
+import { useLocation } from "react-router-dom";
+
+
 const DetailsView = (props) => {
+
+
+  const location = useLocation();
+
+ function renderButton() {
+  const isFromCollection = location.state && location.state.fromCollection;
+
+  if (isFromCollection) {
+    return (
+      <button className='backButton' onClick={collectioBackClick}>Back to Collection</button>
+    );
+  } else {
+    return <button className='backButton' onClick={fireBackClick}>Back to Pokédex</button>;
+  }
+ }
+
 
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -21,6 +40,10 @@ const DetailsView = (props) => {
   const fireBackClick = () => {
     props.onBackClick();
   };
+
+  function collectioBackClick (){
+    props.onCollectionBackClick();
+  }
   
   const renderPokedexData = () => {
     const dataEntries = [
@@ -126,7 +149,7 @@ const DetailsView = (props) => {
 
   return (
     <div className="details-container">
-      <button className='backButton' onClick={fireBackClick}>Back to Pokédex</button>
+      {renderButton()}
       <h1>{capitalizeFirstLetter(props.pokemonDetails.Name)}</h1>
       <div className="info-container">
         <div>

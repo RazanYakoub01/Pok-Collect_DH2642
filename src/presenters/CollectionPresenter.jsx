@@ -16,8 +16,7 @@ export default observer(function CollectionPresenter(props) {
   // Handle pokemon click to go to detailsView.
   function handleSelectPokemon(pokemon) {
     props.model.setCurrentPokemon(pokemon.ID);
-    navigate(`/details/${pokemon.ID}`);
-    console.log("currPokemonID", props.model.currentPokemon);
+    navigate(`/details/${pokemon.ID}`, { state: { fromCollection: true } })
   }
 
   function renderCollection() {
