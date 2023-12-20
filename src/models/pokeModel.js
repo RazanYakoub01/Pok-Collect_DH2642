@@ -305,7 +305,6 @@ const pokeModel = observable({
     });
   },
 
-
   getPokemonPackCards(pokemonIDs) {
     const allPokemons = this.initializePokemonDataPromiseState.data;
   
@@ -367,8 +366,15 @@ getTotalCountGenTen() {
   return this.LegandaryPokemon.length;
 },
 
-
-  
+getGenerationForSpecifik(pokemonID) {
+  for (const gen in generationRanges) {
+    const range = generationRanges[gen];
+    if (pokemonID >= range.start && pokemonID <= range.end) {
+      return gen;
+    }
+  }
+  return 'Unknown Generation';
+},
 
 //func to open packs, dependant on packID
 openPack(packId) {
