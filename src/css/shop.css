@@ -271,3 +271,12 @@
   margin-left: 10px;
   vertical-align: middle;
 }
+
+@media (max-width: 850px) {
+
+  .packInfoButton {
+    transform: translate(0px, 0px);
+    margin-bottom: 5%;
+  }
+
+}
