@@ -202,3 +202,35 @@ meet-the-team{
   color: #fff; /* Icon color */
   font-size: 1.5rem; /* Adjust the size as needed */
 }
+
+@media (max-width: 850px) {
+  .square-profile {
+    width: 100vw;
+  }
+
+  .profile-image {
+    margin-left: 15%;
+  }
+
+  .profile-name {
+    margin-left: 25%;
+  }
+  
+  .profile-email {
+    margin-left: 25%;
+  }
+
+  .linkedin-icon {
+    margin-right: 25px;
+  }
+
+  .more-about-member {
+    margin-right: 30%;
+    text-wrap: nowrap;
+  }
+
+  .LO-list {
+    transform: translate(-50px, 0px);
+  }
+  
+}

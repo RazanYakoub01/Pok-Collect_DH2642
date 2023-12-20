@@ -1,8 +1,7 @@
-/* Add this rule to your CSS file */
 .search-container {
   display: flex;
   align-items: center;
-  margin-bottom: 100px; /* Adjust the value to your preference */
+  margin-bottom: 100px;
 }
 
 
@@ -34,4 +33,17 @@
   height: auto;
   margin-left: -33px;
   margin-right: 10px;
+}
+
+/* media query for phones */
+@media (max-width: 850px) {
+
+  .searchBox input {
+    transform: translate(-310px,0px);
+  }
+  
+  .keyboardImage {
+    transform: translate(-250px,0px);
+  }
+
 }

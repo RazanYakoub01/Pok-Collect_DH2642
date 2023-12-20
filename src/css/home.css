@@ -50,12 +50,18 @@
   display:inline-block
 }
 
-@media only screen and (max-width: 1100px) {
-  .button-container {
-    margin-left: 320px; 
-  }
+@media (max-width: 850px) {
 
   .paragraph-container p {
     transform: translate(248px, 0px);
   }
+
+  .homeImg {
+    margin-left: 370px !important;
+  }
+
+  .button-container {
+    margin-left: 100px;
+  }
+  
 }

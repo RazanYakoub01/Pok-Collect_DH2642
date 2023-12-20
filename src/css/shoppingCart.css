@@ -109,9 +109,9 @@
 
 /*media query for phones*/
 
-@media only screen and (max-width: 1100px) {
+@media (max-width: 850px) {
   .shoppingCartHeader {
-    transform: translate(-230px, 0px);
+    transform: translate(-550px, 0px);
   }
 
   .shoppingCartHeader img {
@@ -125,7 +125,7 @@
   }
 
   .cart-actions {
-    margin-left: 300px;
+    margin-left: 160px;
     margin-top: 30px;
   }
 

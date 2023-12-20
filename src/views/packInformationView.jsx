@@ -40,6 +40,7 @@ const PackInformationView = observer((props) => {
           </p>
           <p style={{ textAlign: 'center' }}>
           Note that once you have collected all Pokémon from a specifik pack, the pack will be disabled in the store.
+          Each pack gives you 10 Pokémon, duplicates are not added to your collection.
         </p>
         </div>
         <div className="closeContainer">

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "reactjs-popup/dist/index.css";
-import "/src/shop.css";
-import "/src/modal.css";
+import "/src/css/shop.css";
+import "/src/css/modal.css";
 import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
 import shopTitleImage from "/src/storeImages/shopTitleImage.png";

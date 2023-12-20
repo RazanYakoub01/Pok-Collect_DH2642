@@ -1,7 +1,7 @@
 import React from "react";
-import "../search.css";
-import "../searchBox.css"
-import "/src/textFonts.css";
+import "/src/css/search.css";
+import "/src/css/searchBox.css"
+import "/src/css/textFonts.css";
 import k2 from '/src/searchImages/k2.png';
 import pokeball from '/src/searchImages/pokeball.png';
 

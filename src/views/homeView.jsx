@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "/src/home.css";
-import "/src/textFonts.css";
+import "/src/css/home.css";
+import "/src/css/textFonts.css";
 import hm6 from "/src/homepageImages/hm6.png";
 import hm1 from "/src/homepageImages/hm1.jpg";
 

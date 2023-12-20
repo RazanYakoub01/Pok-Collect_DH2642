@@ -12,23 +12,27 @@ function handleBackClick(){
   navigate('/pokedex');
 }
 
-  if (!props.model.currentPokemonPromiseState.promise) {
-    return "No data";
-  }
+function pokemonGeneration(pokemonID) {
+  return props.model.getGenerationForSpecifik(pokemonID);
+}
 
-  if (props.model.currentPokemonPromiseState.error) {
-    return props.model.currentPokemonPromiseState.error;
-  }
+if (!props.model.currentPokemonPromiseState.promise) {
+  return "No data";
+}
 
-  if (props.model.currentPokemonPromiseState.data) {
-  
-    console.log("data: ", props.model.currentPokemonPromiseState.data);
-    return (
-      <DetailsView pokemonDetails={props.model.currentPokemonPromiseState.data} onBackClick={handleBackClick} />
-    );
-  }
+if (props.model.currentPokemonPromiseState.error) {
+  return props.model.currentPokemonPromiseState.error;
+}
 
+if (props.model.currentPokemonPromiseState.data) {
+
+  console.log("data: ", props.model.currentPokemonPromiseState.data);
   return (
-    <img src="https://brfenergi.se/iprog/loading.gif"/>
+    <DetailsView pokemonDetails={props.model.currentPokemonPromiseState.data} onBackClick={handleBackClick} pokeGen={pokemonGeneration}/>
   );
+}
+
+return (
+  <img src="https://brfenergi.se/iprog/loading.gif"/>
+);
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import '/src/details.css';
+import '/src/css/details.css';
 import attack from '/src/detailsImages/attack.png';
 import def from '/src/detailsImages/def.png';
 import hp from '/src/detailsImages/hp.png';
@@ -10,6 +10,7 @@ import id from '/src/detailsImages/id.png';
 import exp from '/src/detailsImages/exp.png';
 import height from '/src/detailsImages/height.png';
 import kg from '/src/detailsImages/kg.png';
+import gen from '/src/detailsImages/gen.png';
 
 const DetailsView = (props) => {
 
@@ -24,6 +25,7 @@ const DetailsView = (props) => {
   const renderPokedexData = () => {
     const dataEntries = [
       { label: 'Pokédex ID', value: props.pokemonDetails.ID, image: id},
+      { label: 'Generation', value: props.pokeGen(props.pokemonDetails.ID), image: gen },
       { label: 'Base Experience', value: `${props.pokemonDetails.BaseExperience} XP`, image: exp },
       { label: 'Height', value: `${props.pokemonDetails.Height} m`, image: height },
       { label: 'Weight', value: `${props.pokemonDetails.Weight} Kg`, image: kg},

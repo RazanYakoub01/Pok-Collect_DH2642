@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../search.css';
-import '../collection.css';
-import '/src/textFonts.css';
+import '/src/css/search.css';
+import '/src/css/collection.css';
+import '/src/css/textFonts.css';
 import backpack from '/src/collectionImages/backpack.png';
 
 const CollectionView = (props) => {

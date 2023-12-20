@@ -1,7 +1,7 @@
 import React from "react";
 import Rating from 'react-rating'; // third party component
-import "../search.css";
-import "/src/textFonts.css";
+import "/src/css/search.css";
+import "/src/css/textFonts.css";
 
 const SearchResultsView = (props) => {
   const selectPokemonACB = (pokemon) => {
