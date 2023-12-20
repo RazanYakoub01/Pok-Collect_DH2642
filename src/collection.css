@@ -41,3 +41,34 @@
 .collected-info {
   margin: 5px 0 0;
 }
+
+.generation-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px; /* Adjust margin as needed */
+}
+
+.generation-filter button {
+  padding: 10px 20px; /* Increase padding for a more comfortable feel */
+  margin: 5px; /* Adjust margin as needed */
+  font-size: 16px; /* Slightly larger font size for emphasis */
+  cursor: pointer;
+  background-color: #4e4e4e; /* Dark gray - Set your desired background color */
+  color: #fff; /* White text */
+  border: 2px solid #4e4e4e; /* Dark gray - Set your desired border color */
+  border-radius: 10px; /* Rounder corners for a playful look */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform property */
+}
+
+.generation-filter button:hover {
+  background-color: #333; /* Darker gray on hover - Set your desired hover background color */
+  border-color: #333; /* Darker gray on hover - Set your desired hover border color */
+  transform: scale(1.05); /* Slightly scale up on hover for a playful effect */
+}
+
+.generation-filter button:active {
+  background-color: #222; /* Even darker gray for the pressed state - Set your desired pressed background color */
+  border-color: #222; /* Even darker gray for the pressed state - Set your desired pressed border color */
+  transform: scale(0.95); /* Slightly scale down on press for feedback */
+}
