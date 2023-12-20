@@ -58,4 +58,13 @@
   .paragraph-container p {
     transform: translate(248px, 0px);
   }
+
+  .homeImg {
+    margin-left: 370px !important;
+  }
+
+  .button-container {
+    margin-left: 100px;
+  }
+  
 }
