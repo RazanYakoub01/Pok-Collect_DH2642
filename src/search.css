@@ -95,7 +95,7 @@ h1 {
   height: 5vw;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
   .type-icon {
     width: calc(100% / 9); /* Two rows of 9 */
     height: calc(100% / 6);
@@ -107,7 +107,7 @@ h1 {
   }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 750px) {
   .type-icon {
     width: calc(100% / 6); /* Three rows of 6 */
     height: calc(100% / 8);
