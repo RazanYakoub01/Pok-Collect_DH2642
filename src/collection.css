@@ -46,29 +46,123 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px; /* Adjust margin as needed */
+  margin: 10px;
 }
 
 .generation-filter button {
-  padding: 10px 20px; /* Increase padding for a more comfortable feel */
-  margin: 5px; /* Adjust margin as needed */
-  font-size: 16px; /* Slightly larger font size for emphasis */
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
   cursor: pointer;
-  background-color: #4e4e4e; /* Dark gray - Set your desired background color */
-  color: #fff; /* White text */
-  border: 2px solid #4e4e4e; /* Dark gray - Set your desired border color */
-  border-radius: 10px; /* Rounder corners for a playful look */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transform property */
+  background: linear-gradient(to right, #3498db, #007bb5);
+  color: #fff;
+  border: 3px solid #3498db;
+  border-radius: 5px; /* Sharper corners */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .generation-filter button:hover {
-  background-color: #333; /* Darker gray on hover - Set your desired hover background color */
-  border-color: #333; /* Darker gray on hover - Set your desired hover border color */
-  transform: scale(1.05); /* Slightly scale up on hover for a playful effect */
+  background: linear-gradient(to right, #217dbb, #005b8b);
+  border-color: #000000;
+  transform: scale(1.05);
 }
 
-.generation-filter button:active {
-  background-color: #222; /* Even darker gray for the pressed state - Set your desired pressed background color */
-  border-color: #222; /* Even darker gray for the pressed state - Set your desired pressed border color */
-  transform: scale(0.95); /* Slightly scale down on press for feedback */
+.generation-filter button.active {
+  background: linear-gradient(to right, #161312, #0d0c0c); /* Set your desired active background gradient */
+  border-color: #0d0c0c; /* Set your desired active border color */
+  color: #fff; /* Set your desired active text color */
+}
+
+.collection-info {
+  position: relative; /* Add relative positioning to the container */
+  width: 120px; /* Set your desired width and height */
+  height: 120px;
+  margin: 0 auto; /* Center the circle horizontally */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide overflow to clip the circle */
+}
+
+.collection-ball {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, #FF4242 20%, #FF0000);
+  border: 2px solid #000;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.collection-circle {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.collection-lines {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.collection-info:hover .collection-ball {
+  transform: scale(1.2);
+}
+
+.collection-info {
+  background: radial-gradient(circle, #FF4242 20%, #000000);
+  border: 8px solid #000;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.collection-info:hover {
+  box-shadow: 0 8px 12px rgba(255, 255, 0, 0.4);
+}
+
+.collection-info strong {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.collection-info span {
+  font-size: 1em;
+  color: #000;
+}
+
+.collection-view.clicked .collection-ball {
+  display: none; /* Hide the ball */
+}
+
+.collection-view.clicked .collection-info {
+  display: flex; /* Show the text when the ball is clicked */
+  background: radial-gradient(circle, #f44242, #ff0000); /* Pokémon-inspired red gradient */
+  box-shadow: none; /* Remove the box shadow for the clicked state */
+  border-color: #000;
+}
+
+.collection-info:hover {
+  box-shadow: none; /* Remove the box shadow on hover */
 }
