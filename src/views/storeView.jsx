@@ -5,14 +5,15 @@ import "/src/shop.css";
 import "/src/modal.css";
 import coin from "/src/storeImages/coin.png";
 import cart2 from "/src/storeImages/cart2.png";
-import s from "/src/storeImages/s.png";
+import shopTitleImage from "/src/storeImages/shopTitleImage.png";
+import info from "/src/storeImages/info.png";
 import { getGenerationClass } from "../utils";
 
 function StoreView(props) {
   return (
     <div className="shop">
   <div className="shopTitleContainer">
-    <img src={s} className="titleImage" alt="Shop Title" />
+    <img src={shopTitleImage} className="titleImage" alt="Shop Title" />
     <h1 className="titleFont">PokéCollect Shop</h1>
   </div>
   {props.loggedIn && (
@@ -49,10 +50,11 @@ function StoreView(props) {
         </p>
       </div>
       <button
-        className="infoButton"
+        className="packInfoButton"
         onClick={props.toggleInformation}
         disabled={props.showInformation}>
         Pack Information
+        <img src={info} className="infoIcon" />
       </button>
       <div className="packs">
         {props.packs.map((pack) => (

@@ -235,3 +235,39 @@
   height: auto;
   margin-left: 5px; /* Add some space between the text and the coin */
 }
+
+/*Add to cart modal*/
+.modalBtns {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  border-radius: 8px;
+}
+
+.modalBtns:hover {
+  background-color: #5b605b;
+}
+
+/*Pack info btn*/
+
+.packInfoButton {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-size: 15px;
+  transform: translate(615px, -25px);
+}
+
+.infoIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  vertical-align: middle;
+}

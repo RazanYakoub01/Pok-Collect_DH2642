@@ -29,16 +29,16 @@ const PopupView = observer((props) => {
           <div className="content">
             <div className="added-to-cart">
               {props.selectedPack &&
-                `${props.selectedPack.packName} added to cart`}
+                `${props.selectedPack.packName} added to cart!`}
             </div>
           </div>
         </div>
         <div className="actions">
-          <button className="storeButton" onClick={onContinueShoppingClick}>
+          <button className="modalBtns" onClick={onContinueShoppingClick}>
             CONTINUE SHOPPING
           </button>
           <button
-            className={`storeButton cart-button ${generationClass}`}
+            className={`modalBtns ${generationClass}`}
             onClick={onNavigateToCart}
           >
             CART
