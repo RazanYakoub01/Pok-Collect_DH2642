@@ -48,6 +48,12 @@ function StoreView(props) {
           </Link>
         </p>
       </div>
+      <button
+        className="infoButton"
+        onClick={props.toggleInformation}
+        disabled={props.showInformation}>
+        Pack Information
+      </button>
       <div className="packs">
         {props.packs.map((pack) => (
           <div key={pack.id} className={`pack ${getGenerationClass(pack)}`}>
@@ -60,9 +66,7 @@ function StoreView(props) {
               <button
                 className="storeButton"
                 onClick={() => props.fireAddToCartClick(pack)}
-                disabled={props.collectedByGeneration[pack.id] >= props.totalCountByGeneration[pack.id]}
-          
-              >
+                disabled={props.collectedByGeneration[pack.id] >= props.totalCountByGeneration[pack.id]}>
                 Add to Cart
               </button>
             </div>

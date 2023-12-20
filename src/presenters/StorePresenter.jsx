@@ -4,8 +4,16 @@ import StoreView from "../views/storeView";
 import { observer } from "mobx-react-lite";
 import { packs } from "../storeData";
 import PopupView from "../views/PopupView";
+import PackInformationView from "../views/packInformationView";
 
 const StorePresenter = observer((props) => {
+
+  const [showInformation, setShowInformation] = useState(false);
+
+  const toggleInformation = () => {
+    setShowInformation(!showInformation);
+  };
+
   const [selectedPack, setSelectedPack] = useState(null);
 
   const navigator = useNavigate();
@@ -47,8 +55,11 @@ const StorePresenter = observer((props) => {
         secondsRemaining = {props.model.secondsRemaining}
         collectedByGeneration = {props.model.countCollectedByGeneration()}
         totalCountByGeneration = {props.model.getTotalCountByGeneration()}
+        showInformation={showInformation}
+        toggleInformation={toggleInformation}
       />
       {renderPopup()}
+      {renderInfoBtn()}
     </div>
   );
 
@@ -66,6 +77,15 @@ const StorePresenter = observer((props) => {
       );
     }
     return null; // Return null if there's no selectedPack
+  }
+
+  function renderInfoBtn() {
+    return (
+      <PackInformationView
+        open={showInformation}
+        onClose={toggleInformation}
+      />
+    );
   }
 });
 
