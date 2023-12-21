@@ -205,3 +205,14 @@
   }
   
 }
+.collection-text {
+  position: absolute;
+  color: #fff;
+  font-family: sans-serif; /* Set to sans-serif */
+  font-size: 16px;
+  font-weight: bold; /* Set to bold */
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

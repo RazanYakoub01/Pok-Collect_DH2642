@@ -35,10 +35,8 @@ const CollectionView = (props) => {
       <div className="collection-header">
         <img src={backpack} alt="Backpack" />
         <h1 className="titleFont collection">{props.user}'s </h1>
-        <h1 className="titleFont collection">{props.collection.length } " " Pokémon Collection</h1>
+        <h1 className="titleFont collection">{props.collection.length}&nbsp;&nbsp;Pokémon Collection</h1>
       </div>
-     
-
 
       {/* Display total count of all Pokémon or show text */}
       <div className="collection-info" onClick={handleButtonClick}>
@@ -47,9 +45,11 @@ const CollectionView = (props) => {
           <div className="collection-lines"></div>
         </div>
         {showText ? (
-          <div>
+          <div className="collection-text">
             <strong>{props.collection.length}</strong>
-            <span>Collected Pokémon</span>
+            <span>&nbsp;Pokémon Collected</span>
+            <span>&nbsp;out of&nbsp;</span>
+            <strong>{props.initialPokemonData.length}</strong>
           </div>
         ) : null}
       </div>
@@ -94,7 +94,7 @@ const CollectionView = (props) => {
         {props.collectionPokemon
           .filter((pokemon) => {
             if (selectedGen === 'legendary') {
-              return props.LegandaryPokemon.includes(pokemon.ID);
+              return props.LegendaryPokemon.includes(pokemon.ID);
             } else if (selectedGen === 'all') {
               return true;
             } else {
