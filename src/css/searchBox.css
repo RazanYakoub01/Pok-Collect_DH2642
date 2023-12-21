@@ -4,19 +4,17 @@
   margin-bottom: 100px;
 }
 
-
 .searchBox {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-left: 500px; 
-  margin-bottom: 40px
 
 }
 
 .searchBox input {
   background: #fff;
   border: 2px solid #000;
-  width: 500px;
+  width: 400px;
   height: 40px;
   border-radius: 50px;
   padding: 10px;
@@ -33,17 +31,4 @@
   height: auto;
   margin-left: -33px;
   margin-right: 10px;
-}
-
-/* media query for phones */
-@media (max-width: 850px) {
-
-  .searchBox input {
-    transform: translate(-310px,0px);
-  }
-  
-  .keyboardImage {
-    transform: translate(-250px,0px);
-  }
-
 }

@@ -1,8 +1,6 @@
 
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
-/* Add this rule to your CSS file */
 
-/* Add this rule to your CSS file */
 .styled-title {
   font-family: 'Pokemon Solid', sans-serif !important;
   font-size: 1.5em !important;
@@ -17,7 +15,6 @@
   text-shadow: none !important;
 }
 
-/* General Styling */
 .pokemon-stats {
   display: flex;
   justify-content: space-between;
@@ -34,6 +31,7 @@
 .stat-item span {
   font-size: 14px;
 }
+
 /* Bold the words Attack, Defense, and Speed */
 .stat-item.attack span::before {
   content: 'Attack: ';
@@ -82,7 +80,7 @@ h1 {
 
 .icon-container {
   width: 100%;
-  font-size: 0; /* Removes spacing between inline-block elements */
+  font-size: 0;
 }
 
 .type-icon {
@@ -176,11 +174,17 @@ h1 {
   min-height: 100svh;
 }
 
+.no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .search-results .pokemon-card {
-  width: 210px; /* Adjust the width as needed */
+  width: 210px;
   margin: 15px;
   padding: 15px;
-  border: 8px solid #0b0a0a; /* Choose your desired border color */
+  border: 8px solid #0b0a0a;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -201,9 +205,9 @@ h1 {
 }
 
 .search-results .pokemon-card img {
-  width: 100%; /* Make the image fill the container */
+  width: 100%;
   height: auto;
-  border-radius: 5px; /* Optional: Add border radius to the image */
+  border-radius: 5px;
 }
 
 
