@@ -82,6 +82,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden; /* Hide overflow to clip the circle */
+  cursor: pointer;
 }
 
 .collection-ball {
@@ -92,6 +93,7 @@
   border: 2px solid #000;
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .collection-circle {
@@ -104,6 +106,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 .collection-lines {
@@ -165,4 +168,27 @@
 
 .collection-info:hover {
   box-shadow: none; /* Remove the box shadow on hover */
+}
+
+@media (max-width: 850px) {
+
+  .collection-header {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .collection-header img {
+    margin-bottom: 10px; 
+  }
+
+
+  .generation-filter {
+    flex-wrap: wrap; 
+    justify-content: center;
+  }
+
+  .generation-filter button {
+    width: 100%; 
+  }
+  
 }

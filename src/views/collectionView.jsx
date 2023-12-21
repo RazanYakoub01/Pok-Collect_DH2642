@@ -34,7 +34,8 @@ const CollectionView = (props) => {
     <div className={`collection-view ${showText ? 'clicked' : ''}`}>
       <div className="collection-header">
         <img src={backpack} alt="Backpack" />
-        <h1 className="titleFont collection">{props.user}'s Pokémon Collection</h1>
+        <h1 className="titleFont collection">{props.user}'s</h1>
+        <h1 className="titleFont collection">Pokémon Collection</h1>
       </div>
 
       {/* Display total count of all Pokémon or show text */}
