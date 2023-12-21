@@ -1,40 +1,51 @@
 # PokeCollect
 
 A web application created for Pokémon fans to work as a pokédex where you can search for Pokémon and get useful information!
-The application also works as a Pokémon pack opening simulator where you can save your favorite Pokémon to your collection.
+The application also works as a Pokémon pack opening simulator where you can collect your favorite Pokémon and save them to your personal collection.
 
 # About PokeCollect
 
-This is a project in the course DH2642 Interaction Programming and the Dynamic Web by 4 students at KTH. The aim of this project was to create a web application that works as a pokédex where you can search for Pokémon and get useful information. The application also works as a Pokémon pack opening simulator where you can save and store your favorite Pokémon to your peronal collection.
+This is a project in the course DH2642 Interaction Programming and the Dynamic Web by 4 students at KTH. The aim of this project was to create a web application that works as a pokédex where you can search for Pokémon and get useful information. The application also works as a Pokémon pack opening simulator where you can save and store your favorite Pokémon to your personal collection.
 
 This application works through the use of PokéAPI and with the use of this API you can search for different Pokémon to get details. If you open packs in our virtual store with our in game currency you can access the Pokémon you collect whenever you want since our app allows you to store them in a personal collection!
+
+## Deployment:
+
+This application uses Vercel as a cloud platform.
+
+This application is running on : [PokeCollect](https://pokecollect-pied.vercel.app/ )
 
 ## What we have done and still plan to do
 
 Done: 
 
+- About us page with information about the contributors
 - Login using google
-- Protected routes (can only acces all routes when logged in)
+- Per-user persistence
 - Navigation bar with routes
-- Setup the basic framework
-- Created initial layout of our app
-- Able to show show data from API calls
+- Protected routes (can only acces all routes when logged in)
+- Search for Pokémon in pokédex
 - Filter pokédex by type
-- Add packs to cart where you can change quantity
-- Click on a pokémon to get more details (detailsView)
-- Search for Pokémon
-- OpenPacks view/presenter for pack opening
-- Add Pokémon to personal collection (collectionView/presenter)
+- Filter pokédex by Pokémon generation
+- Click on a pokémon to get more details
+- Add packs to cart where you can change quantity or remove items
+- Third party pop up to indicate when item has been added to cart and pack information in store
 - In game currrency so you can make purchase
-- See collected pokemon in pokédex if you are logged in
 - Timer for when users balance will increase
+- A packs page where the user can see all their purchased packs and open them
+- Open packs and collect pokemon with third party flip-effect and pop up information
+- Add Pokémon to personal collection
+- Se collection progress and filter collection by Pokémon generation
+- See collected pokemon in pokédex if you are logged in by using a third party component 
+- CSS
+- Responsive application
 
 Still plan to do: 
 
-- CSS
-- Responsive
+- Finished for submission 23-12-22
 
-User evaluation 2023-12-08:
+
+User evaluation 1 (2023-12-08):
 
 - Users said that our text style was basic so we added a pokemon style to our text to make it look better
 
@@ -42,11 +53,11 @@ User evaluation 2023-12-08:
 
 - Users found a bug where if you pressed sign out on a protected route you would still be at that page and will be able to for example add items to cart. We fixed this by redirecting the user to the home page after pressing sign out. 
 
-- Users felt like the website did not work great on mobile. We improved this by using css media queries (still working on). 
+- Users felt like the website did not work great on mobile. We improved this by using css media queries. 
 
 - Users found a bug where they would get a 404 error if they refreshed a page. We solved this by using hash router. 
 
-User evaluation 2023-12-19:
+User evaluation 2 (2023-12-19):
 
 - Users felt like it would look better with icons for GitHub and linkedIn in aboutUsView, removed the links and used icons instead.
 
@@ -63,7 +74,7 @@ users can see how many pokemon they have left to collect from a specifik generat
 
 - Users flet like it could be good to have infromation about the packs for people who are not Pokémon fans. We solved this by adding a popup button that displays text information about each pack. 
 
-- Some users still thought it was unclear if a pack was added to cart. We solved this by adding a popup in addition to our previous solution.
+- Some users still thought it was unclear if a pack was added to cart. We solved this by adding a third party pop up in addition to our previous solution.
 
 ## Run The App Locally
 
@@ -112,25 +123,19 @@ npm run start
 open http://localhost:3000
 ```
 
-### 6. Deployment:
-
-This application uses Vercel as a cloud platform.
-
-This application is running on : [PokeCollect](https://pokecollect-pied.vercel.app/ )
-
 ## File Structure
 
 ### **/src**
 
 - pokeSource.js: Functions to fetch data from PokéAPI
 
-- promiseNoData.js: promises & data handler
-
 - resolvePromise.js: promise handler
 
 - apiConfig.js: Config file for PokéAPI
 
 - firebaseConfig.js: Config file for firestore database
+
+- firebaseModel.js: Our model for persistence
 
 - storeData.js: Data used in the virtual store
 
@@ -141,6 +146,8 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 - css files for the views, gifs and images
 
 - protectedRoutes.jsx: Used to make some routes only accesable when logged in
+
+- utils.js: used to get Pokémon generation info from the packs
 
 
 ### **/src/presenters**
@@ -197,9 +204,15 @@ This application is running on : [PokeCollect](https://pokecollect-pied.vercel.a
 
 - packInformationView.jsx: Displays pop up with text infromation about the different packs in the store
 
+- openCardsInformationView.jsx: Displays pop up with text infromation about the collected Pkémon
+
 ### **/src/models**
 
 - pokeModel.js: Our model for this application contains functions to set and save data etc
+
+### **/src/services**
+
+- authService.js: Our sign in and sign out functionality
 
 ## Tools
 
@@ -215,19 +228,16 @@ PokéAPI: https://pokeapi.co
 ## Team Responsibilities
 
 ### Seema
-- **Views and Presenters:** Home, About Us, Store, PopupView
+- **Views and Presenters:** Home, About Us, Store, PopupView, Collection
 
 ### Razan
-- **Views and Presenters:** Cart, Packs, Navbar, persistence
+- **Views and Presenters:** Cart, Packs, Navbar, persistence, Collection
 
 ### Alexander
-- **Views and Presenter:** Login, Details View, Navbar, OpenCrads, packInformationView
+- **Views and Presenter:** Login, Details, Navbar, OpenCrads, PackInformation, OpenCardsInformation
 
 ### Elias
-- **Views and Presenter:** Search, Pokedex, Navbar
-
-### Shared Responsibilities
-- **Views and Presenters:** Collection
+- **Views and Presenter:** SearchResults, SearchForm, Pokedex, Navbar, API
 
 ## Authors
 
