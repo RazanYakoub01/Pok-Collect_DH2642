@@ -54,15 +54,15 @@
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(to right, #3498db, #007bb5);
+  background: linear-gradient(to right, #333, #000);
   color: #fff;
-  border: 3px solid #3498db;
+  border: 3px solid #333;
   border-radius: 5px; /* Sharper corners */
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .generation-filter button:hover {
-  background: linear-gradient(to right, #217dbb, #005b8b);
+  background: linear-gradient(to right, #222, #000);
   border-color: #000000;
   transform: scale(1.05);
 }
