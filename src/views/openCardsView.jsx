@@ -3,19 +3,14 @@ import '/src/css/openCards.css';
 import "/src/css/search.css";
 import "/src/css/collection.css";
 import "/src/css/textFonts.css";
+import "reactjs-popup/dist/index.css";
+import "/src/css/shop.css";
+import "/src/css/modal.css";
 import ReactCardFlip from 'react-card-flip';    //third party component
 import backOfPokeCard from "/src/openCardsImages/backOfPokeCard.jpg.avif";
 import blackPokeBall from "/src/openCardsImages/blackPokeBall.png";
 
 const OpenCardsView = (props) => {
-
-  const handleCollectionClick = () => {
-    props.onCollectionClick();
-  };
-
-  const firePacksClick = () => {
-    props.onPacksClick();
-  };
 
   // I use useState hook to set the state to false in the beginning.
   // isFlippedArray represents the flipped state of each Pokémon card.
@@ -31,18 +26,6 @@ const OpenCardsView = (props) => {
     //update the new state of the pokemon card
     setIsFlippedArray(newIsFlippedArray);
   };
-
-  //state to check if all cards are flipped
-  const [areAllCardsFlipped, setAreAllCardsFlipped] = useState(false);
-
-  // handle the side effect off flip state
-  useEffect(() => {
-    // Checks if all cards are flipped, then the btn gets renderd
-    if (isFlippedArray.every((flipped) => flipped)) {
-      // set state to true if all have been flipped
-      setAreAllCardsFlipped(true);
-    }
-  }, [isFlippedArray]);
 
   const renderStats = (pokemon) => (
     <div className="pokemon-stats">
@@ -89,16 +72,11 @@ const OpenCardsView = (props) => {
           ))}
         </div>
       )}
-      {areAllCardsFlipped && (
         <div className="collectionButton-container">
-          <button className="collectionButton" onClick={handleCollectionClick}>
-            Go To Collection!
-          </button>
-          <button className="collectionButton" onClick={firePacksClick}>
-            Open More Packs
+          <button className="collectionButton" onClick={props.toggleCardsInfo} disabled={props.showCardInfo}>
+          Pack Summary
           </button>
         </div>
-      )}
     </div>
   );
 };

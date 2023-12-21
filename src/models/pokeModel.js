@@ -31,9 +31,10 @@ const pokeModel = observable({
   searchResultsPromiseState: {},
   currentPokemonPromiseState: {},
   openPackPromiseState: {},
+  addedPokemons: [],
+  duplicatePokemons: [],
   collectionPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
-  obtainedPokemonFromLatestPack: [],
   balance: 200,
   cartItems : [],
   totalPrice : 0,
@@ -298,14 +299,27 @@ const pokeModel = observable({
 
   // Function to add Pokemon to the user's collection
   addPokemonToCollection(pokemonIDs) {
+    const addedPokemons = [];
+    const duplicatePokemons = [];
+  
     pokemonIDs.forEach(pokemonID => {
       // Check if the Pokémon ID is already in the collection to avoid duplicates
-      if (!this.collection.some(p => p === pokemonID)) {
+      if (!this.collection.includes(pokemonID)) {
         // Add the new Pokémon ID to the collection
         this.collection = [...this.collection, pokemonID];
+        addedPokemons.push(pokemonID);
+      } else {
+        duplicatePokemons.push(pokemonID);
       }
     });
+  
+    // Update MobX observable arrays
+    this.addedPokemons = addedPokemons;
+    this.duplicatePokemons = duplicatePokemons;
+  
+    return { addedPokemons, duplicatePokemons };
   },
+  
 
   getPokemonPackCards(pokemonIDs) {
     const allPokemons = this.initializePokemonDataPromiseState.data;
