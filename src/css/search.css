@@ -275,3 +275,37 @@ h1 {
 .search-results .pokemon-card.type-bug {
   background: linear-gradient(135deg, #4a501d 0%, #7d833c 50%, #4a501d 100%);
 }
+
+.generationFilter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.generationFilter button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(to right, #333, #000);
+  color: #fff;
+  border: 3px solid #333;
+  border-radius: 5px; /* Sharper corners */
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-left: 9px;
+}
+
+@media (max-width: 850px) {
+  .generationFilter {
+    flex-direction: column;
+  }
+  
+  .generationFilter button {
+    padding: 30px 40px;
+    border: 4px solid #333;
+    border-radius: 5px; /* Sharper corners */
+    width: 100%;
+    margin-left: 35px;
+  }
+}

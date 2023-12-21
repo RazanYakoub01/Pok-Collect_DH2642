@@ -65,7 +65,7 @@ const SearchResultsView = (props) => {
     return (
       <div className="search-results">
         {/* Generation filter buttons */}
-        <div className="generation-filter">
+        <div className="generationFilter">
           <button
             className={selectedGen === 'all' ? 'active' : ''}
             onClick={() => handleGenerationFilter('all')}
