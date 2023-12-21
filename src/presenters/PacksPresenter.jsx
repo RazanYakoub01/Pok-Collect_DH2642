@@ -9,8 +9,8 @@ export default observer(function PacksPresenter(props) {
   const [selectedPack, setSelectedPack] = useState(null);
 
   const handleOpenPack = (pack) => {
-    props.model.openPack(pack.id);
     props.model.setPackQuantity(pack.id, -1);
+    props.model.openPack(pack.id);
     navigator('/openCards');
   };
 

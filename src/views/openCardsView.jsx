@@ -66,7 +66,8 @@ const OpenCardsView = (props) => {
       </div>
       {props.obtainedPokemon.length === 0 ? (
       <div>
-        <h2>Oh no! Something went wrong. Please go back to you packs and open it again or explore your collection.</h2>
+        <h2>Oh no! Something went wrong. Your new Pokémon has still been added to your collection, 
+            open more packs or explore your new collection.</h2>
       </div>
       ) : (
         <div className="pokemon-cards">
