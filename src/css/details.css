@@ -155,8 +155,7 @@
   font-weight: bold;
   white-space: nowrap;
   position: relative; 
-  bottom: 875px;
-  margin-left: 970px;
+  transform: translate(900px, -865px);
 }
 
 .shiny-image {

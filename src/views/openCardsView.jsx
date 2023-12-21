@@ -61,39 +61,45 @@ const OpenCardsView = (props) => {
   return (
     <div className="search-results open-cards-view">
       <div className="openCardsTitle">
-      <img src={blackPokeBall} className="openCardsimage" />
+      <img src={blackPokeBall} className="openCardsimage"/>
         <h1>Discover Your new Pokémon!</h1>
       </div>
-      <div className="pokemon-cards">
-        {props.obtainedPokemon.map((pokemon, index) => (
-          <ReactCardFlip
-            key={pokemon.ID}
-            flipDirection="horizontal"
-            isFlipped={isFlippedArray[index]}>
-            <div key="front">
-              <img src={backOfPokeCard} className="backImage" onClick={() => flipEffect(index)}/>
-            </div>
-            <div key="back" className={`pokemon-card type-${pokemon.Types[0]}`}>
-              <h2 className="pokemon-card-title">
-                <span className={`styled-title type-${pokemon.Types[0]}`}>
-                  {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
-                </span>
-              </h2>
-              <img className="pokemon-card-image" src={pokemon.ImageURL}/>
-              {renderStats(pokemon)}
-            </div>
-          </ReactCardFlip>
-        ))}
+      {props.obtainedPokemon.length === 0 ? (
+      <div>
+        <h2>Oh no! Something went wrong. Please go back to you packs and open it again or explore your collection.</h2>
       </div>
+      ) : (
+        <div className="pokemon-cards">
+          {props.obtainedPokemon.map((pokemon, index) => (
+            <ReactCardFlip key={pokemon.ID} flipDirection="horizontal" isFlipped={isFlippedArray[index]}>
+              <div key="front">
+                <img src={backOfPokeCard} className="backImage" onClick={() => flipEffect(index)}/>
+              </div>
+              <div key="back" className={`pokemon-card type-${pokemon.Types[0]}`}>
+                <h2 className="pokemon-card-title">
+                  <span className={`styled-title type-${pokemon.Types[0]}`}>
+                    {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
+                  </span>
+                </h2>
+                <img className="pokemon-card-image" src={pokemon.ImageURL} alt={pokemon.Name}/>
+                {renderStats(pokemon)}
+              </div>
+            </ReactCardFlip>
+          ))}
+        </div>
+      )}
       {areAllCardsFlipped && (
-       <div className="collectionButton-container">
-       <button className="collectionButton" onClick={handleCollectionClick}>Go To Collection!</button>
-       <button className="collectionButton" onClick={firePacksClick}>Open More Packs</button>
-     </div>
+        <div className="collectionButton-container">
+          <button className="collectionButton" onClick={handleCollectionClick}>
+            Go To Collection!
+          </button>
+          <button className="collectionButton" onClick={firePacksClick}>
+            Open More Packs
+          </button>
+        </div>
       )}
     </div>
   );
 };
-
 
 export default OpenCardsView;

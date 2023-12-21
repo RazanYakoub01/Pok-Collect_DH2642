@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default observer(function OpenCardsPresenter(props){
 
-  const obtainedPokemon = props.model.openPackPromiseState.data;
+  const obtainedPokemon = props.model.openPackPromiseState.data || [];
 
   const navigate = useNavigate();
 
