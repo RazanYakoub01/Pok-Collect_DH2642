@@ -4,13 +4,12 @@ import '/src/css/collection.css';
 import '/src/css/textFonts.css';
 import backpack from '/src/collectionImages/backpack.png';
 
-
 const CollectionView = (props) => {
   const [selectedGen, setSelectedGen] = useState('all');
   const [showText, setShowText] = useState(false);
 
   const handleGenerationFilter = (gen) => {
-    setSelectedGen(gen);
+    setSelectedGen(gen.toString()); // Ensure gen is treated as a string
   };
 
   const handleButtonClick = () => {
@@ -82,13 +81,13 @@ const CollectionView = (props) => {
 
      {/* Display specific count for selected generation or legendary */}
       <div className="collection-text">
-           {selectedGen !== 'legendary' && selectedGen !== 'all' && (
-        <div className="generation-info-text">{`${props.collectedByGeneration[selectedGen]} Generation ${selectedGen} Pokémon Collected out of ${props.totalCountByGeneration[selectedGen]}`}</div>
-      )}
-      {selectedGen === 'legendary' && (
-        <div className="generation-info-text">{`${props.collectedGenTen} Pokémon Collected out of ${props.totalCountGenTen}`}</div>
-      )}
-    </div>
+        {selectedGen !== 'legendary' && selectedGen !== 'all' && (
+          <div className="generation-info-text">{`${props.collectedByGeneration[selectedGen]} Generation ${selectedGen} Pokémon Collected out of ${props.totalCountByGeneration[selectedGen]}`}</div>
+        )}
+        {selectedGen === 'legendary' && (
+          <div className="generation-info-text">{`${props.collectedGenTen} Pokémon Collected out of ${props.totalCountGenTen}`}</div>
+        )}
+      </div>
 
       {/* Display Pokémon cards based on selected generation */}
       <div className="search-results">
