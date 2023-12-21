@@ -95,7 +95,7 @@ const CollectionView = (props) => {
         {props.collectionPokemon
           .filter((pokemon) => {
             if (selectedGen === 'legendary') {
-              return props.LegendaryPokemon.includes(pokemon.ID);
+              return props.LegandaryPokemon.includes(pokemon.ID);
             } else if (selectedGen === 'all') {
               return true;
             } else {
