@@ -206,6 +206,7 @@
 .collection-text {
   position: absolute;
   color: #fff;
+  font-family: sans-serif; /* Set to sans-serif */
   font-size: 16px;
   font-weight: bold; /* Set to bold */
   text-align: center;
@@ -213,7 +214,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 .generation-info {
   margin-top: 20px; /* Increased margin for more spacing */

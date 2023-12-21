@@ -81,7 +81,7 @@ const CollectionView = (props) => {
       </div>
 
      {/* Display specific count for selected generation or legendary */}
-      <div className="generation-info">
+      <div className="collection-text">
            {selectedGen !== 'legendary' && selectedGen !== 'all' && (
         <div className="generation-info-text">{`${props.collectedByGeneration[selectedGen]} Generation ${selectedGen} Pokémon Collected out of ${props.totalCountByGeneration[selectedGen]}`}</div>
       )}
