@@ -11,13 +11,13 @@
 }
 
 .collection-header img {
-  width: 45px; 
+  width: 45px;
   height: auto;
   margin-right: 15px;
 }
 
 .collection-title {
-  font-size: 2.0em; 
+  font-size: 2.0em;
   margin: 0;
 }
 
@@ -54,35 +54,35 @@
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(to right, #2c3e50, #34495e); /* Dark background gradient */
+  background: linear-gradient(to right, #2c3e50, #34495e);
   color: #fff;
-  border: 3px solid #2c3e50; /* Dark border color */
-  border-radius: 5px; /* Sharper corners */
-  transition: background 0.3s ease, transform 0.3s ease;
+  border: 3px solid #2c3e50;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
 }
 
 .generation-filter button:hover {
-  background: linear-gradient(to right, #233446, #2c3e50); /* Darker background gradient on hover */
+  background: linear-gradient(to right, #233446, #2c3e50);
   border-color: #000000;
   transform: scale(1.05);
 }
 
 .generation-filter button.active {
-  background: linear-gradient(to right, #161312, #0d0c0c); /* Set your desired active background gradient */
-  border-color: #0d0c0c; /* Set your desired active border color */
-  color: #fff; /* Set your desired active text color */
+  background: linear-gradient(to right, #161312, #0d0c0c);
+  border-color: #0d0c0c;
+  color: #fff;
 }
 
 
 .collection-info {
-  position: relative; /* Add relative positioning to the container */
-  width: 120px; /* Set your desired width and height */
+  position: relative;
+  width: 120px;
   height: 120px;
-  margin: 0 auto; /* Center the circle horizontally */
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Hide overflow to clip the circle */
+  overflow: hidden;
   cursor: pointer;
 }
 
@@ -141,7 +141,7 @@
 }
 
 .collection-info:hover {
-  box-shadow: 0 8px 12px rgba(255, 255, 0, 0.4);
+  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.4);
 }
 
 .collection-info strong {
@@ -157,57 +157,56 @@
 }
 
 .collection-view.clicked .collection-ball {
-  display: none; /* Hide the ball */
+  display: none;
 }
 
 .collection-view.clicked .collection-info {
-  display: flex; /* Show the text when the ball is clicked */
-  background: radial-gradient(circle, #f44242, #ff0000); /* Pokémon-inspired red gradient */
-  box-shadow: none; /* Remove the box shadow for the clicked state */
+  display: flex;
+  background: radial-gradient(circle, #f44242, #ff0000);
+  box-shadow: none;
   border-color: #000;
 }
 
 .collection-info:hover {
-  box-shadow: none; /* Remove the box shadow on hover */
+  box-shadow: none;
 }
 
 @media (max-width: 850px) {
-
   .collection-header {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-    font-family: 'Sans-serif', Arial, sans-serif; /* Add this line to set the font */
+    font-family: 'Sans-serif', Arial, sans-serif;
   }
-  
+
   .collection-header img {
     width: 45px;
     height: auto;
     margin-right: 15px;
   }
-  
+
   .collection-title {
     font-size: 2.0em;
     margin: 0;
-    font-family: 'Sans-serif', Arial, sans-serif; /* Add this line to set the font */
+    font-family: 'Sans-serif', Arial, sans-serif;
   }
-  
+
   .generation-filter {
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
   }
 
   .generation-filter button {
-    width: 100%; 
+    width: 100%;
   }
-  
 }
+
 .collection-text {
   position: absolute;
   color: #fff;
   font-size: 16px;
-  font-weight: bold; /* Set to bold */
+  font-weight: bold;
   text-align: center;
   top: 50%;
   left: 50%;
@@ -216,18 +215,16 @@
 }
 
 .generation-info {
-  margin-top: 20px; /* Increased margin for more spacing */
-  text-align: center; /* Center the text */
+  margin-top: 20px;
+  text-align: center;
 }
 
 .generation-info-text {
-  color: #080707; /* Red color */
-  font-size: 18px; /* Larger font size */
-  font-weight: bolder; /* Increase font-weight for a bolder look */
-  text-transform: lowercase; /* Uppercase text */
-  letter-spacing: 2px; /* Add letter spacing for a modern look */
-  margin-bottom: 60px; /* Add bottom margin for separation */
+  color: #080707;
+  font-size: 18px;
+  font-weight: bolder;
+  text-transform: lowercase;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
   margin-top: 45px;
-  /* Add any other styles you want */
 }
-

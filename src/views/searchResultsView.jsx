@@ -1,19 +1,40 @@
 import React, { useState } from "react";
-import Rating from 'react-rating'; // third-party component
+import Rating from 'react-rating'; // External rating component
 import "/src/css/search.css";
 import "/src/css/textFonts.css";
 
+/**
+ * SearchResultsView component displays a list of Pokemon based on search results.
+ * It includes filters for generation and presents Pokemon cards with their statistics.
+ *
+ * @param {Object} props - Properties passed to the component.
+ * @returns {JSX.Element} - Rendered component.
+ */
 const SearchResultsView = (props) => {
+  // State hook to manage the selected generation filter
   const [selectedGen, setSelectedGen] = useState('all');
 
+  /**
+   * Callback function to handle click on a Pokemon, invoking the provided callback from props.
+   * @param {Object} pokemon - The clicked Pokemon object.
+   */
   const selectPokemonACB = (pokemon) => {
     props.onPokemonClick(pokemon);
   };
 
+  /**
+   * Callback function to handle changes in the generation filter.
+   * @param {string} gen - The selected generation filter.
+   */
   const handleGenerationFilter = (gen) => {
     setSelectedGen(gen);
   };
 
+  /**
+   * Renders the statistics of a Pokemon.
+   * @param {Object} pokemon - The Pokemon object.
+   * @returns {JSX.Element} - Rendered statistics.
+   */
   const renderStats = (pokemon) => (
     <div className="pokemon-stats">
       <div className="stat-item">
@@ -31,15 +52,16 @@ const SearchResultsView = (props) => {
   // Update to use props.model.searchResultsPromiseState
   const pokemons = props.model.searchResultsPromiseState.data || [];
 
-  // If there are no Pokémon with the current filter, display a message
+  // If there are no matching Pokemon, display a message
   if (pokemons.length === 0) {
     return (
       <div className="no-results">
+        {/* Inform the user about the lack of matching Pokemon */}
         <h2>Sorry, no matching Pokémon could be found!</h2>
       </div>
     );
   } else {
-    // If there are Pokémon with current filters, display them
+    // If there are matching Pokemon, display them
     return (
       <div className="search-results">
         {/* Generation filter buttons */}
@@ -67,19 +89,21 @@ const SearchResultsView = (props) => {
           </button>
         </div>
 
+        {/* Map and render Pokemon cards */}
         {pokemons.map((pokemon) => {
           const isInCollection = props.model.collection.includes(pokemon.ID);
 
-          // Apply generation filter
+          /* Apply generation filter */
           if (
             (selectedGen === 'legendary' && !props.model.LegendaryPokemon.includes(pokemon.ID)) ||
             (selectedGen !== 'legendary' && selectedGen !== 'all' &&
               (pokemon.ID < props.model.generationRanges[selectedGen].start ||
-               pokemon.ID > props.model.generationRanges[selectedGen].end))
+                pokemon.ID > props.model.generationRanges[selectedGen].end))
           ) {
             return null; // Skip rendering for Pokémon not matching the selected generation
           }
 
+          /* Render Pokemon card */
           return (
             <div
               className={`pokemon-card type-${pokemon.Types[0]}`}
@@ -91,6 +115,7 @@ const SearchResultsView = (props) => {
                   {pokemon.Name[0].toUpperCase() + pokemon.Name.substring(1)}
                 </span>
               </h2>
+              {/* Render collected status if the user is logged in */}
               {props.model.isLoggedIn && (
                 <div>
                   <span>Collected: </span>
@@ -103,6 +128,7 @@ const SearchResultsView = (props) => {
                   />
                 </div>
               )}
+              {/* Render Pokemon image and stats */}
               <img
                 className="pokemon-card-image"
                 src={pokemon.ImageURL}
@@ -117,4 +143,5 @@ const SearchResultsView = (props) => {
   }
 };
 
+/* Export the SearchResultsView component */
 export default SearchResultsView;
