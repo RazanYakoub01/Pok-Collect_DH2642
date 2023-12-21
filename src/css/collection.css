@@ -54,15 +54,15 @@
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(to right, #3498db, #007bb5);
+  background: linear-gradient(to right, #2c3e50, #34495e); /* Dark background gradient */
   color: #fff;
-  border: 3px solid #3498db;
+  border: 3px solid #2c3e50; /* Dark border color */
   border-radius: 5px; /* Sharper corners */
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .generation-filter button:hover {
-  background: linear-gradient(to right, #217dbb, #005b8b);
+  background: linear-gradient(to right, #233446, #2c3e50); /* Darker background gradient on hover */
   border-color: #000000;
   transform: scale(1.05);
 }
@@ -72,6 +72,7 @@
   border-color: #0d0c0c; /* Set your desired active border color */
   color: #fff; /* Set your desired active text color */
 }
+
 
 .collection-info {
   position: relative; /* Add relative positioning to the container */
