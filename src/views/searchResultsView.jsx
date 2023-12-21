@@ -1,11 +1,17 @@
-import React from "react";
-import Rating from 'react-rating'; // third party component
+import React, { useState } from "react";
+import Rating from 'react-rating'; // third-party component
 import "/src/css/search.css";
 import "/src/css/textFonts.css";
 
 const SearchResultsView = (props) => {
+  const [selectedGen, setSelectedGen] = useState('all');
+
   const selectPokemonACB = (pokemon) => {
     props.onPokemonClick(pokemon);
+  };
+
+  const handleGenerationFilter = (gen) => {
+    setSelectedGen(gen);
   };
 
   const renderStats = (pokemon) => (
@@ -36,12 +42,47 @@ const SearchResultsView = (props) => {
     // If there are Pokémon with current filters, display them
     return (
       <div className="search-results">
+        {/* Generation filter buttons */}
+        <div className="generation-filter">
+          <button
+            className={selectedGen === 'all' ? 'active' : ''}
+            onClick={() => handleGenerationFilter('all')}
+          >
+            All
+          </button>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((gen) => (
+            <button
+              key={gen}
+              className={selectedGen === gen ? 'active' : ''}
+              onClick={() => handleGenerationFilter(gen)}
+            >
+              Gen {gen}
+            </button>
+          ))}
+          <button
+            className={selectedGen === 'legendary' ? 'active' : ''}
+            onClick={() => handleGenerationFilter('legendary')}
+          >
+            Legendary
+          </button>
+        </div>
+
         {pokemons.map((pokemon) => {
           const isInCollection = props.model.collection.includes(pokemon.ID);
 
+          // Apply generation filter
+          if (
+            (selectedGen === 'legendary' && !props.model.LegendaryPokemon.includes(pokemon.ID)) ||
+            (selectedGen !== 'legendary' && selectedGen !== 'all' &&
+              (pokemon.ID < props.model.generationRanges[selectedGen].start ||
+               pokemon.ID > props.model.generationRanges[selectedGen].end))
+          ) {
+            return null; // Skip rendering for Pokémon not matching the selected generation
+          }
+
           return (
             <div
-            className={`pokemon-card type-${pokemon.Types[0]}`}
+              className={`pokemon-card type-${pokemon.Types[0]}`}
               key={pokemon.ID}
               onClick={() => selectPokemonACB(pokemon)}
             >
@@ -51,17 +92,17 @@ const SearchResultsView = (props) => {
                 </span>
               </h2>
               {props.model.isLoggedIn && (
-            <div>
-              <span>Collected: </span>
-              <Rating
-                initialRating={isInCollection ? 1 : 0}
-                emptySymbol={<span className="star">&#9734;</span>}
-                fullSymbol={<span className="star">&#9733;</span>}
-                readonly
-                stop={1}
-              />
-            </div>
-            )}
+                <div>
+                  <span>Collected: </span>
+                  <Rating
+                    initialRating={isInCollection ? 1 : 0}
+                    emptySymbol={<span className="star">&#9734;</span>}
+                    fullSymbol={<span className="star">&#9733;</span>}
+                    readonly
+                    stop={1}
+                  />
+                </div>
+              )}
               <img
                 className="pokemon-card-image"
                 src={pokemon.ImageURL}
