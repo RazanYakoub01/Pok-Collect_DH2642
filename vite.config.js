@@ -5,7 +5,8 @@ export default defineConfig({
   plugins: [reactJsxPlugin()],
   build: {
     outDir: 'dist',
-    minify: true,
+    sourcemap: true,
+    minify: false,
     terserOptions: {
       compress: {
         drop_console: true,
