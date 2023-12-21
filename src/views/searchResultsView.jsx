@@ -95,7 +95,7 @@ const SearchResultsView = (props) => {
 
           /* Apply generation filter */
           if (
-            (selectedGen === 'legendary' && !props.model.LegendaryPokemon.includes(pokemon.ID)) ||
+            (selectedGen === 'legendary' && !props.model.LegandaryPokemon.includes(pokemon.ID)) ||
             (selectedGen !== 'legendary' && selectedGen !== 'all' &&
               (pokemon.ID < props.model.generationRanges[selectedGen].start ||
                 pokemon.ID > props.model.generationRanges[selectedGen].end))
