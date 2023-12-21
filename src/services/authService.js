@@ -47,20 +47,4 @@ export const logOut = (navigateCallback) => {
     });
 };
 
-
-/*window.addEventListener('beforeunload', () => {
-  const user = model.user;
-  if (user) {
-    signOut(auth)
-      .then(() => {
-        // Handle any necessary cleanup or notification
-      })
-      .catch((error) => {
-        console.error('Logout Error during page unload:', error);
-      });
-  }
-});*/
-
-
-
 export default handleAuthStateChange;
