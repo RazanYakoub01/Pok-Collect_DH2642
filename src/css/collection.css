@@ -54,35 +54,34 @@
   margin: 5px;
   font-size: 16px;
   cursor: pointer;
-  background: linear-gradient(to right, #2c3e50, #34495e);
+  background: linear-gradient(to right, #3498db, #007bb5);
   color: #fff;
-  border: 3px solid #2c3e50;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
+  border: 3px solid #3498db;
+  border-radius: 5px; /* Sharper corners */
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .generation-filter button:hover {
-  background: linear-gradient(to right, #233446, #2c3e50);
+  background: linear-gradient(to right, #217dbb, #005b8b);
   border-color: #000000;
   transform: scale(1.05);
 }
 
 .generation-filter button.active {
-  background: linear-gradient(to right, #161312, #0d0c0c);
-  border-color: #0d0c0c;
-  color: #fff;
+  background: linear-gradient(to right, #161312, #0d0c0c); /* Set your desired active background gradient */
+  border-color: #0d0c0c; /* Set your desired active border color */
+  color: #fff; /* Set your desired active text color */
 }
 
-
 .collection-info {
-  position: relative;
-  width: 120px;
+  position: relative; /* Add relative positioning to the container */
+  width: 120px; /* Set your desired width and height */
   height: 120px;
-  margin: 0 auto;
+  margin: 0 auto; /* Center the circle horizontally */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden; /* Hide overflow to clip the circle */
   cursor: pointer;
 }
 
@@ -94,7 +93,6 @@
   border: 2px solid #000;
   border-radius: 50%;
   overflow: hidden;
-  cursor: pointer;
 }
 
 .collection-circle {
@@ -107,7 +105,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
 }
 
 .collection-lines {
@@ -141,7 +138,7 @@
 }
 
 .collection-info:hover {
-  box-shadow: 0 8px 12px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 8px 12px rgba(255, 255, 0, 0.4);
 }
 
 .collection-info strong {
@@ -157,18 +154,18 @@
 }
 
 .collection-view.clicked .collection-ball {
-  display: none;
+  display: none; /* Hide the ball */
 }
 
 .collection-view.clicked .collection-info {
-  display: flex;
-  background: radial-gradient(circle, #f44242, #ff0000);
-  box-shadow: none;
+  display: flex; /* Show the text when the ball is clicked */
+  background: radial-gradient(circle, #f44242, #ff0000); /* Pokémon-inspired red gradient */
+  box-shadow: none; /* Remove the box shadow for the clicked state */
   border-color: #000;
 }
 
 .collection-info:hover {
-  box-shadow: none;
+  box-shadow: none; /* Remove the box shadow on hover */
 }
 
 @media (max-width: 850px) {
@@ -177,7 +174,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-    font-family: 'Sans-serif', Arial, sans-serif;
+    font-family: 'Sans-serif', Arial, sans-serif; /* Add this line to set the font */
   }
 
   .collection-header img {
@@ -189,42 +186,43 @@
   .collection-title {
     font-size: 2.0em;
     margin: 0;
-    font-family: 'Sans-serif', Arial, sans-serif;
+    font-family: 'Sans-serif', Arial, sans-serif; /* Add this line to set the font */
   }
 
   .generation-filter {
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     justify-content: center;
   }
 
   .generation-filter button {
-    width: 100%;
+    width: 100%; 
   }
-}
+  
+  .collection-text {
+    position: absolute;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold; /* Set to bold */
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 20px;
+  }
 
-.collection-text {
-  position: absolute;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-bottom: 20px;
-}
+  .generation-info {
+    margin-top: 20px; /* Increased margin for more spacing */
+    text-align: center; /* Center the text */
+  }
 
-.generation-info {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.generation-info-text {
-  color: #080707;
-  font-size: 18px;
-  font-weight: bolder;
-  text-transform: lowercase;
-  letter-spacing: 2px;
-  margin-bottom: 60px;
-  margin-top: 45px;
+  .generation-info-text {
+    color: #080707; /* Red color */
+    font-size: 18px; /* Larger font size */
+    font-weight: bolder; /* Increase font-weight for a bolder look */
+    text-transform: lowecase; /* Uppercase text */
+    letter-spacing: 2px; /* Add letter spacing for a modern look */
+    margin-bottom: 60px; /* Add bottom margin for separation */
+    margin-top: 45px;
+    /* Add any other styles you want */
+  }
 }
