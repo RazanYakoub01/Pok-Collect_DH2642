@@ -174,13 +174,25 @@
 @media (max-width: 850px) {
 
   .collection-header {
-    flex-direction: column; 
+    display: flex;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-family: 'Sans-serif', Arial, sans-serif; /* Add this line to set the font */
   }
-
+  
   .collection-header img {
-    margin-bottom: 10px; 
+    width: 45px;
+    height: auto;
+    margin-right: 15px;
   }
+  
+  .collection-title {
+    font-size: 2.0em;
+    margin: 0;
+    font-family: 'Sans-serif', Arial, sans-serif; /* Add this line to set the font */
+  }
+  
 
 
   .generation-filter {
