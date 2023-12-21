@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate(-60px, 0px);
 }
 
 .titleImage {
@@ -27,6 +28,7 @@
   margin: 10px 0;
   border-radius: 8px;
   margin-left: 20px;
+  transform: translate(-50px, 0px);
 }
 
 .navigation-button:hover {
@@ -41,6 +43,7 @@
   max-width: 100%;
   height: auto;
   padding-top: 20px;
+  transform: translate(-25px,0px);
 }
 
 .paragraph-container {
