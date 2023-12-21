@@ -12,9 +12,9 @@
 
 .button-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
-  margin-top: 20px;
-  margin-left: 590px;
 }
 
 .navigation-button {
@@ -34,34 +34,27 @@
 }
 
 .homeImg {
-  width: 300px; 
-  height: auto; 
-  margin-top: 20px;
-  margin-left: 620px !important;
+  display: block;
+  margin: auto;
+  width: 20%;
+  min-width: 200px;
+  max-width: 100%;
+  height: auto;
+  padding-top: 20px;
 }
 
 .paragraph-container {
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
-  margin-right: 500px;
 }
 
 .paragraph-container p {
-  margin-bottom: 10px;
-  display:inline-block
-}
-
-@media (max-width: 850px) {
-
-  .paragraph-container p {
-    transform: translate(248px, 0px);
-  }
-
-  .homeImg {
-    margin-left: 370px !important;
-  }
-
-  .button-container {
-    margin-left: 100px;
-  }
-  
+  display:flex;
+  width: 50%;
+  align-items:center;
+  justify-content: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
 }

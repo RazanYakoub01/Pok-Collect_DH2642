@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "/src/css/home.css";
-import "/src/css/textFonts.css";
 import hm6 from "/src/homepageImages/hm6.png";
 import hm1 from "/src/homepageImages/hm1.jpg";
 
@@ -36,7 +35,7 @@ function HomeView(props) {
           <button className="navigation-button">Discover Pokémon</button>
         </Link>
       </div>
-      <div>
+      <div className="homeImg-container">
         <img className="homeImg" src={hm6} alt="Pokémon Illustration" />
       </div>
     </div>

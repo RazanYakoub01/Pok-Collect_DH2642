@@ -29,12 +29,14 @@ div p {
   margin-left: 500px; 
 }
 
+/*
 .homeImg {
   width: 300px; 
   height: auto; 
   margin-top: 20px;
   margin-left: 560px; 
 }
+*/
 
 /* Media query for phones */
 @media  (max-width: 850px) {
@@ -50,7 +52,9 @@ div p {
     text-align: center; 
   }
 
+  /*
   .homeImg {
     transform: translate(-230px, 0px);
   }
+  */
 }
