@@ -206,7 +206,6 @@
 .collection-text {
   position: absolute;
   color: #fff;
-  font-family: sans-serif; /* Set to sans-serif */
   font-size: 16px;
   font-weight: bold; /* Set to bold */
   text-align: center;
@@ -225,7 +224,7 @@
   color: #080707; /* Red color */
   font-size: 18px; /* Larger font size */
   font-weight: bolder; /* Increase font-weight for a bolder look */
-  text-transform: uppercase; /* Uppercase text */
+  text-transform: lowercase; /* Uppercase text */
   letter-spacing: 2px; /* Add letter spacing for a modern look */
   margin-bottom: 60px; /* Add bottom margin for separation */
   margin-top: 45px;
