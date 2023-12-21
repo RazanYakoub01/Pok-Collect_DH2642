@@ -111,7 +111,7 @@
 
 @media (max-width: 850px) {
   .shoppingCartHeader {
-    transform: translate(-550px, 0px);
+    transform: translate(-465px, 0px);
   }
 
   .shoppingCartHeader img {

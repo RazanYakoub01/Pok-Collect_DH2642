@@ -279,4 +279,8 @@
     margin-bottom: 5%;
   }
 
+  .balance {
+    transform: translate(-135px, 0px);
+  }
+
 }
