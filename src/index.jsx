@@ -17,6 +17,8 @@ handleAuthStateChange();
 
 reactiveModel.getPokemonData();
 
+reactiveModel.updateLastLoginAndBalance();
+
 // ------ for debug purposes ----------
 window.myModel= reactiveModel;
 
