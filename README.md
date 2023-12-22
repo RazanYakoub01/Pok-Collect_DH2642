@@ -40,12 +40,8 @@ Done:
 - CSS
 - Responsive application
 
-Still plan to do: 
 
-- Finished for submission 23-12-22
-
-
-User evaluation 1 (2023-12-08):
+## User evaluation 1 (2023-12-08):
 
 - Users said that our text style was basic so we added a pokemon style to our text to make it look better
 
@@ -57,7 +53,7 @@ User evaluation 1 (2023-12-08):
 
 - Users found a bug where they would get a 404 error if they refreshed a page. We solved this by using hash router. 
 
-User evaluation 2 (2023-12-19):
+## User evaluation 2 (2023-12-19):
 
 - Users felt like it would look better with icons for GitHub and linkedIn in aboutUsView, removed the links and used icons instead.
 
