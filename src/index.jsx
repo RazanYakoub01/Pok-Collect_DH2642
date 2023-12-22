@@ -4,7 +4,7 @@ import db from '/src/firebaseModel';
 import  handleAuthStateChange from '/src/services/authService.js';
 
 
-configure({ enforceActions: "never", });  // we don't use Mobx actions
+configure({ enforceActions: "never", });  
 const reactiveModel= observable(model);
 
 

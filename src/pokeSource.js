@@ -1,8 +1,8 @@
-const BASE_URL= "https://pokeapi.co/api/v2/";
+const BASE_URL = "https://pokeapi.co/api/v2/";
 
-
-
-// Fetches the evolution chain ID for the given Pokemon ID
+/*
+  Fetches the evolution chain ID for the given Pokemon ID.
+*/
 function getEvolutionChain(pokemonID) {
   return fetch(BASE_URL + "pokemon-species/"  + pokemonID)
     .then(response => {
@@ -11,7 +11,6 @@ function getEvolutionChain(pokemonID) {
       }
       return response.json();
     })
-    // Extract the evolution chain ID from the response
     .then(speciesData => {
       const evolutionChainUrl = speciesData.evolution_chain.url;
       const evolutionChainId = evolutionChainUrl.split("/").filter(part => part).pop();
@@ -23,7 +22,9 @@ function getEvolutionChain(pokemonID) {
     });
 }
 
-// Fetches the evolution details for the given Pokemon
+/*
+  Fetches the evolution details for the given Pokemon.
+*/
 function getEvolutionDetails(pokemonID) {
   let currentPokemonName = '';
 
@@ -53,8 +54,9 @@ function getEvolutionDetails(pokemonID) {
     });
 }
 
-
-// Extracts the evolution details from the API response
+/*
+  Extracts the evolution details from the API response.
+*/
 function extractEvolutionData(data, currentPokemonName) {
   let nextEvolution = null;
 
@@ -62,12 +64,12 @@ function extractEvolutionData(data, currentPokemonName) {
   function findNextEvolution(chain) {
     if (chain.species.name === currentPokemonName) {
       if (chain.evolves_to.length > 0) {
-        nextEvolution = chain.evolves_to[0].species.name; // Immediate next evolution
+        nextEvolution = chain.evolves_to[0].species.name; 
       }
-      return; // Stop searching once we find the current Pokemon
+      return; 
     }
 
-    chain.evolves_to.forEach(findNextEvolution); // Continue searching in the next level
+    chain.evolves_to.forEach(findNextEvolution); 
   }
 
   findNextEvolution(data.chain);
@@ -75,9 +77,9 @@ function extractEvolutionData(data, currentPokemonName) {
   return nextEvolution;
 }
 
-
-
-// Fetches all Pokemon URLs from the API.
+/*
+  Fetches all Pokemon URLs from the API.
+*/
 function fetchAllPokemon() {
   // Edit limit to fetch more Pokemon
   return fetch(BASE_URL + "pokemon?limit=1017")
@@ -88,6 +90,9 @@ function fetchAllPokemon() {
     );
 }
 
+/*
+  Fetches Pokemon details from the API by ID.
+*/
 function fetchPokemonById(id) {
   return fetch(BASE_URL + "pokemon/" + id)
     .then((response) => {
@@ -103,8 +108,9 @@ function fetchPokemonById(id) {
     });
 }
 
-
-// Fetches Pokemon details from the API with URL as parameter.
+/*
+  Fetches Pokemon details from the API with URL as a parameter.
+*/
 function getPokemonDetails(url) {
   return fetch(url)
     .then((response) => {
@@ -120,8 +126,9 @@ function getPokemonDetails(url) {
     });
 }
 
-
-// Extracts Pokemon data from the API response.
+/*
+  Extracts Pokemon data from the API response.
+*/
 function extractPokeData(data) {
   let stats = {};
   data.stats.forEach((statItem) => {
@@ -145,22 +152,27 @@ function extractPokeData(data) {
   };
 }
 
-// Caches Pokemon data in local storage.
+/*
+  Caches Pokemon data in local storage.
+*/
 function cachePokemonData(pokemonData) {
   localStorage.setItem("pokemonData", JSON.stringify(pokemonData));
 }
 
-// Retrieves cached Pokemon data from local storage.
+/*
+  Retrieves cached Pokemon data from local storage.
+*/
 function getCachedPokemonData() {
   const data = localStorage.getItem("pokemonData");
   return data ? JSON.parse(data) : null;
 }
 
-
-// This code initializes Pokemon data by first checking if there is cached data available.
-// If there is, it returns the cached data, provided no Pokemon IDs are missing.
-// If there is cached data that but not all Pokemon IDs are present, it fetches all missing Pokemon data from the API and caches it.
-// Else if there is no cached data, it fetches all Pokemon data from the API and caches it.
+/*
+  This code initializes Pokemon data by first checking if there is cached data available.
+  If there is, it returns the cached data, provided no Pokemon IDs are missing.
+  If there is cached data but not all Pokemon IDs are present, it fetches all missing Pokemon data from the API and caches it.
+  Else if there is no cached data, it fetches all Pokemon data from the API and caches it.
+*/
 function initializePokemonData() {
   const cachedData = getCachedPokemonData();
   if (cachedData) {
