@@ -23,7 +23,7 @@
 }
 
 .storeButton:not(:disabled):hover {
-  background-color: #0e0f0e;
+  background-color: gainsboro;
 }
 
 .shopTitleContainer {

@@ -35,7 +35,7 @@ const pokeModel = observable({
   duplicatePokemons: [],
   collectionPromiseState: {},
   packs: storePacks.map((pack) => ({ ...pack, quantity: 0 })),
-  balance: 200,
+  balance: 500,
   cartItems : [],
   totalPrice : 0,
   lastLoginTime : null, 
