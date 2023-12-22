@@ -9,20 +9,25 @@ import pack8 from "/src/assets/storeImages/pack8.png";
 import pack9 from "/src/assets/storeImages/pack9.jpg";
 import pack10 from "/src/assets/storeImages/pack10.jpg";
 
+/* Function to generate a pack object */
 const generatePack = (id, packName, price, packImage) => ({ id, packName, price, packImage });
 
+/* Array of pack names */
 const packNames = [
   "Gen 1 pack", "Gen 2 pack", "Gen 3 pack", "Gen 4 pack", "Gen 5 pack",
   "Gen 6 pack", "Gen 7 pack", "Gen 8 pack", "Gen 9 pack", "Legendary pack"
 ];
 
+/* Array of pack image paths */
 const packImagePaths = [
   pack1, pack2, pack3, pack4, pack5, pack6, pack7, pack8, pack9, pack10
 ];
 
+/* Base and legendary pack prices */
 const basePrice = 75;
 const legendaryPackPrice = 100;
 
+/* Object defining generation ranges */
 export const generationRanges = {
   1: { start: 1, end: 151 },
   2: { start: 152, end: 251 },
@@ -34,7 +39,9 @@ export const generationRanges = {
   8: { start: 810, end: 905 },
   9: { start: 906, end: 1017 },
   10: { start: 1, end: 1017 },
-}; 
+};
+
+/* Array of legendary Pokémon IDs */
 export const LegandaryPokemon = [144, 145, 146, 150, 151, 243, 244, 245, 249, 250, 
   251, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 479, 480, 
   481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 
@@ -45,6 +52,7 @@ export const LegandaryPokemon = [144, 145, 146, 150, 151, 243, 244, 245, 249, 25
   895, 896, 897, 898, 905, 998, 1000, 1001, 1002, 1003, 1004, 1007, 
   1008, 1009, 1010, 1014, 1016, 1017];
 
+/* Array of icons */
 export const icons = [
   "fighting",
   "psychic",
@@ -66,6 +74,7 @@ export const icons = [
   "steel",
 ];
 
+/* Array of packs */
 export const packs = packNames.map((packName, index) => 
   generatePack(index + 1, packName, index === 9 ? legendaryPackPrice : basePrice, packImagePaths[index])
 );

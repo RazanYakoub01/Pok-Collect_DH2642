@@ -125,12 +125,9 @@ const pokeModel = observable({
     const existingItem = this.cartItems.find(
       (cartItem) => cartItem.id === item.id
     );
-
     if (existingItem) {
-      // If the item already exists in the cart, update its quantity
       existingItem.quantity++;
     } else {
-      // If it's a new item, add it to the cart
       this.cartItems.push({ ...item, quantity: 1 });
     }
     this.totalPrice += item.price;
@@ -192,7 +189,6 @@ const pokeModel = observable({
 
   // Purchase the items in the cart
   purchaseItems() {
-    // we need this temporary until firebase is fixed, then we can use this.totalPrice I think
     const totalCost = this.cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
       0
@@ -205,10 +201,7 @@ const pokeModel = observable({
         this.setPackQuantity(item.id, item.quantity);
       });
 
-      // update balance
       this.balance -= totalCost;
-
-      // Clear the cart
       this.cartItems = [];
       this.totalPrice = 0;
 
@@ -285,15 +278,10 @@ const pokeModel = observable({
 
   // Function to get the user's collection
   getCollection() {
-    // Retrieve the cached Pokémon data
     const data = getCachedPokemonData();
-
-    // Filter the cached data to include only Pokémon whose IDs are in the collection
     const collectionPokemons = data.filter((pokemon) =>
       this.collection.includes(pokemon.id)
     );
-
-    // Return the filtered list of Pokémon
     return collectionPokemons;
   },
 
@@ -303,9 +291,7 @@ const pokeModel = observable({
     const duplicatePokemons = [];
   
     pokemonIDs.forEach(pokemonID => {
-      // Check if the Pokémon ID is already in the collection to avoid duplicates
       if (!this.collection.includes(pokemonID)) {
-        // Add the new Pokémon ID to the collection
         this.collection = [...this.collection, pokemonID];
         addedPokemons.push(pokemonID);
       } else {
@@ -395,26 +381,19 @@ getGenerationForSpecifik(pokemonID) {
 //func to open packs, dependant on packID
 openPack(packId) {
  
-
-  // Check if the pack ID is valid
   if (this.generationRanges.hasOwnProperty(packId)) {
     const range = this.generationRanges[packId];
     const randomPokemonID = this.generateRandomPokemon(range.start, range.end, 10);
 
-    // If the pack ID is 10, guarantee at least one legendary Pokémon
     if (packId === 10) {
-      // Check if the pack already contains a legendary Pokémon
       const hasLegendary = randomPokemonID.some((pokemon) =>
         this.LegandaryPokemon.includes(pokemon)
       );
 
-      // If no legendary Pokémon is found, add one
       if (!hasLegendary) {
         const nonLegendaryPokemonIndex = randomPokemonID.findIndex(
           (pokemon) => !this.LegandaryPokemon.includes(pokemon)
         );
-
-        // When a non-legendary Pokémon is found, replace it with a legendary Pokémon
         if (nonLegendaryPokemonIndex !== -1) {
           const randomIndex = Math.floor(Math.random() * this.LegandaryPokemon.length);
           randomPokemonID[nonLegendaryPokemonIndex] = this.LegandaryPokemon[randomIndex];
