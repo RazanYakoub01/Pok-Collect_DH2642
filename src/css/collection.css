@@ -57,7 +57,7 @@
   background: linear-gradient(to right, #333, #000);
   color: #fff;
   border: 3px solid #333;
-  border-radius: 5px; /* Sharper corners */
+  border-radius: 5px; 
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
@@ -68,20 +68,20 @@
 }
 
 .generation-filter button.active {
-  background: linear-gradient(to right, #161312, #0d0c0c); /* Set your desired active background gradient */
-  border-color: #0d0c0c; /* Set your desired active border color */
-  color: #fff; /* Set your desired active text color */
+  background: linear-gradient(to right, #161312, #0d0c0c); 
+  border-color: #0d0c0c; 
+  color: #fff; 
 }
 
 .collection-info {
-  position: relative; /* Add relative positioning to the container */
-  width: 120px; /* Set your desired width and height */
+  position: relative; 
+  width: 120px; 
   height: 120px;
-  margin: 0 auto; /* Center the circle horizontally */
+  margin: 0 auto; 
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Hide overflow to clip the circle */
+  overflow: hidden; 
   cursor: pointer;
 }
 
@@ -154,18 +154,18 @@
 }
 
 .collection-view.clicked .collection-ball {
-  display: none; /* Hide the ball */
+  display: none; 
 }
 
 .collection-view.clicked .collection-info {
-  display: flex; /* Show the text when the ball is clicked */
-  background: radial-gradient(circle, #f44242, #ff0000); /* Pokémon-inspired red gradient */
-  box-shadow: none; /* Remove the box shadow for the clicked state */
+  display: flex; 
+  background: radial-gradient(circle, #f44242, #ff0000); 
+  box-shadow: none; 
   border-color: #000;
 }
 
 .collection-info:hover {
-  box-shadow: none; /* Remove the box shadow on hover */
+  box-shadow: none; 
 }
 
 @media (max-width: 850px) {

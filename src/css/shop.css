@@ -127,15 +127,15 @@
 
 
 .cart-link {
-  text-decoration: none; /* Remove default underline */
-  color: inherit; /* Inherit the color from the parent */
+  text-decoration: none; 
+  color: inherit;
 }
 
 .cart-button {
   display: inline-block;
-  padding: 8px 16px; /* Adjust padding as needed */
-  background-color: #007bff; /* Button background color */
-  color: #fff; /* Button text color */
+  padding: 8px 16px; 
+  background-color: #007bff; 
+  color: #fff; 
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -193,8 +193,8 @@
 .timer {
   font-family: Arial, sans-serif;
   font-size: 16px;
-  color: #333; /* Adjust the color as needed */
-  background-color: #f0f0f0; /* Adjust the background color as needed */
+  color: #333; 
+  background-color: #f0f0f0; 
   padding: 10px;
   border-radius: 5px;
   margin: 10px 0;
@@ -216,8 +216,8 @@
 
 .timer {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center; 
+  align-items: center; 
   flex-direction: column;
   margin: 20px;
 }
@@ -226,13 +226,13 @@
   font-size: 18px;
   font-weight: bold;
   display: flex;
-  align-items: center; /* Align the text and coin vertically */
+  align-items: center; 
 }
 
 .coin-icon {
-  width: 20px; /* Adjust the width of the coin icon as needed */
+  width: 20px; 
   height: auto;
-  margin-left: 5px; /* Add some space between the text and the coin */
+  margin-left: 5px; 
 }
 
 /*Add to cart modal*/

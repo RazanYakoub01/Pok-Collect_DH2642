@@ -5,13 +5,13 @@
   flex-direction: row;
 }
 .logo-image {
-  width: 110px; /* Set the width to your desired size */
+  width: 110px; 
   height: auto;
-  margin-left: 10px; /* Adjust the margin to shift it to the right */
+  margin-left: 10px; 
 }
 .flex-row {
   display: flex;
-  align-items: center; /* Align the items vertically in the flex container */
+  align-items: center; 
   margin-bottom: 15px;
 }
 
@@ -38,7 +38,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 5vw;
-  margin-left: 50px; /* Add margin to create space between the logo and the title */
+  margin-left: 50px; 
 }
 
 .description-font-20px {
@@ -79,7 +79,7 @@ meet-the-team{
 .square-profile {
   width: 43vw;
   height: 45vh;
-  background: linear-gradient(135deg, #3498db, #1f4788); /* Pokemon Blue Gradient */
+  background: linear-gradient(135deg, #3498db, #1f4788); 
   border-radius: 20px;
   padding: 2vw;
 }
@@ -129,8 +129,8 @@ meet-the-team{
 
 
   .more-about-member {
-    width: 40w; /* Set the width according to your design */
-    max-width: 60%; /* Ensure it doesn't exceed the available space */
+    width: 40w; 
+    max-width: 60%; 
     margin-left: 42px;
   }
 
@@ -189,18 +189,18 @@ meet-the-team{
 
 .linkedin-icon-container {
   display: flex;
-  justify-content: center; /* Horizontally center */
-  align-items: center; /* Vertically center */
-  width: 30px; /* Adjust the size as needed */
-  height: 30px; /* Adjust the size as needed */
-  border-radius: 50%; /* To make it circular */
-  background-color: #fff; /* LinkedIn color */
-  text-decoration: none; /* Remove default link underline */
+  justify-content: center; 
+  align-items: center; 
+  width: 30px; 
+  height: 30px; 
+  border-radius: 50%; 
+  background-color: #fff; 
+  text-decoration: none; 
 }
 
 .linkedin-icon {
-  color: #fff; /* Icon color */
-  font-size: 1.5rem; /* Adjust the size as needed */
+  color: #fff; 
+  font-size: 1.5rem;
 }
 
 @media (max-width: 850px) {

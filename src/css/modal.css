@@ -13,8 +13,8 @@
   }
   
   .modal > .content > .added-to-cart {
-    margin-top: 10px; /* Add space between header and content */
-    font-size: 24px; /* Larger font size for "ADDED TO CART" */
+    margin-top: 10px; 
+    font-size: 24px; 
     font-family: 'Your Sans-Serif Font', sans-serif; 
   }
   
@@ -41,7 +41,7 @@
   
   .modal {
     font-size: 12px;
-    text-align: center; /* Center the content */
+    text-align: center;
     position: relative;
   }
   
@@ -51,7 +51,7 @@
     font-size: 18px;
     text-align: center;
     padding: 5px;
-    margin-bottom: 10px; /* Add margin to create space between header and content */
+    margin-bottom: 10px; 
   }
 
   /*Pack info*/
