@@ -14,7 +14,6 @@ const handleAuthStateChange = () => {
     } else {
       model.setUser(undefined);
     }
-    console.log(user);
   });
 };
 

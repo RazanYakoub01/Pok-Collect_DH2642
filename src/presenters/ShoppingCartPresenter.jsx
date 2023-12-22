@@ -18,7 +18,6 @@ function ShoppingCartPresenter(props) {
     props.model.purchaseItems();
   }
 
-  console.log(props.model.cartItems);
   return (
     <ShoppingCartView
       cartItems={props.model.cartItems} 
