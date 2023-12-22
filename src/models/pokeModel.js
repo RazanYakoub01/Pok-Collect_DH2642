@@ -44,7 +44,12 @@ const pokeModel = observable({
   secondsRemaining:0,
   ONE_DAY_IN_MS : 24 * 60 * 60 * 1000, 
 
-  
+  /*
+  Returns an array of navbar items based on the user's authentication status.
+  If logged in, it includes items for Home, About Us, Pokédex, Store, Cart, Packs, Collection, and Sign Out.
+  If not logged in, it includes items for Home, About Us, Pokédex, and Login.
+*/
+
   getNavbarItems(handleSignOut) {
     if (this.isLoggedIn) {
       return [
@@ -66,6 +71,12 @@ const pokeModel = observable({
       ];
     }
   },
+
+  /*
+  Updates the user's last login time and balance.
+  If necessary, it adds a fixed amount (75) to the current balance,
+  updates the last login time, and triggers a time update.
+*/
   updateLastLoginAndBalance() {
     const currentTime = Date.now();
   
