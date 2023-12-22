@@ -1,5 +1,4 @@
 const BASE_URL= "https://pokeapi.co/api/v2/";
-import pokeModel from "./models/pokeModel";
 
 
 
@@ -171,9 +170,6 @@ function initializePokemonData() {
     const missingPokemonIds = allPokemonIds.filter(
       (id) => !cachedPokemonIds.includes(id)
     );
-    console.log("Cached Pokemon IDs:", cachedPokemonIds);
-    console.log("Missing Pokemon IDs:", missingPokemonIds);
-
     if (missingPokemonIds.length === 0) {
       return Promise.resolve(cachedData);
     } else {

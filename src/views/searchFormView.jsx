@@ -2,31 +2,11 @@ import React from "react";
 import "/src/css/search.css";
 import "/src/css/searchBox.css"
 import "/src/css/textFonts.css";
-import k2 from '/src/searchImages/k2.png';
-import pokeball from '/src/searchImages/pokeball.png';
+import k2 from '/src/assets/searchImages/k2.png';
+import pokeball from '/src/assets/searchImages/pokeball.png';
 
 const SearchFormView = (props) => {
-  const icons = [
-    "fighting",
-    "psychic",
-    "poison",
-    "dragon",
-    "ghost",
-    "dark",
-    "ground",
-    "fire",
-    "fairy",
-    "water",
-    "flying",
-    "normal",
-    "rock",
-    "electric",
-    "bug",
-    "grass",
-    "ice",
-    "steel",
-  ];
-
+  
   function inputACB(evt){
     props.searchInput(evt.target.value);
   }
@@ -51,7 +31,7 @@ const SearchFormView = (props) => {
   return (
     <div>
       <div className="icon-container">
-        {icons.map((icon) => (
+        {props.icons.map((icon) => (
           <div
             key={icon}
             className={`type-icon ${icon} ${

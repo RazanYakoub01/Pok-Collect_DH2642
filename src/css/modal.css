@@ -2,14 +2,14 @@
     font-size: 12px;
     text-align: center;
     position: relative;
-    font-family: 'Your Sans-Serif Font', sans-serif; /* Replace 'Your Sans-Serif Font' with your preferred font name */
+    font-family: 'Your Sans-Serif Font', sans-serif; 
   }
 .modal > .content {
     width: 100%;
     padding: 10px 5px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the content vertically */
+    align-items: center; 
   }
   
   .modal > .content > .added-to-cart {

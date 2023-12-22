@@ -1,13 +1,13 @@
-import pack1 from "/src/storeImages/pack1.webp";
-import pack2 from "/src/storeImages/pack2.jpg.webp";
-import pack3 from "/src/storeImages/pack3.jpg";
-import pack4 from "/src/storeImages/pack4.jpg.webp";
-import pack5 from "/src/storeImages/pack5.jpg.webp";
-import pack6 from "/src/storeImages/pack6.jpg";
-import pack7 from "/src/storeImages/pack7.jpg";
-import pack8 from "/src/storeImages/pack8.png";
-import pack9 from "/src/storeImages/pack9.jpg";
-import pack10 from "/src/storeImages/pack10.jpg";
+import pack1 from "/src/assets/storeImages/pack1.webp";
+import pack2 from "/src/assets/storeImages/pack2.jpg.webp";
+import pack3 from "/src/assets/storeImages/pack3.jpg";
+import pack4 from "/src/assets/storeImages/pack4.jpg.webp";
+import pack5 from "/src/assets/storeImages/pack5.jpg.webp";
+import pack6 from "/src/assets/storeImages/pack6.jpg";
+import pack7 from "/src/assets/storeImages/pack7.jpg";
+import pack8 from "/src/assets/storeImages/pack8.png";
+import pack9 from "/src/assets/storeImages/pack9.jpg";
+import pack10 from "/src/assets/storeImages/pack10.jpg";
 
 const generatePack = (id, packName, price, packImage) => ({ id, packName, price, packImage });
 
@@ -44,6 +44,27 @@ export const LegandaryPokemon = [144, 145, 146, 150, 151, 243, 244, 245, 249, 25
   804, 805, 806, 807, 808, 809, 888, 889, 890, 891, 892, 893, 894, 
   895, 896, 897, 898, 905, 998, 1000, 1001, 1002, 1003, 1004, 1007, 
   1008, 1009, 1010, 1014, 1016, 1017];
+
+export const icons = [
+  "fighting",
+  "psychic",
+  "poison",
+  "dragon",
+  "ghost",
+  "dark",
+  "ground",
+  "fire",
+  "fairy",
+  "water",
+  "flying",
+  "normal",
+  "rock",
+  "electric",
+  "bug",
+  "grass",
+  "ice",
+  "steel",
+];
 
 export const packs = packNames.map((packName, index) => 
   generatePack(index + 1, packName, index === 9 ? legendaryPackPrice : basePrice, packImagePaths[index])

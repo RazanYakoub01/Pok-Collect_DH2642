@@ -2,20 +2,19 @@ import { observable, action } from "mobx";
 import {
   initializePokemonData,
   getPokemonDetails,
-  getEvolutionDetails,
   getCachedPokemonData,
 } from "../pokeSource";
 import resolvePromise from "../resolvePromise";
-import { packs as storePacks , generationRanges as generationRanges, LegandaryPokemon as LegandaryPokemon } from "../storeData";
-import about from "/src/navbarImages/about.png";
-import cart1 from "/src/navbarImages/cart1.png";
-import collectionPicture from "/src/navbarImages/collection.png";
-import home from "/src/navbarImages/home.png";
-import packs from "/src/navbarImages/packs.png";
-import search1 from "/src/navbarImages/search1.png";
-import shop from "/src/navbarImages/shop.png";
-import login from "/src/navbarImages/login.png";
-import signOut from "/src/navbarImages/signOut.png";
+import { packs as storePacks , generationRanges as generationRanges, LegandaryPokemon as LegandaryPokemon, icons as icons } from "../storeData";
+import about from "/src/assets/navbarImages/about.png";
+import cart1 from "/src/assets/navbarImages/cart1.png";
+import collectionPicture from "/src/assets/navbarImages/collection.png";
+import home from "/src/assets/navbarImages/home.png";
+import packs from "/src/assets/navbarImages/packs.png";
+import search1 from "/src/assets/navbarImages/search1.png";
+import shop from "/src/assets/navbarImages/shop.png";
+import login from "/src/assets/navbarImages/login.png";
+import signOut from "/src/assets/navbarImages/signOut.png";
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
 
@@ -24,6 +23,7 @@ const pokeModel = observable({
   isLoggedIn: false,
   generationRanges: generationRanges,
   LegandaryPokemon : LegandaryPokemon,
+  icons : icons,
   collection: [],
   initializePokemonDataPromiseState: {},
   currentPokemon: null,

@@ -101,6 +101,7 @@ export default observer(
             onSelectedIconClick={handleSelectedIconClick}
             text={props.model.searchParams.query}
             searchInput={searchTextChangeACB}
+            icons = {props.model.icons}
           />
           {renderSearchResults()}
         </div>

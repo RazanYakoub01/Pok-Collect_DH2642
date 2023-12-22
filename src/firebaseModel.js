@@ -8,7 +8,6 @@ const readUserDataFromFirebase = async (userId) => {
     const userCartRef = ref(database, `users/${userId}/userData`);
     const snapshot = await get(userCartRef);
     if (snapshot.exists()) {
-      console.log(snapshot.val());
       return persistenceToModel(snapshot.val(), model); 
     } else {
       console.log('No data available for this user.');

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '/src/css/search.css';
 import '/src/css/collection.css';
 import '/src/css/textFonts.css';
-import backpack from '/src/collectionImages/backpack.png';
+import backpack from '/src/assets/collectionImages/backpack.png';
 
 const CollectionView = (props) => {
   const [selectedGen, setSelectedGen] = useState('all');

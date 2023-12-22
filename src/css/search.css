@@ -68,7 +68,7 @@ h1 {
   position: relative;
   width: calc(100% / 18);
   height: calc(100% / 9);
-  background-image: url("/src/searchImages/searchLogos.png");
+  background-image: url("/src/assets/searchImages/searchLogos.png");
   display: inline-block;
   background-size: 600% 300%;
   cursor: pointer;

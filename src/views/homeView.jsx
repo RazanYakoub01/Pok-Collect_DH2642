@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "/src/css/home.css";
-import hm6 from "/src/homepageImages/hm6.png";
-import hm1 from "/src/homepageImages/hm1.jpg";
+import hm6 from "/src/assets/homepageImages/hm6.png";
+import hm1 from "/src/assets/homepageImages/hm1.jpg";
 
 function HomeView(props) {
   return (

@@ -1,16 +1,16 @@
 import React from 'react';
 import '/src/css/details.css';
-import attack from '/src/detailsImages/attack.png';
-import def from '/src/detailsImages/def.png';
-import hp from '/src/detailsImages/hp.png';
-import speed from '/src/detailsImages/speed.png';
-import specialAttack from '/src/detailsImages/specialAttack.png';
-import specialDefence from '/src/detailsImages/specialDefence.png';
-import id from '/src/detailsImages/id.png';
-import exp from '/src/detailsImages/exp.png';
-import height from '/src/detailsImages/height.png';
-import kg from '/src/detailsImages/kg.png';
-import gen from '/src/detailsImages/gen.png';
+import attack from '/src/assets/detailsImages/attack.png';
+import def from '/src/assets/detailsImages/def.png';
+import hp from '/src/assets/detailsImages/hp.png';
+import speed from '/src/assets/detailsImages/speed.png';
+import specialAttack from '/src/assets/detailsImages/specialAttack.png';
+import specialDefence from '/src/assets/detailsImages/specialDefence.png';
+import id from '/src/assets/detailsImages/id.png';
+import exp from '/src/assets/detailsImages/exp.png';
+import height from '/src/assets/detailsImages/height.png';
+import kg from '/src/assets/detailsImages/kg.png';
+import gen from '/src/assets/detailsImages/gen.png';
 
 import { useLocation } from "react-router-dom";
 

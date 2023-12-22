@@ -2,7 +2,7 @@ import React from 'react';
 import "/src/css/aboutUs.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import tiImage from "/src/aboutUsImages/ti.jpg";
+import tiImage from "/src/assets/aboutUsImages/ti.jpg";
 
 export default function  AboutUsView (props)  {
   return (

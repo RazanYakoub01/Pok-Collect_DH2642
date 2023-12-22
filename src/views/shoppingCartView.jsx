@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "/src/css/shoppingCart.css";
 import "/src/css/textFonts.css";
-import coin from '/src/storeImages/coin.png';
-import c from '/src/shoppingCartImages/c.png';
+import coin from '/src/assets/storeImages/coin.png';
+import c from '/src/assets/shoppingCartImages/c.png';
 
 function ShoppingCartView(props) {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react-lite";
 import Popup from "reactjs-popup";
-import close from "/src/storeImages/close.png";
+import close from "/src/assets/storeImages/close.png";
 
 const OpenCardsInformationView = observer((props) => {
 

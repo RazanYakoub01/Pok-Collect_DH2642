@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import "reactjs-popup/dist/index.css";
 import "/src/css/shop.css";
 import "/src/css/modal.css";
-import coin from "/src/storeImages/coin.png";
-import cart2 from "/src/storeImages/cart2.png";
-import shopTitleImage from "/src/storeImages/shopTitleImage.png";
-import info from "/src/storeImages/info.png";
+import coin from "/src/assets/storeImages/coin.png";
+import cart2 from "/src/assets/storeImages/cart2.png";
+import shopTitleImage from "/src/assets/storeImages/shopTitleImage.png";
+import info from "/src/assets/storeImages/info.png";
 import { getGenerationClass } from "../utils";
 
 function StoreView(props) {

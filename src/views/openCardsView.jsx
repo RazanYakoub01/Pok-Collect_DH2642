@@ -7,8 +7,8 @@ import "reactjs-popup/dist/index.css";
 import "/src/css/shop.css";
 import "/src/css/modal.css";
 import ReactCardFlip from 'react-card-flip';    //third party component
-import backOfPokeCard from "/src/openCardsImages/backOfPokeCard.jpg.avif";
-import blackPokeBall from "/src/openCardsImages/blackPokeBall.png";
+import backOfPokeCard from "/src/assets/openCardsImages/backOfPokeCard.jpg.avif";
+import blackPokeBall from "/src/assets/openCardsImages/blackPokeBall.png";
 
 const OpenCardsView = (props) => {
 

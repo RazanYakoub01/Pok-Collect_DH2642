@@ -1,8 +1,8 @@
 import AboutUsView from '../views/aboutUsView.jsx';
 import { observer } from "mobx-react-lite";
-import razanImage from  "/src/aboutUsImages/razan.jpg";
-import seemaImage from "/src/aboutUsImages/seema.jpg";
-import boyImage from "/src/aboutUsImages/temp1.png";
+import razanImage from  "/src/assets/aboutUsImages/razan.jpg";
+import seemaImage from "/src/assets/aboutUsImages/seema.jpg";
+import boyImage from "/src/assets/aboutUsImages/temp1.png";
 export default observer(function AboutUsPresenter(props) {
   const memberArray = [
     {

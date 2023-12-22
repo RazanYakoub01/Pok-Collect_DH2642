@@ -15,13 +15,12 @@ import DetailsPresenter from './presenters/DetailsPresenter.jsx';
 import OpenCardsPresenter from './presenters/OpenCardsPresenter.jsx';
 
 export default observer(function ReactRoot(props) {
-  console.log(props);
   useEffect(() => {
     const updateInterval = setInterval(() => {
       props.model.updateTime();
-    }, 1000); // Runs the update every minute (adjust as needed)
+    }, 1000); 
 
-    return () => clearInterval(updateInterval); // Cleanup on unmount
+    return () => clearInterval(updateInterval); 
   }, [props.model]);
 
   return (
